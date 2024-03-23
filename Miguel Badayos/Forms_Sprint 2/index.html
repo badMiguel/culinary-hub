@@ -35,9 +35,44 @@
         </header>
 
         <main>
-            <p>hiu</p>
             <form>
-                <p>hi????</p>
+                <fieldset>
+                    <legend>Forms Title</legend>
+                    <div class='query row'>
+                        <label class='col-5' for="firstName">First Name</label>
+                        <input class='col-12' id='firstName' name='firstName' type="text" required />
+                    </div>
+
+                    <div class='query row'>
+                        <label for="lastName" class="col-5">Last Name</label>
+                        <input class='col-12' type="text" name='lastName' id="lastName" required>
+                    </div>
+
+                    <div class='query row'>
+                        <label class='col-5' for="DOB">Date of Birth</label>
+                        <input class='col-12' type="date" name='DOB' id="DOB" required>
+                    </div>
+
+                    <div class='query row'>
+                        <label class='col-5' for="email">Email</label>
+                        <input class='col-12' type="email" name='email' id="email" required>
+                    </div>
+
+                    <div class='query'>
+                        <label for="yesOrNoQuestion">Yes or No?</label>
+                        <label class='radioOption' for="yesOption">Yes</label>
+                        <input type="radio" name='yesOrNo' value="yes" id='yesOption'>
+                        <label class='radioOption' for="noOption">No</label>
+                        <input type="radio" name="yesOrNo" value="no" id='noOption'>
+                    </div>
+                        
+                    <div class='query row'>
+                        <label class='col-5' for=""></label>
+                        <input class='col-12' type="text" name='' id="" required>
+                    </div>
+                    <input type="reset" value="Reset">
+                    <input type="submit" value="Submit">                   
+                </fieldset>
             </form>
         </main>
 
