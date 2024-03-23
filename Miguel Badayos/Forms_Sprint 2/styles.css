@@ -1,6 +1,9 @@
+body{
+    background-color: rgb(250, 218, 245);
+}
 nav{
     padding: 40px 0;
-    background-color: rgb(240, 195, 236)
+    background-color: rgb(87, 54, 80)
 }
 
 nav ul{
@@ -11,7 +14,7 @@ nav ul{
 
 nav a{
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 18px;
 }
 
@@ -19,22 +22,24 @@ nav a:hover{
     color: rgb(155, 91, 91);
 }
 
-form{
-    background-color: rgb(209, 187, 208);
-}
 
 fieldset{
     width: 50%;
     margin: auto;
     padding: 50px;
+    background-color: rgb(221, 201, 216);
+    margin-top: 100px;
+    border-radius: 20px;
 
 }
+
+
 
 .query{
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
-label.col-5, input.col-12{
+label.col, input.col-12{
     padding: 0;
 }
 
@@ -42,3 +47,4 @@ label.col-5, input.col-12{
     padding-left: 20px;
     padding-right: 5px;
 }
+
