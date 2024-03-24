@@ -37,9 +37,8 @@
         <main>
             <form>
                 <fieldset>
-                    <div class="row">
-                        <legend class="col text-center">Forms Title</legend>
-                    </div>
+                    <legend class="col text-center">Forms Title</legend>
+
                     <div class='query row'>
                         <label class='col' for="firstName">First Name</label>
                         <input class='col-12' id='firstName' name='firstName' type="text" required />
@@ -61,11 +60,13 @@
                     </div>
 
                     <div class='query'>
-                        <label for="yesOrNoQuestion">Yes or No?</label>
-                        <label class='radioOption' for="yesOption">Yes</label>
+                        <label class='col-12' for="yesOrNoQuestion">Yes or No?</label>
                         <input type="radio" name='yesOrNo' value="yes" id='yesOption'>
-                        <label class='radioOption' for="noOption">No</label>
+                        <label class='radiospacing' for="yesOption">Yes</label>
+                        <input type="radio" name="yesOrNo" value="no" id='noOption'> 
+                        <label class='radiospacing' for="noOption">No</label> 
                         <input type="radio" name="yesOrNo" value="no" id='noOption'>
+                        <label class='radiospacing' for="otherOption">Others (please specify)</label>
                     </div>
                         
                     <div class='query row'>
@@ -79,6 +80,12 @@
                             <option value="option5">Option 5</option>
                         </select>
                     </div>
+
+                    <div class="query row">
+                        <label for="inputYourText" class="col">Suggestions or Something</label>
+                        <textarea name="inputYourText" id="inputYourText" rows="5" class="col-12"></textarea>
+                    </div>
+
                     <input type="reset" value="Reset">
                     <input type="submit" value="Submit">                   
                 </fieldset>
