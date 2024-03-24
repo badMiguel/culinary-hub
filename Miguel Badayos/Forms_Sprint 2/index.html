@@ -35,7 +35,7 @@
         </header>
 
         <main>
-            <form>
+            <form class="container">
                 <fieldset>
                     <legend class="col text-center">Forms Title</legend>
 
@@ -61,17 +61,18 @@
 
                     <div class='query'>
                         <label class='col-12' for="yesOrNoQuestion">Yes or No?</label>
-                        <input type="radio" name='yesOrNo' value="yes" id='yesOption'>
+                        <input type="radio" name='yesOrNo' value="yes" id='yesOption' required>
                         <label class='radiospacing' for="yesOption">Yes</label>
-                        <input type="radio" name="yesOrNo" value="no" id='noOption'> 
+                        <input type="radio" name="yesOrNo" value="no" id='noOption' required> 
                         <label class='radiospacing' for="noOption">No</label> 
-                        <input type="radio" name="yesOrNo" value="no" id='noOption'>
-                        <label class='radiospacing' for="otherOption">Others (please specify)</label>
+                        <input type="radio" name="yesOrNo" value="no" id='otherOption'>
+                        <label class='radiospacing' for="otherOption">Others (please specify):</label>
+                        <input type="text" id="otherText" name="otherText" placeholder="Please specify">
                     </div>
                         
                     <div class='query row'>
                         <label class='col' for="selectDrop">Select Dropdown</label>
-                        <select name="selectDrop" id="selectDrop">
+                        <select name="selectDrop" id="selectDrop" required>
                             <option value="" selected disabled>Select an Option</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
@@ -85,9 +86,10 @@
                         <label for="inputYourText" class="col">Suggestions or Something</label>
                         <textarea name="inputYourText" id="inputYourText" rows="5" class="col-12"></textarea>
                     </div>
-
-                    <input type="reset" value="Reset">
-                    <input type="submit" value="Submit">                   
+                    <div class="query">
+                        <input type="reset" value="Reset">
+                        <input type="submit" value="Submit">      
+                    </div>             
                 </fieldset>
             </form>
         </main>

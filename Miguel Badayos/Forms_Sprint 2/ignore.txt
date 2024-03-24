@@ -1,0 +1,9 @@
+things to add:
+
+1. make  "please specify" text input required when 'others' option is ticked
+OR
+make it dynamically appear/disappear when 'others' is ticked
+
+2. make a 'successfully submitted' html as well. use  js to say smth like 'ty <user's name>', form submitted on <time> etc
+
+3. 
