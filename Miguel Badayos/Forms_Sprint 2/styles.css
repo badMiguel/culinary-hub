@@ -1,9 +1,9 @@
 body{
-    background-color: rgb(250, 218, 245);
+    background-color: antiquewhite;
 }
 nav{
     padding: 40px 0;
-    background-color: rgb(87, 54, 80)
+    background-color:rgb(119, 95, 64);
 }
 
 nav ul{
@@ -26,10 +26,11 @@ fieldset{
     width: 50%;
     margin: auto;
     padding: 50px;
-    background-color: rgb(221, 201, 216);
+    background-color: rgb(255, 248, 239);
     margin-top: 100px;
     border-radius: 20px;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
+    max-width: 600px;
 }
 
 
