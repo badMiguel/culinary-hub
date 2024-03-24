@@ -1,4 +1,4 @@
-things to add:
+things to consider:
 
 1. make  "please specify" text input required when 'others' option is ticked
 OR

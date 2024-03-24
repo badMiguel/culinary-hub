@@ -37,18 +37,30 @@
                     <hr>
 
                     <div class='query row'>
-                        <label class='col-5' for="firstName">First Name</label>
+                        <div class="col-5">
+                            <label for="firstName">First Name</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <div class="col-2"></div>
-                        <label class="col-5" for="lastName">Last Name</label>
+                        <div class="col-5">
+                            <label for="lastName">Last Name</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <input class='col-5' id='firstName' name='firstName' type="text" required>
                         <div class="col-2"></div>
                         <input class='col-5' type="text" name='lastName' id="lastName" required>
                     </div>
 
                     <div class='query row'>
-                        <label class='col-5' for="email">Email</label>
+                        <div class="col-5">
+                            <label for="email">Email</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <div class="col-2"></div>
-                        <label for="contactNum" class="col-5">Contact Number</label>
+                        <div class="col-5">
+                            <label for="contactNum">Contact Number</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <input class='col-5' type="email" name='email' id="email" required>
                         <div class="col-2"></div>
                         <input type="tel" name="contactNum" id="contactNum" class="col-5" required>
@@ -58,19 +70,31 @@
                     <hr>
 
                     <div class='query row'>
-                        <label class='col-3' for="recipeName">Recipe Name</label>
+                        <div class="col-3">
+                            <label for="recipeName">Recipe Name</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <input class='col' id='recipeName' name='recipeName' type="text" required>
                     </div>
 
                     <div class="query row">
-                        <label class='col-3' for="description">Description</label>
+                        <div class="col-3">
+                            <label for="description">Description</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <textarea class='col' name="description" id="description" rows="2" required></textarea>
                     </div>
 
                     <div class='query row'>
-                        <label class='col-5' for="cookingTime">Cooking Time</label>
+                        <div class="col-5">
+                            <label for="cookingTime">Cooking Time</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <div class="col-2"></div>
-                        <label for="difficulty" class="col-5">Difficulty</label>
+                        <div class="col-5">
+                            <label for="difficulty">Difficulty</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <input class='col-5' type="time" name='cookingTime' id="cookingTime" required>
                         <div class="col-2"></div>
                         <select class="col-5" name="difficulty" id="difficulty" required>
@@ -82,12 +106,18 @@
                     </div>
 
                     <div class="query row">
-                        <label class='col-3' for="ingredients">Ingredients</label>
+                        <div class="col-3">
+                            <label for="ingredients">Ingredients</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <textarea class='col' name="ingredients" id="ingredients" rows="2" required></textarea>
                     </div>
 
                     <div class="query row">
-                        <label class='col-3' for="instructions">Instructions</label>
+                        <div class="col-3">
+                            <label for="instructions">Instructions</label>
+                            <span class="indicator">*</span>
+                        </div>
                         <textarea class='col' name="instructions" id="instructions" rows="2" required></textarea>
                     </div>
 
@@ -95,6 +125,16 @@
                         <label class='col-2' for="otherInfo">Other Information</label>
                         <div class="col-1"></div>
                         <textarea class='col' name="otherInfo" id="otherInfo" rows="2"></textarea>
+                    </div>
+
+                    <div class="checkboxSpacing">
+                        <input type="checkbox" name="receiveEmail" id="receiveEmail">
+                        <label for="receiveEmail">I want to recieve an email notification about the result.</label>
+                    </div>
+
+                    <div class="checkboxSpacing">
+                        <input type="checkbox" name="receiveNumber" id="receiveNumber">
+                        <label for="receiveNumber">I want to recieve text notification about the result.</label>
                     </div>
 
                     <div class="query row justify-content-end">
@@ -121,5 +161,8 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+
+        <script src="input.js"></script>
+
     </body>
 </html>
