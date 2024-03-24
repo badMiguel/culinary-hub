@@ -2,12 +2,9 @@
 <html lang="en">
     <head>
         <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS v5.2.1 -->
         <link
@@ -15,81 +12,95 @@
             rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
-        />
+        >
         <link href='styles.css' rel='stylesheet'>
     </head>
 
     <body>
         <header>  
-            <nav>
-                <div class="container">
-                    <ul class="row">
-                        <li class="col text-center"><a href="">Home</a></li>
-                        <li class="col text-center"><a href="">Services</a></li>
-                        <li class="col text-center"><a href="">About Us</a></li>
-                        <li class="col text-center"><a href="">Contact Us</a></li>
-                        <li class="col text-center"><a href="">Login</a></li>
-                    </ul>
-                </div>
+            <nav class="container">
+                <ul class="row">
+                    <li class="col text-center"><a href="">Home</a></li>
+                    <li class="col text-center"><a href="">Services</a></li>
+                    <li class="col text-center"><a href="">About Us</a></li>
+                    <li class="col text-center"><a href="">Contact Us</a></li>
+                    <li class="col text-center"><a href="">Login</a></li>
+                </ul>
             </nav>
         </header>
 
         <main>
             <form class="container">
                 <fieldset>
-                    <legend class="col text-center">Forms Title</legend>
+                    <legend class="col text-center">Submit a Recipe</legend>
+                    <h1>Contact Details</h1>
+                    <hr>
 
                     <div class='query row'>
-                        <label class='col' for="firstName">First Name</label>
-                        <input class='col-12' id='firstName' name='firstName' type="text" required />
+                        <label class='col-5' for="firstName">First Name</label>
+                        <div class="col-2"></div>
+                        <label class="col-5" for="lastName">Last Name</label>
+                        <input class='col-5' id='firstName' name='firstName' type="text" required>
+                        <div class="col-2"></div>
+                        <input class='col-5' type="text" name='lastName' id="lastName" required>
                     </div>
 
                     <div class='query row'>
-                        <label class="col" for="lastName">Last Name</label>
-                        <input class='col-12' type="text" name='lastName' id="lastName" required>
+                        <label class='col-5' for="email">Email</label>
+                        <div class="col-2"></div>
+                        <label for="contactNum" class="col-5">Contact Number</label>
+                        <input class='col-5' type="email" name='email' id="email" required>
+                        <div class="col-2"></div>
+                        <input type="tel" name="contactNum" id="contactNum" class="col-5" required>
+                    </div>
+
+                    <h1>Submit your Recipe</h1>
+                    <hr>
+
+                    <div class='query row'>
+                        <label class='col-3' for="recipeName">Recipe Name</label>
+                        <input class='col' id='recipeName' name='recipeName' type="text" required>
+                    </div>
+
+                    <div class="query row">
+                        <label class='col-3' for="description">Description</label>
+                        <textarea class='col' name="description" id="description" rows="2" required></textarea>
+                    </div>
+
+                    <div class="query row">
+                        <label class='col-3' for="ingredients">Ingredients</label>
+                        <textarea class='col' name="ingredients" id="ingredients" rows="2" required></textarea>
+                    </div>
+
+                    <div class="query row">
+                        <label class='col-3' for="instructions">Instructions</label>
+                        <textarea class='col' name="instructions" id="instructions" rows="2" required></textarea>
                     </div>
 
                     <div class='query row'>
-                        <label class='col' for="DOB">Date of Birth</label>
-                        <input class='col-12' type="date" name='DOB' id="DOB" required>
-                    </div>
-
-                    <div class='query row'>
-                        <label class='col' for="email">Email</label>
-                        <input class='col-12' type="email" name='email' id="email" required>
-                    </div>
-
-                    <div class='query'>
-                        <label class='col-12' for="yesOrNoQuestion">Yes or No?</label>
-                        <input type="radio" name='yesOrNo' value="yes" id='yesOption' required>
-                        <label class='radiospacing' for="yesOption">Yes</label>
-                        <input type="radio" name="yesOrNo" value="no" id='noOption' required> 
-                        <label class='radiospacing' for="noOption">No</label> 
-                        <input type="radio" name="yesOrNo" value="no" id='otherOption'>
-                        <label class='radiospacing' for="otherOption">Others (please specify):</label>
-                        <input type="text" id="otherText" name="otherText" placeholder="Please specify">
-                    </div>
-                        
-                    <div class='query row'>
-                        <label class='col' for="selectDrop">Select Dropdown</label>
-                        <select name="selectDrop" id="selectDrop" required>
+                        <label class='col-5' for="cookingTime">Cooking Time</label>
+                        <div class="col-2"></div>
+                        <label for="difficulty" class="col-5">Difficulty</label>
+                        <input class='col-5' type="time" name='cookingTime' id="cookingTime" required>
+                        <div class="col-2"></div>
+                        <select class="col-5" name="difficulty" id="difficulty" required>
                             <option value="" selected disabled>Select an Option</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                            <option value="option4">Option 4</option>
-                            <option value="option5">Option 5</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Difficult</option>
                         </select>
                     </div>
 
                     <div class="query row">
-                        <label for="inputYourText" class="col">Suggestions or Something</label>
-                        <textarea name="inputYourText" id="inputYourText" rows="5" class="col-12"></textarea>
+                        <label class='col-2' for="otherInfo">Other Information</label>
+                        <div class="col-1"></div>
+                        <textarea class='col' name="otherInfo" id="otherInfo" rows="2"></textarea>
                     </div>
+
                     <div class="query">
                         <input type="reset" value="Reset">
                         <input type="submit" value="Submit">      
-                    </div>             
+                    </div>  
                 </fieldset>
             </form>
         </main>

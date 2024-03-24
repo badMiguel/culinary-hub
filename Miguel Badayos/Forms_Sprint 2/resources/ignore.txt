@@ -1,0 +1,25 @@
+things to add:
+
+1. make  "please specify" text input required when 'others' option is ticked
+OR
+make it dynamically appear/disappear when 'others' is ticked
+
+2. make a 'successfully submitted' html as well. use  js to say smth like 'ty <user's name>', form submitted on <time> etc
+
+3. Automatically make capitalise each starting letter of input
+
+4. When submitted but there are other inputs required that are not filled, highlight them in red
+
+5. Dynamically give user a way to tell where are the required input and this will drop when filled
+
+6. add different type of forms - use tab style ??
+
+7. try to add international number options
+
+8. when user accidentally clicked refresh, reset, close, submit, show a prompt
+
+9. allowed document types (pdf, docs)
+
+10. add a save function??
+
+11. add rte on inputs??
