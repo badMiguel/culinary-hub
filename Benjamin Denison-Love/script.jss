@@ -1,53 +1,39 @@
-// Clear localStorage
-localStorage.clear();
+let savedDataJSON = localStorage.getItem('formData');
+let savedData = savedDataJSON ? JSON.parse(savedDataJSON) : {};
+
+document.getElementById('fullName').value = savedData.fullName || '';
+document.getElementById('email').value = savedData.email || '';
+document.getElementById('age').value = savedData.age || '';
+document.getElementById('reason').value = savedData.reason || '';
+document.getElementById('subscribe').checked = savedData.subscribe || false;
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function saveData() {
     let fullName = document.getElementById('fullName').value;
     let email = document.getElementById('email').value;
     let age = document.getElementById('age').value;
+    let reason = document.getElementById('reason').value;
+    let subscribe = document.getElementById('subscribe').checked;
 
-    // Create a string with the form data
-    let formDataString = `Full Name: ${fullName}\nEmail: ${email}\nAge: ${age}`;
+    // what is a good number? cdu's number only has 6. that should work.
+    let userNumber = generateRandomNumber(1, 999999);
 
-    // Create a Blob object from the form data string
-    let blob = new Blob([formDataString], { type: 'text/plain' });
+    let subscriptionStatus = subscribe ? 'chose to subscribe' : 'did not choose to subscribe';
+    let formDataText = `Full Name: ${fullName}\nEmail: ${email}\nAge: ${age}\nReason: ${reason}\nSubscription Status: User ${subscriptionStatus}.\nUser Number: ${userNumber}`;
 
-    // Create a download link and set its attributes
+    let blob = new Blob([formDataText], { type: 'text/plain' });
+
     let downloadLink = document.createElement('a');
     downloadLink.href = URL.createObjectURL(blob);
     downloadLink.download = 'formData.txt';
 
-    // Append the link to the document and simulate a click to trigger the download
     document.body.appendChild(downloadLink);
     downloadLink.click();
 
-    // Clean up by removing the link element from the document
     document.body.removeChild(downloadLink);
 
     alert('Form data saved as a text file.');
 }
-
-
-// Function to load and display saved form data from localStorage
-function displayData() {
-    // Retrieve saved form data from localStorage
-    let savedDataJSON = localStorage.getItem('formData');
-
-    if (savedDataJSON) {
-        // Convert savedDataJSON string to JavaScript object
-        let savedData = JSON.parse(savedDataJSON);
-
-        // Display saved form data in the HTML
-        document.getElementById('savedFullName').textContent = savedData.fullName;
-        document.getElementById('savedEmail').textContent = savedData.email;
-        document.getElementById('savedAge').textContent = savedData.age;
-    } else {
-        // Clear the display if no saved form data is found
-        document.getElementById('savedFullName').textContent = '';
-        document.getElementById('savedEmail').textContent = '';
-        document.getElementById('savedAge').textContent = '';
-    }
-}
-
-// Call displayData function to load and display saved form data
-displayData();
