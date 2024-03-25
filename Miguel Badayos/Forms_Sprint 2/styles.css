@@ -41,15 +41,17 @@ legend{
 }
 
 .query{
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
-label.col-5, div.col-5, div.col-3, label.col-2, p.col-5{
+label.col-5, div.col-5, div.col-3, label.col-2, p.col-5, p.col-9{
     padding: 0;
 }
 
 .errorMessage{
     visibility: hidden;
+    font-size: 12px;
+    color:red;
 }
 
 
@@ -75,3 +77,10 @@ h1{
     margin-left: 20px;
 }
 
+.submitResetSpacing{
+    margin-top: 20px;
+}
+
+.spacingCheck{
+    margin-top: 40px;
+}

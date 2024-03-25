@@ -12,26 +12,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    const form = document.getElementById("form")
-    const firstName = document.getElementById("firstName")
-    const lastName = document.getElementById("lastName")
-    const email = document.getElementById("email")
-    const contactNum = document.getElementById("contactNum")
-    const recipeName = document.getElementById("recipeName")
-    const description = document.getElementById("description")
-    const cookingTime = document.getElementById("cookingTime")
-    const difficulty = document.getElementById("difficulty")
-    const ingredients = document.getElementById("ingredients")
-    const instructions = document.getElementById("instructions")
-    form.addEventListener('submit', function(prevent){
-        let errorFname=[]
-        if (firstName.value =='' || firstName.value==null){
-            
-        };
-        if (errorMessage.length> 0){
-            prevent.preventDefault()
-        };
-    })
+    const form = document.getElementById('form')
+    const elementIds = ["firstName", "lastName", "email", "contactNum", "recipeName", "description", "cookingTime", "difficulty", "ingredients", "instructions"];
+    const elements = {};
+    elementIds.forEach(function(id) {
+        elements[id] = document.getElementById(id);
+    });
+    const errorIds = ["errorFname", "errorLname", "errorEmail", "errorContact", "errorRecipeName", "errorDescription", "errorTime", "errorDifficulty", "errorIngredients", "errorInstructions"];
+    const error = {};
+    errorIds.forEach(function(id){
+        error[id] = document.getElementById(id)
+    }) 
+    function firstNameCheck(prevent){
+        if (elements.firstName.value =='' || elements.firstName.value==null){
+            error.errorFname.textContent = 'Please enter your first name';
+            error.errorFname.style.visibility = 'visible';
+            prevent.preventDefault();
+        } else if (stringCheck(elements.lastName.value)>0){
+            console.log(strCount)
+        }
+    }
+    function stringCheck(string){
+        let strCount = 0;
+        for (let letter in string){
+            strCount +=1;
+        }
+
+        return strCount
+    }
+    form.addEventListener('submit', firstNameCheck)
 });
 
 
