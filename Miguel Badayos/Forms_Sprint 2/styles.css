@@ -84,3 +84,7 @@ h1{
 .spacingCheck{
     margin-top: 40px;
 }
+
+.errorBorder{
+    border: 1px solid red;
+}

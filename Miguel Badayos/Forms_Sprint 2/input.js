@@ -23,22 +23,29 @@ document.addEventListener('DOMContentLoaded', function() {
     errorIds.forEach(function(id){
         error[id] = document.getElementById(id)
     }) 
-    function firstNameCheck(prevent){
-        if (elements.firstName.value =='' || elements.firstName.value==null){
-            error.errorFname.textContent = 'Please enter your first name';
-            error.errorFname.style.visibility = 'visible';
-            prevent.preventDefault();
-        } else if (stringCheck(elements.lastName.value)>0){
-            console.log(strCount)
-        }
-    }
     function stringCheck(string){
         let strCount = 0;
         for (let letter in string){
             strCount +=1;
         }
-
         return strCount
+    }
+    function firstNameCheck(prevent){
+        if (elements.firstName.value =='' || elements.firstName.value==null){
+            error.errorFname.textContent = 'Please enter your first name';
+            error.errorFname.style.visibility = 'visible';
+            elements.firstName.classList.add('errorBorder')
+            prevent.preventDefault();
+        } else if (stringCheck(elements.firstName.value)==1){
+            error.errorFname.textContent = 'Please type a valid name';
+            error.errorFname.style.visibility = 'visible';
+            elements.firstName.classList.add('errorBorder')
+            prevent.preventDefault();
+        }
+        else {
+            error.errorFname.style.visibility = 'hidden';
+            elements.firstName.classList.remove('errorBorder')
+        }
     }
     form.addEventListener('submit', firstNameCheck)
 });
