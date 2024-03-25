@@ -10,7 +10,7 @@ make it dynamically appear/disappear when 'others' is ticked
 
 4. When submitted but there are other inputs required that are not filled, highlight them in red
 
-5. Dynamically give user a way to tell where are the required input and this will drop when filled
+5. DONE - Dynamically give user a way to tell where are the required input and this will drop when filled
 
 6. add different type of forms - use tab style ??
 
