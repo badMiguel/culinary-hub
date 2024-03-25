@@ -16,15 +16,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     let formInputs = document.querySelectorAll('input, textarea');
-//     formInputs.forEach(function(input) {
-//         input.addEventListener('input', function() {
-//             let indicator = input.parentElement.nextElementSibling.querySelector('.indicator');
-//             if (indicator && input.value !== '') {
-//                 indicator.style.visibility = 'hidden'; // Hide indicator when input is filled
-//             }
-//         });
-//     });
-// });
