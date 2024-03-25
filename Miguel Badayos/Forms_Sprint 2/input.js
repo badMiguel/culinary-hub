@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return strCount
     }
+    function eFormatCheck(email){
+        const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailFormat.test(email);
+    }
     function firstNameCheck(prevent){
         if (elements.firstName.value =='' || elements.firstName.value==null){
             error.errorFname.textContent = 'Please enter your first name';
@@ -47,7 +51,39 @@ document.addEventListener('DOMContentLoaded', function() {
             elements.firstName.classList.remove('errorBorder')
         }
     }
+    function lastNameCheck(prevent){
+        if (elements.lastName.value =='' || elements.lastName.value==null){
+            error.errorLname.textContent = 'Please enter your last name';
+            error.errorLname.style.visibility = 'visible';
+            elements.lastName.classList.add('errorBorder')
+            prevent.preventDefault();
+        } else if (stringCheck(elements.lastName.value)==1){
+            error.errorLname.textContent = 'Please type a valid name';
+            error.errorLname.style.visibility = 'visible';
+            elements.lastName.classList.add('errorBorder')
+            prevent.preventDefault();
+        }
+        else {
+            error.errorLname.style.visibility = 'hidden';
+            elements.lastName.classList.remove('errorBorder')
+        }  
+    }
+    function emailCheck(prevent){
+        if (eFormatCheck(elements.email.value) == false){
+            error.errorEmail.textContent = 'Please enter a valid email';
+            error.errorEmail.style.visibility = 'visible';
+            elements.email.classList.add('errorBorder')
+            prevent.preventDefault();
+            console.log(eFormatCheck(elements.lastName))
+        } else {
+            error.errorEmail.style.visibility = 'hidden';
+            console.log('error')
+            elements.email.classList.remove('errorBorder')
+        }  
+    }
     form.addEventListener('submit', firstNameCheck)
+    form.addEventListener('submit', lastNameCheck)
+    form.addEventListener('submit', emailCheck)
 });
 
 
