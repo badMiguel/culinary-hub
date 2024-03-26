@@ -7,13 +7,14 @@
     <link href="test.css" rel="stylesheet"> 
 </head>
 <body>
-    <form id="myForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="error-message" style="display: none; color: red;"></div>
+    <button id="customAlertButton">Show Custom Alert</button>
+
+    <div id="customAlertModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is a custom alert!</p>
+      </div>
+    </div>
     
-    <script src="test.js"></script>
 </body>
 </html>
