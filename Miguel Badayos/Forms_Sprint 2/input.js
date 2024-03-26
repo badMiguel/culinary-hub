@@ -12,17 +12,61 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+
     const form = document.getElementById('form')
-    const elementIds = ["firstName", "lastName", "email", "contactNum", "recipeName", "description", "cookingTime", "difficulty", "ingredients", "instructions"];
+    const elementIds = ["email", "contactNum", "cookingTime", "difficulty"];
     const elements = {};
     elementIds.forEach(function(id) {
         elements[id] = document.getElementById(id);
     });
-    const errorIds = ["errorFname", "errorLname", "errorEmail", "errorContact", "errorRecipeName", "errorDescription", "errorTime", "errorDifficulty", "errorIngredients", "errorInstructions"];
+
+    const elementIdsForLoopedFunction = ["firstName", "lastName", "recipeName", "description", "ingredients", "instructions"];
+    const elementsForLoopedFunction = {};
+    elementIdsForLoopedFunction.forEach(function(id) {
+        elementsForLoopedFunction[id] = document.getElementById(id);
+    });    
+
+    const errorIds = ["errorEmail", "errorContact", "errorTime", "errorDifficulty"];
     const error = {};
     errorIds.forEach(function(id){
         error[id] = document.getElementById(id)
-    }) 
+    }); 
+
+    const errorIdsForLoopedFunction = ["errorFname", "errorLname", "errorRecipeName", "errorDescription", "errorIngredients", "errorInstructions"];
+    const errorForLoopedFunction = {};
+    errorIdsForLoopedFunction.forEach(function(id){
+        errorForLoopedFunction[id] = document.getElementById(id)
+    });
+
+    const errorList = ['a valid first name', 'a valid last name', 'the recipe name', 'the description', 'the ingredients', 'the instructions'];
+    elementIdsForLoopedFunction.forEach(function(id){
+        
+        const elementIdPosition = elementIdsForLoopedFunction.indexOf(id)
+        const errorIdName = errorIdsForLoopedFunction[elementIdPosition]
+        const errorName = errorForLoopedFunction[errorIdName]
+        let elementName = elementsForLoopedFunction[id]
+        let errorSource = errorList[elementIdPosition]
+
+        form.addEventListener('submit', function(prevent){
+            if (elementName.value =='' || elementName.value==null){
+                errorName.textContent = `Please enter ${errorSource}`;
+                errorName.style.visibility = 'visible';
+                elementName.classList.add('errorBorder')
+                prevent.preventDefault();
+            } else if (stringCheck(elementName.value)==1){
+                errorName.textContent = `Please type ${errorSource}`;
+                errorName.style.visibility = 'visible';
+                elementName.classList.add('errorBorder')
+                prevent.preventDefault();
+            }
+            else {
+                errorName.style.visibility = 'hidden';
+                elementName.classList.remove('errorBorder')
+            };
+        });
+    });
+    
     function stringCheck(string){
         let strCount = 0;
         for (let letter in string){
@@ -30,44 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return strCount
     }
+
     function eFormatCheck(email){
         const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailFormat.test(email);
     }
-    function firstNameCheck(prevent){
-        if (elements.firstName.value =='' || elements.firstName.value==null){
-            error.errorFname.textContent = 'Please enter your first name';
-            error.errorFname.style.visibility = 'visible';
-            elements.firstName.classList.add('errorBorder')
-            prevent.preventDefault();
-        } else if (stringCheck(elements.firstName.value)==1){
-            error.errorFname.textContent = 'Please type a valid name';
-            error.errorFname.style.visibility = 'visible';
-            elements.firstName.classList.add('errorBorder')
-            prevent.preventDefault();
-        }
-        else {
-            error.errorFname.style.visibility = 'hidden';
-            elements.firstName.classList.remove('errorBorder')
-        }
-    }
-    function lastNameCheck(prevent){
-        if (elements.lastName.value =='' || elements.lastName.value==null){
-            error.errorLname.textContent = 'Please enter your last name';
-            error.errorLname.style.visibility = 'visible';
-            elements.lastName.classList.add('errorBorder')
-            prevent.preventDefault();
-        } else if (stringCheck(elements.lastName.value)==1){
-            error.errorLname.textContent = 'Please type a valid name';
-            error.errorLname.style.visibility = 'visible';
-            elements.lastName.classList.add('errorBorder')
-            prevent.preventDefault();
-        }
-        else {
-            error.errorLname.style.visibility = 'hidden';
-            elements.lastName.classList.remove('errorBorder')
-        }  
-    }
+
     function emailCheck(prevent){
         if (!eFormatCheck(elements.email.value)){
             error.errorEmail.textContent = 'Please enter a valid email';
@@ -79,8 +91,11 @@ document.addEventListener('DOMContentLoaded', function() {
             elements.email.classList.remove('errorBorder')
         }  
     }
+
     function contactCheck(prevent) {
+
         let contactNum = elements.contactNum.value.trim();
+        
         if (!/^\d+$/.test(contactNum)) {
             error.errorContact.textContent = 'Please enter a valid contact number';
             error.errorContact.style.visibility = 'visible';
@@ -96,11 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
             elements.contactNum.classList.remove('errorBorder');
         }  
     }
-    
-    form.addEventListener('submit', firstNameCheck)
-    form.addEventListener('submit', lastNameCheck)
+    function timeCheck(prevent){
+
+    }
+    function difficultyCheck(prevent){
+
+    }
     form.addEventListener('submit', emailCheck)
     form.addEventListener('submit', contactCheck)
+    form.addEventListener('submit', timeCheck)
+    form.addEventListener('submit', difficultyCheck)
 });
 
 

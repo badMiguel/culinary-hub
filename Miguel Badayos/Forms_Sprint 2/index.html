@@ -98,7 +98,7 @@
 
                     <div class='query row'>
                         <div class="col-5">
-                            <label for="cookingTime">Cooking Time</label>
+                            <label for="cookingTime">Cooking Time (hh:mm)</hh:mm></label>
                             <span class="indicator">*</span>
                         </div>
                         <div class="col-2"></div>
@@ -106,7 +106,8 @@
                             <label for="difficulty">Difficulty</label>
                             <span class="indicator">*</span>
                         </div>
-                        <input class='col-5' type="time" name='cookingTime' id="cookingTime" required>
+                        
+                        <input class='col-5' type="time" name='cookingTime' id="cookingTime" value='00:00' required>
                         <div class="col-2"></div>
                         <select class="col-5" name="difficulty" id="difficulty" required>
                             <option value="" selected disabled>Select an Option</option>
@@ -170,6 +171,7 @@
         <footer>
 
         </footer>
+        
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
