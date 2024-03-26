@@ -30,7 +30,7 @@
         </header>
 
         <main>
-            <form class="container" id="form"><!--- action="/" method="POST"-->
+            <form class="container" id="form" novalidate><!--- action="/" method="POST"-->
                 <fieldset>
                     <legend class="col text-center">Submit a Recipe</legend>
                     
@@ -47,9 +47,9 @@
                             <label for="lastName">Last Name</label>
                             <span class="indicator">*</span>
                         </div>
-                        <input class='col-5' id='firstName' name='firstName' type="text">
+                        <input class='col-5' id='firstName' name='firstName' type="text" required>
                         <div class="col-2"></div>
-                        <input class='col-5' type="text" name='lastName' id="lastName">
+                        <input class='col-5' type="text" name='lastName' id="lastName" required>
                         <p id = 'errorFname' class="col-5 errorMessage">No error</p>
                         <div class="col-2"></div>
                         <p id = 'errorLname' class="col-5 errorMessage">No error</p>
@@ -65,9 +65,9 @@
                             <label for="contactNum">Contact Number</label>
                             <span class="indicator">*</span>
                         </div>
-                        <input class='col-5' type="email" name='email' id="email">
+                        <input class='col-5' type="email" name='email' id="email" required>
                         <div class="col-2"></div>
-                        <input type="tel" name="contactNum" id="contactNum" class="col-5">
+                        <input type="tel" name="contactNum" id="contactNum" class="col-5" required>
                         <p id = 'errorEmail' class="col-5 errorMessage">No error</p>
                         <div class="col-2"></div>
                         <p id = 'errorContact' class="col-5 errorMessage">No error</p>
@@ -75,13 +75,13 @@
 
                     <h1>Submit your Recipe</h1>
                     <hr>
-                    
+
                     <div class='query row'>
                         <div class="col-3">
                             <label for="recipeName">Recipe Name</label>
                             <span class="indicator">*</span>
                         </div>
-                        <input class='col-9' id='recipeName' name='recipeName' type="text">
+                        <input class='col-9' id='recipeName' name='recipeName' type="text" required>
                         <div class="col-3"></div>
                         <p id = 'errorRecipeName' class="col-9 errorMessage">No error</p>
                     </div>
@@ -91,7 +91,7 @@
                             <label for="description">Description</label>
                             <span class="indicator">*</span>
                         </div>
-                        <textarea class='col-9' name="description" id="description" rows="2"></textarea>
+                        <textarea class='col-9' name="description" id="description" rows="2"  required></textarea>
                         <div class="col-3"></div>
                         <p id = 'errorDescription' class="col-9 errorMessage">No error</p>
                     </div>
@@ -106,9 +106,9 @@
                             <label for="difficulty">Difficulty</label>
                             <span class="indicator">*</span>
                         </div>
-                        <input class='col-5' type="time" name='cookingTime' id="cookingTime">
+                        <input class='col-5' type="time" name='cookingTime' id="cookingTime" required>
                         <div class="col-2"></div>
-                        <select class="col-5" name="difficulty" id="difficulty">
+                        <select class="col-5" name="difficulty" id="difficulty" required>
                             <option value="" selected disabled>Select an Option</option>
                             <option value="easy">Easy</option>
                             <option value="medium">Medium</option>
@@ -124,7 +124,7 @@
                             <label for="ingredients">Ingredients</label>
                             <span class="indicator">*</span>
                         </div>
-                        <textarea class='col-9' name="ingredients" id="ingredients" rows="2"></textarea>
+                        <textarea class='col-9' name="ingredients" id="ingredients" rows="2" required></textarea>
                         <div class="col-3"></div>
                         <p id = 'errorIngredients' class="col-9 errorMessage">No error</p>
                     </div>
@@ -134,7 +134,7 @@
                             <label for="instructions">Instructions</label>
                             <span class="indicator">*</span>
                         </div>
-                        <textarea class='col-9' name="instructions" id="instructions" rows="2"></textarea>
+                        <textarea class='col-9' name="instructions" id="instructions" rows="2" required></textarea>
                         <div class="col-3"></div>
                         <p id = 'errorInstructions' class="col-9 errorMessage">No error</p>
                     </div>

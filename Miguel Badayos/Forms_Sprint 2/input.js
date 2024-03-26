@@ -69,21 +69,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }  
     }
     function emailCheck(prevent){
-        if (eFormatCheck(elements.email.value) == false){
+        if (!eFormatCheck(elements.email.value)){
             error.errorEmail.textContent = 'Please enter a valid email';
             error.errorEmail.style.visibility = 'visible';
             elements.email.classList.add('errorBorder')
             prevent.preventDefault();
-            console.log(eFormatCheck(elements.lastName))
         } else {
             error.errorEmail.style.visibility = 'hidden';
-            console.log('error')
             elements.email.classList.remove('errorBorder')
         }  
     }
+    function contactCheck(prevent) {
+        let contactNum = elements.contactNum.value.trim();
+        if (!/^\d+$/.test(contactNum)) {
+            error.errorContact.textContent = 'Please enter a valid contact number';
+            error.errorContact.style.visibility = 'visible';
+            elements.contactNum.classList.add('errorBorder');
+            prevent.preventDefault();
+        } else if (stringCheck(elements.contactNum.value)<6) {
+            error.errorContact.textContent = 'Please enter a valid contact number';
+            error.errorContact.style.visibility = 'visible';
+            elements.contactNum.classList.add('errorBorder');
+            prevent.preventDefault();
+        } else {
+            error.errorContact.style.visibility = 'hidden';
+            elements.contactNum.classList.remove('errorBorder');
+        }  
+    }
+    
     form.addEventListener('submit', firstNameCheck)
     form.addEventListener('submit', lastNameCheck)
     form.addEventListener('submit', emailCheck)
+    form.addEventListener('submit', contactCheck)
 });
 
 
