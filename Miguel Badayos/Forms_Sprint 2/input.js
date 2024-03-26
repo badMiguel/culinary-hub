@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }); 
 
     const errorList = ['a valid first name', 'a valid last name', 'a valid email', 'a valid contact number', 'the recipe name', 'the description', 'the cooking time', 'the difficulty', 'the ingredients', 'the instructions'];
+   
+    let formInputs = document.querySelectorAll('input, textarea, select');
 
     function giveError(nameError, sourceError, nameElement, prevent){
         nameError.textContent = `Please enter ${sourceError}`;
@@ -43,8 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let numberFormat = /^\d+$/
         return numberFormat.test(number)
     }
-
-    let formInputs = document.querySelectorAll('input, textarea, select');
+    
     formInputs.forEach(function(input) {
         input.addEventListener('input', function() {
             let inputId = input.getAttribute('id');
@@ -64,6 +65,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    let noInput = false;
+
+    function haveInput(){
+        noInput = true;
+    }
+
+    window.onbeforeunload = function(event){
+        if (noInput) {
+            event.preventDefault();
+            event.returnValue = ''
+            return 'You have unsaved changes. Continue to leave?'
+        }
+    };
+    
+    formInputs.forEach(function(input){
+        input.addEventListener('keyup', haveInput);
+    })
+    
+
     form.addEventListener('submit', function(prevent){
         const confirmed = confirm("Are you sure you want to submit the form?");
         if (!confirmed) {
