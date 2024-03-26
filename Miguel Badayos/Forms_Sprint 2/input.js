@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorList = ['a valid first name', 'a valid last name', 'the recipe name', 'the description', 'the ingredients', 'the instructions'];
     elementIdsForLoopedFunction.forEach(function(id){
         
-        const elementIdPosition = elementIdsForLoopedFunction.indexOf(id)
-        const errorIdName = errorIdsForLoopedFunction[elementIdPosition]
-        const errorName = errorForLoopedFunction[errorIdName]
+        let elementIdPosition = elementIdsForLoopedFunction.indexOf(id)
+        let errorIdName = errorIdsForLoopedFunction[elementIdPosition]
+        let errorName = errorForLoopedFunction[errorIdName]
         let elementName = elementsForLoopedFunction[id]
         let errorSource = errorList[elementIdPosition]
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function eFormatCheck(email){
-        const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailFormat.test(email);
     }
 
@@ -93,9 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function contactCheck(prevent) {
-
         let contactNum = elements.contactNum.value.trim();
-        
+
         if (!/^\d+$/.test(contactNum)) {
             error.errorContact.textContent = 'Please enter a valid contact number';
             error.errorContact.style.visibility = 'visible';
@@ -111,16 +110,57 @@ document.addEventListener('DOMContentLoaded', function() {
             elements.contactNum.classList.remove('errorBorder');
         }  
     }
+
     function timeCheck(prevent){
-
+        if (elements.cookingTime.value == '00:00'){
+            error.errorTime.textContent = 'Please enter the cooking time';
+            error.errorTime.style.visibility = 'visible';
+            elements.cookingTime.classList.add('errorBorder');
+            prevent.preventDefault();
+        } else {
+            error.errorTime.style.visibility = 'hidden';
+            elements.cookingTime.classList.remove('errorBorder');
+        }
     }
+
     function difficultyCheck(prevent){
-
+        if (elements.difficulty.value == '' || elements.difficulty.value==null){
+            error.errorDifficulty.textContent = 'Please choose a difficulty';
+            error.errorDifficulty.style.visibility = 'visible';
+            elements.difficulty.classList.add('errorBorder');
+            prevent.preventDefault();
+        } else {
+            error.errorDifficulty.style.visibility = 'hidden';
+            elements.difficulty.classList.remove('errorBorder');
+        }
     }
+
     form.addEventListener('submit', emailCheck)
     form.addEventListener('submit', contactCheck)
     form.addEventListener('submit', timeCheck)
     form.addEventListener('submit', difficultyCheck)
+
+    form.addEventListener('reset', function(){
+        elementIds.forEach(function(id){
+            let element = elements[id]
+            element.classList.remove('errorBorder');
+        })
+
+        elementIdsForLoopedFunction.forEach(function(id){
+            let element = elementsForLoopedFunction[id]
+            element.classList.remove('errorBorder')
+        })
+
+        errorIds.forEach(function(id){
+            let errorItsSoHardToName = error[id]
+            errorItsSoHardToName.style.visibility = 'hidden' 
+        })        
+
+        errorIdsForLoopedFunction.forEach(function(id){
+            let errorItsSoHardToName = errorForLoopedFunction[id]
+            errorItsSoHardToName.style.visibility = 'hidden' 
+        })
+    })
 });
 
 
