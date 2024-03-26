@@ -90,52 +90,54 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!confirmed) {
             prevent.preventDefault();
         }
-        elementIds.forEach(function(id){ 
-            let elementIdPosition = elementIds.indexOf(id)
-            let errorIdName = errorIds[elementIdPosition]
-            let errorName = error[errorIdName]
-            let elementName = elements[id]
-            let errorSource = errorList[elementIdPosition]
-            let simpleInputs = ['firstName', 'lastName', 'recipeName', 'description', 'difficulty', 'ingredients', 'instructions']
-      
-            if (simpleInputs.includes(id)){
-                if (elementName.value =='' || elementName.value==null){
-                    giveError(errorName, errorSource, elementName, prevent)
-                    errorOccured = true;
-                } else if (stringCheck(elementName.value)==1){
-                    giveError(errorName, errorSource, elementName, prevent)
-                    errorOccured = true;
+        else {
+            elementIds.forEach(function(id){ 
+                let elementIdPosition = elementIds.indexOf(id)
+                let errorIdName = errorIds[elementIdPosition]
+                let errorName = error[errorIdName]
+                let elementName = elements[id]
+                let errorSource = errorList[elementIdPosition]
+                let simpleInputs = ['firstName', 'lastName', 'recipeName', 'description', 'difficulty', 'ingredients', 'instructions']
+        
+                if (simpleInputs.includes(id)){
+                    if (elementName.value =='' || elementName.value==null){
+                        giveError(errorName, errorSource, elementName, prevent)
+                        errorOccured = true;
+                    } else if (stringCheck(elementName.value)==1){
+                        giveError(errorName, errorSource, elementName, prevent)
+                        errorOccured = true;
+                    }
+                    else {
+                        removeError(errorName, elementName)
+                    };
+                } else if (id == "email"){
+                    if (!emailFormatCheck(elementName.value)){
+                        giveError(errorName, errorSource, elementName, prevent)
+                        errorOccured = true;
+                    } else {
+                        removeError(errorName, elementName)
+                    } 
+                } else if (id == 'contactNum'){
+                    let contactNum = elementName.value.trim();
+                    if (!numberFormatCheck(contactNum)) {
+                        giveError(errorName, errorSource, elementName, prevent);
+                        errorOccured = true;
+                    } else if (stringCheck(elements.contactNum.value)<6) {
+                        giveError(errorName, errorSource, elementName, prevent);
+                        errorOccured = true;
+                    } else {
+                        removeError(errorName, elementName);
+                    }
+                } else if (id == 'cookingTime'){
+                    if (elementName.value == '00:00'){
+                        giveError(errorName, errorSource, elementName, prevent);
+                        errorOccured = true;
+                    } else{
+                        removeError(errorName, elementName);
+                    }
                 }
-                else {
-                    removeError(errorName, elementName)
-                };
-            } else if (id == "email"){
-                if (!emailFormatCheck(elementName.value)){
-                    giveError(errorName, errorSource, elementName, prevent)
-                    errorOccured = true;
-                } else {
-                    removeError(errorName, elementName)
-                } 
-            } else if (id == 'contactNum'){
-                let contactNum = elementName.value.trim();
-                if (!numberFormatCheck(contactNum)) {
-                    giveError(errorName, errorSource, elementName, prevent);
-                    errorOccured = true;
-                } else if (stringCheck(elements.contactNum.value)<6) {
-                    giveError(errorName, errorSource, elementName, prevent);
-                    errorOccured = true;
-                } else {
-                    removeError(errorName, elementName);
-                }
-            } else if (id == 'cookingTime'){
-                if (elementName.value == '00:00'){
-                    giveError(errorName, errorSource, elementName, prevent);
-                    errorOccured = true;
-                } else{
-                    removeError(errorName, elementName);
-                }
-            }
-        });
+            });
+        }
     });
 
 
