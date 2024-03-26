@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function emailFormatCheck(email){
-        let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailFormat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailFormat.test(email);
     }
 
@@ -64,21 +64,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    elementIds.forEach(function(id){   
-        let elementIdPosition = elementIds.indexOf(id)
-        let errorIdName = errorIds[elementIdPosition]
-        let errorName = error[errorIdName]
-        let elementName = elements[id]
-        let errorSource = errorList[elementIdPosition]
-        let simpleInputs = ['firstName', 'lastName', 'recipeName', 'description', 'difficulty', 'ingredients', 'instructions']
-
-        form.addEventListener('submit', function(prevent){
+    form.addEventListener('submit', function(prevent){
+        const confirmed = confirm("Are you sure you want to submit the form?");
+        if (!confirmed) {
+            prevent.preventDefault();
+        }
+        elementIds.forEach(function(id){ 
+            let elementIdPosition = elementIds.indexOf(id)
+            let errorIdName = errorIds[elementIdPosition]
+            let errorName = error[errorIdName]
+            let elementName = elements[id]
+            let errorSource = errorList[elementIdPosition]
+            let simpleInputs = ['firstName', 'lastName', 'recipeName', 'description', 'difficulty', 'ingredients', 'instructions']
+      
             if (simpleInputs.includes(id)){
                 if (elementName.value =='' || elementName.value==null){
                     giveError(errorName, errorSource, elementName, prevent)
+                    errorOccured = true;
                 } else if (stringCheck(elementName.value)==1){
                     giveError(errorName, errorSource, elementName, prevent)
+                    errorOccured = true;
                 }
                 else {
                     removeError(errorName, elementName)
@@ -86,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (id == "email"){
                 if (!emailFormatCheck(elementName.value)){
                     giveError(errorName, errorSource, elementName, prevent)
+                    errorOccured = true;
                 } else {
                     removeError(errorName, elementName)
                 } 
@@ -93,20 +99,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 let contactNum = elementName.value.trim();
                 if (!numberFormatCheck(contactNum)) {
                     giveError(errorName, errorSource, elementName, prevent);
+                    errorOccured = true;
                 } else if (stringCheck(elements.contactNum.value)<6) {
                     giveError(errorName, errorSource, elementName, prevent);
+                    errorOccured = true;
                 } else {
                     removeError(errorName, elementName);
                 }
             } else if (id == 'cookingTime'){
                 if (elementName.value == '00:00'){
                     giveError(errorName, errorSource, elementName, prevent);
+                    errorOccured = true;
                 } else{
                     removeError(errorName, elementName);
                 }
             }
         });
     });
+
 
     form.addEventListener('reset', function(event){
         const confirmed = confirm("Are you sure you want to reset the form?");
