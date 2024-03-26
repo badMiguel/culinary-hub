@@ -11,21 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
     errorIds.forEach(function(id){
         error[id] = document.getElementById(id)
     }); 
-    
-    let formInputs = document.querySelectorAll('input, textarea, select');
-    formInputs.forEach(function(input) {
-        input.addEventListener('input', function() {
-            let inputId = input.getAttribute('id');
-            let label = document.querySelector(`label[for="${inputId}"]`);        
-            let indicator = label.nextElementSibling
-            if (input.value !== '') {
-                indicator.style.visibility = 'hidden';
-            } else{
-                indicator.style.visibility = 'visible';
-            }
-        });
-    });
 
+    const errorList = ['a valid first name', 'a valid last name', 'a valid email', 'a valid contact number', 'the recipe name', 'the description', 'the cooking time', 'the difficulty', 'the ingredients', 'the instructions'];
+
+    function giveError(nameError, sourceError, nameElement, prevent){
+        nameError.textContent = `Please enter ${sourceError}`;
+        nameError.style.visibility = 'visible';
+        nameElement.classList.add('errorBorder')
+        prevent.preventDefault();
+    }
+
+    function removeError(nameError, nameElement){
+        nameError.style.visibility = 'hidden';
+        nameElement.classList.remove('errorBorder')
+    }
+    
     function stringCheck(string){
         let strCount = 0;
         for (let letter in string){
@@ -44,19 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
         return numberFormat.test(number)
     }
 
-    const errorList = ['a valid first name', 'a valid last name', 'a valid email', 'a valid contact number', 'the recipe name', 'the description', 'the cooking time', 'the difficulty', 'the ingredients', 'the instructions'];
-    
-    function giveError(nameError, sourceError, nameElement, prevent){
-        nameError.textContent = `Please enter ${sourceError}`;
-        nameError.style.visibility = 'visible';
-        nameElement.classList.add('errorBorder')
-        prevent.preventDefault();
-    }
+    let formInputs = document.querySelectorAll('input, textarea, select');
+    formInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            let inputId = input.getAttribute('id');
+            let label = document.querySelector(`label[for="${inputId}"]`);        
+            let indicator = label.nextElementSibling
 
-    function removeError(nameError, nameElement){
-        nameError.style.visibility = 'hidden';
-        nameElement.classList.remove('errorBorder')
-    }
+            let elementIdPosition = elementIds.indexOf(inputId)
+            let errorIdName = errorIds[elementIdPosition]
+            let errorName = error[errorIdName]
+            let elementName = elements[inputId]
+
+            if (input.value !== '') {
+                indicator.style.visibility = 'hidden';
+                removeError(errorName, elementName)
+            } else{
+                indicator.style.visibility = 'visible';
+            }
+        });
+    });
+
     elementIds.forEach(function(id){   
         let elementIdPosition = elementIds.indexOf(id)
         let errorIdName = errorIds[elementIdPosition]
