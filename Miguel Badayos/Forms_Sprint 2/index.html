@@ -65,7 +65,7 @@
                             <label for="contactNum">Contact Number</label>
                             <span class="indicator">*</span>
                         </div>
-                        <input placeholder="e.g. you@email.com" class='col-5' type="email" name='email' id="email" required>
+                        <input placeholder="e.g. you@email.com" class='col-5' type="email" name='email' id="email" required autocomplete="on">
                         <div class="col-2"></div>
                         <input placeholder='+ XX XX XXX XXXX' type="tel" name="contactNum" id="contactNum" class="col-5" required>
                         <p id = 'errorEmail' class="col-5 errorMessage">No error</p>
@@ -109,7 +109,7 @@
                         <input class='col-5' type="time" name='cookingTime' id="cookingTime" value='00:00' required>
                         <div class="col-2"></div>
                         <select class="col-5" name="difficulty" id="difficulty" required>
-                            <option value="" selected disabled>Select an Option</option>
+                            <option value="" selected disabled>Select a Difficulty</option>
                             <option value="easy">Easy</option>
                             <option value="medium">Medium</option>
                             <option value="hard">Difficult</option>
