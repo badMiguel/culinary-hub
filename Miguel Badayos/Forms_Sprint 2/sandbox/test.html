@@ -8,28 +8,12 @@
 </head>
 <body>
     <form id="myForm">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <span class="indicator">*</span>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <span class="indicator">*</span>
-        </div>
-        <div>
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone">
-            <span class="indicator"> (optional)</span>
-        </div>
-        <div>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <span class="indicator">*</span>
-        </div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
         <button type="submit">Submit</button>
     </form>
+    <div id="error-message" style="display: none; color: red;"></div>
+    
     <script src="test.js"></script>
 </body>
 </html>
