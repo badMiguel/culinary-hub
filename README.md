@@ -9,15 +9,15 @@ Australia is no stranger when it comes to high prices in food places. Reports by
 
 Goal
 
-1.	We aim to redesign and develop a cooking website to provide users with an intuitive, personalised, and accessible culinary experience. The website aims to address the following user needs and expectations:
+We aim to redesign and develop a cooking website to provide users with an intuitive, personalised, and accessible culinary experience. The website aims to address the following user needs and expectations:
 
-2.	Easy navigation and search functionality for finding recipes quickly.
+1.	Easy navigation and search functionality for finding recipes quickly.
 
-3.	Personalized recipe recommendations based on user preferences and dietary restrictions.
+2.	Personalized recipe recommendations based on user preferences and dietary restrictions.
 
-4.	Mobile responsiveness for seamless across devices.
+3.	Mobile responsiveness for seamless across devices.
 
-5.	High-quality multimedia content, including videos, images and step-by-step instructions.
+4.	High-quality multimedia content, including videos, images and step-by-step instructions.
 
 
 Design Inspirations
