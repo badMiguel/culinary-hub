@@ -1,7 +1,7 @@
 Project Breif
 
 Problem Context
-Australia is no stranger when it comes to high prices in food places, emphasising the relevance of preparing food on their own homes. 
+Australia is no stranger when it comes to high prices in food places. Reports by Australian Bureau of Statistics (ABS) reveals that there has been a decrease in the rate of inflation from December 2022 to December 2023 (ABS, 2014).
 
 Your Goal
 What do you think the user wants/what will you provide
