@@ -1,73 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #a0a0a0;
-    margin: 0;
-    padding: 0;
+//chatgpt used as aid due to lack of experience in java script. partially written by gpt but editted and changed to fit + more wtitten by me.
+let savedDataJSON = localStorage.getItem('formData');
+let savedData = savedDataJSON ? JSON.parse(savedDataJSON) : {};
+
+document.getElementById('fullName').value = savedData.fullName || '';
+document.getElementById('email').value = savedData.email || '';
+document.getElementById('age').value = savedData.age || '';
+document.getElementById('reason').value = savedData.reason || '';
+document.getElementById('subscribe').checked = savedData.subscribe || false;
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 80px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+function saveData() {
+    let fullName = document.getElementById('fullName').value;
+    let email = document.getElementById('email').value;
+    let age = document.getElementById('age').value;
+    let reason = document.getElementById('reason').value;
+    let subscribe = document.getElementById('subscribe').checked;
 
-h1 {
-    text-align: center;
-    color: #333;
-    font-size: 24px
-}
+    // what is a good number? cdu's number only has 6. that should work.
+    let userNumber = generateRandomNumber(1, 999999);
 
-form {
-    margin-top: 20px;
-}
+    let subscriptionStatus = subscribe ? 'chose to subscribe' : 'did not choose to subscribe';
+    let formDataText = `Full Name: ${fullName}\nEmail: ${email}\nAge: ${age}\nReason: ${reason}\nSubscription Status: User ${subscriptionStatus}.\nUser Number: ${userNumber}`;
 
-label,
-input,
-button {
-    display: block;
-    margin-bottom: 15px;
-}
+    let blob = new Blob([formDataText], { type: 'text/plain' });
 
-input,
-button {
-    width: 96%;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 3px;
-}
+    let downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = 'formData.txt';
 
-button {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
 
-button:hover {
-    background-color: #0056b3;
-}
+    document.body.removeChild(downloadLink);
 
-input[type="checkbox"] {
-    margin-right: 10px;
-}
+    alert('Form data saved as a text file.');
 
-.subscribe-label {
-    font-weight: bold;
-    color: #333;
-}
 
-.submission-message {
-    margin-top: 15px;
-    text-align: center;
-    color: #007bff;
-}
-
-.image-container {
-    margin-top: 20px; /* Adjust as needed */
+    window.location.href = 'thankyou.html';
 }
