@@ -14,7 +14,8 @@ header{
 
 nav ul{
     list-style-type:none;
-    margin:0
+    margin:0;
+    text-align: right;
 }
 
 nav a{
@@ -27,7 +28,7 @@ nav a{
 .logo a{
     text-decoration: none;
     color: #eeedeb;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 800;
 }
 
