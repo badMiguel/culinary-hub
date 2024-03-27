@@ -1,3 +1,4 @@
+//chatgpt used as aid due to lack of experience in java script. partially written by gpt but editted and changed to fit + more wtitten by me.
 let savedDataJSON = localStorage.getItem('formData');
 let savedData = savedDataJSON ? JSON.parse(savedDataJSON) : {};
 
@@ -36,4 +37,7 @@ function saveData() {
     document.body.removeChild(downloadLink);
 
     alert('Form data saved as a text file.');
+
+
+    window.location.href = 'thankyou.html';
 }
