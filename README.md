@@ -2,6 +2,7 @@ Project Breif
 
 Problem Context
 
+Hypothesis
 
 Your Goal
 What do you think the user wants/what will you provide
