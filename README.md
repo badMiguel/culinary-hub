@@ -54,6 +54,7 @@ Design Inspirations
 
 
 Hypothesis
+
 Users who visit cooking sites with user-generated content will be likelier to attempt recipes than those who visit cooking websites with content curated by professional chefs.
 
 References:
