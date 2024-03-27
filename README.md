@@ -22,7 +22,7 @@ Goal
 
 Design Inspirations
 
-1.	What technologies currently are being used across the domain? 
+1.	Technologies to be Used
 
     - Front-end development: HTML, CSS, and JavaScript to build the user experience.
 
@@ -31,18 +31,30 @@ Design Inspirations
     - Trollo: Used for visual project management and task tracking.
 
     - Jira: Used for comprehensive project management, issue tracking, and agile development.
-    
+
     - Bitbucket: Used for version control, collaborative software development and hosting git or mercurial repositories.
 
+2.	Key Features to Implement
+    
+    - User-friendly interface with intuitive navigation and search functionality.
+    
+    - Personalized recipe recommendations based on user preferences, dietary restrictions and browsing history.
+    
+    - Mobile responsiveness for optimal viewing experience on smartphones and tablets.
+    
+    - Integration of multimedia content such as videos, images and step-by-step recipe instructions.
+    
+    - User authentication and profile management to save favourite recipes and customise preferences.
+    
+    - Accessibility enhancements include screen reader support, keyboard shortcuts, and text resizing options.
 
-2.	How might technology be used ?
-
-3.	How can technology integrate people and the domain?  
-
-4.	How can technology help people improve in the domain?
+3.	Project Improvement
+    - Promote healthy eating habits with nutritional information and meal planning.
+    - Continuously optimise the platform based on user feedback and analytics.
 
 
 Hypothesis
+
 Users who visit cooking sites with user-generated content will be likelier to attempt recipes than those who visit cooking websites with content curated by professional chefs.
 
 References:
