@@ -21,7 +21,14 @@ nav a{
     text-decoration:none;
     color:#eeedeb;
     font-size:15px;
-    font-family:Arial,Helvetica,sans-serif
+    font-weight: 500;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #eeedeb;
+    font-size: 20px;
+    font-weight: 800;
 }
 
 nav a:hover{
