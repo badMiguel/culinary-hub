@@ -1,7 +1,7 @@
 Project Breif
 
 Problem Context
-Australia is no stranger when it comes to high prices in food places, emphasising the relevance of preparing food on their own homes. Combined the increase of inflation, it is more relevant
+Australia is no stranger when it comes to high prices in food places, emphasising the relevance of preparing food on their own homes. 
 
 Your Goal
 What do you think the user wants/what will you provide
