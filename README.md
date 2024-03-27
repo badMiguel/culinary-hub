@@ -2,8 +2,6 @@ Project Breif
 
 Problem Context
 
-Hypothesis
-
 Your Goal
 What do you think the user wants/what will you provide
 
@@ -16,3 +14,6 @@ Design Inspirations
 3.	How can technology integrate people and the domain?  
 
 4.	How can technology help people improve in the domain?
+
+
+Hypothesis
