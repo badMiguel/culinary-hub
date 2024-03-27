@@ -1,6 +1,7 @@
 Project Breif
 
 Problem Context
+Australia is no stranger when it comes to high prices in food places, emphasising the relevance of preparing food on their own homes. Combined the increase of inflation, it is more relevant
 
 Your Goal
 What do you think the user wants/what will you provide
@@ -17,3 +18,7 @@ Design Inspirations
 
 
 Hypothesis
+
+
+References:
+Australian Bureau of Statistics. (2024). Consumer Price Index, Australia. https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/latest-release
