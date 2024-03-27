@@ -1,4 +1,4 @@
-Project Brief of Sprint 2
+Project Brief of Sprint 2 as well as the description and hypothesis
 
 This entry form for hit226, sprint 2 has been created by Benjamin Denison-Love. s330803.
 ChatGPT OpenAI was used for the java script in order to understand it, and make it work, along with substantial editting to work with the rest of the code. Additionally, it was used as an aid for the other documents in order to remember and know the right code to make specific functions work, such as the linking of the index and thankyou files.
@@ -10,7 +10,7 @@ Hypothesis:
 The assignment aims to enhance our proficiency in HTML and JavaScript coding by providing hands-on experience in developing a functional website capable of saving user data. Additionally, it serves as an opportunity to demonstrate our ability to collaborate effectively within a team by setting up and utilizing an online repository for project management and version control.
 
 
-What is the problem contextâ€“ 
+What is the problem context– 
 The problem context for this project arises from the necessity of establishing a seamless and user-friendly data submission process for users interacting with a fictional company. Without an efficient method in place, users may encounter challenges such as frustration during data entry, potential inaccuracies in the submitted information, and overall inefficiency in the data collection process for the company. Thus, the project aims to address these issues by developing a well-designed and functional entry form that caters to the needs of users while ensuring accurate and streamlined data collection for the groups.
 
 
@@ -18,7 +18,7 @@ The problem context for this project arises from the necessity of establishing a
 Your Goal-
 What do you think the user wants/what will you provide?
 
-The goal of the team and itâ€™s members is to create a entry form that saves the information of the user who is in turn submitting information towards the team members. Both provide something to the other.
+The goal of the team and it’s members is to create a entry form that saves the information of the user who is in turn submitting information towards the team members. Both provide something to the other.
 
 
 Design Inspirations-
