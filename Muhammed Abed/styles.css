@@ -13,6 +13,7 @@ h2 {
 }
 
 fieldset{
+    margin-top: 0px;
     padding: 25px;
     background-color:#f0f7a7;
     border-radius:20px;
