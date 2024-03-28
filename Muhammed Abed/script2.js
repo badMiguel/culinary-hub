@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validate meal preference
         var mealPreference = document.getElementById('mealPreference').value;
         if (mealPreference === '') {
-            document.getElementById('mealError').innerText = 'Select at least one option';
+            document.getElementById('mealError').innerText = 'Select one option';
         } else {
             document.getElementById('mealError').innerText = '';
         }
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validate preparation time
         var preparationTime = document.getElementById('preparationTime').value;
         if (preparationTime === '') {
-            document.getElementById('preparationError').innerText = 'Select at least one option';
+            document.getElementById('preparationError').innerText = 'Select one option';
         } else {
             document.getElementById('preparationError').innerText = '';
         }
