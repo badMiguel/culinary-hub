@@ -4,7 +4,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 80vh; */
 }
 
 h2 {
@@ -14,7 +13,6 @@ h2 {
 }
 
 fieldset{
-    margin: 100px auto;
     padding: 25px;
     background-color:#f0f7a7;
     border-radius:20px;
