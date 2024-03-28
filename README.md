@@ -4,8 +4,11 @@ Cooking websites design
 
 Problem Context
 
-Australia is no stranger when it comes to high prices in food places. Reports by the Australian Bureau of Statistics (ABS) reveal that there has been a decrease in the inflation rate from December 2022 to December 2023 (ABS, 2024). This gives Australians more reason to prepare their own food at home. In this modern age, a cooking website is the preferred way of accessing recipes. However, many existing cooking websites lack intuitive navigation, personalized content, and accessibility features, limiting their usability for diverse users, including those with disabilities. There is a need for a cooking website that offers a seamless user experience, personalized recommendations, and inclusive design to cater to the needs of all users.
-
+Our cooking website aims to provide a platform for users to share, discover, and engage with recipes. However, we have identified a challenge in motivating users to actively participate in recipe exploration and adoption. We have observed that the example product/service website similar to our goal lack efficient filtering options based on key factors such as preparation time, allergens, dietary requirements, and cooking skill levels. This limitation hampers users' ability to discover relevant recipes tailored to their specific preferences and constraints
+ 
+Furthermore, there is a perception among users that recipes created or endorsed by professional chefs are of higher quality, more trustworthy, or more appealing compared to recipes shared by non-professionals or amateurs. However, the current lack of user engagement and recipe adoption on our platform poses a risk to its sustainability and growth. Without addressing these issues, we may fail to capitalize on the potential of user-generated content and risk losing users to competitors offering curated content.
+ 
+How might we design and optimize our cooking website to enhance user engagement, encourage recipe adoption, and improve user experience and satisfaction through robust filtering mechanisms based on factors such as prep time, allergens, dietary requirements, and cooking skill?
 
 Goal
 
