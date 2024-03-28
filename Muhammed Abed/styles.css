@@ -1,0 +1,73 @@
+body {
+
+    background-color: #89ea91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 80vh; */
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+
+}
+
+fieldset{
+    margin: 100px auto;
+    padding: 25px;
+    background-color:#f0f7a7;
+    border-radius:20px;
+    box-shadow:5px 5px 5px 1px rgba(0,0,0,.3);
+    max-width:900px
+}
+label{
+    font-size: 20px;
+    line-height: 1.5;
+}
+.checkbox{
+    font-size: 17px;
+    line-height: 1.5;
+
+}
+form {
+    
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+   
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input[type="text"]:hover {
+   background: #fafafa;
+}
+input[type="submit"] {
+    background-color: #0f7813;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.error {
+    display: flex;
+    position: absolute;
+    width:150px;
+    font-size:90%;
+    color: red;
+}
