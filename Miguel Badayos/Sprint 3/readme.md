@@ -1,3 +1,5 @@
+![alt text](Hawaiian.jpg)
+
 | Day     | Meal    | Price |
 | --------|---------|-------|
 | Monday  | pasta   | $6    |
