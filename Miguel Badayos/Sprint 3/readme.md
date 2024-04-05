@@ -21,9 +21,17 @@ _Italic characters_
 __bold characters__
 ~~strikethrough text~~
 
-Project Brief 
-Team member names: 
-What is the problem context. 
+Project Brief
+=============
+
+**Team member names:**
+
+ 1. Juan Miguel Badayos
+ 2. Benjamin Denison-Love
+ 3. Aayan Rai
+ 4. Muhammed Abed
+
+
  
 Your Goals
 What do you think the user wants/what will you provide?
