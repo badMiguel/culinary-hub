@@ -1,9 +1,7 @@
-let heartNumber = randomInt(1,1000)
-
 document.addEventListener('DOMContentLoaded', function(){
     const heartButton = document.querySelectorAll('.heart');
     let heartIdNumber = 0
-
+    
     heartButton.forEach(heartButton => {
         heartIdNumber += 1
         
@@ -11,14 +9,18 @@ document.addEventListener('DOMContentLoaded', function(){
         let heartIdLikes = 'heartLikes-'+ heartIdString
         let heartIdColor = 'heartColor-' + heartIdString
         
+        let heartNumber = randomInt(1,1000)
         const heartColor = document.getElementById(heartIdColor);
         const heartNumberDisplay = document.getElementById(heartIdLikes);
                
         heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
 
+        console.log(heartNumber)
         heartButton.addEventListener('click', function(){
-            changeColor(heartColor, 'rgb(170, 26, 26)', 'heart', heartNumberDisplay);
-        });
+            likeChange = changeColor(heartColor, 'rgb(170, 26, 26)', 'heart')
+            heartNumber += likeChange
+            heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
+        })
     });
 
     const bookmarkButton = document.querySelectorAll('.bookmark');
@@ -45,22 +47,20 @@ function randomInt(min,max){
 }
 
 // function for changing color of buttons after click
-function changeColor(element, color, button, likes){
+function changeColor(element, color, button){
     if (!element.style.fill || element.style.fill ==='var(--bg-secondary)'){
         element.style.fill = color;
         element.style.stroke = color;
 
         // add a like count if the button clicked was a heart button
         if (button === 'heart'){ 
-            heartNumber += 1;
-            likes.textContent = heartNumber.toLocaleString(); 
+            return 1
         }
-    } else{
-        element.style.fill = 'var(--bg-secondary)';
-        element.style.stroke = 'black'; 
+    } else {
+    element.style.fill = 'var(--bg-secondary)';
+    element.style.stroke = 'black'; 
         if (button === 'heart'){
-            heartNumber -= 1;
-            likes.textContent = heartNumber.toLocaleString(); 
+            return -1
         }
-    }  
+    } 
 }
