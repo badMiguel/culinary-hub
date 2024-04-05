@@ -26,9 +26,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     bookmarkButton.forEach(bookmarkButton => {
         bookmarkIdNumber += 1;
-        bookmarkIdString = bookmarkIdNumber.toString();
-        bookmarkId = 'bookmark-' + bookmarkIdString;
-        bookmarkIdColor = 'bookmarkColor-' + bookmarkIdString;
+        let bookmarkIdString = bookmarkIdNumber.toString();
+        let bookmarkIdColor = 'bookmarkColor-' + bookmarkIdString;
         
         const bookmarkColor = document.getElementById(bookmarkIdColor);
 
@@ -38,17 +37,21 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
+// just generates a random number of likes
 function randomInt(min,max){
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
+// function for changing color of buttons after click
 function changeColor(element, color, button, likes){
     if (!element.style.fill || element.style.fill ==='var(--bg-secondary)'){
         element.style.fill = color;
         element.style.stroke = color;
-        if (button === 'heart'){
+
+        // add a like count if the button clicked was a heart button
+        if (button === 'heart'){ 
             heartNumber += 1;
             likes.textContent = heartNumber.toLocaleString(); 
         }
