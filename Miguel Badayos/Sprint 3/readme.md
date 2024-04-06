@@ -46,20 +46,21 @@ The website aims to provide users a platform where users can share their recipe 
 3. Mobile responsiveness for seamless across devices.
 4. High-quality multimedia content, including videos, images and step-by-step instructions.
 
-
-
-
-Your Goals
-What do you think the user wants/what will you provide?
-
 Design Inspirations
-1.	What technologies currently are being used across the domain? 
-2.	How might technology be used that you can design?
-3.	How can technology integrate people into the domain and support them? 
-Assumptions ideas
-Business Assumptions – summarise your answers
-1.	I believe the users have a need to:
-2.	These needs can be solved with
+-------------------
+
+The technologies that are being used across the domain in terms of the front-end development are HTML, CSS, and JavaScript. Some of these websites also uses libraries, frameworks, or techniques such as React, Vue, Bootstrap, and Tailwind, Ajax, WordPress, and jQuery for their website. In terms of the back-end development, ASP.NET and WordPress were used in some of the websites.
+
+These technologies used by other cooking websites can be used a guide for building our own website. Generally, HTML, CSS, and JavaScript will be the main building block for our website, ensuring a seamless and user-friendly interface for the users. Some frameworks like Bootstraps can also be used for the interface of the website. Moreover, using JavaScript and Ajax can help users easily filter and find recipes based on their likings and preferences. These technologies also allows user-generated reviews, comments, and ratings, fostering user engagement and constructive criticism. 
+
+Business Assumptions
+--------------------
+
+Creators of the website believes that the  users have a need to find recipes that they can cook on their own homes, may it be from the available ingridients they already have at home, for an event, specific dietary needs, and more. These needs can be solved by developing a use-friendly website that provides features that allows easy navigation and filtering of recipes based on the user's needs. Moreover, these needs can also be solved by having personalised recipe recomnmendations based on user preferences and past behaviours.
+
+The initial users of the websites would be members of the family that prepare food for their family, generally mothers and fathers of the family. However, the website also considers targetting young professionals or stutends that are interested in easy-to-cook recipes. 
+
+
 3.	My initial users are (use data):
 4.	The main value a user wants to get out of my website is
 5.	They can also get these additional benefits:
@@ -92,5 +93,9 @@ What information will your MVP have. How will this be laid out, what pages will 
 This is not the interactions, just the hierarchy or layout of the information.
 For those doing games this will be the levels in the game or the steps in one level of the game so more the interaction design, what steps can be taken after other steps, etc. This may be a pattern that repeats across the game
 
+References:
+-----------
+
+Cooking Statistics: Market Report & Data. (2023, December). Gitnux Marketdata Report 2024. [text](https://gitnux.org/cooking-statistics/)
 
 
