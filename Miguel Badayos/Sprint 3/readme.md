@@ -60,6 +60,17 @@ The developers of the website believe that by providing users with advanced filt
 * **Quantitative Feedback** - Increased user interaction such as time spent on the website and numbers of recipes saved, shared, and rated.
 * **Key Performance Indicator Change** - Increase of frequency of returning users and a decrease in bounce rate.
 
+Proto Persona
+-------------
+
+| [audrey](/Miguel%20Badayos/Sprint%203/persona%20images/audrey.png) |    
+|  |
+|  |
+|--|
+|  |
+|  |
+|  | 
+
 Component design
 ================
 
