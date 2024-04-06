@@ -49,21 +49,16 @@ With these assumptions, the developers are aware that if the assumption with the
 User Assumptions
 ----------------
 
-1.	Who is the user?
-2.	Where does our product/website fit in their work or life? 
-3.	What problems does our product/ website solve?
-4.	When and how is our product website / used?
-5.	What features are important? 
-6.	How should our product/ website look and behave
+A potential user of the website could be Audrey, a 38-year-old doctor living at the city with 3 children. She is no stranger to cooking, but recently her children wants something new for dinner. Audrey would use the website to explore new options for dinner and identify the requirements of the recipe. The website addresses Audrey's need to find different recipes depending on her preferences or her childern's wants. Audrey will likely use the website on her phone or laptop, either at home, after work,  or while doing grocery shopping. From this, it is important to have a easy-to-use, responsive, and neat website that allows Audrey to easily find recipes and important information without wasting time.
 
 Hypothesis statement or user stories
 ------------------------------------
 
-We believe ……. [this statement is true].
-We will know we’re [right/wrong] when we see the following feedback from the [market] 
-[qualitative feedback]   
-[quantitative feedback]
-[key performance indicator change]  
+The developers of the website believe that by providing users with advanced filtering options based on preparation time, allergens, dietary requirements, and cooking skill levels, we will increase user engagement and recipe discovery. We will know we are right when we see the following feedback from the users or market:
+
+* **Qualitative Feedback** - Positive user reviews and surveys about how easy for the users to find recipes that are relevant for their needs and preferences.
+* **Quantitative Feedback** - Increased user interaction such as time spent on the website and numbers of recipes saved, shared, and rated.
+* **Key Performance Indicator Change** - Increase of frequency of returning users and a decrease in bounce rate.
 
 Component design
 ================
@@ -90,27 +85,4 @@ Lindner, J. (2023). Cooking Statistics: Market Report & Data. https://gitnux.org
 Soldavini, J., Maureen, B. (2021). Characteristics associated with cooking ffreqquency among college students. https://www.sciencedirect.com/science/article/abs/pii/S1878450X21000020
 
 
-IGNORE
-======
-![alt text](Hawaiian.jpg)
 
-| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-
-# This is an H1
-## This is an H2
-###### This is an H6
-
-This is also an H1
-==================
-
-This is also an H2
-------------------
-
-*Italic characters* 
-_Italic characters_
-**bold characters**
-__bold characters__
-~~strikethrough text~~
