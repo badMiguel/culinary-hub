@@ -21,7 +21,8 @@ _Italic characters_
 __bold characters__
 ~~strikethrough text~~
 
-Project Brief
+
+Design  Worksheet
 =============
 
 **Team member names:**
@@ -31,8 +32,23 @@ Project Brief
  3. Aayan Rai
  4. Muhammed Abed
 
+Project Brief
+-------------
 
+Our cooking website aims to provide a platform for users to share, discover, and engage with recipes. However, we have identified a challenge in motivating users to actively participate in recipe exploration and adoption. We have observed that the example product/service website like our goal lack efficient filtering options based on key factors such as preparation time, allergens, dietary requirements, and cooking skill levels. This limitation hampers users' ability to discover relevant recipes tailored to their specific preferences and constraints.
  
+Furthermore, there is a perception among users that recipes created or endorsed by professional chefs are of higher quality, more trustworthy, or more appealing compared to recipes shared by non-professionals or amateurs. However, the current lack of user engagement and recipe adoption on our platform poses a risk to its sustainability and growth. Without addressing these issues, we may fail to capitalize on the potential of user-generated content and risk losing users to competitors offering curated content.
+
+The website aims to provide users a platform where users can share their recipe with others and discover new  recipes themselves. The creators of the website would also like to foster engagement and motivation for both beginners and experienced cooks. This can be done by providing users with an intuitive, personalised, and accessible culinary experience by:
+
+1. Easy navigation and search functionality for finding recipes quickly.
+2. Personalized recipe recommendations based on user preferences and dietary restrictions.
+3. Mobile responsiveness for seamless across devices.
+4. High-quality multimedia content, including videos, images and step-by-step instructions.
+
+
+
+
 Your Goals
 What do you think the user wants/what will you provide?
 
