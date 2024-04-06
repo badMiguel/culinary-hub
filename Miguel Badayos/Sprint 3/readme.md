@@ -58,7 +58,7 @@ Business Assumptions
 
 Creators of the website believes that the  users have a need to find recipes that they can cook on their own homes, may it be from the available ingridients they already have at home, for an event, specific dietary needs, and more. These needs can be solved by developing a use-friendly website that provides features that allows easy navigation and filtering of recipes based on the user's needs. Moreover, these needs can also be solved by having personalised recipe recomnmendations based on user preferences and past behaviours.
 
-The initial users of the websites would be members of the family that prepare food for their family, generally mothers and fathers of the family. However, the website also considers targetting young professionals or stutends that are interested in easy-to-cook recipes. 
+The initial users of the websites would be members of the family that prepare food for their family, generally mothers and fathers of the family. However, the website also considers targetting young professionals or stutends that are interested in easy-to-cook recipes. According to Lindner (2023), in the Us '65% of Gen Z's' showed an interest in cooking as of 2021.
 
 
 3.	My initial users are (use data):
@@ -96,6 +96,8 @@ For those doing games this will be the levels in the game or the steps in one le
 References:
 -----------
 
-Cooking Statistics: Market Report & Data. (2023, December). Gitnux Marketdata Report 2024. [text](https://gitnux.org/cooking-statistics/)
+Lindner, J. (2023). Cooking Statistics: Market Report & Data. https://gitnux.org/cooking-statistics/
+
+Soldavini, J., Maureen, B. (2021). Characteristics associated with cooking ffreqquency among college students. https://www.sciencedirect.com/science/article/abs/pii/S1878450X21000020
 
 
