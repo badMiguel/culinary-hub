@@ -1,27 +1,3 @@
-![alt text](Hawaiian.jpg)
-
-| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-
-# This is an H1
-## This is an H2
-###### This is an H6
-
-This is also an H1
-==================
-
-This is also an H2
-------------------
-
-*Italic characters* 
-_Italic characters_
-**bold characters**
-__bold characters__
-~~strikethrough text~~
-
-
 Design  Worksheet
 =============
 
@@ -58,15 +34,14 @@ Business Assumptions
 
 Creators of the website believes that the  users have a need to find recipes that they can cook on their own homes, may it be from the available ingridients they already have at home, for an event, specific dietary needs, and more. These needs can be solved by developing a use-friendly website that provides features that allows easy navigation and filtering of recipes based on the user's needs. Moreover, these needs can also be solved by having personalised recipe recomnmendations based on user preferences and past behaviours.
 
-The initial users of the websites would be members of the family that prepare food for their family, generally mothers and fathers of the family. However, the website also considers targetting young professionals or stutends that are interested in easy-to-cook recipes. According to Lindner (2023), in the Us '65% of Gen Z's' showed an interest in cooking as of 2021.
+The initial users of the websites would be members of the family that prepare food for their family, generally mothers and fathers of the family. According from a report by HelloFresh (2017), 97% of Australians cook on weeknights, and 74% of Australians are 'likely to prepare five or more of  their seven weekly dinners at home.' However, the website also considers targetting young professionals or stutends that are interested in easy-to-cook recipes. According to Lindner (2023), in the Us '65% of Gen Z's' showed an interest in cooking as of 2021. A research also stated that 45.7% to  40.3% of college studenets cook (Soldavini & Berner, 2021).
 
+The website is not only limited on users finding for new recipes, but can also create and share their own recipes or versions of the recipe with the community. It can also give users the opportunities to engage with other users with the same passion through comments and ratings. It also allows users to learn new cooking techniques from other cooks.
 
-3.	My initial users are (use data):
-4.	The main value a user wants to get out of my website is
-5.	They can also get these additional benefits:
-6.	I will acquire most of my users through (marketing)
-7.	My primary competition in the market is
-8.	We will be better because
+With the rise of social media platforms, this can be used to promote the website and acquire new users. Creating posts, videos, and other promotions on social media about the website will give potential users what the website is about. Moreover, implementing SEO best practices allows the search engine to better understand the content of the website, helping its visibility to potential users. 
+
+The primary competition in the market are already existing recipe websites such as https://www.recipetiineats.com, https://www.taste.com, and https://www.allrecipes.com. Moreover, cooking apps and YouTube channels or social media accounts that provides cooking content are more competitors of the website. Thus, one way to make our own website standout from the rest is 
+
 9.	We will know we are successful when we see the following changes in user behaviour
 10.	What other assumptions do we have that if proven false will cause our business/project to fail:
 User Assumptions  to create personas
@@ -96,8 +71,34 @@ For those doing games this will be the levels in the game or the steps in one le
 References:
 -----------
 
+HelloFresh. (2017). Australia's Cooking Landscape. https://australianfoodtimeline.com.au/wp-content/uploads/2020/01/HelloFresh_Australia27s-Cooking-Landscape_Report_FINAL_1Feb2017.pdf
+
 Lindner, J. (2023). Cooking Statistics: Market Report & Data. https://gitnux.org/cooking-statistics/
 
 Soldavini, J., Maureen, B. (2021). Characteristics associated with cooking ffreqquency among college students. https://www.sciencedirect.com/science/article/abs/pii/S1878450X21000020
 
 
+IGNORE
+======
+![alt text](Hawaiian.jpg)
+
+| Day     | Meal    | Price |
+| --------|---------|-------|
+| Monday  | pasta   | $6    |
+| Tuesday | chicken | $8    |
+
+# This is an H1
+## This is an H2
+###### This is an H6
+
+This is also an H1
+==================
+
+This is also an H2
+------------------
+
+*Italic characters* 
+_Italic characters_
+**bold characters**
+__bold characters__
+~~strikethrough text~~
