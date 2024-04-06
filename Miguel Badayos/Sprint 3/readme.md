@@ -40,30 +40,42 @@ The website is not only limited on users finding for new recipes, but can also c
 
 With the rise of social media platforms, this can be used to promote the website and acquire new users. Creating posts, videos, and other promotions on social media about the website will give potential users what the website is about. Moreover, implementing SEO best practices allows the search engine to better understand the content of the website, helping its visibility to potential users. 
 
-The primary competition in the market are already existing recipe websites such as https://www.recipetiineats.com, https://www.taste.com, and https://www.allrecipes.com. Moreover, cooking apps and YouTube channels or social media accounts that provides cooking content are more competitors of the website. Thus, one way to make our own website standout from the rest is 
+The primary competition in the market are already existing recipe websites such as https://www.recipetiineats.com, https://www.taste.com, and https://www.allrecipes.com. Moreover, cooking apps and YouTube channels or social media accounts that provides cooking content are more competitors of the website. Thus, one way to make our own website standout from the rest is ensuring to provide users a more responsive, easy-to-use, and clean website. The creators of the website also believes that optimising our website to have an advanced filtering options that creates a personalised recipe discovery for users will help gain user numbers. 
 
-9.	We will know we are successful when we see the following changes in user behaviour
-10.	What other assumptions do we have that if proven false will cause our business/project to fail:
-User Assumptions  to create personas
+Some indicators that will help signify the website's success is when there is an increase in user engagement on the website, such as increase in time spent on the website and increase of number of recipes saved, shared, and rated. Another metrics that can help signify the success of the website is the increase of frequency of returning users and decrease of bounce rate time of users. A feedback form can also be implemented to collect reviews from the users in terms of the overall website.
+
+With these assumptions, the developers are aware that if the assumption with the demographics are incorrect, there will be a huge chance for the project to fail.
+
+User Assumptions
+----------------
+
 1.	Who is the user?
 2.	Where does our product/website fit in their work or life? 
 3.	What problems does our product/ website solve?
 4.	When and how is our product website / used?
 5.	What features are important? 
 6.	How should our product/ website look and behave
-Then explain IN DETAIL how these led to your persona  (one per individual). Provide persona with description
 
-Hypothesis statement or user stories – list these
+Hypothesis statement or user stories
+------------------------------------
+
 We believe ……. [this statement is true].
 We will know we’re [right/wrong] when we see the following feedback from the [market] 
 [qualitative feedback]   
 [quantitative feedback]
 [key performance indicator change]  
-Your Component design
+
+Component design
+================
 
 MVP 
+---
+
 Provide an outline of your first MVP. This is your individual ideas, not the team MVP yet, but you will combine these to form the entire site. So submit your own work
+
 Information Architecture
+------------------------
+
 What information will your MVP have. How will this be laid out, what pages will relate to other pages, what will be on what menu. We want a diagram showing at least 10 pages/cards/sections of a page, of different information that the users will be provided. Show how these parts relate eg by  
 This is not the interactions, just the hierarchy or layout of the information.
 For those doing games this will be the levels in the game or the steps in one level of the game so more the interaction design, what steps can be taken after other steps, etc. This may be a pattern that repeats across the game
