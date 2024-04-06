@@ -63,7 +63,7 @@ The developers of the website believe that by providing users with advanced filt
 Proto Persona
 -------------
 
-| ![audrey](Hawaiian.jpg) |    
+| ![audrey](/Miguel%20Badayos/Sprint%203/persona%20images/audrey.png) |    
 |  |
 |  |
 |--|
