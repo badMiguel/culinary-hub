@@ -63,10 +63,7 @@ The developers of the website believe that by providing users with advanced filt
 Proto Persona
 -------------
 
-| ![audrey](/Miguel%20Badayos/Sprint%203/persona%20images/audrey.png) |    |
-|test| test|
-|      |    |
-|hi | hi|
+![proto persona]('proto persona.jpg')
 
 Component design
 ================
@@ -81,7 +78,7 @@ Information Architecture
 
 What information will your MVP have. How will this be laid out, what pages will relate to other pages, what will be on what menu. We want a diagram showing at least 10 pages/cards/sections of a page, of different information that the users will be provided. Show how these parts relate eg by  
 This is not the interactions, just the hierarchy or layout of the information.
-For those doing games this will be the levels in the game or the steps in one level of the game so more the interaction design, what steps can be taken after other steps, etc. This may be a pattern that repeats across the game
+
 
 References:
 -----------
