@@ -65,7 +65,7 @@ Proto Persona
 
 | ![audrey](/Miguel%20Badayos/Sprint%203/persona%20images/audrey.png) |    |
 |test| test|
-|---|---|
+|      |    |
 |hi | hi|
 
 Component design
