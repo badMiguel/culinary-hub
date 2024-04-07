@@ -63,12 +63,12 @@ The developers of the website believe that by providing users with advanced filt
 Proto Persona
 -------------
 
-![proto persona](persona/proto-persona.jpg)
+![proto persona](design-worksheet-images/persona/proto-persona.jpg)
 
 Persona
 -------
 
-![traditional persona](persona/persona.jpg)
+![traditional persona](design-worksheet-images/persona/persona.jpg)
 
 Component design
 ================
@@ -78,18 +78,56 @@ MVP
 
 **MVP Outline for Desktop**
 
-![mvp outline - desktop](mvp-outline/mvp-outline-desktop.png)
+![mvp outline - desktop](design-worksheet-images/mvp-outline/mvp-outline-desktop.png)
 
 **MVP Outline for Mobile**
 
-![mvp outline - mobile](mvp-outline/mvp-outline-mobile.png)
+![mvp outline - mobile](design-worksheet-images/mvp-outline/mvp-outline-mobile.png)
 
 Information Architecture
 ------------------------
 
-What information will your MVP have. How will this be laid out, what pages will relate to other pages, what will be on what menu. We want a diagram showing at least 10 pages/cards/sections of a page, of different information that the users will be provided. Show how these parts relate eg by  
-This is not the interactions, just the hierarchy or layout of the information.
+![card outline](design-worksheet-images/information-architecture/1.png)
 
+*Card Outline*
+
+
+![recipe details - title and description layout](design-worksheet-images/information-architecture/2.png)
+
+*Recipe Title and Description Layout*
+
+
+![]()
+
+**
+
+![]()
+
+**
+
+![]()
+
+**
+
+![]()
+
+**
+
+![]()
+
+**
+
+![]()
+
+**
+
+![]()
+
+**
+
+![]()
+
+**
 
 References:
 -----------
