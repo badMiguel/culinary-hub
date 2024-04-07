@@ -76,11 +76,11 @@ Component design
 MVP 
 ---
 
-**MVP Outline for Desktop**
+#### MVP Outline for Desktop
 
 ![mvp outline - desktop](design-worksheet-images/mvp-outline/mvp-outline-desktop.png)
 
-**MVP Outline for Mobile**
+#### MVP Outline for Mobile
 
 ![mvp outline - mobile](design-worksheet-images/mvp-outline/mvp-outline-mobile.png)
 
@@ -102,6 +102,24 @@ Information Architecture
 #### Quick Link Sample Layout
 
 ![recipe details - quick link](design-worksheet-images/information-architecture/4.png)
+
+#### Ingredient List
+![recipe details - ingredient list](design-worksheet-images/information-architecture/5.png)
+
+#### Nutrition Facts
+![recipe details - nutrition facts](design-worksheet-images/information-architecture/6.png)
+
+#### Comment Sections
+![comment section](design-worksheet-images/information-architecture/7.png)
+
+#### About Us Page
+![about us page](design-worksheet-images/information-architecture/8.png)
+
+#### Log In/Sign Up Page
+![log in and sign up page](design-worksheet-images/information-architecture/9.png)
+
+#### Filter
+![filter](design-worksheet-images/information-architecture/10.png)
 
 References:
 -----------
