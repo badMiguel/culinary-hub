@@ -76,7 +76,13 @@ Component design
 MVP 
 ---
 
-Provide an outline of your first MVP. This is your individual ideas, not the team MVP yet, but you will combine these to form the entire site. So submit your own work
+**MVP Outline for Desktop**
+
+![mvp outline - desktop](mvp-outline/mvp-outline-desktop.png)
+
+**MVP Outline for Mobile**
+
+![mvp outline - mobile](mvp-outline/mvp-outline-mobile.png)
 
 Information Architecture
 ------------------------
