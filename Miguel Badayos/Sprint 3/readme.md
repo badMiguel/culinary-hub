@@ -87,47 +87,14 @@ MVP
 Information Architecture
 ------------------------
 
+*Card Outline*
 ![card outline](design-worksheet-images/information-architecture/1.png)
 
-*Card Outline*
-
-
+*Recipe Title and Description Layout*
 ![recipe details - title and description layout](design-worksheet-images/information-architecture/2.png)
 
-*Recipe Title and Description Layout*
-
-
-![]()
-
-**
-
-![]()
-
-**
-
-![]()
-
-**
-
-![]()
-
-**
-
-![]()
-
-**
-
-![]()
-
-**
-
-![]()
-
-**
-
-![]()
-
-**
+*Cooking Time, Difficulty, and Servings Information*
+![recipe details - cooking time, difficulty, and serving information](design-worksheet-images/information-architecture/3.png)
 
 References:
 -----------
