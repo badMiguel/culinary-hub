@@ -63,12 +63,12 @@ The developers of the website believe that by providing users with advanced filt
 Proto Persona
 -------------
 
-![proto persona](proto-persona.jpg)
+![proto persona](persona/proto-persona.jpg)
 
 Persona
 -------
 
-![traditional persona](persona.jpg)
+![traditional persona](persona/persona.jpg)
 
 Component design
 ================
