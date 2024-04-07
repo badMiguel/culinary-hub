@@ -68,7 +68,7 @@ Proto Persona
 Persona
 -------
 
-![traditional persona](persona.jpeg)
+![traditional persona](persona.jpg)
 
 Component design
 ================
