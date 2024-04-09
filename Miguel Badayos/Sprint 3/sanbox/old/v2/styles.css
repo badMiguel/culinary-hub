@@ -9,6 +9,7 @@
     --bg-third: #201f1d; 
     --font-primary: #0B0C10;
     --font-secondary: #dadada;  
+    overflow: hidden;
 }
 
 *{
@@ -20,21 +21,16 @@ body{
     background-color: var(--bg-primary);
 }
 
-.row-container{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
+
 
 .card-row{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 5rem;
-    margin: 3rem;
+    padding: 0 7rem;
+    overflow: visible;
 }
 
 
@@ -70,11 +66,11 @@ body{
 
 .caption-container{
     padding: 1rem 2rem;
-    height: 9rem;
+    height: 10rem;
     
-    .image_title{
+    figcaption{
         font-size: 25px;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         font-weight: 500;
     }
     
@@ -89,23 +85,10 @@ body{
     }
 }
 
-.bottom-part-card{
-    display: flex;
-    margin: 0 2rem;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
-.food-category{
-    background-color: var(--bg-primary);
-    padding: 0.2rem 1rem;
-    border-radius: 0.6rem;
-}
-
 .icons{
     display: flex;
     justify-content: flex-end;
+    margin: 0 2rem;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
@@ -137,7 +120,10 @@ body{
     height: 20px;
 }
 
+
+
 .heart-number{
+    font-size: 12px;
     font-weight: 300;
 }
 
@@ -164,8 +150,6 @@ body{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease;
     z-index: 99;
 }
 
@@ -181,8 +165,6 @@ body{
     border-radius: 2rem;
     box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.5);
     visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s ease;
 
     .share-header{
         display: flex;
@@ -218,7 +200,7 @@ body{
     }
 
     .share-link-container{
-        margin: 0 2.5rem 0 2.5rem;
+        margin: 0 40px;
         width:20rem;
         height: 2.5rem;
         background-color: var(--font-primary);
@@ -226,7 +208,6 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2rem;
     }
 
     .share-link{
@@ -257,7 +238,66 @@ body{
     margin: 1rem;
     opacity: 0;
     transition: opacity 0.2s ease;
-    z-index: 100;
+}
+
+.right-container{
+    position: absolute;
+    display: flex;
+    right: 0;
+
+    .right-container-gradient{
+        height: 36rem;
+        background: linear-gradient(to left, var(--bg-primary),rgba(194, 185, 176,0.8),rgba(0,0,0,0));
+        
+    }
+
+    .right-arrow-container{
+        width: 5rem;
+        height: 36rem;
+        background-color: var(--bg-primary);
+        display: grid;
+        place-items: center;
+
+        #right-arrow{
+            position: absolute;
+            width: 3rem;
+            cursor: pointer;
+        }
+    }
+}
+
+.left-container{
+    position: absolute;
+    display: flex;
+    left: 0;
+
+    .left-container-gradient{
+        width: 2rem;
+        height: 36rem;
+        background: linear-gradient(to right, var(--bg-primary),rgba(194, 185, 176,0.8),rgba(0,0,0,0));
+        
+    }
+
+    .left-arrow-container{
+        width: 5rem;
+        height: 36rem;
+        background-color: var(--bg-primary);
+        display: grid;
+        place-items: center;
+
+        #left-arrow{
+            position: absolute;
+            width: 3rem;
+            rotate: 180deg;
+            cursor: pointer;
+        }
+    }
+}
+
+h1{
+    margin: 10rem 0rem 2rem 7rem;
+    font-weight: bolder;
+    font-size: 35px;
 }
 
 @media screen and (min-width: 1250px){
@@ -269,7 +309,7 @@ body{
     }
 
     .card-container:hover .card{
-        box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
+        box-shadow: 0 0px 10px 10px rgba(165, 165, 165, 0.4);
     }
 
     .heart:hover, .bookmark:hover, .share-button:hover{
@@ -279,11 +319,11 @@ body{
     
 }
 
-@media screen and (max-width: 1250px) and (min-width:582px){
+@media screen and (max-width: 1250px) and (min-width:450px){
     :root{
-        font-size: 12px;
+        font-size: 13px;
     }
-    .card-row{
+    .viewmodel{
         gap: 2.5rem;
     }
 
@@ -293,7 +333,7 @@ body{
 
     .caption-container{
         height: 5rem;
-        .image_title{
+        figcaption{
             font-size: 23px;
         }
 
@@ -309,18 +349,22 @@ body{
     .heart{
         transform: translateY(3px);
     }
+    .left-container-gradient,.left-arrow-container,.right-arrow-container,.right-container-gradient{
+        height: 32rem;
+    }
 
-    .card-row{
-        gap: 2.5rem;
+    .right-container-gradient,.left-container-gradient{
+        width: 2rem;
+    }
+
+    .right-arrow-container, .left-arrow-container{
+        width: 5rem;
     }
 }
 
-@media screen and (max-width: 581px) and (min-width: 534px){
+@media screen and (max-width:450px){
     :root{
-        font-size: 11px;
-    }
-    .card-row{
-        gap: 2.5rem;
+        font-size: 10px;
     }
 
     .card{
@@ -329,41 +373,8 @@ body{
 
     .caption-container{
         height: 5rem;
-        .image_title{
+        figcaption{
             font-size: 20px;
-        }
-
-        p{
-            visibility: hidden;
-        }
-    }
-
-    .heart-number{
-        font-size: 14px;
-    }
-
-    .heart{
-        transform: translateY(3px);
-    }
-
-    .card-row{
-        gap: 2.5rem;
-    }
-}
-
-@media screen and (max-width:533px) and (min-width:340px){
-    :root{
-        font-size: 8px;
-    }
-
-    .card{
-        height: 30rem;
-    }
-
-    .caption-container{
-        height: 5rem;
-        .image_title{
-            font-size: 15px;
         }
 
         p{
@@ -378,8 +389,15 @@ body{
     .heart{
         transform: translateY(3px);
     }
+    .left-container-gradient,.left-arrow-container,.right-arrow-container,.right-container-gradient{
+        height: 32rem;
+    }
 
-    .card-row{
-        gap:2.5rem;
+    .right-container-gradient,.left-container-gradient{
+        width: 2rem;
+    }
+
+    .right-arrow-container, .left-arrow-container{
+        width: 5rem;
     }
 }

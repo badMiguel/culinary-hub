@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
 
-    // open share menu pop up
     const shareButton = document.querySelectorAll('.share-button')
     const copyButton = document.querySelector('.copy-button')
     let linkIdNumber = 0
+    const arrow = document.querySelectorAll('.arrow')
     shareButton.forEach(shareButton => {
         linkIdNumber += 1
         let linkIdString = linkIdNumber.toString()
@@ -71,10 +71,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
         const shareLink = document.querySelector('.share-link')
 
+        
+
         shareButton.addEventListener('click', function(){
             sharePopup.forEach(sharePopup => {
                 sharePopup.style.visibility = 'visible'
-                sharePopup.style.opacity = 1
+            });
+
+            arrow.forEach(arrow => {
+                arrow.style.opacity= '0.5'
             });
 
             shareLink.value = recipeLink
@@ -84,22 +89,20 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
    
-    // close share menu pop up
     const exitShare = document.querySelectorAll('.hide-bg-content, .close-share')
     const sharePopup = document.querySelectorAll('.share-popup, .hide-bg-content');
     exitShare.forEach(exitShare => {
         exitShare.addEventListener('click', function(){
             sharePopup.forEach(sharePopup => {
-                sharePopup.style.opacity = 0
-                setTimeout(() => {
-                    sharePopup.style.visibility = 'hidden' 
-                }, 200);
+                sharePopup.style.visibility = 'hidden' 
+            });
+            arrow.forEach(arrow => {
+                arrow.style.opacity = 1
             });
         })
     });
 });
 
-// copies the link of the target url
 function copyLink(link){
     navigator.clipboard.writeText(link)
     
