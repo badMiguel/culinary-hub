@@ -101,7 +101,7 @@ body{
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    height: 1.25rem;
+    height: 1.3rem;
     
     .heart, .bookmark, .share-button{
         align-self: flex-start;
@@ -111,6 +111,7 @@ body{
 
     .heart{
         width: 1.8rem;
+        transform: translateY(3px);
     }
 
     .bookmark{
@@ -118,7 +119,8 @@ body{
     }
 
     .share-button{
-        width: 1rem;
+        width: 1.05rem;
+        transform: translateY(-2.5px);
     }
 }
  
@@ -126,7 +128,7 @@ body{
     display: flex;
     gap: 0.25rem;
     align-items: center;
-    height: 20px;
+
 }
 
 .heart-number{
@@ -143,11 +145,6 @@ body{
     fill: var(--bg-secondary);
     stroke: black;
 }
-
-.share-button{
-    transform: translateY(-2px);
-}
-
 
 .hide-bg-content{
     top:0;
@@ -282,6 +279,14 @@ body{
         height: 38rem;
     }
 
+    .card-container:hover .card{
+        box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
+    }
+
+    .heart:hover, .bookmark:hover, .share-button:hover{
+        transform: scale(1.25);
+    }
+
     .caption-container{
         height: 13rem;
 
@@ -298,12 +303,29 @@ body{
         font-size: 14px;
     }
 
-    .heart{
-        transform: translateY(3px);
-    }
-
     .card-row{
         gap: 2.5rem;
+    }
+
+    .food-category{
+        font-size: 13px;
+    }
+    .icons{
+        height: 1.5rem;
+        
+        .heart{
+            transform: translateY(2px);
+            width: 2rem;
+        }
+
+        .bookmark{
+            width: 1.3rem;
+        }
+
+        .share-button{
+            width: 1.2rem;
+            transform: translateY(-2px);
+        }
     }
 }
 
@@ -331,11 +353,30 @@ body{
         font-size: 10px;
     }
 
-    .heart{
-        transform: translateY(3px);
+    .icons{
+        height: 1.5rem;
+
+        .heart{
+            transform: translateY(2px);
+            width: 2rem;
+        }
+
+        .bookmark{
+            width: 1.3rem;
+            transform: translateY(1px);
+        }
+
+        .share-button{
+            width: 1.15rem;
+            transform: translateY(0.3px);
+        }
     }
 
     .card-row{
         gap:2.5rem;
+    }
+    
+    .food-category{
+        font-size: 10px;
     }
 }
