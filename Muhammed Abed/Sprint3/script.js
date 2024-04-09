@@ -1,6 +1,10 @@
-// Sample recipe data
+// Sample recipe data which can be updated as new recipes added
 const recipes = [
-    { title: "Pasta Primavera", image: "pasta.jpg", prepTime: 30, cookingSkill: "Beginner", allergens: [] },
+    { title: "Pasta Primavera",
+     image: "pasta.jpg" , //Image source: https://www.thereciperebel.com/wp-content/uploads/2023/04/pasta-primavera-TRR-17-of-19.jpg
+     prepTime: 30, 
+     cookingSkill: "Beginner",
+     allergens: [] }, 
 ];
 
 // Function to generate recipe cards
