@@ -1,10 +1,7 @@
 // Sample recipe data which can be updated as new recipes added
 const recipes = [
-    { title: "Pasta Primavera",
-     image: "pasta.jpg" , //Image source: https://www.thereciperebel.com/wp-content/uploads/2023/04/pasta-primavera-TRR-17-of-19.jpg
-     prepTime: 30, 
-     cookingSkill: "Beginner",
-     allergens: [] }, 
+    { title: "Pasta Primavera", image: 'pasta.jpeg', prepTime: 30, cookingSkill: "Beginner", allergens: [] }, //Image source: https://www.thereciperebel.com/wp-content/uploads/2023/04/pasta-primavera-TRR-17-of-19.jpg
+    
 ];
 
 // Function to generate recipe cards
@@ -16,7 +13,7 @@ function generateRecipeCards() {
         card.classList.add("recipe-card");
 
         const image = document.createElement("img");
-        image.src = `images/${recipe.image}`;
+        image.src = `${recipe.image}`;
         image.alt = recipe.title;
         card.appendChild(image);
 
