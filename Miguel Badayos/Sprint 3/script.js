@@ -51,9 +51,13 @@ document.addEventListener('DOMContentLoaded', function(){
         linkIdNumber += 1
         let linkIdString = linkIdNumber.toString()
         let linkId = 'link-' + linkIdString
-
         let linkElement = document.getElementById(linkId)
         let recipeLink = linkElement.getAttribute('href')
+
+        // gets the link of the target html file. with this method, it capture the bitbucket.io as well instead of only the pure html href
+        let tempAnchor = document.createElement('a')
+        tempAnchor.href = recipeLink
+        let newRecipeLink = tempAnchor.href
 
         const shareLink = document.querySelector('.share-link')
 
@@ -63,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 sharePopup.style.opacity = 1
             });
 
-            shareLink.value = recipeLink
+            shareLink.value = newRecipeLink
             copyButton.addEventListener('click', function(){
-                copyLink(recipeLink)
+                copyLink(newRecipeLink)
             })
         });
     });

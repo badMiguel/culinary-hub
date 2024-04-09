@@ -218,13 +218,15 @@ body{
         margin-left: 1rem;
         background-color: rgba(0,0,0,0);
         color: var(--font-secondary);
+        opacity: 0.5;
         border: none;
         overflow: hidden;
+        font-style: italic;
     }
 
     .copy-button{
         background-color: var(--font-secondary);
-        margin-right: 1rem;
+        margin: 0 1rem;
         padding: 0.2rem 1rem;
         border-radius: 1rem;
         font-weight: 500;
