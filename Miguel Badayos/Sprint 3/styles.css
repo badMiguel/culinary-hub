@@ -260,7 +260,7 @@ body{
     z-index: 100;
 }
 
-@media screen and (min-width: 1250px){
+@media screen and (min-width: 1367px){
     :root{
         font-size: 16px;
     }
@@ -279,7 +279,7 @@ body{
     
 }
 
-@media screen and (max-width: 1250px) and (min-width:582px){
+@media screen and (max-width: 1366px) and (min-width:582px){
     :root{
         font-size: 12px;
     }
