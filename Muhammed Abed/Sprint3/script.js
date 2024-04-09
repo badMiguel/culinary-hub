@@ -33,6 +33,12 @@ function generateRecipeCards() {
             allergens.textContent = `Allergens: ${recipe.allergens.join(", ")}`;
             card.appendChild(allergens);
         }
+        else {
+            // Display "Allergens: None" if no allergens are present
+            const allergens = document.createElement("p");
+            allergens.textContent = "Allergens: None";
+            card.appendChild(allergens);
+        }
         recipeContainer.appendChild(card);
     });
 }
