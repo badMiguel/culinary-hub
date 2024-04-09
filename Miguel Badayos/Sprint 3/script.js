@@ -1,21 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
-    // shorten the description to fit into the card
-    const imageDescription = document.querySelectorAll('.image_description')  
-    imageDescription.forEach(imageDescription => {
-        const imageDescriptionContent = imageDescription.textContent
-        const stringLength = imageDescriptionContent.length
-
-        let  descriptionSplit = imageDescriptionContent.split('');
-
-        if (stringLength > 150){
-            let newDescription = ''
-            for (let letter = 0; letter<=129; letter++){
-                newDescription += descriptionSplit[letter]
-            }
-            newDescription += '...'
-            imageDescription.textContent = newDescription
-        }
-    });
+   
+    dynamicTruncate()
+    window.addEventListener('resize', () =>{dynamicTruncate()});
 
     // adds a amount of like when recipe is liked - change  color of button
     const heartButton = document.querySelectorAll('.heart');
@@ -135,4 +121,47 @@ function changeColor(element, color, button){
             return -1
         }
     } 
+}
+
+const fullDescription =  {
+    'Recipe 1': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
+    'Recipe 2': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
+    'Recipe 3': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
+    'Recipe 4': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
+}
+
+// shorten the description to fit into the card
+let previousViewportWidth = null;
+
+function dynamicTruncate(){
+    const viewportWidth = window.innerWidth
+    const imageDescription = document.querySelectorAll('.image_description')
+    if (viewportWidth !== previousViewportWidth) {
+        let descNumber = 0
+        imageDescription.forEach(imageDescription => {
+            descNumber += 1
+            descNumberToString = descNumber.toString()
+            recipeDescription = 'Recipe ' + descNumberToString
+            imageDescription.textContent = fullDescription[recipeDescription]
+            const imageDescriptionContent = imageDescription.textContent
+            const  descriptionSplit = imageDescriptionContent.split('');
+
+            const truncatedDescription = truncateDescription(
+                descriptionSplit,
+                viewportWidth >= 1367 ? 130 : viewportWidth >= 582 ? 71: 63
+            );
+            imageDescription.textContent = truncatedDescription;
+        });
+        previousViewportWidth = viewportWidth;
+    }
+}
+
+
+function truncateDescription(description, length){
+    let newDescription = ''
+    for (let letter = 0; letter<length; letter++){
+        newDescription += description[letter]
+    }
+    newDescription += '...'
+    return newDescription
 }

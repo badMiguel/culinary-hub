@@ -20,14 +20,6 @@ body{
     background-color: var(--bg-primary);
 }
 
-.row-container{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
 .card-row{
     display: flex;
     justify-content: center;
@@ -279,43 +271,7 @@ body{
     
 }
 
-@media screen and (max-width: 1366px) and (min-width:582px){
-    :root{
-        font-size: 12px;
-    }
-    .card-row{
-        gap: 2.5rem;
-    }
-
-    .card{
-        height: 30rem;
-    }
-
-    .caption-container{
-        height: 5rem;
-        .image_title{
-            font-size: 23px;
-        }
-
-        p{
-            visibility: hidden;
-        }
-    }
-
-    .heart-number{
-        font-size: 14px;
-    }
-
-    .heart{
-        transform: translateY(3px);
-    }
-
-    .card-row{
-        gap: 2.5rem;
-    }
-}
-
-@media screen and (max-width: 581px) and (min-width: 534px){
+@media screen and (max-width: 1366px) and (min-width:534px){
     :root{
         font-size: 11px;
     }
@@ -324,17 +280,18 @@ body{
     }
 
     .card{
-        height: 30rem;
+        height: 38rem;
     }
 
     .caption-container{
-        height: 5rem;
+        height: 13rem;
+
         .image_title{
-            font-size: 20px;
+            font-size: 23px;
         }
 
         p{
-            visibility: hidden;
+            font-size: 15px;
         }
     }
 
@@ -357,17 +314,17 @@ body{
     }
 
     .card{
-        height: 30rem;
+        height: 35rem;
     }
 
     .caption-container{
-        height: 5rem;
+        height: 10rem;
         .image_title{
             font-size: 15px;
         }
 
         p{
-            visibility: hidden;
+            font-size: 12px;
         }
     }
 
