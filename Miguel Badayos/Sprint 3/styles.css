@@ -32,13 +32,10 @@ body{
 
 .card{
     width: 20rem;
-    height: 34rem;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0.3rem 0.6rem 0 rgba(0,0,0,0.5);
     background-color: var(--bg-secondary);
-    /* z-index: 100; */
-
 }
 
 .card-container{
@@ -83,7 +80,7 @@ body{
 
 .bottom-part-card{
     display: flex;
-    margin: 0 2rem;
+    margin: 0 2rem 1.5rem 2rem;
     justify-content: space-between;
     align-items: center;
     
@@ -255,16 +252,16 @@ body{
     .card{
         transition: box-shadow 0.2s ease;
     }
-
+    .bottom-part-card{
+        margin: 0 2rem 1.2rem 2rem;
+    }
     .card-container:hover .card{
         box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
     }
 
     .heart:hover, .bookmark:hover, .share-button:hover{
         transform: scale(1.25);
-    }
-
-    
+    }   
 }
 
 @media screen and (max-width: 1366px) and (min-width:534px){
@@ -275,8 +272,8 @@ body{
         gap: 2.5rem;
     }
 
-    .card{
-        height: 38rem;
+    .bottom-part-card{
+        margin: 0 2rem 1.5rem 2rem;
     }
 
     .card-container:hover .card{
@@ -334,9 +331,7 @@ body{
         font-size: 8px;
     }
 
-    .card{
-        height: 35rem;
-    }
+
 
     .caption-container{
         height: 10rem;
