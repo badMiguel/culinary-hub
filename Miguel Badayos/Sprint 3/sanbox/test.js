@@ -1,15 +1,27 @@
-const showMoreButton = document.querySelector('.show-more');
-const moreContent = document.querySelector('.more-content');
+const shareButton = document.getElementById('share-button');
+const sharePopup = document.getElementById('share-popup');
+const closePopupButton = document.getElementById('close-popup');
+const copyLinkButton = document.getElementById('copy-link');
 
-if (showMoreButton && moreContent) { // Check if elements exist
-  showMoreButton.addEventListener('click', () => {
-    moreContent.classList.toggle('show');
-    if (moreContent.classList.contains('show')) {
-      showMoreButton.textContent = 'Show Less';
-    } else {
-      showMoreButton.textContent = 'Show More';
-    }
-  });
-} else {
-  console.error("Error: Elements not found!"); // Log error if elements not found
-}
+shareButton.addEventListener('click', () => {
+    sharePopup.classList.toggle('visible');
+});
+
+closePopupButton.addEventListener('click', () => {
+    sharePopup.classList.remove('visible');
+});
+
+// Implement clipboard.js (or a similar library) to handle copy functionality
+// You can include clipboard.js from a CDN or download it locally
+// See https://clipboard.js.org/ for usage instructions
+
+// Example usage assuming clipboard.js is loaded:
+copyLinkButton.addEventListener('click', () => {
+    const clipboard = new ClipboardJS('#copy-link');
+    clipboard.on('success', () => {
+        alert('Link copied to clipboard!');
+    });
+    clipboard.on('error', () => {
+        alert('Failed to copy link!');
+    });
+});
