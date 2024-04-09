@@ -183,8 +183,6 @@ body{
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease;
-    min-height: 170px;
-
 
     .share-header{
         display: flex;
@@ -228,6 +226,7 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 2rem;
     }
 
     .share-link{
