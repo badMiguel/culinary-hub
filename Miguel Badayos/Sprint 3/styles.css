@@ -167,7 +167,6 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 25rem;
-    height: 15rem;
     background-color: var(--bg-third);
     z-index: 100;
     border-radius: 2rem;
