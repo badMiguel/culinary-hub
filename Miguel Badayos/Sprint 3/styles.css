@@ -259,8 +259,16 @@ body{
         box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
     }
 
-    .heart:hover, .bookmark:hover, .share-button:hover{
-        transform: scale(1.25);
+    .heart:hover{
+        transform: scale(1.1) translateY(3px);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .share-button:hover{
+        transform: scale(1.1) translateY(-2.5px);
     }   
 }
 
@@ -280,9 +288,6 @@ body{
         box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
     }
 
-    .heart:hover, .bookmark:hover, .share-button:hover{
-        transform: scale(1.25);
-    }
 
     .caption-container{
         height: 13rem;
@@ -324,6 +329,18 @@ body{
             transform: translateY(-2px);
         }
     }
+
+    .heart:hover{
+        transform: scale(1.1) translateY(2px);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .share-button:hover{
+        transform: scale(1.1) translateY(-2px);
+    }   
 }
 
 @media screen and (max-width:533px){
