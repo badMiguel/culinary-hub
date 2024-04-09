@@ -36,7 +36,12 @@ header {
     text-align: left;
 }
 
-
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
 
 .recipe-card h2 {
     font-size: 18px;
