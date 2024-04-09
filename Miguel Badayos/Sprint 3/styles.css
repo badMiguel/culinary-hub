@@ -383,36 +383,3 @@ body{
         gap:2.5rem;
     }
 }
-
-@media screen and (max-width:340px){
-    :root{
-        font-size: 8px;
-    }
-
-    .card{
-        height: 30rem;
-    }
-
-    .caption-container{
-        height: 5rem;
-        .image_title{
-            font-size: 15px;
-        }
-
-        p{
-            visibility: hidden;
-        }
-    }
-
-    .heart-number{
-        font-size: 10px;
-    }
-
-    .heart{
-        transform: translateY(3px);
-    }
-
-    .card-row{
-        gap:2.5rem;
-    }
-}
