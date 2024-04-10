@@ -19,15 +19,12 @@ body{
     background-color: var(--bg-primary);
 }
 
-.card-row{
-    display: flex;
+.card-container{
+    display: grid;
+    height: 100vh;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 5rem;
-    margin: 3rem;
 }
-
 
 .card{
     width: 20rem;
@@ -38,10 +35,6 @@ body{
     background-color: var(--bg-secondary);
 }
 
-.card-container{
-    display: flex;
-    align-items: center;
-}
 
 
 .image-container{
