@@ -45,3 +45,99 @@ Hypothesis Statements:
 
 We believe users will find our recipe website more engaging and user-friendly compared to existing options.
 We will know we're right when we see positive user reviews highlighting the ease of use and variety of recipes offered. Additionally, we'll track metrics like user session duration and recipe exploration depth.
+
+MVP:
+Recipe Cards:
+Display recipe title, image, and brief information like allergens, prep time, cooking difficulty, and dietary requirements. Card can also be used to like or save the recipe.
+In the next stage, clicking a card would lead to a detailed recipe page.
+
+
+Information Architecture:
+
+                  +-------------------+
+                  |       Home        | (Landing Page)
+                  +-------------------+
+                          |
+                          v
+                  +-------------------+
+                  |  Search Bar       |
+                  +-------------------+
+                          |
+                          v
+                  +-------------------+
+                  |    Browse All     |
+                  | (Recipe List)      |
+                  +-------------------+
+                          |
+                          v (Filtering Options)
+                +---------+---------+---------+
+                |Prep Time | Skill Level | Diet |
+                |         |              |      |
+                +---------+---------+---------+
+                          |
+                          v
+                 +-------------------+  (Click on Card) +-------------------+
+                 | Recipe Card (List) |    ------>      | Detailed Recipe  |
+                 | (Multiple Cards)   |                 | (Single Recipe)  |
+                 +-------------------+                  +-------------------+
+                          |
+                          v 
+                 +-------------------+
+                 | User Profile      |
+                 +-------------------+
+                          |
+                          v (Optional)
+                 +-------------------+
+                 | Saved Recipes     |
+                 +-------------------+
+                          |
+                          v (Optional)
+                 +-------------------+
+                 | Settings          |
+                 +-------------------+
+
+Home (Landing Page):
+
+Serves as the entry point for users.
+May showcase featured recipe cards, categories, or search bar.
+
+Search Bar:
+Allows users to search recipes by keyword, ingredient, or other criteria.
+
+Browse All (Recipe List):
+Displays a list of all recipes in the database.
+May be paginated for easier browsing.
+
+Filtering Options:
+Prep Time (e.g., Less than 30 min, 30 min - 1 hour, etc.)
+Skill Level (e.g., Beginner, Intermediate, Advanced)
+Dietary Requirements (e.g., Vegan, Gluten-Free, etc.)
+
+Recipe Card (List):
+Each card displays a brief overview of a recipe, including:
+Image
+Title
+Prep Time
+Cooking Skill Level
+Dietary Requirements
+
+Detailed Recipe:
+Clicking a recipe card takes the user to a dedicated page with full details, including:
+Ingredients list with quantities
+Step-by-step instructions
+Nutritional information (optional)
+Ratings and reviews (optional)
+
+User Profile (Optional):
+Allows users to create an account and manage preferences.
+May include features like:
+Saved recipes
+Dietary restrictions
+Favorite cooking styles
+
+Saved Recipes (Optional):
+Stores recipes the user has marked for future reference (requires user profile).
+
+Settings (Optional):
+Allows users to personalize their experience (e.g., adjust font size, change language).
+
