@@ -18,7 +18,7 @@ header {
     text-align: center;
 }
 
-#recipe-container {
+main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -26,7 +26,7 @@ header {
     padding: 20px;
 }
 
-.recipe-card {
+.card {
     width: 300px;
     height: 400px;
     background-color: #fff;
@@ -40,7 +40,7 @@ header {
     flex-direction: column;
 }
 
-.recipe-card img {
+.card img {
     /*Ensure all images takes full width of container and have same dimension*/
     width: 100%;
     height: 250px;
@@ -48,13 +48,21 @@ header {
     border-radius: 8px 8px 0 0;
 }
 
-.recipe-card h2 {
+.card h2 {
     font-size: 18px;
     margin: 10px 0;
 }
 
-.recipe-card p {
+.card p {
     font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 5px;
+    line-height: 0.5;
+    margin-bottom: 3px;
 }
+
+@media (max-width: 768px) {
+    .card {
+        width: 50%; /* Each row will have no more than one card on mobiles */
+    }
+}
+
+
