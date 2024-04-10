@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="filters">
+  <label for="prep-time">Prep Time:</label>
+  <select id="prep-time">
+    <option value="">Any</option>
+    <option value="15">Less than 15 minutes</option>
+    <option value="30">Less than 30 minutes</option>
+    <option value="60">Less than 1 hour</option>
+  </select>
+  
+  <label for="allergens">Allergens:</label>
+  <select id="allergens">
+    <option value="">Any</option>
+    <option value="nuts">Nuts</option>
+    <option value="dairy">Dairy</option>
+    <option value="gluten">Gluten</option>
+  </select>
+  
+  <label for="dietary-requirements">Dietary Requirements:</label>
+  <select id="dietary-requirements">
+    <option value="">Any</option>
+    <option value="vegetarian">Vegetarian</option>
+    <option value="vegan">Vegan</option>
+    <option value="paleo">Paleo</option>
+  </select>
+</div>
+
+<main class="container">
+  <article class="card" data-prep-time="30" data-allergens="dairy" data-dietary-requirements="vegetarian">
+    <img src="pexels-vincent-rivaud-2147491.jpg" alt="Delicious Vegetarian Pizza" 
+         srcset="pexels-vincent-rivaud-2147491.jpg 2x, pexels-vincent-rivaud-2147491.jpg 1x" 
+         sizes="(min-width: 768px) 500px, 250px">
+    <div class="content">
+      <h3>Vegetarian pizza</h3>
+      <p>This vegetarian pizza is topped with fresh tomatoes, basil, and mozzarella cheese.</p>
+      <p><strong>Prep Time:</strong> 30 minutes</p>
+      <p><strong>Allergens:</strong> Contains dairy</p>
+      <p><strong>Dietary Requirements:</strong> Vegetarian</p>
+      <p><strong>Cooking Skill Level:</strong> Intermediate</p>
+      <div class="buttons">
+        <button class="button love" aria- level="love this recipe">&#10084; Love <span>0</span></button>
+        <button class="button favorite" aria-label="Add to favourites">&#9733; Favorite <span>0</span></button>
+        <button class="button share" aria-label="Share this recipe" >&#128064; Share</button>
+      </div>
+    </div>
+  </article>
+  
+  <article class="card" data-prep-time="15" data-allergens="" data-dietary-requirements="paleo" data-cooking-skill-level="beginner">
+    <img src="pexels-nadin-sh-12464909.jpg"           alt="Chicken Wrap"
+         srcset="pexels-nadin-sh-12464909.jpg 2x, pexels-nadin-sh-12464909.jpg 1x"
+         sizes="(min-width: 768px) 500px, 250px">
+    
+    <div class="content">
+      <h3>Chicken Wrap</h3>
+      <p> This chicken wrap is filled with fresh letuce, tomatoes, fried chicken and a savoury sauce, perfect for a quick and healthy meal.</p>
+      <p><strong>Prep Time:</strong> 15 minutes</p>
+      <p><strong>Allergens:</strong> Contains dairy</p>
+      <p><strong>Dietary Requirements:</strong> Paleo</p>
+      <p><strong>Cooking Skill Level:</strong> Beginner</p>
+      <div class="buttons">
+        <button class="button love" aria- level="love this recipe">&#10084; Love <span>0</span></button>
+        <button class="button favorite" aria-label="Add to favourites">&#9733; Favorite <span>0</span></button>
+        <button class="button share" aria-label="Share this recipe" >&#128064; Share</button>
+      </div>
+    </div>
+    </article>
+    <article class="card" data-prep-time="20" data-allergens="soy" data-dietary-requirements="vegan" data-cooking-skill-level="intermediate">
+        <img src="tofu.jpeg" alt="Tofu Curry"
+             srcset="tofu.jpeg 2x, tofu.jpeg 1x"
+             sizes="(min-width: 768px) 500px, 250px">
+        
+        <div class="content">
+          <h3>Tofu Curry</h3>
+          <p>This aromatic tofu curry is rich with spices, tender tofu, and colorful vegetables, complemented by fresh basil. It's a delightful vegan dish that's both satisfying and nutritious.</p>
+          <p><strong>Prep Time:</strong> 20 minutes</p>
+          <p><strong>Allergens:</strong> Contains soy</p>
+          <p><strong>Dietary Requirements:</strong> Vegan</p>
+          <p><strong>Cooking Skill Level:</strong> Intermediate</p>
+          <div class="buttons">
+            <button class="button love" aria-label="Love this recipe">&#10084; Love <span>0</span></button>
+            <button class="button favorite" aria-label="Add to favorites">&#9733; Favorite <span>0</span></button>
+            <button class="button share" aria-label="Share this recipe">&#128064; Share</button>
+          </div>
+        </div>
+    </article>
+    
+    
+  <!-- Additional articles/cards -->
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
