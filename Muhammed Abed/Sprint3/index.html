@@ -26,15 +26,16 @@
 </body>
 </html> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Website</title>
     <meta name="description" content="Discover delicious recipes for every occasion on our website. Explore a variety of dishes with specific dietary requirements, detailed instructions, images, and cooking tips.">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
@@ -48,10 +49,57 @@
             <p>Cooking Skill: Beginner</p>
             <p>Allergens: Nuts, Dairy</p>
             <p>Dietary Requirements: Halal</p>
-            <span class="material-icons-outlined"> favorite_border </span>
+            <div class="card-icons-container">
+                <div class="card-icons">
+                    <span class="card-icons-button material-icons">favorite</span>
+                    <span class="card-icons-count">0</span>   
+                </div>
+                <div class="card-icons">
+                    <span class="card-icons-button material-icons">bookmark</span>
+                </div>
+            </div>
         </section>
     </main>
 
     <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Website</title>
+  <meta name="description" content="Discover delicious recipes for every occasion on our website. Explore a variety of dishes with specific dietary requirements, detailed instructions, images, and cooking tips.">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <header>
+    <h1>Discover Recipes</h1>
+  </header>
+  <main id="recipe-container">
+    <section class="card" id="recipecard">
+      <img src="pasta.webp" alt="Pasta Primavera">
+      <h2>Pasta Primavera</h2>
+      <p>Prep Time: 30 minutes</p>
+      <p>Cooking Skill: Beginner</p>
+      <p>Allergens: Nuts, Dairy</p>
+      <p>Dietary Requirements: Halal</p>
+      <div class="card-icons-container">
+        <div class="card-icons">
+          <span class="card-icons-button material-icons">favorite</span>
+          <span class="card-icons-count">0</span>
+        </div>
+        <div class="card-icons">
+          <span class="card-icons-button material-icons" id="bookmarkButton">bookmark</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
