@@ -1,7 +1,7 @@
 
 body {
     background-color: #85ce8b;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, sans-serif;
     margin: 0;
     padding: 0;
   }
@@ -23,6 +23,7 @@ body {
 .card h2 {
   font-size: 18px;
   margin: 10px 0;
+  
 }
   
 .card img {
@@ -78,7 +79,7 @@ body {
   color: #e3242b;
 }
  
-/* Header styles */
+
 header {
   background-color: #015120;
   color: #fff;
@@ -86,13 +87,13 @@ header {
   text-align: center;
 }
   
-/* h2 styles */
+
 h2 {
   font-size: 30px;
   text-align: center;
 }
   
-/* Main styles */
+
 main {
   align-items: flex-start;
   display: flex;
@@ -101,10 +102,10 @@ main {
   padding: 20px;
 }
   
-/* Media queries styles */
+
 @media (max-width: 768px) {
   .card {
-    width: 50%;
+    width: 50%; /*Ensures not more than 1 card shows per row on small screens*/
   }
 }
   

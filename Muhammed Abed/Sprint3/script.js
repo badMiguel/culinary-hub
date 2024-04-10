@@ -1,6 +1,5 @@
 const likeButton = document.querySelector('.card-icons-button');
 const likeCount = document.querySelector('.card-icons-count');
-
 const bookmarkButton = document.getElementById('bookmarkButton');
 
 let currentLikeCount = 0; // Initialize like count
