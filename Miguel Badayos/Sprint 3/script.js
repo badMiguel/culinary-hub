@@ -91,6 +91,43 @@ document.addEventListener('DOMContentLoaded', function(){
                 href: newRecipeLink,
             })
         });
+
+        // from gemini- to share recipe on twitter
+        const tweetButton = document.getElementById('twitter');
+
+        tweetButton.addEventListener('click', function() {
+            const shareURL = newRecipeLink;
+            const shareText = 'Try out this recipe!'; // Optional pre-filled text
+            const hashtags = '\n\n#soyummy #ooooYUMMY'; // Optional hashtags (comma-separated)
+
+            // Construct the share URL
+            let tweetURL = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(shareURL);
+            if (shareText) {
+                tweetURL += '&text=' + encodeURIComponent(shareText);
+            }
+            if (hashtags) {
+                tweetURL += '&hashtags=' + encodeURIComponent(hashtags);
+            }
+            window.open(tweetURL, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=350,width=600');
+        });
+
+        // from gemini- to share recipe on email
+        const emailButton = document.getElementById('email');
+
+        emailButton.addEventListener('click', function() {
+            const subject = 'Check out this recipe!';
+            const body = `This is a yummy recipe you might be interested in:\n${newRecipeLink}`; 
+            const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+        });
+
+        // from  gemini - to share recipe on reddit
+        const redditButton = document.getElementById('reddit');
+
+        redditButton.addEventListener('click', function() {
+            const redditSubmitURL = `https://www.reddit.com/submit?url=${encodeURIComponent(newRecipeLink)}`; 
+            window.open(redditSubmitURL, '_blank');
+        });
     });
    
     // close share menu pop up
