@@ -152,7 +152,7 @@ function dynamicTruncate(){
 
             const truncatedDescription = truncateDescription(
                 descriptionSplit,
-                viewportWidth >= 1367 ? 130 : viewportWidth >= 582 ? 71: 63
+                viewportWidth >= 1367 ? 130 : viewportWidth >= 534 ? 71: 63
             );
             imageDescription.textContent = truncatedDescription;
         });

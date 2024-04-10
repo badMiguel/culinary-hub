@@ -244,15 +244,20 @@ body{
     :root{
         font-size: 16px;
     }
+
     .card{
         transition: box-shadow 0.2s ease;
+        
     }
+
+    .card:hover{
+        box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
+    }
+
     .bottom-part-card{
         margin: 0 2rem 1.2rem 2rem;
     }
-    .card-container:hover .card{
-        box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
-    }
+
 
     .heart:hover{
         transform: scale(1.1) translateY(3px);
@@ -271,15 +276,12 @@ body{
     :root{
         font-size: 11px;
     }
-    .card-row{
-        gap: 2.5rem;
-    }
 
     .bottom-part-card{
         margin: 0 2rem 1.5rem 2rem;
     }
 
-    .card-container:hover .card{
+    .card:hover{
         box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
     }
 
@@ -298,10 +300,6 @@ body{
 
     .heart-number{
         font-size: 14px;
-    }
-
-    .card-row{
-        gap: 2.5rem;
     }
 
     .food-category{
@@ -343,9 +341,7 @@ body{
         font-size: 8px;
     }
 
-
-
-    .caption-container{
+   .caption-container{
         height: 10rem;
         .image_title{
             font-size: 15px;
@@ -377,10 +373,6 @@ body{
             width: 1.15rem;
             transform: translateY(0.3px);
         }
-    }
-
-    .card-row{
-        gap:2.5rem;
     }
     
     .food-category{
