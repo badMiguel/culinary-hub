@@ -149,9 +149,6 @@ function changeColor(element, color, button){
 
 const fullDescription =  {
     'Recipe 1': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
-    'Recipe 2': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
-    'Recipe 3': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
-    'Recipe 4': 'Hawaiian pizza is a classic pizza topped with a combination of tomato sauce and melted cheese, topped with slices of juicy ham, and the infamous pineapple.',
 }
 
 // shorten the description to fit into the card
@@ -179,7 +176,6 @@ function dynamicTruncate(){
         previousViewportWidth = viewportWidth;
     }
 }
-
 
 function truncateDescription(description, length){
     let newDescription = ''
