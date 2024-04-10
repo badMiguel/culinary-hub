@@ -43,6 +43,16 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
 
+    // needed to allow fb share - from gemini
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: 967030775001420,
+            cookie: true,
+            xfbml: true,
+            version: 'v16.0'
+        })
+    }
+
     // open share menu pop up
     const shareButton = document.querySelectorAll('.share-button')
     const copyButton = document.querySelector('.copy-button')
@@ -72,6 +82,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 copyLink(newRecipeLink)
             })
         });
+
+        // from gemini - to share recipe on facebook
+        const facebookBtn = document.getElementById('facebook');
+        facebookBtn.addEventListener('click', function(){
+            FB.ui({
+                method: 'share',
+                href: newRecipeLink,
+            })
+        });
     });
    
     // close share menu pop up
@@ -87,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         })
     });
+
 });
 
 // copies the link of the target url
