@@ -6,12 +6,13 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 20px auto;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px;
+    display: flex;
+    flex-direction:column;
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px; */
 }
 
 .card {
@@ -29,7 +30,7 @@ body {
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -95,6 +96,7 @@ body {
 @media screen and (min-width: 768px) {
     .container {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 20px;
     }
     .card img {
         height: 250px; /* Adjusted for larger screens */
