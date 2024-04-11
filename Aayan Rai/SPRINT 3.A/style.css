@@ -110,7 +110,7 @@ body {
 }
 
 /* Media query for larger screen sizes, introducing a grid layout */
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
     .container {
         display: grid; /* Switches to a grid layout for larger screens */
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Defines columns and automatic filling */
