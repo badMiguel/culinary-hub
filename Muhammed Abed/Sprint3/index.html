@@ -15,7 +15,11 @@
   </header>
   <main id="recipe-container">
     <section class="card" id="recipecard">
-      <img src="pasta.webp" alt="Pasta Primavera">
+    <!-- Responsive image -->
+    <img src="pasta-320.webp"
+      srcset="pasta-320.webp 320w, pasta-640.webp 640w, pasta-1024.webp 1024w"
+      sizes="(max-width: 640px) 320px, 100vw"
+      alt="Pasta Primavera">
       <h2>Pasta Primavera</h2>
       <p><b>Prep Time:</b> 30 minutes</p>
       <p><b>Cooking Skill:</b> Beginner</p>
