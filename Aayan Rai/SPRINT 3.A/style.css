@@ -63,8 +63,9 @@ body {
 
 /* Buttons are centered at the bottom of the card in mobile view */
 .buttons {
-    text-align: center; /* Centers buttons horizontally */
-    padding: 0 20px 10px; /* Padding inside the button area */
+    display: flex; /* Use flexbox for button container */
+    align-items: center; /* Align buttons vertically */
+    justify-content: space-around; /* Space buttons out evenly */
 }
 
 /* Individual button styling for interactivity and aesthetics */
