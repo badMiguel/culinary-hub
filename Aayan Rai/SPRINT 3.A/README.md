@@ -42,3 +42,73 @@ The hypothesis suggests that providing a variety of recipes, detailed instructio
 User stories focus on enabling quick and healthy recipe discovery for busy professionals and providing adventurous foodies with new cuisines and engaging content.
 
 +++
+### Component DEsign
+# MVP
+
+![MVP for cooking website](menu.png)
+
++++    
+## Proto Personas
+
+![Audrey's Proto Persona](proto personas.png)
+
+Audrey - 38
+- Mother of three
+- Doctor
+- Can cook
+
+**Requirements:**
+- Wants to learn more recipes
+- Prepares new meals for the family
+- Desires a website with easy navigation, filtering options, personalized recommendations, and an elegant interface
+
+**Preferences:**
+- Dislikes lag and unattractive websites
+- Uses phone frequently; needs mobile-responsive design
+- Values aesthetics and trustworthiness in a website's appearance
+
+**Notes:**
+- As a working mom, Audrey is usually tired after work and has a short attention span.
+- Prefers easy-to-digest content.
+
+## Persona
+
+![Bob Smith's Persona](persona.png)
+
+**Bob Smith:**
+- Detail-oriented
+- Balances work and life with a wife and two children
+- Constantly improves cooking skills, cooking for 3 years.
+
+**Personal Profile:**
+- Values time and efficiency
+- Enjoys clear guides and to-do lists for organization
+- Shares cooking with family
+
+**User Goals:**
+- Find healthy and delicious recipes
+- Time-saving meal planning strategies
+- Access clear and easy-to-follow instructions in a visually appealing format
+
+**User Stories:**
+- Needs to quickly find recipes based on ingredients at home
+- Wants to create weekly meal plans conveniently
+- Seeks nutritional value and complete nutrients for family meals
+
+**Key Message:**
+- Seeks ease of use and clear instructions when searching recipes
+- Enjoys diverse cooking techniques and flavors
+- Prefers balanced meals with occasional "cheat days"
+
+## Information Architecture
+
+![Information Architecture Layout](Information architecture layout.png)
+
+The architecture outlines the structure of the website, including sections such as:
+
+- **Menu:** Allergens, Dietary Requirements, Prep Time
+- **Home:** Articles, Tips, Interviews, Demonstrations, Tutorials, Recipe Walkthroughs
+- **Store:** Merchandise, Books, Kitchen Tools, Cooking Classes
+- **Events:** Webinars, Food-related Events
+- **Community:** Forum, Comment Section
++++
