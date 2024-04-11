@@ -120,6 +120,10 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Defines columns and automatic filling */
         grid-gap: 20px; /* Space between grid items */
     }
+    
+    .card {
+        position: relative; /* Sets the position context for absolute children */
+    }
     .card img {
         height: 250px; /* Sets a fixed height for images on larger screens */
     }
@@ -128,6 +132,14 @@ body {
         bottom: 10px; /* Positions the button area at the bottom of the card */
         left: 20px; /* Aligns the button area to the left inside the card */
         right: 20px; /* Ensures button area does not exceed the card width */
+        display: flex; /* Enables flexbox layout for button alignment */
+        justify-content: space-between; /* Distributes buttons evenly */
     }
-    /* Note: There's a typo in 'positions', it should be 'position' */
+    /* Fix for the button spacing and layout */
+    .button {
+        margin: 0; /* Removes any margin from individual buttons */
+        flex: 1; /* Allows buttons to grow and fill the space */
+        justify-content: center; /* Center-aligns the button text and icon */
+    }
+    
 }
