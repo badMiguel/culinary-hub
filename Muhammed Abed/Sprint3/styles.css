@@ -30,7 +30,8 @@ body {
   border-radius: 8px 8px 0 0;
   height: 250px;
   object-fit: cover;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
 }
   
 .card p {
