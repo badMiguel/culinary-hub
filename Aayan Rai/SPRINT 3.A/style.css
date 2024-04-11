@@ -87,6 +87,7 @@ body {
 .button span {
     font-size: 0.875rem; /* Small size for the counter */
     color: #333; /* Color for the text, adjust as needed */
+}   
 /* Hover state for button for visual feedback */
 .button:hover {
     background-color: #d4aa63; /* Warm tone for hover state */
