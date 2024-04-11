@@ -65,15 +65,14 @@ body {
 .buttons {
     display: flex; /* Use flexbox for button container */
     align-items: center; /* Align buttons vertically */
-    justify-content: space-around; /* Space buttons out evenly */
+    gap:10px;
 }
-
 /* Individual button styling for interactivity and aesthetics */
 .button {
-    display: inline-flex; /* Displays buttons inline with flex alignment */
+    display: flex; /* Displays buttons inline with flex alignment */
     align-items: center; /* Vertically centers the content of the button */
     margin-left: 10px; /* Adds spacing between buttons */
-    border: none; /* Removes the default border */
+    border: 1px; /* Removes the default border */
     background-color: #e0e0e0; /* Neutral grey background for buttons */
     cursor: pointer; /* Changes the cursor to a pointer to indicate a clickable item */
     font-size: 1rem; /* Responsive font size for the button text */
