@@ -24,14 +24,14 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap:5rem;
+    gap:2rem;
 }
 
 .card{
     width: 20rem;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0.3rem 0.6rem 0 rgba(0,0,0,0.5);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.5);
     transition: box-shadow 0.3s ease;
     background-color: var(--bg-secondary);
 }
@@ -140,7 +140,7 @@ USED FOR ICONS
 
 @media screen and (min-width: 451px){
     .card:hover{
-        box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
+        box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
     }
     .heart:hover{
         transform: scale(1.1);
