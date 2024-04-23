@@ -137,3 +137,20 @@ USED FOR ICONS
     -ms-user-select: none;
     -webkit-user-select: none;
 }
+
+@media screen and (min-width: 451px){
+    .card:hover{
+        box-shadow: 0 0.3rem 0.6rem 0 rgba(107, 105, 114, 0.4);
+    }
+    .heart:hover{
+        transform: scale(1.1);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .copy-button:hover{
+        transform: scale(1.1);
+    }   
+}
