@@ -1,0 +1,71 @@
+body {
+  background-color: #FFE0B2; /* Faint orange-white background color */
+  color: #333; /* Text color */
+}
+
+.top-nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.top-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav ul li {
+  display: inline;
+}
+
+.top-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.top-nav ul li a:hover {
+  background-color: #555;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto); /* Set columns to auto width */
+  gap: 20px;
+  justify-content: center; /* Align grid at the center */
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  max-width: 500px; /* Set maximum width for each card */
+}
+
+.persona-info {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.recipes-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Adjust grid layout for small screens */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
