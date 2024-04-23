@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+   
+:root{
+    font-family: 'Roboto';
+    font-size: 16px;
+    --bg-primary: #F2F4FA;
+    --bg-secondary: #FBFBFD;
+    --bg-third: #3C6DC5; 
+    --bg-fourth: rgb(121, 121, 121);
+    --font-primary: #0B0D10;
+    --font-secondary: #FBFBFD;  
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--bg-primary);
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:5rem;
+}
+
+.card{
+    width: 20rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0.3rem 0.6rem 0 rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease;
+    background-color: var(--bg-secondary);
+}
+
+.image-container{
+    height: 20rem;
+    overflow: hidden;
+    position:relative;
+    
+    .pizza-image{
+        width: 100%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+    }
+}
+
+.caption-container{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    .image_title{
+        margin: 0 0 0.5rem 0;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    
+    p{
+        font-weight: 300;
+        color: var(--font-primary);
+    }
+    
+    a{
+        color: var(--font-primary);
+        text-decoration: none;
+    }
+}
+
+.bottom-part-card{
+    display: flex;
+    margin: 0 2rem 1.5rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.food-category{
+    background-color: var(--bg-third);
+    color: var(--font-secondary);
+    font-weight: 500;
+    padding: 0.2rem 1rem;
+    border-radius: 0.6rem;
+}
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 1rem;
+    height: 1.3rem;
+    
+    .heart, .bookmark, .copy-button{
+        align-self: flex-start;
+        transition: transform 0.25s;
+        cursor: pointer;
+        color: var(--bg-fourth);
+    }
+}
+ 
+.heart-container{
+    display: flex;
+    gap: 0.25rem;
+    align-items: end;
+}
+
+.heart-number{
+    font-weight: 300;
+}
+
+.copied-clipboard{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1rem 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
+    margin: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 100;
+}
+
+/* 
+REMOVES TEXT HIGHLIGHT WHEN DOUBLE CLICKING ON TEXT
+USED FOR ICONS
+*/
+.no-select {
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
