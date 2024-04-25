@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <title>Cards</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href="styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="script.js"></script>
+    </head>
+<body>
+    <header>
+        <h1>Discover Recipes</h1>
+    </header>
+    <div class="card-container">
+        <div class="card">
+            <div class="image-container">
+                <a class='link-1' href="full_details.html">
+                    <!-- image link - https://unsplash.com/photos/pizza-on-chopping-board-MqT0asuoIcU -->
+                    <picture>
+                        <source media="(min-width: 582px)" srcset="vegetarian pizza.webp">
+                        <source media="(max-width: 581px)" srcset="vegetarian pizza-1000.webp">
+                        <img class='pizza-image' src="vegetarian pizza.webp" draggable='false' alt="Hawaiian Pizza">
+                    </picture>
+                </a>
+            </div>
+            <div class="caption-container">
+                <div class="image_title">
+                    <a href="full_details.html">Vegetarian pizza</a>
+                </div>
+                <p class="image_description" id="description-1">This vegetarian pizza is topped with fresh tomatoes, basil, and mozzarella cheese.</p>
+                <p class="prep-time"><strong>Prep Time:</strong> 30 minutes</p>
+                <p class="allergens"><strong>Allergens:</strong> Contains dairy</p>
+                <p class="prep-time"><strong>Cooking Skill Level:</strong> Intermediate</p>
+            </div>
+            <div class="bottom-part-card">
+                <p class="food-category">Vegetarian</p>
+                <div class='icons'>
+                    <div class='heart-container'>
+                        <p class="heart material-icons no-select" id="heartColor-1">favorite</p>
+                        <p class="heart-number" id="heartLikes-1"></p>
+                    </div>
+                    <p class="bookmark material-icons no-select" id="bookmarkColor-1">bookmark</p>
+                    <p class="copy-button material-icons no-select link-1">share</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copied-clipboard">
+        <p class="notify-text">Link copied to clipboard.</p>
+    </div>
+</body>
+</html>
