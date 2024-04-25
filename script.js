@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
         linkIdNumber += 1
         let linkIdString = linkIdNumber.toString()
         let linkId = 'link-' + linkIdString
-        let linkElement = document.getElementById(linkId)
+        let linkElement = document.querySelector(linkId)
         let recipeLink = linkElement.getAttribute('href')
 
         // gets the link of the target html file. with this method, it capture the bitbucket.io as well instead of only the pure html href
