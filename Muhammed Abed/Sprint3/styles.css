@@ -1,13 +1,13 @@
 
 body {
-    background-color: #85ce8b;
+    background-color: #eff2fb;
     font-family: Helvetica, sans-serif;
     margin: 0;
     padding: 0;
   }
   
 .card {
-   background-color: #fff;
+   background-color: #d5eafe;
    border-radius: 8px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    display: flex;
@@ -83,7 +83,7 @@ body {
  
 
 header {
-  background-color: #015120;
+  background-color: #3c6dc5;
   color: #fff;
   padding: 20px;
   text-align: center;
