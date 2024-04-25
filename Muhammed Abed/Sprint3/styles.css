@@ -12,7 +12,7 @@ body {
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    display: flex;
    flex-direction: column;
-   height: 400px;
+   height: 420px;
    margin: 10px;
    overflow: hidden;
    padding: 15px;
@@ -52,6 +52,7 @@ body {
   align-items: center;
   cursor: default;
   display: flex;
+  padding-top: 5px;
 }
   
 .card-icons:not(:last-child) {
