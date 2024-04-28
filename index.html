@@ -15,32 +15,32 @@
     <div class="card-container">
         <div class="card">
             <div class="image-container">
-                <a id='link-1' href="full_details.html">
+                <a id='link' href="">
                     <!-- image link - https://unsplash.com/photos/pizza-on-chopping-board-MqT0asuoIcU -->
-                    <picture>
-                        <source media="(min-width: 582px)" srcset="vegetarian pizza-1000.webp">
-                        <source media="(max-width: 581px)" srcset="vegetarian pizza-1000.webp">
-                        <img class='pizza-image' src="vegetarian pizza-1000.webp" draggable='false' alt="Vegetarian Pizza">
+                    <picture id='recipe-image'>
+                        <source media="(min-width: 582px)" srcset="">
+                        <source media="(max-width: 581px)" srcset="">
+                        <img class="image-styles" src="" draggable='false' alt="">
                     </picture>
                 </a>
             </div>
             <div class="caption-container">
-                <div class="image_title">
-                    <a href="full_details.html">Vegetarian pizza</a>
+                <div class="image_title" id="recipe-title">
+                    <a href=""></a>
                 </div>
-                <p class="image_description" id="description-1">This vegetarian pizza is topped with fresh tomatoes, basil, and mozzarella cheese.</p>
-                <p class="prep-time"><strong>Prep Time:</strong> 30 minutes</p>
-                <p class="allergens"><strong>Allergens:</strong> Contains dairy</p>
-                <p class="prep-time"><strong>Cooking Skill Level:</strong> Intermediate</p>
+                <p id="description"></p>
+                <p><strong>Prep Time:</strong> <span id="prep-time"></span></p>
+                <p><strong>Allergens:</strong> <span id="allergens"></span></p>
+                <p><strong>Cooking Skill Level:</strong> <span id="cooking-skill"></span></p>
             </div>
             <div class="bottom-part-card">
-                <p class="food-category">Vegetarian</p>
+                <p class="food-category-container" id="food-category"></p>
                 <div class='icons'>
                     <div class='heart-container'>
-                        <p class="heart material-icons no-select" id="heartColor-1">favorite</p>
-                        <p class="heart-number" id="heartLikes-1"></p>
+                        <p class="heart material-icons no-select" id="heartColor">favorite</p>
+                        <p class="heart-number" id="heartLikes"></p>
                     </div>
-                    <p class="bookmark material-icons no-select" id="bookmarkColor-1">bookmark</p>
+                    <p class="bookmark material-icons no-select" id="bookmarkColor">bookmark</p>
                     <p class="copy-button material-icons no-select">share</p>
                 </div>
             </div>

@@ -42,7 +42,7 @@ body{
     overflow: hidden;
     position:relative;
     
-    .pizza-image{
+    .image-styles{
         width: 100%;
         position: absolute;
         top:50%;
@@ -75,13 +75,13 @@ body{
 
 .bottom-part-card{
     display: flex;
-    margin: 0 2rem 1.5rem 2rem;
+    margin: 0 2rem 1.4rem 2rem;
     justify-content: space-between;
     align-items: center;
-    
+    font-size: 0.9rem;
 }
 
-.food-category{
+.food-category-container{
     background-color: var(--bg-third);
     color: var(--font-secondary);
     font-weight: 500;
