@@ -79,6 +79,9 @@ function renderSearchItems(container, data, input) {
         const searchResults = searchHeading.textContent;
         searchHeading.textContent = `${searchResults} "${input}"`
         createDuplicateCards(data.length, data, "search")
+        heartInteractions("search")
+        bookmarkInteraction("search")    
+        copyLinkInteraction("search") 
     }
 
     xhr.open('GET', 'searched_items.html')
