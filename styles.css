@@ -58,7 +58,7 @@ body{
     }
 }
 
-.suggestion-section, .breakfast-section{
+.suggestion-section, .breakfast-section, .search-section{
     margin: auto;
     width: 320px;
     padding: 0 0 3rem 0;
@@ -190,8 +190,8 @@ USED FOR ICONS
     -webkit-user-select: none;
 }
 
-@media screen and (min-width: 451px){
-    .suggestion-section, .breakfast-section{
+@media screen and (min-width: 750px){
+    .suggestion-section, .breakfast-section, .search-section{
         width: 672px;
     }
 
@@ -212,7 +212,7 @@ USED FOR ICONS
 }
 
 @media screen and (min-width: 1200px){
-    .suggestion-section, .breakfast-section{
+    .suggestion-section, .breakfast-section, .search-section{
         width: 1024px;
     }
 

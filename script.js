@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', async function(){
     const recipeData = await loadJSON() // load data from json
 
+    searchFunction(recipeData)
+    
     const sectionList = ['suggestion', 'breakfast']
-
     // display random recipes from json
     const suggestedRandomRecipes = randomRecipes(recipeData, 3)
     createDuplicateCards(3, suggestedRandomRecipes, sectionList[0])
@@ -10,11 +11,11 @@ document.addEventListener('DOMContentLoaded', async function(){
     bookmarkInteraction(sectionList[0])    
     copyLinkInteraction(sectionList[0])
 
-    const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, "Breakfast")
+    const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, sectionList[1])
     createDuplicateCards(3, suggestedBreakfastRecipes, sectionList[1])
     heartInteractions(sectionList[1])
     bookmarkInteraction(sectionList[1])    
-    copyLinkInteraction(sectionList[1])
+    copyLinkInteraction(sectionList[1]) 
 
     // button interactions for cards
 });
@@ -28,7 +29,60 @@ async function loadJSON() {
     } catch (error) {
         console.error('Error loading JSON file:', error)
     }
+}
 
+// search function
+function searchFunction(recipeData) {
+    const searchInput = document.getElementById('search-bar')
+    const cardCollection = document.querySelector('.card-collection')
+    const originalContent = cardCollection.innerHTML
+    
+    searchInput.addEventListener('keydown', function(event) {
+
+        // if no text on input, return to home
+        if (event.key === "Enter" && searchInput.value === "") {
+            cardCollection.innerHTML = originalContent;
+            const sectionList = ['suggestion', 'breakfast']
+
+            const suggestedRandomRecipes = randomRecipes(recipeData, 3)
+            createDuplicateCards(3, suggestedRandomRecipes, sectionList[0])
+            heartInteractions(sectionList[0])
+            bookmarkInteraction(sectionList[0])    
+            copyLinkInteraction(sectionList[0])
+        
+            const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, sectionList[1])
+            createDuplicateCards(3, suggestedBreakfastRecipes, sectionList[1])
+            heartInteractions(sectionList[1])
+            bookmarkInteraction(sectionList[1])    
+            copyLinkInteraction(sectionList[1])             
+        } 
+        
+        // display filtered recipes
+        else if (event.key === "Enter" && searchInput.value != '') {
+            const filteredItems = recipeData.filter(item => 
+                item.other_categories.some(category => (category.toLowerCase() === searchInput.value) ||
+                item.recipe_title.toLowerCase().includes(searchInput.value) ||
+                item.cuisine_type.toLowerCase().includes(searchInput.value) ||
+                item.cooking_skill_level.toLowerCase().includes(searchInput.value) ||
+                item.ingredients.some(ingredient => ingredient.ingredient_name.toLowerCase().includes(searchInput.value))
+            ))
+            renderSearchItems(cardCollection, filteredItems, searchInput.value)
+        }
+    })
+}
+
+function renderSearchItems(container, data, input) {
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        container.innerHTML = this.responseText
+        const searchHeading = container.querySelector('.search-heading');
+        const searchResults = searchHeading.textContent;
+        searchHeading.textContent = `${searchResults} "${input}"`
+        createDuplicateCards(data.length, data, "search")
+    }
+
+    xhr.open('GET', 'searched_items.html')
+    xhr.send()
 }
 
 // randomise the recipes
@@ -36,8 +90,8 @@ function randomRecipes(list, numItems, filter) {
     if (!filter){
         const shuffled = list.sort(() => Math.random() - 0.5)
         return shuffled.slice(0, numItems)
-    } else if (filter === "Breakfast") {
-        const filteredItems = list.filter(item => item.other_categories.includes(filter))
+    } else if (filter === "breakfast") {
+        const filteredItems = list.filter(item => item.other_categories.some(category => category.toLowerCase() === filter))
         const shuffled = filteredItems.sort(() => Math.random() - 0.5)
         return shuffled.slice(0, numItems)
     }
@@ -59,6 +113,10 @@ function createDuplicateCards(amount, data, section) {
             const breakfastSection = document.querySelector(".breakfast-section")
             const breakfastCardContainer = breakfastSection.querySelector('.card-container')
             breakfastCardContainer.appendChild(cardClone)
+        } else if (section === "search") {
+            const searchSection = document.querySelector(".search-section")
+            const searchCardContainer = searchSection.querySelector('.card-container')
+            searchCardContainer.appendChild(cardClone)
         }
         cardClone.style.display = 'block'
         updateDuplicateCardInformation(cardClone, nthCard, data, section)
@@ -84,10 +142,10 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
         let currentId = element.id;
         element.id = `${currentId}-${section}-${number.toString()}`
     }
-
+    
     const recipeLink = document.getElementById(`link-${section}-${number}`)
     recipeLink.href = recipe_link
-
+    
     const recipePictureContainer = document.getElementById(`recipe-image-${section}-${number}`)
     const recipeImageSource = recipePictureContainer.querySelectorAll('source')
     const recipeImage = recipePictureContainer.querySelector('img')
