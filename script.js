@@ -1,11 +1,22 @@
 document.addEventListener('DOMContentLoaded', async function(){
-    const recipeData = await loadJSON()
-    const recipeCount = recipeData.length
+    const recipeData = await loadJSON() // load data from json
 
-    createCard(recipeCount, recipeData)
-    heartInteractions()
-    bookmarkInteraction()    
-    copyLinkInteraction()
+    const sectionList = ['suggestion', 'breakfast']
+
+    // display random recipes from json
+    const suggestedRandomRecipes = randomRecipes(recipeData, 3)
+    createDuplicateCards(3, suggestedRandomRecipes, sectionList[0])
+    heartInteractions(sectionList[0])
+    bookmarkInteraction(sectionList[0])    
+    copyLinkInteraction(sectionList[0])
+
+    const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, "Breakfast")
+    createDuplicateCards(3, suggestedBreakfastRecipes, sectionList[1])
+    heartInteractions(sectionList[1])
+    bookmarkInteraction(sectionList[1])    
+    copyLinkInteraction(sectionList[1])
+
+    // button interactions for cards
 });
 
 // load json file in recipe information
@@ -20,22 +31,42 @@ async function loadJSON() {
 
 }
 
+// randomise the recipes
+function randomRecipes(list, numItems, filter) {
+    if (!filter){
+        const shuffled = list.sort(() => Math.random() - 0.5)
+        return shuffled.slice(0, numItems)
+    } else if (filter === "Breakfast") {
+        const filteredItems = list.filter(item => item.other_categories.includes(filter))
+        const shuffled = filteredItems.sort(() => Math.random() - 0.5)
+        return shuffled.slice(0, numItems)
+    }
+}
+
 // create duplicate cards of the card template
-function createCard(amount, data) {
-    const cardTemplate = document.querySelector('.card')    
+function createDuplicateCards(amount, data, section) {
+    let cardTemplate = document.querySelector('.card')    
     cardTemplate.style.display = 'none'
-    nthCard = amount + 1
+    nthCard = 0
     for (let i = 0; i < amount; i++) {
-        nthCard -= 1
-        const cardClone = cardTemplate.cloneNode(true)
-        cardTemplate.parentNode.insertBefore(cardClone, cardTemplate.nextSibling)
+        nthCard += 1
+        let cardClone = cardTemplate.cloneNode(true)
+        if (section === "suggestion"){
+            const suggestedSection = document.querySelector(".suggestion-section")
+            const suggestedCardContainer = suggestedSection.querySelector('.card-container')
+            suggestedCardContainer.appendChild(cardClone)
+        } else if (section === "breakfast") {
+            const breakfastSection = document.querySelector(".breakfast-section")
+            const breakfastCardContainer = breakfastSection.querySelector('.card-container')
+            breakfastCardContainer.appendChild(cardClone)
+        }
         cardClone.style.display = 'block'
-        updateCardInformation(cardClone, nthCard, data)
+        updateDuplicateCardInformation(cardClone, nthCard, data, section)
     }
 }
 
 // update information in cards
-function updateCardInformation(cardClone, number, data) {
+function updateDuplicateCardInformation(cardClone, number, data, section) {
     const recipeDetails = data[number-1]
     const {
         recipe_link,
@@ -51,14 +82,13 @@ function updateCardInformation(cardClone, number, data) {
     const elementIdToUpdate = cardClone.querySelectorAll('[id]')
     for (const element of elementIdToUpdate){
         let currentId = element.id;
-        element.id = `${currentId}-${number.toString()}`
-        console.log(element)
+        element.id = `${currentId}-${section}-${number.toString()}`
     }
 
-    const recipeLink = document.getElementById(`link-${number}`)
+    const recipeLink = document.getElementById(`link-${section}-${number}`)
     recipeLink.href = recipe_link
 
-    const recipePictureContainer = document.getElementById(`recipe-image-${number}`)
+    const recipePictureContainer = document.getElementById(`recipe-image-${section}-${number}`)
     const recipeImageSource = recipePictureContainer.querySelectorAll('source')
     const recipeImage = recipePictureContainer.querySelector('img')
     recipeImageSource.forEach(source =>{
@@ -72,36 +102,39 @@ function updateCardInformation(cardClone, number, data) {
     })
     recipeImage.src = recipe_image
 
-    const recipeTitle = document.getElementById(`recipe-title-${number}`).querySelector('a')
+    const recipeTitle = document.getElementById(`recipe-title-${section}-${number}`).querySelector('a')
     recipeTitle.textContent = recipe_title
+    recipeTitle.href = recipe_link
 
-    const description = document.getElementById(`description-${number}`)
+    const description = document.getElementById(`description-${section}-${number}`)
     description.textContent = recipe_description
 
-    const prepTime = document.getElementById(`prep-time-${number}`)
+    const prepTime = document.getElementById(`prep-time-${section}-${number}`)
     prepTime.textContent = prep_time
     
-    const recipeAllergens = document.getElementById(`allergens-${number}`)
-    recipeAllergens.textContent = allergens
+    const recipeAllergens = document.getElementById(`allergens-${section}-${number}`)
+    recipeAllergens.textContent = allergens.map(allergen => `${allergen}`).join(", ")
 
-    const skillLevel = document.getElementById(`cooking-skill-${number}`)
+    const skillLevel = document.getElementById(`cooking-skill-${section}-${number}`)
     skillLevel.textContent = cooking_skill_level
 
-    const foodCategory = document.getElementById(`food-category-${number}`)
+    const foodCategory = document.getElementById(`food-category-${section}-${number}`)
     foodCategory.textContent = cuisine_type
 }
 
 // adds a amount of like when recipe is liked - change  color of button
-function heartInteractions() {
-    const heartButton = document.querySelectorAll('.heart');
-    let heartIdNumber = -1
+function heartInteractions(section) {
+    const recipeSection = document.querySelector(`.${section}-section`)
+    const heartButton = recipeSection.querySelectorAll('.heart');
+    let heartIdNumber = 0
     
-    heartButton.forEach(heartButton => {
-        heartIdNumber += 1
-        let heartIdString = heartIdNumber.toString()
-        let heartIdColor = 'heartColor-' + heartIdString
-        let heartIdLikes = 'heartLikes-'+ heartIdNumber
-        
+
+    heartButton.forEach((heartButton, index) => {
+        heartIdNumber += 1;
+
+        let heartIdColor = `heartColor-${section}-${heartIdNumber}`
+        let heartIdLikes = `heartLikes-${section}-${heartIdNumber}` 
+
         let heartNumber = randomInt(1,1000)
         const heartColor = document.getElementById(heartIdColor);
         const heartNumberDisplay = document.getElementById(heartIdLikes);
@@ -117,19 +150,18 @@ function heartInteractions() {
             heartNumber += likeChange
             heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
         })
-
     });
 }
 
-function bookmarkInteraction() {
-    // change color of button when clicked
-    const bookmarkButton = document.querySelectorAll('.bookmark');
-    let bookmarkIdNumber = -1
+// change color of button when clicked
+function bookmarkInteraction(section) {
+    const recipeSection = document.querySelector(`.${section}-section`)
+    const bookmarkButton = recipeSection.querySelectorAll('.bookmark');
+    let bookmarkIdNumber = 0
 
     bookmarkButton.forEach(bookmarkButton => {
         bookmarkIdNumber += 1;
-        let bookmarkIdString = bookmarkIdNumber.toString();
-        let bookmarkIdColor = 'bookmarkColor-' + bookmarkIdString;
+        let bookmarkIdColor = `bookmarkColor-${section}-${bookmarkIdNumber}`;
         
         const bookmarkColor = document.getElementById(bookmarkIdColor);
 
@@ -139,14 +171,16 @@ function bookmarkInteraction() {
     });
 }
 
-function copyLinkInteraction() {
-    // open share menu pop up
-    const copyButton = document.querySelectorAll('.copy-button')
-    let linkIdNumber = -1
+// open share menu pop up
+function copyLinkInteraction(section) {
+    const recipeSection = document.querySelector(`.${section}-section`)
+    const copyButton = recipeSection.querySelectorAll('.copy-button')
+    let linkIdNumber = 0
+
     copyButton.forEach(copyButton => {
         linkIdNumber += 1
-        let linkIdString = linkIdNumber.toString()
-        let linkId = 'link-' + linkIdString
+
+        let linkId = `link-${section}-${linkIdNumber}`
         let linkElement = document.getElementById(linkId)
 
         try{
@@ -200,3 +234,4 @@ function changeColor(element, color, button){
         }
     } 
 }
+

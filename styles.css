@@ -18,12 +18,56 @@
 
 body{
     background-color: var(--bg-primary);
+    
+    h1{
+        font-size: 30px;
+    }
+}
+
+.search-filter-alignment{
+    display: flex;
+    justify-content: center;
+}
+
+.search-and-filter-container{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem 0 1rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background-color: var(--bg-secondary);
+
+    .search-bar-container{
+        display: flex;
+        gap: 1rem;
+        width: 90%;
+    }
+    
+    #search-bar{
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: var(--bg-secondary);
+        text-overflow: ellipsis;
+    }
+
+    .filter-icon{
+        width: auto;
+    }
+}
+
+.suggestion-section, .breakfast-section{
+    margin: auto;
+    width: 320px;
+    padding: 0 0 3rem 0;
 }
 
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap:2rem;
     padding-top: 20px;
 }
@@ -147,6 +191,31 @@ USED FOR ICONS
 }
 
 @media screen and (min-width: 451px){
+    .suggestion-section, .breakfast-section{
+        width: 672px;
+    }
+
+    .card:hover{
+        box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
+    }
+    .heart:hover{
+        transform: scale(1.1);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .copy-button:hover{
+        transform: scale(1.1);
+    }   
+}
+
+@media screen and (min-width: 1200px){
+    .suggestion-section, .breakfast-section{
+        width: 1024px;
+    }
+
     .card:hover{
         box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
     }

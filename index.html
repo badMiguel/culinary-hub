@@ -10,13 +10,21 @@
     </head>
 <body>
     <header>
-        <h1>Discover Recipes</h1>
+        <h1></h1>
     </header>
-    <div class="card-container">
+    <body>
+        <div class="search-filter-alignment">
+            <div class="search-and-filter-container">
+                <div class="search-bar-container">
+                    <div class="material-icons search-icon no-select">search</div>
+                    <input type="text" name="search-bar" id="search-bar" placeholder="Search by recipe, ingredient, cuisine">
+                </div>
+                <div class="material-icons filter-icon no-select">filter_alt</div>
+            </div>
+        </div>
         <div class="card">
             <div class="image-container">
                 <a id='link' href="" aria-label="View More information about this recipe">
-                    <!-- image link - https://unsplash.com/photos/pizza-on-chopping-board-MqT0asuoIcU -->
                     <picture id='recipe-image'>
                         <source media="(min-width: 582px)" srcset="">
                         <source media="(max-width: 581px)" srcset="">
@@ -45,9 +53,23 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="copied-clipboard">
-        <p class="notify-text">Link copied to clipboard.</p>
-    </div>
+        <div class="suggestion-section">
+            <h1>Try this out!</h1>
+            <div class="card-container">
+
+            </div>
+        </div>
+        <div class="breakfast-section">
+            <h1>Try out these breakfast!</h1>
+            <div class="card-container">
+                
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="copied-clipboard">
+            <p class="notify-text">Link copied to clipboard.</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,273 +1,684 @@
 [
     {
         "recipe_link": "full_details.html",
-        "recipe_image": "Images/Mushroom_Risotto.jpg",
-        "recipe_title": "Mushroom Risotto",
-        "recipe_description": "Creamy and flavorful risotto made with assorted mushrooms and Arborio rice.",
-        "prep_time": "45 minutes",
-        "allergens": ["Dairy", "Gluten"],
+        "recipe_image": "Images/Baked-Mushroom-Rice.webp",
+        "recipe_title": "One-pan Garlic Mushroom Rice Bake",
+        "recipe_description": "Quick rice dish with garlic, soy sauce, and mushrooms.",
+        "prep_time": "30 miniutes",
+        "allergens": ["yeast", "celery", "soybean"],
         "cooking_skill_level": "Intermediate",
-        "cuisine_type": "Italian",
-        "other_categories": ["Vegetarian", "Main Course"],
-        "ingredients": [
-        {
-            "ingredient_name": "Arborio rice",
-            "quantity": "1 cup"
-        },
-        {
-            "ingredient_name": "Assorted mushrooms (such as cremini, shiitake, or porcini)",
-            "quantity": "2 cups, sliced"
-        },
-        {
-            "ingredient_name": "Vegetable or chicken broth",
-            "quantity": "4 cups"
-        },
-        {
-            "ingredient_name": "Butter",
-            "quantity": "2 tablespoons"
-        },
-        {
-            "ingredient_name": "Olive oil",
-            "quantity": "2 tablespoons"
-        },
-        {
-            "ingredient_name": "Onion, finely chopped",
-            "quantity": "1 medium"
-        },
-        {
-            "ingredient_name": "Garlic, minced",
-            "quantity": "2 cloves"
-        },
-        {
-            "ingredient_name": "Dry white wine",
-            "quantity": "1/2 cup"
-        },
-        {
-            "ingredient_name": "Parmesan cheese, grated",
-            "quantity": "1/2 cup"
-        },
-        {
-            "ingredient_name": "Salt",
-            "quantity": "To taste"
-        },
-        {
-            "ingredient_name": "Black pepper",
-            "quantity": "To taste"
-        },
-        {
-            "ingredient_name": "Fresh parsley, chopped",
-            "quantity": "For garnish"
-        }
-        ],
-        "instructions": [
-        "In a saucepan, heat the broth and keep it warm over low heat.",
-        "In a large skillet or saucepan, heat the butter and olive oil over medium heat.",
-        "Add the chopped onion and cook until softened, about 3-4 minutes.",
-        "Add the minced garlic and sliced mushrooms. Cook until mushrooms are tender and any liquid released has evaporated, about 5-6 minutes.",
-        "Stir in the Arborio rice and cook for 1-2 minutes until the grains are slightly toasted.",
-        "Pour in the white wine and stir until absorbed by the rice.",
-        "Begin adding the warm broth, one ladleful at a time, stirring frequently. Allow each addition of broth to be absorbed before adding the next, and continue until the rice is creamy and cooked al dente (this will take about 18-20 minutes).",
-        "Stir in the grated Parmesan cheese. Season with salt and black pepper to taste.",
-        "Remove from heat and let it sit for a few minutes before serving.",
-        "Garnish with chopped fresh parsley and additional Parmesan cheese if desired. Serve hot."
-        ]
-    },
-    {
-        "recipe_link": "full_details.html",
-        "recipe_image": "Images/Spicy_Black_Bean_Burgers.jpg",
-        "recipe_title": "Spicy Black Bean Burgers",
-        "recipe_description": "These vegetarian burgers are packed with flavor and protein. They're easy to make and perfect for a summer cookout.",
-        "prep_time": "15 minutes",
-        "allergens": ["Soy"],
-        "cooking_skill_level": "Beginner",
-        "cuisine_type": "American",
-        "other_categories": ["Vegan", "Gluten-free"],
+        "cuisine_type": "Asian",
+        "other_categories": ["Main Dish", "Mushroom", "Baking"],
         "ingredients": [
             {
-            "name": "Black beans",
-            "quantity": "1 (15 oz) can, drained and rinsed"
+                "ingredient_name": "vegetable oil",
+                "quantity": "2 tbs"
             },
             {
-            "name": "Brown rice",
-            "quantity": "1 cup, cooked"
-            
+                "ingredient_name": "mushrooms, sliced",
+                "quantity": "375g"
             },
             {
-            "name": "Corn",
-            "quantity": "1/2 cup, frozen or canned"
+                "ingredient_name": "rice vinegar",
+                "quantity": "2 tbs"
             },
             {
-            "name": "Red onion",
-            "quantity": "1/4 cup, chopped"
+                "ingredient_name": "ABC Sweet Soy Sauce",
+                "quantity": "1 1/2 tbs, plus extra to serve"
             },
             {
-            "name": "Jalapeno pepper",
-            "quantity": "1/2, seeded and chopped (optional)"
+                "ingredient_name": "brown onion, finely chopped",
+                "quantity": "1 small"
             },
             {
-            "name": "Breadcrumbs",
-            "quantity": "1/2 cup"
+                "ingredient_name": "garlic cloves, crushed",
+                "quantity": "2"
             },
             {
-            "name": "Chili powder",
-            "quantity": "1 tablespoon"
+                "ingredient_name": "90-second white long grain rice",
+                "quantity": "2 x 250g pkts"
             },
             {
-            "name": "Cumin",
-            "quantity": "1 teaspoon"
+                "ingredient_name": "vegetable stock cube",
+                "quantity": "1, crumbled"
             },
             {
-            "name": "Salt",
-            "quantity": "1/2 teaspoon"
+                "ingredient_name": "boiling water",
+                "quantity": "500ml (2 cups)"
             },
             {
-            "name": "Black pepper",
-            "quantity": "1/4 teaspoon"
+                "ingredient_name": "frozen peas",
+                "quantity": "120g (3/4 cup)"
             },
             {
-            "name": "Canola oil",
-            "quantity": "1 tablespoon"
+                "ingredient_name": "Fresh coriander sprigs",
+                "quantity": "to serve"
             }
         ],
         "instructions": [
-            "In a large bowl, mash the black beans with a fork. Stir in the cooked brown rice, corn, red onion, jalapeno (if using), breadcrumbs, chili powder, cumin, salt, and pepper.",
-            "Form the mixture into 4 equal patties.",
-            "Heat the canola oil in a large skillet over medium heat. Add the patties and cook for 4-5 minutes per side, or until golden brown and cooked through.",
-            "Serve on hamburger buns with your favorite toppings."
-        ]
-    },
-
-    {
-        "recipe_link": "full_details.html",
-        "recipe_image": "Images/Roasted_Lemon_Herb_Chicken.jpg",
-        "recipe_title": "Roasted Lemon Herb Chicken",
-        "recipe_description": "Juicy and flavorful roasted chicken infused with herbs and bright lemon flavors.",
-        "prep_time": "20 minutes",
-        "allergens": ["None"],
-        "cooking_skill_level": "Intermediate",
-        "cuisine_type": "American",
-        "other_categories": ["Main Course", "Poultry"],
-        "ingredients": [
-          {
-            "ingredient_name": "Whole chicken",
-            "quantity": "1 (about 4-5 pounds)"
-          },
-          {
-            "ingredient_name": "Lemon",
-            "quantity": "2, sliced"
-          },
-          {
-            "ingredient_name": "Fresh rosemary",
-            "quantity": "3-4 sprigs"
-          },
-          {
-            "ingredient_name": "Fresh thyme",
-            "quantity": "3-4 sprigs"
-          },
-          {
-            "ingredient_name": "Garlic cloves",
-            "quantity": "4, minced"
-          },
-          {
-            "ingredient_name": "Olive oil",
-            "quantity": "1/4 cup"
-          },
-          {
-            "ingredient_name": "Salt",
-            "quantity": "1 tablespoon"
-          },
-          {
-            "ingredient_name": "Black pepper",
-            "quantity": "1 teaspoon, freshly ground"
-          }
+            "Heat half of the vegetable oil in a large flameproof baking dish over medium-high heat.",
+            "Cook the sliced mushrooms in the heated oil, stirring occasionally, for 5 minutes or until just starting to soften.",
+            "Add rice vinegar and 1 1/2 tablespoons of ABC Sweet Soy Sauce to the mushrooms. Cook for 1 minute or until mushrooms are just tender.",
+            "Transfer the cooked mushrooms and sauce to a heatproof bowl. Set aside.",
+            "Heat the remaining vegetable oil in the same dish.",
+            "Cook the finely chopped onion in the heated oil for 2-3 minutes or until starting to soften.",
+            "Add crushed garlic and 90-second white long grain rice to the dish. Cook for 30 seconds or until fragrant.",
+            "Combine crumbled vegetable stock cube and boiling water in a medium jug. Add to the rice mixture along with the remaining sweet soy sauce. Stir to combine.",
+            "Add frozen peas to the dish. Bring to the boil, then reduce heat to medium-low and simmer, uncovered, for 5 minutes or until the sauce thickens and rice starts to catch on the bottom of the dish.",
+            "Stir in half of the cooked mushrooms (excluding the sauce) into the rice mixture.",
+            "Preheat the grill on high heat.",
+            "Spoon the remaining mushrooms and sauce over the top of the rice mixture.",
+            "Grill the dish for 3-4 minutes or until the mushrooms start to char slightly on the edges.",
+            "Serve the rice bake drizzled with extra sweet soy sauce and sprinkled with fresh coriander sprigs."
         ],
-        "instructions": [
-            "Preheat oven to 400°F (200°C).",
-            "Rinse the chicken inside and out; pat dry with paper towels.",
-            "Season the cavity of the chicken with salt and pepper.",
-            "Stuff the cavity with lemon slices, rosemary sprigs, thyme sprigs, and minced garlic.",
-            "Tie the legs together with kitchen twine for even cooking.",
-            "Rub the outside of the chicken with olive oil, salt, and black pepper.",
-            "Place the chicken on a roasting pan or baking dish.",
-            "Roast the chicken in the preheated oven for about 1 hour and 20 minutes, or until juices run clear and internal temperature reaches 165°F (75°C) when checked with a meat thermometer.",
-            "Baste the chicken with pan juices halfway through cooking.",
-            "Once done, let the chicken rest for 10-15 minutes before carving.",
-            "Serve the roasted chicken with pan juices and additional lemon wedges."
-        ]
-    },
-    
+        "nutrition_facts": {
+            "Calories": "300 calories",
+            "Total Fat": "10g",
+            "Saturated Fat": "1.5g",
+            "Cholesterol": null,
+            "Sodium": "800mg",
+            "Total Carbohydrate": "45g",
+            "Dietary Fiber": "5g",
+            "Total Sugars": "8g",
+            "Protein": "8g",
+            "Vitamin D": null,
+            "Calcium": "60mg",
+            "Iron": "2.5mg",
+            "Potassium": "400mg"
+        }
+    }
+    ,    
     {
         "recipe_link": "full_details.html",
-        "recipe_image": "Images/Chicken_Stir_Fry_with_Vegetables.jpg",
-        "recipe_title": "Chicken Stir-Fry with Vegetables",
-        "recipe_description": "A quick and healthy stir-fry dish featuring tender chicken and a colorful assortment of vegetables.",
-        "prep_time": "20 minutes",
-        "allergens": ["Soy"],
-        "cooking_skill_level": "Beginner",
-        "cuisine_type": "Asian",
-        "other_categories": ["Main Course", "Healthy"],
+        "recipe_image": "Images/french-onion-meatballs.webp",
+        "recipe_title": "Cheesy Meatballs and Mushrooms",
+        "recipe_description": "Cheesy French onion meatballs & mushrooms: A cozy winter meal.",
+        "prep_time": "45 minutes",
+        "allergens": ["gluten", "wheat", "egg", "milk"],
+        "cooking_skill_level": "Advanced",
+        "cuisine_type": "Australian",
+        "other_categories": ["Main Dish", "Mushroom", "Beef"],
         "ingredients": [
             {
-                "ingredient_name": "Chicken breast",
-                "quantity": "2 boneless, skinless breasts, thinly sliced"
+                "ingredient_name": "Egg (lightly whisked)",
+                "quantity": "1"
             },
             {
-                "ingredient_name": "Broccoli florets",
-                "quantity": "2 cups"
+                "ingredient_name": "Coles Beef 3 Star Regular Mince",
+                "quantity": "500g"
             },
             {
-                "ingredient_name": "Bell peppers (assorted colors)",
-                "quantity": "2, thinly sliced"
+                "ingredient_name": "Panko breadcrumbs",
+                "quantity": "50g (1 cup)"
             },
             {
-                "ingredient_name": "Carrots",
-                "quantity": "2, julienned"
+                "ingredient_name": "French onion soup mix (packet)",
+                "quantity": "40g"
             },
             {
-                "ingredient_name": "Snow peas",
-                "quantity": "1 cup"
-            },
-            {
-                "ingredient_name": "Garlic",
-                "quantity": "3 cloves, minced"
-            },
-            {
-                "ingredient_name": "Ginger",
-                "quantity": "1 tablespoon, minced"
-            },
-            {
-                "ingredient_name": "Soy sauce",
-                "quantity": "3 tablespoons"
-            },
-            {
-                "ingredient_name": "Sesame oil",
-                "quantity": "1 tablespoon"
+                "ingredient_name": "Colby cheese (cut into small pieces)",
+                "quantity": "80g"
             },
             {
                 "ingredient_name": "Vegetable oil",
-                "quantity": "2 tablespoons"
+                "quantity": "1 tbsp"
             },
             {
-                "ingredient_name": "Salt",
-                "quantity": "To taste"
+                "ingredient_name": "Portobello mushrooms (thickly sliced)",
+                "quantity": "200g"
             },
             {
-                "ingredient_name": "Black pepper",
-                "quantity": "To taste"
+                "ingredient_name": "Tomato paste",
+                "quantity": "2 tbsp"
             },
             {
-                "ingredient_name": "Cooked rice or noodles",
-                "quantity": "For serving"
+                "ingredient_name": "Thickened cream",
+                "quantity": "125ml (1⁄2 cup)"
+            },
+            {
+                "ingredient_name": "Baby spinach",
+                "quantity": "60g"
+            },
+            {
+                "ingredient_name": "Crusty bread slices",
+                "quantity": "4"
+            }
+        ],
+        "instructions": [    
+            "Combine 1 egg (lightly whisked), 500g Coles Beef 3 Star Regular Mince, 50g (1 cup) panko breadcrumbs, and 1 & 1/2 tbsp French onion soup mix in a large bowl. Use your hands to mix evenly.",
+            "Roll a slightly heaped tablespoonful of the mixture into a ball, then flatten slightly. Place a small piece (about 4g each) of Colby cheese in the center of the flattened ball. Enclose the cheese and reshape the mixture firmly into a ball. Repeat with the remaining mixture and cheese. Place on a tray and transfer to the fridge for 30 minutes to chill.",
+            "Heat 1 tbsp vegetable oil in a large non-stick frying pan over medium-high heat. Add half of the meatballs. Cook, turning occasionally, for 5 minutes or until browned evenly. Transfer to a plate. Repeat with remaining meatballs.",
+            "Add 200g portobello mushrooms, thickly sliced, to the pan. Spread out to a single layer and cook, without turning, for 3 minutes or until golden brown underneath. Turn and cook on the other side for 2 minutes. Transfer to the plate with meatballs.",
+            "Reduce heat to medium. Add 2 tbsp tomato paste to the pan and cook, stirring, for 1 minute. Place 125ml (1/2 cup) thickened cream and 125ml (1/2 cup) water in a jug. Stir through the remaining soup mix until combined. Gradually pour the cream mixture into the pan, stirring until combined.",
+            "Return the meatballs and mushrooms to the pan. Cover with a lid and reduce heat to low. Simmer for 3 minutes. Add 60g baby spinach. Cover and simmer for 2 minutes or until wilted.",
+            "Season with salt and pepper to taste. Serve with crusty bread slices."
+        ],
+        "nutrition_facts": {
+            "Calories": "480 calories",
+            "Total Fat": "27g",
+            "Saturated Fat": "13g",
+            "Cholesterol": "140mg",
+            "Sodium": "800mg",
+            "Total Carbohydrate": "25g",
+            "Dietary Fiber": "3g",
+            "Total Sugars": "3g",
+            "Protein": "33g",
+            "Vitamin D": "1.5mcg",
+            "Calcium": "220mg",
+            "Iron": "4mg",
+            "Potassium": "780mg"
+        }
+    }
+    ,    
+    {
+        "recipe_link": "full_details.html",
+        "recipe_image": "Images/Chicken-in-Mushroom.webp",
+        "recipe_title": "Healthy Chicken with Mushrooms",
+        "recipe_description": "Healthy chicken dinner with flavorful marinade and mushrooms.",
+        "prep_time": "1 hour 10 minutes",
+        "allergens": ["gluten", "wheat", "mustard"],
+        "cooking_skill_level": "Intermediate",
+        "cuisine_type": "British",
+        "other_categories": ["Dinner", "Healthy", "Chicken"],
+        "ingredients": [
+            {
+                "ingredient_name": "Balsamic vinegar",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Worcestershire sauce",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Dijon mustard",
+                "quantity": "1 tsp"
+            },
+            {
+                "ingredient_name": "Fresh rosemary leaves (chopped)",
+                "quantity": "2 tsp"
+            },
+            {
+                "ingredient_name": "Chicken breast fillets (halved horizontally)",
+                "quantity": "2 (250g each)"
+            },
+            {
+                "ingredient_name": "Massel Organic Salt Reduced Chicken Liquid Stock",
+                "quantity": "80ml (1/3 cup)"
+            },
+            {
+                "ingredient_name": "Cornflour",
+                "quantity": "1/2 tsp"
+            },
+            {
+                "ingredient_name": "Extra virgin olive oil",
+                "quantity": "1 1/2 tbsp"
+            },
+            {
+                "ingredient_name": "Leek (trimmed, thinly sliced)",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "Button mushrooms (thinly sliced)",
+                "quantity": "200g"
+            },
+            {
+                "ingredient_name": "Swiss brown mushrooms (thinly sliced)",
+                "quantity": "150g"
+            },
+            {
+                "ingredient_name": "Garlic cloves (crushed)",
+                "quantity": "2"
+            },
+            {
+                "ingredient_name": "Fresh continental parsley leaves (chopped)",
+                "quantity": "To serve"
+            },
+            {
+                "ingredient_name": "Steamed green beans",
+                "quantity": "To serve"
             }
         ],
         "instructions": [
-            "In a large skillet or wok, heat vegetable oil over medium-high heat.",
-            "Add minced garlic and ginger, sauté for 1 minute until fragrant.",
-            "Add chicken slices to the skillet, season with salt and pepper. Cook until chicken is no longer pink, about 5-7 minutes.",
-            "Push chicken to one side of the skillet. Add broccoli, bell peppers, carrots, and snow peas. Stir-fry for 3-4 minutes until vegetables are tender-crisp.",
-            "In a small bowl, mix soy sauce and sesame oil. Pour over the chicken and vegetables in the skillet, toss everything together.",
-            "Cook for another minute, then remove from heat.",
-            "Serve immediately over cooked rice or noodles."
-        ]
+            "Combine 2 tbsp balsamic vinegar, 2 tbsp Worcestershire sauce, 1 tsp Dijon mustard, and 2 tsp chopped fresh rosemary leaves in a jug. Pour half of the mixture into a shallow glass or ceramic dish. Add 2 (250g each) chicken breast fillets, halved horizontally, and turn to coat with the marinade. Cover and place in the fridge for at least 30 minutes to marinate.",
+            "Meanwhile, combine 80ml (1/3 cup) Massel Organic Salt Reduced Chicken Liquid Stock, 1/2 tsp cornflour, and the remaining balsamic mixture in a small jug.",
+            "Heat 2 tsp of oil in a large non-stick frying pan over medium-high heat. Cook the marinated chicken (discarding excess marinade) for 3-4 minutes on each side or until golden and almost cooked through. Transfer the cooked chicken to a plate.",
+            "Reduce the heat to medium. Add the remaining oil to the same pan. Add 1 thinly sliced leek and cook, stirring, for 5 minutes or until softened. Add all the thinly sliced button mushrooms, Swiss brown mushrooms, and crushed garlic cloves to the pan. Cook, stirring occasionally, for 5 minutes or until mushrooms are golden.",
+            "Return the cooked chicken to the pan. Pour in the prepared stock mixture and simmer for 3-4 minutes or until the chicken is fully cooked and the mushrooms are tender.",
+            "Sprinkle with chopped fresh continental parsley leaves.",
+            "Serve with steamed green beans."
+        ],        
+        "nutrition_facts": {
+            "Calories": "350 calories",
+            "Total Fat": "14g",
+            "Saturated Fat": "3g",
+            "Cholesterol": "110mg",
+            "Sodium": "400mg",
+            "Total Carbohydrate": "15g",
+            "Dietary Fiber": "3g",
+            "Total Sugars": "4g",
+            "Protein": "40g",
+            "Vitamin D": null,
+            "Calcium": "50mg",
+            "Iron": "3mg",
+            "Potassium": "700mg"
+        }
+    }
+    ,    
+    {
+        "recipe_link": "full_details.html",
+        "recipe_image": "Images/Vegetable-Paella.webp",
+        "recipe_title": "One-pan Vegetarian Paella",
+        "recipe_description": "Budget-friendly vegetarian paella for Savvy Dinner Plan.",
+        "prep_time": "45 minutes",
+        "allergens": ["yeast", "celery"],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "Australian",
+        "other_categories": ["Dinner", "Vegetarian", "Healthy"],
+        "ingredients": [
+            {
+                "ingredient_name": "Vegetable oil",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Brown onion, coarsely chopped",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "Red capsicum, deseeded, coarsely chopped",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "Green capsicum, deseeded, coarsely chopped",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "Garlic cloves, crushed",
+                "quantity": "2"
+            },
+            {
+                "ingredient_name": "Medium-grain white rice",
+                "quantity": "330g (1 1/2 cups)"
+            },
+            {
+                "ingredient_name": "Smoked paprika",
+                "quantity": "2 tsp"
+            },
+            {
+                "ingredient_name": "Coles Simply Tomato Paste",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Coles Simply Chopped Tomatoes (from a 400g can)",
+                "quantity": "400g can"
+            },
+            {
+                "ingredient_name": "Boiling water",
+                "quantity": "750ml (3 cups)"
+            },
+            {
+                "ingredient_name": "Vegetable stock cubes",
+                "quantity": "3"
+            },
+            {
+                "ingredient_name": "Frozen peas",
+                "quantity": "120g (3/4 cup)"
+            },
+            {
+                "ingredient_name": "Green beans, sliced diagonally into 5cm lengths",
+                "quantity": "100g"
+            },
+            {
+                "ingredient_name": "Chopped fresh continental parsley leaves",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Lemon wedges",
+                "quantity": "To serve"
+            }
+        ],        
+        "instructions": [    
+            "Heat 2 tbsp vegetable oil in a large, heavy-based, ovenproof casserole dish over medium heat.",
+            "Add 1 coarsely chopped brown onion, 1 coarsely chopped red capsicum (deseeded), and 1 coarsely chopped green capsicum (deseeded). Cook, stirring, for 5 minutes or until the onion is soft.",
+            "Add 2 crushed garlic cloves and cook for 30 seconds or until aromatic.",
+            "Stir in 330g (1 1/2 cups) of medium-grain white rice, 2 tsp smoked paprika, and 2 tbsp Coles Simply Tomato Paste. Stir to coat everything evenly.",
+            "Add a 400g can of Coles Simply Chopped Tomatoes, 750ml (3 cups) boiling water, and 3 vegetable stock cubes. Stir well, breaking up the stock cubes.",
+            "Bring the mixture to a boil.",
+            "Reduce the heat to low. Cover the dish and simmer gently for 20 minutes or until the rice is almost tender.",
+            "Scatter 120g (3/4 cup) of frozen peas and 100g of green beans (sliced diagonally into 5cm lengths) on top of the rice. Cover again and cook for an additional 10 minutes or until the peas and beans are tender-crisp.",
+            "Sprinkle the paella with chopped fresh continental parsley leaves.",
+            "Serve the paella with lemon wedges on the side."
+        ],
+        "nutrition_facts": {
+            "Calories": "450 calories",
+            "Total Fat": "10g",
+            "Saturated Fat": "1g",
+            "Cholesterol": null,
+            "Sodium": "800mg",
+            "Total Carbohydrate": "80g",
+            "Dietary Fiber": "7g",
+            "Total Sugars": "8g",
+            "Protein": "9g",
+            "Vitamin D": null,
+            "Calcium": "50-70mg",
+            "Iron": "2-3mg",
+            "Potassium": "400-500mg"
+        }
+    }
+    ,    
+    {
+        "recipe_link": "full_details.html",
+        "recipe_image": "Images/satay-noodles-with-tofu.webp",
+        "recipe_title": "Satay Noodles with Tofu",
+        "recipe_description": "A quick and low-calorie vegetarian noodle dish.",
+        "prep_time": "20 minutes",
+        "allergens": ["gluten", "wheat", "soybean"],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "Asian",
+        "other_categories": ["Quick", "Vegetarian", "Healthy"],
+        "ingredients": [
+            {
+                "ingredient_name": "dried ramen noodles",
+                "quantity": "2 x 90g"
+            },
+            {
+                "ingredient_name": "frozen peas",
+                "quantity": "150g (1 cup)"
+            },
+            {
+                "ingredient_name": "podded frozen edamame",
+                "quantity": "150g (1 cup)"
+            },
+            {
+                "ingredient_name": "marinated teriyaki tofu",
+                "quantity": "200g, halved horizontally"
+            },
+            {
+                "ingredient_name": "satay sauce",
+                "quantity": "125g"
+            },
+            {
+                "ingredient_name": "bean sprouts",
+                "quantity": "60g (1 cup)"
+            },
+            {
+                "ingredient_name": "green shallots",
+                "quantity": "2, shredded"
+            },
+            {
+                "ingredient_name": "roasted salted peanuts",
+                "quantity": "40g (1/4 cup), chopped"
+            },
+            {
+                "ingredient_name": "fried shallots",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "fresh mint leaves",
+                "quantity": "to serve"
+            },
+            {
+                "ingredient_name": "fresh coriander leaves",
+                "quantity": "to serve"
+            },
+            {
+                "ingredient_name": "sliced fresh red chilli",
+                "quantity": "to serve (optional)"
+            }
+        ],
+        "instructions": [    
+            "Cook 2 x 90g dried ramen noodles in a saucepan of boiling water according to packet directions. Add 150g (1 cup) frozen peas and 150g (1 cup) podded frozen edamame to the pan for the last 2 minutes of cooking. Drain and rinse well under warm water.",
+            "Heat a non-stick frying pan over medium heat. Spray with oil. Cook the 200g marinated teriyaki tofu halves for 1-2 minutes on each side until light golden. Cut each tofu piece into 4 triangles.",
+            "Place the cooked noodles, peas, and edamame in a large bowl. Add 125g satay sauce to the bowl and toss to combine everything. Divide the noodle mixture among serving bowls.",
+            "Top each bowl with 60g (1 cup) bean sprouts, 2 green shallots shredded, 40g (1/4 cup) roasted salted peanuts chopped, and 2 tbsp fried shallots.",
+            "Serve with fresh mint leaves, fresh coriander leaves, and sliced fresh red chilli on the side (optional, if desired)."
+        ],
+        "nutrition_facts": {
+            "Calories": "450 calories per serving",
+            "Total Fat": "20g",
+            "Saturated Fat": "3g",
+            "Cholesterol": null,
+            "Sodium": "800mg",
+            "Total Carbohydrate": "50g",
+            "Dietary Fiber": "8g",
+            "Total Sugars": "8g",
+            "Protein": "20g",
+            "Vitamin D": null,
+            "Calcium": "100mg",
+            "Iron": "4mg",
+            "Potassium": "500mg"
+        }
+    }
+    ,    
+    {
+        "recipe_link": "full_details.html",
+        "recipe_image": "Images/Breakfast-beans-on-toast.webp",
+        "recipe_title": "Breakfast Beans on Toast",
+        "recipe_description": "Homemade baked beans on toast with an egg on top.",
+        "prep_time": "2 hours 15 minutes",
+        "allergens": ["yeast", "gluten", "wheat", "egg"],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "American",
+        "other_categories": ["Bread", "Breakfast", "Baking"],
+        "ingredients": [
+            {
+                "ingredient_name": "Olive oil",
+                "quantity": "1 tbsp"
+            },
+            {
+                "ingredient_name": "Onion, diced",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "Garlic, finely chopped",
+                "quantity": "2 cloves"
+            },
+            {
+                "ingredient_name": "Bacon, finely diced",
+                "quantity": "2 rashers"
+            },
+            {
+                "ingredient_name": "Coles Brand Tomato Paste",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Canned diced tomatoes",
+                "quantity": "1 x 400g can"
+            },
+            {
+                "ingredient_name": "Brown sugar",
+                "quantity": "1/3 cup"
+            },
+            {
+                "ingredient_name": "Balsamic vinegar",
+                "quantity": "1/4 cup"
+            },
+            {
+                "ingredient_name": "Cannellini beans, drained and rinsed",
+                "quantity": "1 can"
+            },
+            {
+                "ingredient_name": "Thick sliced toast",
+                "quantity": "To serve"
+            },
+            {
+                "ingredient_name": "Poached eggs",
+                "quantity": "4"
+            }
+        ],
+        "instructions": [    
+            "Preheat oven to 180C or 160C fan. Heat oil in a large, heatproof casserole dish over medium heat. Cook onion and garlic until translucent.",
+            "Add bacon and cook for 3-4 minutes.",
+            "Add cannellini beans, tomato paste, diced tomatoes, brown sugar, and balsamic vinegar. Stir to combine.",
+            "Transfer the casserole dish to the oven and cook for 1 hour and 45 minutes.",
+            "Remove from the oven, stir through the beans, and cook for an additional 15 minutes.",
+            "Serve the mixture on thick sliced toast with poached eggs."
+        ],
+        "nutrition_facts": {
+            "Calories": "350 calories",
+            "Total Fat": "12g",
+            "Saturated Fat": "3g",
+            "Cholesterol": "190mg",
+            "Sodium": "800mg",
+            "Total Carbohydrate": "40g",
+            "Dietary Fiber": "7g",
+            "Total Sugars": "17g",
+            "Protein": "20g",
+            "Vitamin D": "2.5mcg",
+            "Calcium": "120mg",
+            "Iron": "3mg",
+            "Potassium": "600mg"
+        }
+    }
+    ,    
+    {
+        "recipe_link": "full_details.html",
+        "recipe_image": "Images/keto-pancakes.webp",
+        "recipe_title": "Keto Pancakes Breakfast Recipe",
+        "recipe_description": "Delicious keto pancakes for a perfect low-carb breakfast!",
+        "prep_time": "15 minutes",
+        "allergens": ["egg", "milk", "lactose"],
+        "cooking_skill_level": "Intermediate",
+        "cuisine_type": "American",
+        "other_categories": ["Quick", "Breakfast"],
+        "ingredients": [
+            {
+                "ingredient_name": "Almond meal",
+                "quantity": "80g (2/3 cup)"
+            },
+            {
+                "ingredient_name": "Cream cheese",
+                "quantity": "125g, chopped, at room temperature"
+            },
+            {
+                "ingredient_name": "Eggs",
+                "quantity": "3"
+            },
+            {
+                "ingredient_name": "Vanilla extract",
+                "quantity": "1 tsp"
+            },
+            {
+                "ingredient_name": "Baking powder",
+                "quantity": "1/4 tsp"
+            },
+            {
+                "ingredient_name": "Melted butter",
+                "quantity": "To cook"
+            },
+            {
+                "ingredient_name": "Butter",
+                "quantity": "To serve"
+            },
+            {
+                "ingredient_name": "Pistachios (chopped)",
+                "quantity": "To serve (e.g., Coles Pistachios)"
+            },
+            {
+                "ingredient_name": "Fresh raspberries",
+                "quantity": "To serve (optional)"
+            }
+        ],
+        "instructions": [    
+            "Beat almond meal and cream cheese together until combined.",
+            "Gradually add eggs and beat until smooth and lump-free.",
+            "Stir in vanilla extract and baking powder.",
+            "Brush a non-stick frying pan with melted butter.",
+            "Place over medium heat.",
+            "Pour 1/4 cup measures of batter into the pan.",
+            "Cook for 2 minutes until golden underneath.",
+            "Carefully flip and cook for another minute.",
+            "Transfer pancakes to a plate and repeat with remaining batter.",
+            "Serve pancakes topped with butter, chopped pistachios, and fresh raspberries."
+        ],
+        "nutrition_facts": {
+            "Calories": "180 calories per pancake",
+            "Total Fat": "14g",
+            "Saturated Fat": "5g",
+            "Cholesterol": "130mg",
+            "Sodium": "160mg",
+            "Total Carbohydrate": "5g",
+            "Dietary Fiber": "2g",
+            "Total Sugars": "1g",
+            "Protein": "9g",
+            "Vitamin D": null,
+            "Calcium": "80mg",
+            "Iron": "1mg",
+            "Potassium": "130mg"
+        }
+    }
+    ,    
+    {
+        "recipe_link": "full_details.html",
+        "recipe_image": "Images/ultimate-vegan-breakfast-wrap.webp",
+        "recipe_title": "Ultimate Vegan Breakfast Wrap",
+        "recipe_description": "Fuel up with a vegan breakfast wrap featuring black beans and avocado.",
+        "prep_time": "10 minutes",
+        "allergens": ["gluten", "wheat", "sulphites"],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "British",
+        "other_categories": ["Breakfast", "Quick"],
+        "ingredients": [
+            {
+                "ingredient_name": "Black beans, rinsed and drained",
+                "quantity": "125g can"
+            },
+            {
+                "ingredient_name": "Pinch of dried chilli flakes",
+                "quantity": ""
+            },
+            {
+                "ingredient_name": "Fresh lemon juice",
+                "quantity": "2 tsp"
+            },
+            {
+                "ingredient_name": "Wholegrain wrap",
+                "quantity": "40g"
+            },
+            {
+                "ingredient_name": "Baby spinach",
+                "quantity": "20g"
+            },
+            {
+                "ingredient_name": "Roma tomato, sliced",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "Avocado, sliced",
+                "quantity": "1/4"
+            },
+            {
+                "ingredient_name": "Fresh basil leaves",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "Lemon wedge",
+                "quantity": "1, for serving"
+            }
+        ],
+        "instructions": [    
+            "Coarsely mash the 125g can of black beans (rinsed and drained) in a bowl.",
+            "Stir in a pinch of dried chilli flakes and 2 tsp of fresh lemon juice. Season with salt and pepper to taste.",
+            "Spread the prepared bean mixture over a 40g wholegrain wrap.",
+            "Top the bean mixture with 20g of baby spinach.",
+            "Add sliced roma tomato (1 tomato).",
+            "Place sliced avocado (1/4 of an avocado) on top.",
+            "Scatter 2 tbsp of fresh basil leaves over the avocado.",
+            "Optionally, serve with a lemon wedge for squeezing over the wrap."
+        ],
+        "nutrition_facts": {
+            "Calories": "320 kcal",
+            "Total Fat": "15g",
+            "Saturated Fat": "2g",
+            "Cholesterol": null,
+            "Sodium": "400mg",
+            "Total Carbohydrate": "36g",
+            "Dietary Fiber": "12g",
+            "Total Sugars": "3g",
+            "Protein": "12g",
+            "Vitamin D": null,
+            "Calcium": "80mg",
+            "Iron": "3mg",
+            "Potassium": "800mg"
+        }
     }
 ]
