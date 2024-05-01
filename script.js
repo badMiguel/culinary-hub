@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', async function(){
 
     const sectionList = ['suggestion', 'breakfast']
     // display random recipes from json
-    const suggestedRandomRecipes = randomRecipes(recipeData, 3)
-    createDuplicateCards(3, suggestedRandomRecipes, sectionList[0])
+    const suggestedRandomRecipes = randomRecipes(recipeData, 2)
+    createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
     heartInteractions(sectionList[0])
     bookmarkInteraction(sectionList[0])    
     copyLinkInteraction(sectionList[0])
 
-    const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, sectionList[1])
-    createDuplicateCards(3, suggestedBreakfastRecipes, sectionList[1])
+    const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
+    createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
     heartInteractions(sectionList[1])
     bookmarkInteraction(sectionList[1])    
     copyLinkInteraction(sectionList[1]) 
@@ -47,14 +47,14 @@ function searchFunction(recipeData) {
             cardCollection.innerHTML = originalContent;
             const sectionList = ['suggestion', 'breakfast']
             
-            const suggestedRandomRecipes = randomRecipes(recipeData, 3)
-            createDuplicateCards(3, suggestedRandomRecipes, sectionList[0])
+            const suggestedRandomRecipes = randomRecipes(recipeData, 2)
+            createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
             heartInteractions(sectionList[0])
             bookmarkInteraction(sectionList[0])    
             copyLinkInteraction(sectionList[0])
             
-            const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, sectionList[1])
-            createDuplicateCards(3, suggestedBreakfastRecipes, sectionList[1])
+            const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
+            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
             heartInteractions(sectionList[1])
             bookmarkInteraction(sectionList[1])    
             copyLinkInteraction(sectionList[1])             
@@ -117,7 +117,9 @@ function renderSearchFilteredItems(container, data, searchOrFilter, input) {
         const searchHeading = container.querySelector('.search-heading');
         if (searchOrFilter === 'search'){
             searchHeading.textContent = `Search results for "${input}"`
-        } 
+        } else {
+            searchHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
+        }
         if (data.length > 0) {
             createDuplicateCards(data.length, data, "search")
             heartInteractions("search")
