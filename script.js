@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', async function(){
 
     searchFunction(recipeData)
     
+    filterFunction(recipeData)
+
     const sectionList = ['suggestion', 'breakfast']
     // display random recipes from json
     const suggestedRandomRecipes = randomRecipes(recipeData, 3)
@@ -61,24 +63,61 @@ function searchFunction(recipeData) {
         // display filtered recipes
         else if (event.key === "Enter" && searchInputValue != '') {
             const filteredItems = recipeData.filter(item => 
-                item.other_categories.some(category => (category.toLowerCase() === searchInputValue) ||
+                item.other_categories.some(category => (category.toLowerCase() === searchInputValue)) ||
                 item.recipe_title.toLowerCase().includes(searchInputValue) ||
                 item.cuisine_type.toLowerCase().includes(searchInputValue) ||
                 item.cooking_skill_level.toLowerCase().includes(searchInputValue) ||
                 item.ingredients.some(ingredient => ingredient.ingredient_name.toLowerCase().includes(searchInputValue))
-            ))
-            renderSearchItems(cardCollection, filteredItems, searchInputValue)
+            )
+            renderSearchFilteredItems(cardCollection, filteredItems, 'search', searchInputValue)
         }
     })
 }
 
-function renderSearchItems(container, data, input) {
+// filters the recipe based on user input on filter menu
+function filterFunction(recipeData) {
+    const filterButton = document.querySelector('.filter-icon')
+    const filterContainer = document.querySelector('.filter-section-container')
+    
+    // shows filter menu
+    filterButton.addEventListener('click', function(){
+        filterContainer.classList.toggle('show')
+    })
+    
+    // filter logic - gets value of checked checkbox then gets recipes with that value
+    const checkboxItems = document.querySelectorAll('.checkbox-item')
+    const submitFilter = document.querySelector('.apply-filter')
+    const cardCollection = document.querySelector('.card-collection')
+    submitFilter.addEventListener('click', function(){
+        const selectedFilters = Array.from(checkboxItems)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+        if (selectedFilters.length != 0){            
+            const filteredItems = recipeData.filter(item => 
+                item.other_categories.some(category => selectedFilters.some(filter => category.toLowerCase().includes(filter))) ||
+                selectedFilters.some(filter=> item.cuisine_type.toLowerCase().includes(filter)) ||
+                selectedFilters.some(filter=> item.cooking_skill_level.toLowerCase().includes(filter))
+            )            
+            renderSearchFilteredItems(cardCollection, filteredItems, 'filter', selectedFilters)
+        }
+    })
+
+    // close filter menu
+    const closeFilter = document.querySelector('.close-filter')
+    closeFilter.addEventListener('click', function(){
+        filterContainer.classList.toggle('show')
+    })
+}
+
+// renders html to show the recipes based from filter/search input of users
+function renderSearchFilteredItems(container, data, searchOrFilter, input) {
     const xhr = new XMLHttpRequest();
     xhr.onload = function() {
         container.innerHTML = this.responseText
         const searchHeading = container.querySelector('.search-heading');
-        const searchResults = searchHeading.textContent;
-        searchHeading.textContent = `${searchResults} "${input}"`
+        if (searchOrFilter === 'search'){
+            searchHeading.textContent = `Search results for "${input}"`
+        } 
         if (data.length > 0) {
             createDuplicateCards(data.length, data, "search")
             heartInteractions("search")
@@ -90,7 +129,7 @@ function renderSearchItems(container, data, input) {
         }
     }
 
-    xhr.open('GET', 'searched_items.html')
+    xhr.open('GET', 'searched_filtered_items.html')
     xhr.send()
 }
 
