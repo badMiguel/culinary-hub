@@ -37,19 +37,20 @@ function searchFunction(recipeData) {
     const cardCollection = document.querySelector('.card-collection')
     const originalContent = cardCollection.innerHTML
     
+    
     searchInput.addEventListener('keydown', function(event) {
-
+        const searchInputValue = searchInput.value.toLowerCase()
         // if no text on input, return to home
-        if (event.key === "Enter" && searchInput.value === "") {
+        if (event.key === "Enter" && searchInputValue === "") {
             cardCollection.innerHTML = originalContent;
             const sectionList = ['suggestion', 'breakfast']
-
+            
             const suggestedRandomRecipes = randomRecipes(recipeData, 3)
             createDuplicateCards(3, suggestedRandomRecipes, sectionList[0])
             heartInteractions(sectionList[0])
             bookmarkInteraction(sectionList[0])    
             copyLinkInteraction(sectionList[0])
-        
+            
             const suggestedBreakfastRecipes = randomRecipes(recipeData, 3, sectionList[1])
             createDuplicateCards(3, suggestedBreakfastRecipes, sectionList[1])
             heartInteractions(sectionList[1])
@@ -58,15 +59,15 @@ function searchFunction(recipeData) {
         } 
         
         // display filtered recipes
-        else if (event.key === "Enter" && searchInput.value != '') {
+        else if (event.key === "Enter" && searchInputValue != '') {
             const filteredItems = recipeData.filter(item => 
-                item.other_categories.some(category => (category.toLowerCase() === searchInput.value) ||
-                item.recipe_title.toLowerCase().includes(searchInput.value) ||
-                item.cuisine_type.toLowerCase().includes(searchInput.value) ||
-                item.cooking_skill_level.toLowerCase().includes(searchInput.value) ||
-                item.ingredients.some(ingredient => ingredient.ingredient_name.toLowerCase().includes(searchInput.value))
+                item.other_categories.some(category => (category.toLowerCase() === searchInputValue) ||
+                item.recipe_title.toLowerCase().includes(searchInputValue) ||
+                item.cuisine_type.toLowerCase().includes(searchInputValue) ||
+                item.cooking_skill_level.toLowerCase().includes(searchInputValue) ||
+                item.ingredients.some(ingredient => ingredient.ingredient_name.toLowerCase().includes(searchInputValue))
             ))
-            renderSearchItems(cardCollection, filteredItems, searchInput.value)
+            renderSearchItems(cardCollection, filteredItems, searchInputValue)
         }
     })
 }
@@ -78,10 +79,15 @@ function renderSearchItems(container, data, input) {
         const searchHeading = container.querySelector('.search-heading');
         const searchResults = searchHeading.textContent;
         searchHeading.textContent = `${searchResults} "${input}"`
-        createDuplicateCards(data.length, data, "search")
-        heartInteractions("search")
-        bookmarkInteraction("search")    
-        copyLinkInteraction("search") 
+        if (data.length > 0) {
+            createDuplicateCards(data.length, data, "search")
+            heartInteractions("search")
+            bookmarkInteraction("search")    
+            copyLinkInteraction("search") 
+        } else {
+            const noRecipeFound= container.querySelector('.no-recipe-found')
+            noRecipeFound.textContent = `No search results for ${input}`
+        }
     }
 
     xhr.open('GET', 'searched_items.html')
@@ -266,7 +272,7 @@ function copyLink(link){
     navigator.clipboard.writeText(link)
     
     const notifyCopy = document.querySelector('.copied-clipboard')
-    notifyCopy.style.opacity = 1
+    notifyCopy.style.opacity = 0.9
 
     setTimeout(() => {
         notifyCopy.style.opacity = 0

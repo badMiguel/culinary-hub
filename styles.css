@@ -52,9 +52,19 @@ body{
         background-color: var(--bg-secondary);
         text-overflow: ellipsis;
     }
+    
+    #search-bar::placeholder{
+        font-size: 15px;
+        font-style: italic;
+    }
+
+    .search-icon{
+        cursor: pointer;
+    }
 
     .filter-icon{
         width: auto;
+        cursor: pointer;
     }
 }
 
@@ -68,7 +78,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    gap:2rem;
+    gap:1rem;
     padding-top: 20px;
 }
 
