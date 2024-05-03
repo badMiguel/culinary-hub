@@ -45,6 +45,7 @@ function searchFunction(recipeData) {
             
             const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
             createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])    
+            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])    
         } 
         
         // display filtered recipes
@@ -129,11 +130,6 @@ function randomRecipes(list, numItems, filter) {
         const shuffled = filteredItems.sort(() => Math.random() - 0.5)
         return shuffled.slice(0, numItems)
     }
-}
-
-function deviceWidth() {
-    const viewportWidth = window.innerWidth
-    return viewportWidth
 }
 
 // create duplicate cards of the card template
@@ -331,6 +327,7 @@ function copyLinkInteraction(section) {
         } catch(error) {
          
         }
+
     });
 }
 
