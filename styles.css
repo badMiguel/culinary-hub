@@ -289,7 +289,7 @@ USED FOR ICONS
     }   
 }
 
-@media screen and (min-width: 1200px){
+/* @media screen and (min-width: 1200px){
     .suggestion-section, .breakfast-section, .search-section{
         width: 1024px;
     }
@@ -308,7 +308,7 @@ USED FOR ICONS
     .copy-button:hover{
         transform: scale(1.1);
     }   
-}
+} */
 
 @media screen and (max-width: 749px) {
     .filter-section{

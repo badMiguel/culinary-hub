@@ -9,16 +9,9 @@ document.addEventListener('DOMContentLoaded', async function(){
     // display random recipes from json
     const suggestedRandomRecipes = randomRecipes(recipeData, 2)
     createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-    heartInteractions(sectionList[0])
-    bookmarkInteraction(sectionList[0])    
-    copyLinkInteraction(sectionList[0])
 
     const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
     createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-    heartInteractions(sectionList[1])
-    bookmarkInteraction(sectionList[1])    
-    copyLinkInteraction(sectionList[1]) 
-
     // button interactions for cards
 });
 
@@ -49,15 +42,9 @@ function searchFunction(recipeData) {
             
             const suggestedRandomRecipes = randomRecipes(recipeData, 2)
             createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-            heartInteractions(sectionList[0])
-            bookmarkInteraction(sectionList[0])    
-            copyLinkInteraction(sectionList[0])
             
             const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-            heartInteractions(sectionList[1])
-            bookmarkInteraction(sectionList[1])    
-            copyLinkInteraction(sectionList[1])             
+            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])    
         } 
         
         // display filtered recipes
@@ -122,9 +109,6 @@ function renderSearchFilteredItems(container, data, searchOrFilter, input) {
         }
         if (data.length > 0) {
             createDuplicateCards(data.length, data, "search")
-            heartInteractions("search")
-            bookmarkInteraction("search")    
-            copyLinkInteraction("search") 
         } else {
             const noRecipeFound= container.querySelector('.no-recipe-found')
             noRecipeFound.textContent = `No search results for ${input}`
@@ -145,6 +129,11 @@ function randomRecipes(list, numItems, filter) {
         const shuffled = filteredItems.sort(() => Math.random() - 0.5)
         return shuffled.slice(0, numItems)
     }
+}
+
+function deviceWidth() {
+    const viewportWidth = window.innerWidth
+    return viewportWidth
 }
 
 // create duplicate cards of the card template
@@ -171,6 +160,9 @@ function createDuplicateCards(amount, data, section) {
         cardClone.style.display = 'block'
         updateDuplicateCardInformation(cardClone, nthCard, data, section)
     }
+    heartInteractions(section)
+    bookmarkInteraction(section)    
+    copyLinkInteraction(section)
 }
 
 // update information in cards
