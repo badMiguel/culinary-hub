@@ -9,16 +9,9 @@ document.addEventListener('DOMContentLoaded', async function(){
     // display random recipes from json
     const suggestedRandomRecipes = randomRecipes(recipeData, 2)
     createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-    heartInteractions(sectionList[0])
-    bookmarkInteraction(sectionList[0])    
-    copyLinkInteraction(sectionList[0])
 
     const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
     createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-    heartInteractions(sectionList[1])
-    bookmarkInteraction(sectionList[1])    
-    copyLinkInteraction(sectionList[1]) 
-
     // button interactions for cards
 });
 
@@ -49,15 +42,9 @@ function searchFunction(recipeData) {
             
             const suggestedRandomRecipes = randomRecipes(recipeData, 2)
             createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-            heartInteractions(sectionList[0])
-            bookmarkInteraction(sectionList[0])    
-            copyLinkInteraction(sectionList[0])
             
             const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-            heartInteractions(sectionList[1])
-            bookmarkInteraction(sectionList[1])    
-            copyLinkInteraction(sectionList[1])             
+            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])    
         } 
         
         // display filtered recipes
@@ -122,9 +109,6 @@ function renderSearchFilteredItems(container, data, searchOrFilter, input) {
         }
         if (data.length > 0) {
             createDuplicateCards(data.length, data, "search")
-            heartInteractions("search")
-            bookmarkInteraction("search")    
-            copyLinkInteraction("search") 
         } else {
             const noRecipeFound= container.querySelector('.no-recipe-found')
             noRecipeFound.textContent = `No search results for ${input}`
@@ -145,6 +129,11 @@ function randomRecipes(list, numItems, filter) {
         const shuffled = filteredItems.sort(() => Math.random() - 0.5)
         return shuffled.slice(0, numItems)
     }
+}
+
+function deviceWidth() {
+    const viewportWidth = window.innerWidth
+    return viewportWidth
 }
 
 // create duplicate cards of the card template
@@ -171,6 +160,9 @@ function createDuplicateCards(amount, data, section) {
         cardClone.style.display = 'block'
         updateDuplicateCardInformation(cardClone, nthCard, data, section)
     }
+    heartInteractions(section)
+    bookmarkInteraction(section, data)    
+    copyLinkInteraction(section)
 }
 
 // update information in cards
@@ -261,8 +253,8 @@ function heartInteractions(section) {
     });
 }
 
-// change color of button when clicked
-function bookmarkInteraction(section) {
+// change color of button when clicked - also saves the recipe when clicked
+function bookmarkInteraction(section, recipeData) {
     const recipeSection = document.querySelector(`.${section}-section`)
     const bookmarkButton = recipeSection.querySelectorAll('.bookmark');
     let bookmarkIdNumber = 0
@@ -270,14 +262,49 @@ function bookmarkInteraction(section) {
     bookmarkButton.forEach(bookmarkButton => {
         bookmarkIdNumber += 1;
         let bookmarkIdColor = `bookmarkColor-${section}-${bookmarkIdNumber}`;
-        
+        const recipeTitle = document.getElementById(`recipe-title-${section}-${bookmarkIdNumber}`)
+            .textContent
+            .replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
         const bookmarkColor = document.getElementById(bookmarkIdColor);
 
+        const bookmarksList =  JSON.parse(localStorage.getItem('bookmarks')) || []
+        if (bookmarksList.some(bookmark => bookmark.recipe_title === recipeTitle)) {
+            bookmarkButton.style.color = 'rgb(230, 230, 42)'
+        }
+
         bookmarkButton.addEventListener('click', function(){
-            changeColor(bookmarkColor, 'rgb(230, 230, 42)', 'bookmark')
+            const data = recipeData.filter(item => item.recipe_title.includes(recipeTitle))
+            changeColor(bookmarkColor, 'rgb(230, 230, 42)', 'bookmark', data, recipeTitle)
         });
     });
 }
+
+// function to add the recipe on localstorage
+function addBookmark(recipeTitle, recipeData) {
+    const bookmarksList =  JSON.parse(localStorage.getItem('bookmarks')) || []
+
+    if (bookmarksList.length === 0) {
+        bookmarksList.push(recipeData)
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarksList))
+    } 
+
+    const isBookmarked = bookmarksList.some(bookmark => bookmark.recipe_title === recipeTitle);
+    
+    if (!isBookmarked) {
+        bookmarksList.push(recipeData)
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarksList))
+    }
+}
+
+// function to remove the recipe on localstorage
+function removeBookmark(recipeTitle) {
+    const bookmarksList = JSON.parse(localStorage.getItem('bookmarks')) || []
+
+    const updatedBookmark = bookmarksList.filter(bookmark => bookmark.recipe_title !== recipeTitle)
+
+    localStorage.setItem('bookmarks', JSON.stringify(updatedBookmark))
+}
+
 
 // open share menu pop up
 function copyLinkInteraction(section) {
@@ -292,6 +319,7 @@ function copyLinkInteraction(section) {
         let linkElement = document.getElementById(linkId)
 
         try{
+            // gets the link of the target html file. with this method, it capture the bitbucket.io as well instead of only the pure html href
             let recipeLink = linkElement.getAttribute('href') 
             let tempAnchor = document.createElement('a')
             tempAnchor.href = recipeLink
@@ -303,8 +331,6 @@ function copyLinkInteraction(section) {
         } catch(error) {
          
         }
-
-        // gets the link of the target html file. with this method, it capture the bitbucket.io as well instead of only the pure html href
     });
 }
 
@@ -328,18 +354,21 @@ function randomInt(min,max){
 }
 
 // function for changing color of buttons after click
-function changeColor(element, color, button){
+function changeColor(element, color, button, data, recipeTitle){
     if (!element.style.color || element.style.color ==='var(--bg-fourth)'){
         element.style.color = color;
         // add a like count if the button clicked was a heart button
         if (button === 'heart'){ 
             return 1
+        } else if (button === 'bookmark') {
+            addBookmark(recipeTitle, data[0])
         }
     } else {
         element.style.color = 'var(--bg-fourth)';
         if (button === 'heart'){
             return -1
+        } else if (button === 'bookmark') {
+            removeBookmark(recipeTitle)
         }
     } 
 }
-
