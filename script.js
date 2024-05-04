@@ -347,11 +347,11 @@ function copyLink(link){
     navigator.clipboard.writeText(link)
     
     const notifyCopy = document.querySelector('.copied-clipboard')
-    notifyCopy.style.opacity = 0.9
+    notifyCopy.classList.toggle('show')
 
     setTimeout(() => {
-        notifyCopy.style.opacity = 0
-    }, 3000);
+        notifyCopy.classList.toggle('show')
+    }, 1000);
 }
 
 // just generates a random number of likes
