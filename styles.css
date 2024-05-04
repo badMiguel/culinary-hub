@@ -42,7 +42,7 @@ body{
         color: var(--font-secondary);
     }
     
-    .nav-links{
+    .nav-link-list{
         list-style-type: none;
         display: flex;
         gap: 2rem;
@@ -388,17 +388,17 @@ USED FOR ICONS
         }
     } 
     .top-nav {
-        .nav-links{
+        .nav-link-list{
             padding: 1rem;
             opacity: 0;
             max-height: 0px;
             flex-direction: column;
             width: 100%;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
         }
-        .nav-links.show{
+        .nav-link-list.show{
             opacity: 1;
-            max-height: 300px;
+            max-height: 275px;
             padding: 1rem 0 2rem 0;
         }
     }

@@ -2,10 +2,17 @@ document.addEventListener('DOMContentLoaded', async function(){
     const recipeData = await loadJSON() // load data from json
 
     const hamburgerIcon = document.querySelector('.hamburger-menu')
-    const navigationMenu = document.querySelector('.nav-links')
+    const navigationMenu = document.querySelector('.nav-link-list')
     hamburgerIcon.addEventListener('click', function(){
         navigationMenu.classList.toggle('show')
     })
+    const navigationLinks = document.querySelectorAll('.nav-link')    
+    navigationLinks.forEach(links => {
+        if (links.textContent != 'Home')
+            links.addEventListener('click', ()=>{
+                navigationMenu.classList.toggle('show')
+        })
+    });
 
     const sectionList = ['suggestion', 'breakfast']
     // display random recipes from json
@@ -14,7 +21,6 @@ document.addEventListener('DOMContentLoaded', async function(){
 
     const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
     createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-
     
     const cardCollection = document.querySelector('.card-collection')
     // view list of all recipes
