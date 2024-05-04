@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', async function(){
     });
 
     // view bookmarked recipes
-    const savedRecipe = JSON.parse(localStorage.getItem('bookmarks'))
     const savedRecipeButton = document.querySelector('.saved-recipes')
     savedRecipeButton.addEventListener('click', function(){
+        const savedRecipe = JSON.parse(localStorage.getItem('bookmarks')) || []
         renderItems(cardCollection, savedRecipe, 'saved')
     })
 
@@ -127,6 +127,7 @@ function renderItems(container, data, itemToRender, input) {
         const breadcrumbitemToRender = document.createElement('p')
         const catalogueRecipeLink = document.querySelector('.catalogue-intro')
         if (itemToRender === 'search'){
+            console.log(localStorage.getItem('bookmark'))
             sectionHeading.textContent = `Search results for "${input}"`
             breadcrumbitemToRender.textContent = 'Searched Recipes'
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
@@ -145,10 +146,13 @@ function renderItems(container, data, itemToRender, input) {
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
         }
         if (data.length > 0) {
-            createDuplicateCards(data.length, data, "search")
-        } else {
+            createDuplicateCards(data.length, data, 'search')
+        } else if (data.length === 0 && itemToRender === 'search') {
             const noRecipeFound= container.querySelector('.no-recipe-found')
             noRecipeFound.textContent = `No search results for ${input}`
+        } else if (data.length===0 && itemToRender ==='saved') {
+            const noRecipeFound= container.querySelector('.no-recipe-found')
+            noRecipeFound.textContent = `You currently have no saved recipes`
         }
     }
 
@@ -257,15 +261,11 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
 // adds a amount of like when recipe is liked - change  color of button
 function heartInteractions(section) {
     const recipeSection = document.querySelector(`.${section}-section`)
-    const heartButton = recipeSection.querySelectorAll('.heart');
-    let heartIdNumber = 0
-    
+    const heartButton = recipeSection.querySelectorAll('.heart');  
 
     heartButton.forEach((heartButton, index) => {
-        heartIdNumber += 1;
-
-        let heartIdColor = `heartColor-${section}-${heartIdNumber}`
-        let heartIdLikes = `heartLikes-${section}-${heartIdNumber}` 
+        let heartIdColor = `heartColor-${section}-${index+1}`
+        let heartIdLikes = `heartLikes-${section}-${index+1}` 
 
         let heartNumber = randomInt(1,1000)
         const heartColor = document.getElementById(heartIdColor);
@@ -285,16 +285,18 @@ function heartInteractions(section) {
     });
 }
 
+function addLike() {
+
+}
+
 // change color of button when clicked - also saves the recipe when clicked
 function bookmarkInteraction(section, recipeData) {
     const recipeSection = document.querySelector(`.${section}-section`)
     const bookmarkButton = recipeSection.querySelectorAll('.bookmark');
-    let bookmarkIdNumber = 0
 
-    bookmarkButton.forEach(bookmarkButton => {
-        bookmarkIdNumber += 1;
-        let bookmarkIdColor = `bookmarkColor-${section}-${bookmarkIdNumber}`;
-        const recipeTitle = document.getElementById(`recipe-title-${section}-${bookmarkIdNumber}`)
+    bookmarkButton.forEach((bookmarkButton, index) => {
+        let bookmarkIdColor = `bookmarkColor-${section}-${index+1}`;
+        const recipeTitle = document.getElementById(`recipe-title-${section}-${index+1}`)
             .textContent
             .replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
         const bookmarkColor = document.getElementById(bookmarkIdColor);
@@ -342,12 +344,9 @@ function removeBookmark(recipeTitle) {
 function copyLinkInteraction(section) {
     const recipeSection = document.querySelector(`.${section}-section`)
     const copyButton = recipeSection.querySelectorAll('.copy-button')
-    let linkIdNumber = 0
 
-    copyButton.forEach(copyButton => {
-        linkIdNumber += 1
-
-        let linkId = `link-${section}-${linkIdNumber}`
+    copyButton.forEach((copyButton, index) => {
+        let linkId = `link-${section}-${index+1}`
         let linkElement = document.getElementById(linkId)
 
         try{
