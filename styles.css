@@ -93,7 +93,7 @@ body{
         flex-direction: column; 
         gap: 1rem;
         background-color: var(--bg-secondary);
-        margin: 1rem 1rem;
+        margin: 0rem 1rem;
         max-height: 0px;
         overflow: hidden;
         transition: max-height 0.5s ease;
@@ -124,16 +124,21 @@ body{
     .filter-item{
         display: flex;
         gap: 0.5rem;
+
+        label, checkbox{
+            cursor: pointer;
+        }
     }
 }
-
-
-
 
 .suggestion-section, .breakfast-section, .search-section{
     margin: auto;
     width: 320px;
     padding: 0 0 3rem 0;
+}
+
+.card-collection{
+    margin: 1rem;
 }
 
 .card-container{
@@ -249,6 +254,17 @@ header {
     opacity: 0;
     transition: opacity 0.2s ease;
     z-index: 100;
+}
+
+.breadcrumb-navigation-container{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+
+    a{
+        text-decoration: none;
+        color: var(--font-primary);
+    }
 }
 
 /* 

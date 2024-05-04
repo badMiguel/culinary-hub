@@ -44,8 +44,7 @@ function searchFunction(recipeData) {
             createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
             
             const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])    
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])    
+            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])     
         } 
         
         // display filtered recipes
@@ -103,10 +102,16 @@ function renderSearchFilteredItems(container, data, searchOrFilter, input) {
     xhr.onload = function() {
         container.innerHTML = this.responseText
         const searchHeading = container.querySelector('.search-heading');
+        const breadcrumbNavigation = container.querySelector(".breadcrumb-navigation-container")
+        const breadcrumbSearchOrFilter = document.createElement('a')
         if (searchOrFilter === 'search'){
             searchHeading.textContent = `Search results for "${input}"`
+            breadcrumbSearchOrFilter.textContent = 'Searched Recipes'
+            breadcrumbNavigation.appendChild(breadcrumbSearchOrFilter)
         } else {
             searchHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
+            breadcrumbSearchOrFilter.textContent = 'Filtered Recipes'
+            breadcrumbNavigation.appendChild(breadcrumbSearchOrFilter)
         }
         if (data.length > 0) {
             createDuplicateCards(data.length, data, "search")
