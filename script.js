@@ -18,10 +18,12 @@ document.addEventListener('DOMContentLoaded', async function(){
     
     const cardCollection = document.querySelector('.card-collection')
     // view list of all recipes
-    const recipeList = document.querySelector('.recipe-list')
-    recipeList.addEventListener('click', function(){
-        renderItems(cardCollection, recipeData, 'catalogue')
-    })
+    const recipeListButton = document.querySelectorAll('.recipe-list, .recipe-list-link')
+    recipeListButton.forEach(button => {
+        button.addEventListener('click', function(){
+            renderItems(cardCollection, recipeData, 'catalogue')
+        })
+    });
 
     // view bookmarked recipes
     const savedRecipe = JSON.parse(localStorage.getItem('bookmarks'))
