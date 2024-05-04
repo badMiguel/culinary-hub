@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function(){
     const recipeData = await loadJSON() // load data from json
 
+    
     const hamburgerIcon = document.querySelector('.hamburger-menu')
     const navigationMenu = document.querySelector('.nav-link-list')
     hamburgerIcon.addEventListener('click', function(){
@@ -10,9 +11,28 @@ document.addEventListener('DOMContentLoaded', async function(){
     navigationLinks.forEach(links => {
         if (links.textContent != 'Home')
             links.addEventListener('click', ()=>{
-                navigationMenu.classList.toggle('show')
+        navigationMenu.classList.toggle('show')
         })
     });
+
+    const header = document.querySelector('header')
+    const headerLinks = header.querySelectorAll('a')
+    console.log(headerLinks)
+    window.addEventListener('scroll', function(){
+        if (window.scrollY > 50){
+            header.style.backgroundColor = '#3C6DC5'
+            header.style.boxShadow = '0 1px 10px 3px rgba(0,0,0,0.5)'
+            headerLinks.forEach(link => {
+                link.style.color = '#FBFBFD'
+            });
+        } else {
+            header.style.backgroundColor = '#F2F4FA'
+            header.style.boxShadow = ''
+            headerLinks.forEach(link => {
+                link.style.color = '#0B0D10'
+            })
+        }
+    })
 
     const sectionList = ['suggestion', 'breakfast']
     // display random recipes from json
