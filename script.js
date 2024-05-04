@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async function(){
     const headerLinks = header.querySelectorAll('a')
     console.log(headerLinks)
     window.addEventListener('scroll', function(){
-        if (window.scrollY > 50){
+        if (window.scrollY > 20){
             header.style.backgroundColor = '#3C6DC5'
             header.style.boxShadow = '0 1px 10px 3px rgba(0,0,0,0.5)'
             headerLinks.forEach(link => {
