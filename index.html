@@ -16,9 +16,9 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">Saved</a></li>
+                <!-- <li><a href="#">Contact</a></li> -->
+                <li><a class="recipe-list" href="#">Catalogue</a></li>
+                <li><a class='saved-recipes' href="#">Saved</a></li>
                 <li><a href="#">Preferences</a></li>
             </ul>
         </nav>
@@ -57,12 +57,8 @@
             </div>
         </div>
         <!-- END OF CARD TEMPLATE -->
-
-        <!--put catalogue here-->
-        <p>Can't find what you are looking for? Try our catalogue of recipes</p>
-        <!--Put link to catalogue page here-->
-        <!--Not everyone knows what they are looking for, helps to have a list of all the recipes in our databank with the search function being for quick access-->
-        <div class="search-filter-alignment">
+        <section class="search-filter-section">
+            <h1 class="introduction">Unleash Your Creativity</h1>
             <div class="search-and-filter-container">
                 <div class="search-bar-container">
                     <label class="material-icons search-icon no-select" for="search-bar">search</label>
@@ -70,8 +66,8 @@
                 </div>
                 <div class="material-icons filter-icon no-select">filter_alt</div>
             </div>
-        </div>
-        <div class="filter-section">
+        </section>
+        <section class="filter-section">
             <div class="filter-section-container">
                 <div class="filter-section-heading-container">
                     <h2 class="filter-section-header">Filter Recipes</h2>
@@ -112,21 +108,24 @@
                 </div>
                 <button class="apply-filter">Apply Filter</button>
             </div>
-        </div>
+        </section>
         <div class="card-collection">
-            <div class="suggestion-section">
-                <h1>Try this out!</h1>
+            <section class="suggestion-section">
+                <h1>Want something new?</h1>
                 <div class="card-container">
 
                 </div>
-            </div>
-            <div class="breakfast-section">
+            </section>
+            <section class="breakfast-section">
                 <h1>Try out these breakfast!</h1>
                 <div class="card-container">
                     
                 </div>
-            </div>
+            </section>
         </div>
+        <section class="recipe-catalogue">
+            <p class="catalogue-intro">Can't find what you are looking for? Try our <a class="recipe-list" href="#">catalogue of recipes</a>.</p>
+        </section>
     </body>
     <footer>
         <div class="copied-clipboard">

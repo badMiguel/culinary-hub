@@ -20,7 +20,12 @@ body{
     background-color: var(--bg-primary);
     
     h1{
-        font-size: 30px;
+        font-size: 25px;
+        font-weight: 400;
+    }
+
+    a{
+        text-decoration: none;
     }
 }
 
@@ -35,7 +40,6 @@ body{
     
     a{
         color: var(--font-secondary);
-        text-decoration: none;
     }
     
     .nav-links{
@@ -50,9 +54,18 @@ body{
     }
 }
 
-.search-filter-alignment{
+.search-filter-section{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.introduction{
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
 }
 
 .search-and-filter-container{
@@ -61,7 +74,6 @@ body{
     width: 80%;
     max-width: 600px;
     max-height: 88px;
-    margin: 2rem 0 1rem 0;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     background-color: var(--bg-secondary);
@@ -217,7 +229,6 @@ body{
     
     a{
         color: var(--font-primary);
-        text-decoration: none;
     }
 }
 
@@ -294,8 +305,18 @@ header {
     margin: 1rem 0;
 
     a{
-        text-decoration: none;
         color: var(--font-primary);
+    }
+}
+
+.recipe-catalogue{
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    padding: 0 0 4rem 0;
+
+    a{
+        color: rgb(5, 32, 121);
     }
 }
 
@@ -321,7 +342,7 @@ USED FOR ICONS
         }
     }
     
-    .suggestion-section, .breakfast-section, .search-section, .top-nav{
+    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-catalogue{
         width: 672px;
     }
 
@@ -354,26 +375,6 @@ USED FOR ICONS
     }   
 }
 
-/* @media screen and (min-width: 1200px){
-    .suggestion-section, .breakfast-section, .search-section{
-        width: 1024px;
-    }
-
-    .card:hover{
-        box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
-    }
-    .heart:hover{
-        transform: scale(1.1);
-    }
-
-    .bookmark:hover{
-        transform: scale(1.1);
-    }    
-
-    .copy-button:hover{
-        transform: scale(1.1);
-    }   
-} */
 
 @media screen and (max-width: 749px) {
     .filter-section{
@@ -403,3 +404,23 @@ USED FOR ICONS
     }
     
 }
+/* @media screen and (min-width: 1200px){
+    .suggestion-section, .breakfast-section, .search-section{
+        width: 1024px;
+    }
+
+    .card:hover{
+        box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
+    }
+    .heart:hover{
+        transform: scale(1.1);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .copy-button:hover{
+        transform: scale(1.1);
+    }   
+} */

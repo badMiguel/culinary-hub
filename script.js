@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function(){
     const recipeData = await loadJSON() // load data from json
 
-    searchFunction(recipeData)
-    
-    filterFunction(recipeData)
-
     const hamburgerIcon = document.querySelector('.hamburger-menu')
     const navigationMenu = document.querySelector('.nav-links')
     hamburgerIcon.addEventListener('click', function(){
@@ -18,7 +14,24 @@ document.addEventListener('DOMContentLoaded', async function(){
 
     const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
     createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-    // button interactions for cards
+
+    
+    const cardCollection = document.querySelector('.card-collection')
+    // view list of all recipes
+    const recipeList = document.querySelector('.recipe-list')
+    recipeList.addEventListener('click', function(){
+        renderItems(cardCollection, recipeData, 'catalogue')
+    })
+
+    // view bookmarked recipes
+    const savedRecipe = JSON.parse(localStorage.getItem('bookmarks'))
+    const savedRecipeButton = document.querySelector('.saved-recipes')
+    savedRecipeButton.addEventListener('click', function(){
+        renderItems(cardCollection, savedRecipe, 'saved')
+    })
+
+    searchFunction(recipeData)
+    filterFunction(recipeData)
 });
 
 // load json file in recipe information
@@ -62,7 +75,7 @@ function searchFunction(recipeData) {
                 item.cooking_skill_level.toLowerCase().includes(searchInputValue) ||
                 item.ingredients.some(ingredient => ingredient.ingredient_name.toLowerCase().includes(searchInputValue))
             )
-            renderSearchFilteredItems(cardCollection, filteredItems, 'search', searchInputValue)
+            renderItems(cardCollection, filteredItems, 'search', searchInputValue)
         }
     })
 }
@@ -91,7 +104,7 @@ function filterFunction(recipeData) {
                 selectedFilters.some(filter=> item.cuisine_type.toLowerCase().includes(filter)) ||
                 selectedFilters.some(filter=> item.cooking_skill_level.toLowerCase().includes(filter))
             )            
-            renderSearchFilteredItems(cardCollection, filteredItems, 'filter', selectedFilters)
+            renderItems(cardCollection, filteredItems, 'filter', selectedFilters)
         }
     })
 
@@ -103,21 +116,31 @@ function filterFunction(recipeData) {
 }
 
 // renders html to show the recipes based from filter/search input of users
-function renderSearchFilteredItems(container, data, searchOrFilter, input) {
+function renderItems(container, data, itemToRender, input) {
     const xhr = new XMLHttpRequest();
     xhr.onload = function() {
         container.innerHTML = this.responseText
-        const searchHeading = container.querySelector('.search-heading');
+        const sectionHeading = container.querySelector('.section-heading');
         const breadcrumbNavigation = container.querySelector(".breadcrumb-navigation-container")
-        const breadcrumbSearchOrFilter = document.createElement('a')
-        if (searchOrFilter === 'search'){
-            searchHeading.textContent = `Search results for "${input}"`
-            breadcrumbSearchOrFilter.textContent = 'Searched Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbSearchOrFilter)
+        const breadcrumbitemToRender = document.createElement('p')
+        const catalogueRecipeLink = document.querySelector('.catalogue-intro')
+        if (itemToRender === 'search'){
+            sectionHeading.textContent = `Search results for "${input}"`
+            breadcrumbitemToRender.textContent = 'Searched Recipes'
+            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+        } else if (itemToRender === 'filter'){
+            sectionHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
+            breadcrumbitemToRender.textContent = 'Filtered Recipes'
+            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+        } else if (itemToRender ==='catalogue') {
+            sectionHeading.textContent = `List of Recipes`
+            breadcrumbitemToRender.textContent = 'Recipes Catalogue'
+            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            catalogueRecipeLink.textContent = ''
         } else {
-            searchHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
-            breadcrumbSearchOrFilter.textContent = 'Filtered Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbSearchOrFilter)
+            sectionHeading.textContent = `Your Saved Recipes`
+            breadcrumbitemToRender.textContent = 'Saved Recipes'
+            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
         }
         if (data.length > 0) {
             createDuplicateCards(data.length, data, "search")
