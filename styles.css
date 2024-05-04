@@ -277,15 +277,15 @@ header {
     border-radius: 0.5rem;
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
     margin: 1rem;
-    max-height: 0px;
     opacity: 0;
-    transition: opacity 0.2s ease, max-height 0.3s ease;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.3s ease;
     z-index: 100;
 }
 
 .copied-clipboard.show{
     opacity: 1;
-    max-height: 3rem;
+    visibility: visible;
 }
 
 .breadcrumb-navigation-container{
