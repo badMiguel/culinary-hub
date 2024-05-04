@@ -24,6 +24,32 @@ body{
     }
 }
 
+.top-nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    padding: 2rem 2rem 0rem 2rem;
+    overflow: hidden;
+    
+    a{
+        color: var(--font-secondary);
+        text-decoration: none;
+    }
+    
+    .nav-links{
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+        padding: 0 0 2rem 0;
+    }
+
+    .logo{
+        font-weight: bolder;
+    }
+}
+
 .search-filter-alignment{
     display: flex;
     justify-content: center;
@@ -34,6 +60,7 @@ body{
     justify-content: space-between;
     width: 80%;
     max-width: 600px;
+    max-height: 88px;
     margin: 2rem 0 1rem 0;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
@@ -228,7 +255,6 @@ body{
 header {
     background-color: #3c6dc5;
     color: #fff;
-    padding: 20px;
     text-align: center;
 }
 
@@ -279,9 +305,26 @@ USED FOR ICONS
 }
 
 @media screen and (min-width: 750px){
-    .suggestion-section, .breakfast-section, .search-section{
+    body{
+        a{
+            transition: opacity 0.3s ease;
+        }
+    
+        a:hover{
+            opacity: 0.7;
+        }
+    }
+    
+    .suggestion-section, .breakfast-section, .search-section, .top-nav{
         width: 672px;
     }
+
+    .top-nav {
+        .hamburger-menu{
+            display: none;
+        }
+    }
+
 
     .filter-list{
         display: grid;
@@ -337,4 +380,20 @@ USED FOR ICONS
             max-height: 30rem;
         }
     } 
+    .top-nav {
+        .nav-links{
+            padding: 1rem;
+            opacity: 0;
+            max-height: 0px;
+            flex-direction: column;
+            width: 100%;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+        .nav-links.show{
+            opacity: 1;
+            max-height: 300px;
+            padding: 1rem 0 2rem 0;
+        }
+    }
+    
 }

@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', async function(){
     
     filterFunction(recipeData)
 
+    const hamburgerIcon = document.querySelector('.hamburger-menu')
+    const navigationMenu = document.querySelector('.nav-links')
+    hamburgerIcon.addEventListener('click', function(){
+        navigationMenu.classList.toggle('show')
+    })
+
     const sectionList = ['suggestion', 'breakfast']
     // display random recipes from json
     const suggestedRandomRecipes = randomRecipes(recipeData, 2)
