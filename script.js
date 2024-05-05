@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', async function(){
                 middlePartBurger.classList.toggle('close')
                 bottomPartBurger.classList.toggle('close')
                 header.classList.toggle('show')
-            })
-        });
+            }
+        )
+    });
 
     // simple scroll transition for aesthetics
     const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
@@ -258,13 +259,15 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
         cooking_skill_level,
         cuisine_type,
     } = recipeDetails;
-
+    
+    cardClone.removeAttribute('aria-hidden')   
+    
     const elementIdToUpdate = cardClone.querySelectorAll('[id]')
     for (const element of elementIdToUpdate){
         let currentId = element.id;
         element.id = `${currentId}-${section}-${number.toString()}`
     }
-    
+   
     const recipeLink = document.getElementById(`link-${section}-${number}`)
     recipeLink.href = recipe_link
     
