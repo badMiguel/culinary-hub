@@ -1,29 +1,44 @@
 document.addEventListener('DOMContentLoaded', async function(){
     const recipeData = await loadJSON() // load data from json
 
-    
+    // hides and shows the menu when clicked
+    const header = document.querySelector('header')
     const hamburgerIcon = document.querySelector('.hamburger-menu')
     const navigationMenu = document.querySelector('.nav-link-list')
+    const topPartBurger = document.querySelector('.burger-top-part') 
+    const middlePartBurger = document.querySelector('.burger-middle-part') 
+    const bottomPartBurger = document.querySelector('.burger-bottom-part') 
     hamburgerIcon.addEventListener('click', function(){
         navigationMenu.classList.toggle('show')
+        topPartBurger.classList.toggle('close')
+        middlePartBurger.classList.toggle('close')
+        bottomPartBurger.classList.toggle('close')
+        header.classList.toggle('show')
     })
     const navigationLinks = document.querySelectorAll('.nav-link')    
     navigationLinks.forEach(links => {
         if (links.textContent != 'Home')
             links.addEventListener('click', ()=>{
-        navigationMenu.classList.toggle('show')
-        })
-    });
+                navigationMenu.classList.toggle('show')
+                topPartBurger.classList.toggle('close')
+                middlePartBurger.classList.toggle('close')
+                bottomPartBurger.classList.toggle('close')
+                header.classList.toggle('show')
+            })
+        });
 
-    const header = document.querySelector('header')
+    // simple scroll transition for aesthetics
+    const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
     const headerLinks = header.querySelectorAll('a')
-    console.log(headerLinks)
     window.addEventListener('scroll', function(){
         if (window.scrollY > 20){
             header.style.backgroundColor = '#3C6DC5'
-            header.style.boxShadow = '0 1px 10px 3px rgba(0,0,0,0.5)'
+            header.style.boxShadow = '0 1px 10px rgba(0,0,0,0.5)'
             headerLinks.forEach(link => {
                 link.style.color = '#FBFBFD'
+            });
+            hamburgerIconParts.forEach(part => {
+                part.style.backgroundColor = '#FBFBFD'                
             });
         } else {
             header.style.backgroundColor = '#F2F4FA'
@@ -31,6 +46,9 @@ document.addEventListener('DOMContentLoaded', async function(){
             headerLinks.forEach(link => {
                 link.style.color = '#0B0D10'
             })
+            hamburgerIconParts.forEach(part => {
+                part.style.backgroundColor = '#0B0D10'                
+            });
         }
     })
 

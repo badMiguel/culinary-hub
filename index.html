@@ -12,7 +12,11 @@
     <header>
         <nav class="top-nav">
             <a class='logo' href="index.html">Logo</a>
-            <a class="hamburger-menu material-icons">menu</a>
+            <a class="hamburger-menu">
+                <div class="burger-part burger-top-part"></div>
+                <div class="burger-part burger-middle-part"></div>
+                <div class="burger-part burger-bottom-part"></div>
+            </a>
             <ul class="nav-link-list">
                 <li><a class="nav-link" href="index.html">Home</a></li>
                 <li><a class='nav-link' href="#">About</a></li>
@@ -74,7 +78,7 @@
                     <p class="material-icons close-filter no-select">close</p>
                 </div>
                 <div class="cooking-skill-level-filter-container">
-                    <h4 class="filter-category-heading">Cooking Skill Level</h4>
+                    <h3 class="filter-category-heading">Cooking Skill Level</h3>
                     <div class="filter-list">
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="beginner" name="beginner" id="beginner"><label for="beginner">Beginner</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="intermediate" name="intermediate" id="intermediate"><label for="intermediate">Intermediate</label></div>
@@ -82,7 +86,7 @@
                     </div>
                 </div>
                 <div class="cuisine-type-filter-container">
-                    <h4 class="filter-category-heading">Cuisine Type</h4>
+                    <h3 class="filter-category-heading">Cuisine Type</h3>
                     <div class="filter-list">
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="american" name="american" id="american"><label for="american">American</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="asian" name="asian" id="asian"><label for="asian">Asian</label></div>
@@ -91,7 +95,7 @@
                     </div>
                 </div>
                 <div class="other-categories-filter-container">
-                    <h4 class="filter-category-heading">Others</h4>
+                    <h3 class="filter-category-heading">Others</h3>
                     <div class="filter-list">
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="main dish" name="main-dish" id="main-dish"><label for="main-dish">Main Dish</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="mushroom" name="mushroom" id="mushroom"><label for="mushroom">Mushroom</label></div>
@@ -124,7 +128,7 @@
             </section>
         </div>
         <section class="recipe-catalogue">
-            <p class="catalogue-intro">Can't find what you are looking for? Try our <a class="recipe-list-link" href="#">catalogue of recipes</a>.</p>
+            <p class="catalogue-intro">Can't find what you are looking for? Try our <a class="recipe-list-link" href="#" aria-label="List of recipes">catalogue of recipes</a>.</p>
         </section>
     </body>
     <footer>
