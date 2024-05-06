@@ -18,13 +18,227 @@
 
 body{
     background-color: var(--bg-primary);
+    margin: 7rem 0 0 0;
+    h1{
+        font-size: 25px;
+        font-weight: 400;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-primary);
+    z-index: 100;
+    text-align: center;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.top-nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    padding: 2rem 2rem 0rem 2rem;
+    overflow: hidden;
+    
+    a{
+        color: var(--font-primary);
+        transition:  color 0.4s ease;
+    }
+    
+    .nav-link-list{
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+        padding: 0 0 2rem 0;
+    }
+
+    .logo{
+        font-weight: bolder;
+    }
+    .hamburger-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        
+        .burger-part{
+            width: 19px;
+            height: 2px;
+            border-radius: 20px;
+            background-color: var(--font-primary);
+            transition: background-color 0.4s ease;
+        }
+
+        .burger-top-part{
+            transform-origin: right center;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        } 
+        .burger-middle-part{
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        } 
+        .burger-bottom-part{
+            transform-origin: right center;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+
+        .burger-top-part.close{
+            transform-origin: right center;
+            transform: rotate(-45deg) translate(1px);
+        }
+
+        .burger-middle-part.close{
+            opacity: 0;
+        }
+
+        .burger-bottom-part.close{
+            transform-origin: right center;
+            transform: rotate(45deg) translate(1px);
+        }
+    }
+}
+
+.search-filter-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.introduction{
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
+}
+
+.search-and-filter-container{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 600px;
+    max-height: 88px;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background-color: var(--bg-secondary);
+
+    .search-bar-container{
+        display: flex;
+        gap: 1rem;
+        width: 90%;
+    }
+    
+    #search-bar{
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: var(--bg-secondary);
+        text-overflow: ellipsis;
+    }
+    
+    #search-bar::placeholder{
+        font-size: 15px;
+        font-style: italic;
+    }
+
+    .search-icon{
+        cursor: pointer;
+    }
+
+    .filter-icon{
+        width: auto;
+        cursor: pointer;
+
+    }
+}
+
+.filter-section{
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 0 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 1rem;
+
+    .filter-section-heading-container{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    .close-filter{
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .filter-section-container{
+        display: flex;
+        flex-direction: column; 
+        gap: 1rem;
+        background-color: var(--bg-secondary);
+        margin: 0rem 1rem;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    .filter-section-container.show {
+        max-height: 25rem;
+    }
+    .filter-section-header{
+        margin: 1.5rem 0 0 0;
+    }
+
+    .apply-filter{
+        margin: 0 0 1.5rem 0;
+        width: 7rem;
+    }
+
+    .filter-list{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 0.3rem;
+    }
+
+    .filter-category-heading{
+        font-size: 16px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .filter-item{
+        display: flex;
+        gap: 0.5rem;
+
+        label, checkbox{
+            cursor: pointer;
+        }
+    }
+}
+
+.suggestion-section, .breakfast-section, .search-section{
+    margin: auto;
+    width: 320px;
+    padding: 0 0 3rem 0;
+}
+
+.card-collection{
+    margin: 1rem;
 }
 
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap:2rem;
+    justify-content: left;
+    gap:1rem;
     padding-top: 20px;
 }
 
@@ -42,7 +256,7 @@ body{
     overflow: hidden;
     position:relative;
     
-    .pizza-image{
+    .image-styles{
         width: 100%;
         position: absolute;
         top:50%;
@@ -69,19 +283,18 @@ body{
     
     a{
         color: var(--font-primary);
-        text-decoration: none;
     }
 }
 
 .bottom-part-card{
     display: flex;
-    margin: 0 2rem 1.5rem 2rem;
+    margin: 0 2rem 1.4rem 2rem;
     justify-content: space-between;
     align-items: center;
-    
+    font-size: 0.9rem;
 }
 
-.food-category{
+.food-category-container{
     background-color: var(--bg-third);
     color: var(--font-secondary);
     font-weight: 500;
@@ -104,13 +317,6 @@ body{
     }
 }
 
-header {
-    background-color: #3c6dc5;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
 .heart-container{
     display: flex;
     gap: 0.25rem;
@@ -131,8 +337,36 @@ header {
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
     margin: 1rem;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.3s ease;
     z-index: 100;
+}
+
+.copied-clipboard.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+.breadcrumb-navigation-container{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+
+    a{
+        color: var(--font-primary);
+    }
+}
+
+.recipe-catalogue{
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    padding: 0 0 4rem 0;
+
+    a{
+        text-decoration: underline;
+        color: rgb(5, 32, 121);
+    }
 }
 
 /* 
@@ -146,7 +380,34 @@ USED FOR ICONS
     -webkit-user-select: none;
 }
 
-@media screen and (min-width: 451px){
+@media screen and (min-width: 750px){
+    body{
+        a{
+            transition: opacity 0.3s ease;
+        }
+    
+        a:hover{
+            opacity: 0.7;
+        }
+    }
+    
+    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-catalogue{
+        width: 672px;
+    }
+
+    .top-nav {
+        .hamburger-menu{
+            display: none;
+        }
+    }
+
+
+    .filter-list{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 0.3rem;
+    }
+
     .card:hover{
         box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
     }
@@ -162,3 +423,57 @@ USED FOR ICONS
         transform: scale(1.1);
     }   
 }
+
+
+@media screen and (max-width: 749px) {
+    .filter-section{
+        .filter-list{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 0.3rem;
+        }
+        .filter-section-container.show {
+            max-height: 30rem;
+        }
+    } 
+    .top-nav {
+        .nav-link-list{
+            padding: 1rem 0;
+            opacity: 0;
+            max-height: 0px;
+            flex-direction: column;
+            width: 100%;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        .nav-link-list.show{
+            opacity: 1;
+            max-height: 275px;
+            padding: 1rem 0 2rem 0;
+        }
+    }
+
+    header.show{
+        box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
+    
+}
+/* @media screen and (min-width: 1200px){
+    .suggestion-section, .breakfast-section, .search-section{
+        width: 1024px;
+    }
+
+    .card:hover{
+        box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
+    }
+    .heart:hover{
+        transform: scale(1.1);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .copy-button:hover{
+        transform: scale(1.1);
+    }   
+} */
