@@ -1,29 +1,16 @@
 document.addEventListener('DOMContentLoaded', async function() {
     try {
         const recipes = await fetch('recipe_data.json').then(response => response.json());
-        initRecipes(recipes);
+        // Assume direct access to the first recipe for demo purposes or implement selection logic as needed.
+        if (recipes.length > 0) {
+            loadRecipeDetails(recipes[0]); // Load the first recipe details by default or based on a specific criterion
+        }
     } catch (error) {
         console.error('Error loading the recipe data:', error);
+        const recipesContainer = document.getElementById('recipes-container');
+        recipesContainer.innerHTML = `<p>Failed to load recipe data: ${error.message}</p>`; // Provide feedback directly in the container
     }
 });
-
-function initRecipes(recipes) {
-    const recipeList = document.getElementById('recipe-list');
-    recipes.forEach(recipe => {
-        let listItem = document.createElement('li');
-        listItem.textContent = recipe.recipe_title;
-        listItem.data = recipe; // Store recipe data in the element
-        recipeList.appendChild(listItem);
-    });
-
-    // Use event delegation for handling clicks on recipe items
-    recipeList.addEventListener('click', function(event) {
-        const listItem = event.target;
-        if (listItem.tagName === 'LI') {
-            loadRecipeDetails(listItem.data);
-        }
-    });
-}
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
