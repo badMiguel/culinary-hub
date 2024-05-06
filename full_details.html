@@ -3,68 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Details</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial';
-        }
-        body {
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .back {
-            display: inline-block;
-            margin-top: 1rem;
-            background-color: rgb(235, 235, 235);
-            text-decoration: none;
-            color: black;
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            font-weight: 600;
-        }
-        h1, h2 {
-            color: #555;
-        }
-        ul {
-            list-style-type: none;
-            margin: 1rem 0;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
-            text-align: left;
-        }
-        img {
-            width: 100%;
-            max-width: 400px;
-            margin-top: 1rem;
-        }
-    </style>
+    <title>Recipe Display</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1 id="recipe-title"></h1>
-        <img id="recipe-image" alt="Recipe Image">
-        <p id="recipe-description"></p>
-        <h2>Ingredients:</h2>
-        <ul id="ingredients-list"></ul>
-        <h2>Instructions:</h2>
-        <ul id="instructions-list"></ul>
-        <a class="back" href="index.html">Back to Recipes</a>
+    <div id="recipes-container">
+        <!-- Recipe cards will be dynamically inserted here -->
     </div>
-
     <script src="recipe-details.js"></script>
 </body>
 </html>
