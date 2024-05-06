@@ -1,50 +1,43 @@
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('recipe_data.json')
-        .then(response => response.json())
-        .then(data => {
-            renderRecipes(data);
-        })
-        .catch(error => console.error('Error loading recipes:', error));
-});
-
-function renderRecipes(recipes) {
+// Function to create and append recipe cards
+function loadRecipes(recipesData) {
     const container = document.getElementById('recipes-container');
-    recipes.forEach((recipe, index) => {
-        const card = document.createElement('div');
-        card.className = 'recipe-card';
-        card.innerHTML = `
-            <div class="recipe-image">
-                <img src="${recipe.recipe_image}" alt="${recipe.recipe_title}">
-            </div>
-            <div class="recipe-info">
-                <h3>${recipe.recipe_title}</h3>
-                <p>${recipe.recipe_description}</p>
-                <button onclick="showDetails(${index})">View Recipe</button>
+    recipesData.forEach(recipe => {
+        const cardHtml = `
+            <div class="card">
+                <div class="image-container">
+                    <a href="${recipe.recipe_link}" aria-label="View More information about this recipe">
+                        <picture>
+                            <source media="(min-width: 582px)" srcset="${recipe.recipe_image}">
+                            <source media="(max-width: 581px)" srcset="${recipe.recipe_image}">
+                            <img class="image-styles" src="${recipe.recipe_image}" draggable="false" alt="${recipe.recipe_title}">
+                        </picture>
+                    </a>
+                </div>
+                <div class="caption-container">
+                    <div class="image_title">
+                        <a href="${recipe.recipe_link}">${recipe.recipe_title}</a>
+                    </div>
+                    <p>${recipe.recipe_description}</p>
+                    <p><strong>Prep Time:</strong> <span>${recipe.prep_time}</span></p>
+                    <p><strong>Allergens:</strong> <span>${recipe.allergens.join(', ')}</span></p>
+                    <p><strong>Cooking Skill Level:</strong> <span>${recipe.cooking_skill_level}</span></p>
+                    <ul><strong>Ingredients:</strong>${recipe.ingredients.map(i => `<li>${i.ingredient_name}: ${i.quantity}</li>`).join('')}</ul>
+                    <ol><strong>Instructions:</strong>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
+                    <ul><strong>Nutrition Facts:</strong>${Object.entries(recipe.nutrition_facts).map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>
+                </div>
             </div>
         `;
-        container.appendChild(card);
+        container.innerHTML += cardHtml;
     });
 }
 
-function showDetails(index) {
-    const recipe = recipes[index]; // Assuming 'recipes' is accessible globally
-    const detailsContainer = document.getElementById('recipe-details');
-    detailsContainer.innerHTML = `
-        <h1>${recipe.recipe_title}</h1>
-        <img src="${recipe.recipe_image}" alt="${recipe.recipe_title}">
-        <p><strong>Description:</strong> ${recipe.recipe_description}</p>
-        <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
-        <p><strong>Ingredients:</strong></p>
-        <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.quantity} of ${ingredient.ingredient_name}</li>`).join('')}</ul>
-        <p><strong>Instructions:</strong></p>
-        <ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
-        <p><strong>Nutrition Facts:</strong></p>
-        <ul>
-            <li>Calories: ${recipe.nutrition_facts.Calories}</li>
-            <li>Total Fat: ${recipe.nutrition_facts.TotalFat}</li>
-            <li>Protein: ${recipe.nutrition_facts.Protein}</li>
-        </ul>
-    `;
-    // Show the details view, for example by changing CSS classes
-    detailsContainer.style.display = 'block';
+// Function to fetch recipes from the local JSON file
+function fetchRecipes() {
+    fetch('recipe_data.json')
+        .then(response => response.json())  // Parse the JSON from the response
+        .then(data => loadRecipes(data))    // Pass the data to loadRecipes
+        .catch(error => console.error('Error fetching recipes:', error));
 }
+
+// Call the fetchRecipes function on window load
+window.onload = fetchRecipes;
