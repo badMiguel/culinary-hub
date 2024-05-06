@@ -1,25 +1,17 @@
-// load json file in recipe information
-async function loadJSON() {
-    try {
-        const response = await fetch('recipe_data.json');
-        const jsonData = await response.json();
-        return jsonData
-    } catch (error) {
-        console.error('Error loading JSON file:', error)
-    }
+// Function to fetch recipes from the local JSON file and render recipe cards
+function fetchRecipes() {
+    fetch('recipe_data.json')
+        .then(response => response.json())  // Parse the JSON from the response
+        .then(data => {
+            // Assuming the JSON structure is an array of recipe objects
+            const recipes = data;  // Store the parsed JSON data in the 'recipes' array
+            renderRecipes(recipes);  // Pass the 'recipes' array to the rendering function
+        })
+        .catch(error => console.error('Error fetching recipes:', error));
 }
-const recipes = [
-    {
-        // Recipe 1 data
-    },
-    {
-        // Recipe 2 data
-    },
-    // More recipe objects...
-];
 
 // Function to render recipe cards
-function renderRecipes() {
+function renderRecipes(recipes) {
     const recipesContainer = document.getElementById("recipes-container");
     
     // Clear previous content
@@ -52,5 +44,5 @@ function renderRecipes() {
     });
 }
 
-// Call the function to render recipe cards
-renderRecipes();
+// Call the fetchRecipes function on window load
+window.onload = fetchRecipes;
