@@ -1,0 +1,81 @@
+/* General page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Card styling */
+.card {
+    border: 1px solid #ccc;
+    margin: 10px;
+    width: calc(100% - 20px);
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+.caption-container {
+    padding: 15px;
+}
+
+.image_title a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+.image_title a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+ul, ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+/* Responsiveness */
+@media (min-width: 600px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: calc(33.333% - 20px);
+    }
+}
