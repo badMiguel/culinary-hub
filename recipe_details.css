@@ -16,3 +16,19 @@
     overflow-y: auto;
     padding: 20px;
 }
+.tabs button {
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #f4f4f4;
+    border: none;
+    cursor: pointer;
+}
+
+.tabs button.active {
+    background-color: #ddd;
+}
+
+#detail-container {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
