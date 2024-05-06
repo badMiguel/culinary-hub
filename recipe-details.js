@@ -1,86 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const dataUrl = 'recipe_data.json';
-    loadRecipeData(dataUrl);
+    
+    const recipes = [
+        {
+            recipe_link: "full_details.html",
+            recipe_image: "Images/Baked-Mushroom-Rice.webp",
+            recipe_title: "One-pan Garlic Mushroom Rice Bake",
+            recipe_description: "Quick rice dish with garlic, soy sauce, and mushrooms.",
+            prep_time: "30 minutes",
+            allergens: ["yeast", "celery", "soybean"],
+            cooking_skill_level: "Intermediate",
+            cuisine_type: "Asian",
+            other_categories: ["Main Dish", "Mushroom", "Baking"],
+            ingredients: [
+                { ingredient_name: "vegetable oil", quantity: "2 tbs" },
+                { ingredient_name: "mushrooms, sliced", quantity: "375g" },
+                { ingredient_name: "rice vinegar", quantity: "2 tbs" },
+                { ingredient_name: "ABC Sweet Soy Sauce", quantity: "1 1/2 tbs, plus extra to serve" }
+            ],
+            instructions: [
+                "Heat half of the vegetable oil in a large flameproof baking dish over medium-high heat.",
+                "Cook the sliced mushrooms in the heated oil, stirring occasionally, for 5 minutes or until just starting to soften.",
+                "Add rice vinegar and 1 1/2 tablespoons of ABC Sweet Soy Sauce to the mushrooms. Cook for 1 minute or until mushrooms are just tender.",
+                "Transfer the cooked mushrooms and sauce to a heatproof bowl. Set aside."
+            ],
+            nutrition_facts: {
+                Calories: "300 calories",
+                Total_Fat: "10g",
+                Sodium: "800mg",
+                Total_Carbohydrate: "45g",
+                Protein: "8g"
+            }
+        }
+        // Additional recipes can be added here
+    ];
+
+    // Function to load and display a specific recipe
+    function loadRecipe(index) {
+        const recipe = recipes[index];
+
+        document.getElementById('recipe-title').textContent = recipe.recipe_title;
+        document.getElementById('recipe-image').src = recipe.recipe_image;
+        document.getElementById('recipe-image').alt = recipe.recipe_title;
+        document.getElementById('recipe-description').textContent = recipe.recipe_description;
+
+        const ingredientsList = document.getElementById('ingredients-list');
+        ingredientsList.innerHTML = ''; // Clear existing ingredients
+        recipe.ingredients.forEach(ingredient => {
+            const li = document.createElement('li');
+            li.textContent = `${ingredient.quantity} of ${ingredient.ingredient_name}`;
+            ingredientsList.appendChild(li);
+        });
+
+        const instructionsList = document.getElementById('instructions-list');
+        instructionsList.innerHTML = ''; // Clear existing instructions
+        recipe.instructions.forEach(instruction => {
+            const li = document.createElement('li');
+            li.textContent = instruction;
+            instructionsList.appendChild(li);
+        });
+    }
+
+    // Load the first recipe on page load
+    loadRecipe(0);
+
+    // Optionally, you could add event listeners to navigate between recipes
+    // document.getElementById('next-button').addEventListener('click', function() {
+    //     currentIndex = (currentIndex + 1) % recipes.length;
+    //     loadRecipe(currentIndex);
+    // });
+
+    // document.getElementById('prev-button').addEventListener('click', function() {
+    //     currentIndex = (currentIndex - 1 + recipes.length) % recipes.length;
+    //     loadRecipe(currentIndex);
+    // });
 });
-
-function loadRecipeData(url) {
-    showLoadingIndicator(true); // Show loading indicator
-
-    fetch(url)
-        .then(handleResponse)
-        .then(processRecipeData)
-        .catch(handleError)
-        .finally(() => showLoadingIndicator(false)); // Hide loading indicator when done
-}
-
-function handleResponse(response) {
-    if (!response.ok) {
-        throw new Error('Network response was not ok: ' + response.statusText);
-    }
-    return response.json();
-}
-
-function processRecipeData(data) {
-    if (!data.recipes || data.recipes.length === 0) {
-        throw new Error('No recipes found in the loaded data');
-    }
-    const firstRecipe = data.recipes[0];
-    updateRecipeDetails(firstRecipe);
-}
-
-function updateRecipeDetails(recipe) {
-    if (!validateRecipe(recipe)) {
-        document.getElementById('recipe-title').textContent = 'Invalid recipe data';
-        return;
-    }
-
-    updateImage(recipe);
-    updateTextDetails(recipe);
-    updateIngredientsList(recipe);
-    updateNutritionFacts(recipe);
-}
-
-function validateRecipe(recipe) {
-    return recipe && recipe.recipe_image && recipe.recipe_title && recipe.recipe_description && Array.isArray(recipe.ingredients) && recipe.nutrition_facts;
-}
-
-function updateImage(recipe) {
-    const imgElement = document.getElementById('recipe-image');
-    imgElement.src = recipe.recipe_image;
-    imgElement.alt = `Image of ${recipe.recipe_title}`;
-}
-
-function updateTextDetails(recipe) {
-    document.getElementById('recipe-title').textContent = recipe.recipe_title;
-    document.getElementById('recipe-description').textContent = recipe.recipe_description;
-}
-
-function updateIngredientsList(recipe) {
-    const ingredientsList = document.getElementById('ingredient-list');
-    ingredientsList.innerHTML = '';
-    recipe.ingredients.forEach(ingredient => {
-        const li = document.createElement('li');
-        li.textContent = `${ingredient.quantity} of ${ingredient.ingredient_name}`;
-        ingredientsList.appendChild(li);
-    });
-}
-
-function updateNutritionFacts(recipe) {
-    const tbody = document.getElementById('nutrition-facts').getElementsByTagName('tbody')[0];
-    tbody.innerHTML = '';
-    Object.entries(recipe.nutrition_facts).forEach(([key, value]) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${key}</td><td>${value}</td>`;
-        tbody.appendChild(row);
-    });
-}
-
-function handleError(error) {
-    console.error('Error loading the recipe data:', error);
-    document.getElementById('recipe-title').textContent = 'Failed to load data: ' + error.message;
-}
-
-function showLoadingIndicator(visible) {
-    const loader = document.getElementById('loading-indicator');
-    loader.style.display = visible ? 'block' : 'none';
-}
