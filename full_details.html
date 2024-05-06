@@ -9,17 +9,16 @@
     <script defer src="recipe-details.js"></script>
 </head>
 <body>
-    
+    <header>
+        <h1>Recipe Book</h1>
+    </header>
     <main>
         <div id="recipes-container">
-            <!-- Recipe selection menu -->
-            <ul id="recipe-list">
-                <li onclick="loadRecipeDetails('Recipe1')">Recipe 1</li>
-                <li onclick="loadRecipeDetails('Recipe2')">Recipe 2</li>
-                <li onclick="loadRecipeDetails('Recipe3')">Recipe 3</li>
-            </ul>
-            <!-- Recipe cards will be dynamically inserted here -->
+            <!-- Dynamic elements for recipe tabs and details will be inserted here -->
         </div>
+        <ul id="recipe-list">
+            <!-- Recipe titles will be dynamically populated here -->
+        </ul>
     </main>
     <script src="recipe-details.js"></script>
 </body>
