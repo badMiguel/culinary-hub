@@ -1,55 +1,42 @@
-// Function to fetch recipes from the local JSON file and render recipe cards
+// Function to create and append recipe cards
+function loadRecipes(recipesData) {
+    const container = document.getElementById('recipes-container');
+    recipesData.forEach(recipe => {
+        const cardHtml = `
+            <div class="card">
+                <div class="image-container">
+                    <a href="${recipe.recipe_link}" aria-label="View More information about this recipe">
+                        <picture>
+                            <source media="(min-width: 582px)" srcset="${recipe.recipe_image}">
+                            <source media="(max-width: 581px)" srcset="${recipe.recipe_image}">
+                            <img class="image-styles" src="${recipe.recipe_image}" draggable="false" alt="${recipe.recipe_title}">
+                        </picture>
+                    </a>
+                </div>
+                <div class="caption-container">
+                    <div class="image_title">
+                        ${recipe.recipe_title}
+                    </div>
+                    <p>${recipe.recipe_description}</p>
+                    <p><strong>Prep Time:</strong> <span>${recipe.prep_time}</span></p>
+                    <p><strong>Allergens:</strong> <span>${recipe.allergens.join(', ')}</span></p>
+                    <p><strong>Cooking Skill Level:</strong> <span>${recipe.cooking_skill_level}</span></p>
+                    <ul><strong>Ingredients:</strong>${recipe.ingredients.map(i => `<li>${i.ingredient_name}: ${i.quantity}</li>`).join('')}</ul>
+                    <ol><strong>Instructions:</strong>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
+                    <ul><strong>Nutrition Facts:</strong>${Object.entries(recipe.nutrition_facts).map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>
+                </div>
+            </div>
+        `;
+        container.innerHTML += cardHtml;
+    });
+}
+
+// Function to fetch recipes from the local JSON file
 function fetchRecipes() {
     fetch('recipe_data.json')
         .then(response => response.json())  // Parse the JSON from the response
-        .then(data => {
-            // Assuming the JSON structure is an array of recipe objects
-            const recipes = data;  // Store the parsed JSON data in the 'recipes' array
-            renderRecipes(recipes);  // Pass the 'recipes' array to the rendering function
-        })
+        .then(data => loadRecipes(data))    // Pass the data to loadRecipes
         .catch(error => console.error('Error fetching recipes:', error));
-}
-
-// Function to render recipe cards
-function renderRecipes(recipes) {
-    const recipesContainer = document.getElementById("recipes-container");
-    
-    // Clear previous content
-    recipesContainer.innerHTML = "";
-    
-    // Loop through each recipe
-    recipes.forEach(recipe => {
-        // Create recipe cards for each recipe
-        const recipeCard = document.createElement("div");
-        recipeCard.classList.add("recipe-card");
-        
-        // Populate content into respective cards
-        const firstCardContent = `
-            <h2>${recipe.title}</h2>
-            <p>${recipe.description}</p>
-            <!-- Add more content as needed -->
-        `;
-        const secondCardContent = `
-            <h3>Instructions</h3>
-            <ol>
-                ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
-            </ol>
-        `;
-        const thirdCardContent = `
-            <h3>Nutrition Facts</h3>
-            <ul>
-                <li>Calories: ${recipe.nutrition.calories}</li>
-                <li>Fat: ${recipe.nutrition.fat}</li>
-                <!-- Add more nutrition facts as needed -->
-            </ul>
-        `;
-        
-        // Append content to respective cards
-        recipeCard.innerHTML = firstCardContent + secondCardContent + thirdCardContent;
-        
-        // Append the recipe card to the container
-        recipesContainer.appendChild(recipeCard);
-    });
 }
 
 // Call the fetchRecipes function on window load
