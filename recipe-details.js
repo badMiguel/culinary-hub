@@ -31,7 +31,9 @@ function renderRecipes(recipes) {
         `;
         const secondCardContent = `
             <h3>Instructions</h3>
-            <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>
+            <ol>
+                ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+            </ol>
         `;
         const thirdCardContent = `
             <h3>Nutrition Facts</h3>
@@ -43,9 +45,7 @@ function renderRecipes(recipes) {
         `;
         
         // Append content to respective cards
-        recipeCard.innerHTML = firstCardContent;
-        recipeCard.querySelector(".instructions").innerHTML = secondCardContent;
-        recipeCard.querySelector(".nutrition-facts").innerHTML = thirdCardContent;
+        recipeCard.innerHTML = firstCardContent + secondCardContent + thirdCardContent;
         
         // Append the recipe card to the container
         recipesContainer.appendChild(recipeCard);
