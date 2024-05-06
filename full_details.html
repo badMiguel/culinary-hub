@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Display</title>
+    <title>Recipe Details</title>
     <link rel="stylesheet" href="recipe_details.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="recipe-details.js"></script>
 </head>
 <body>
-    <div id="recipes-container">
-        <!-- Recipe cards will be dynamically inserted here -->
-    </div>
+    <header>
+        <nav class="top-nav">
+            <a class='logo' href="index.html">Logo</a>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="material-icons">menu</span>
+            </div>
+            
+        </nav>
+    </header>
+    <main>
+        <div id="recipes-container">
+            <!-- Recipe selection menu -->
+            <ul id="recipe-list">
+                <li onclick="loadRecipeDetails('Recipe1')">Recipe 1</li>
+                <li onclick="loadRecipeDetails('Recipe2')">Recipe 2</li>
+                <li onclick="loadRecipeDetails('Recipe3')">Recipe 3</li>
+            </ul>
+            <!-- Recipe cards will be dynamically inserted here -->
+        </div>
+    </main>
     <script src="recipe-details.js"></script>
 </body>
 </html>

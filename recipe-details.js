@@ -1,43 +1,91 @@
-// Function to create and append recipe cards
-function loadRecipes(recipesData) {
-    const container = document.getElementById('recipes-container');
-    recipesData.forEach(recipe => {
-        const cardHtml = `
-            <div class="card">
-                <div class="image-container">
-                    <a href="${recipe.recipe_link}" aria-label="View More information about this recipe">
-                        <picture>
-                            <source media="(min-width: 582px)" srcset="${recipe.recipe_image}">
-                            <source media="(max-width: 581px)" srcset="${recipe.recipe_image}">
-                            <img class="image-styles" src="${recipe.recipe_image}" draggable="false" alt="${recipe.recipe_title}">
-                        </picture>
-                    </a>
-                </div>
-                <div class="caption-container">
-                    <div class="image_title">
-                        ${recipe.recipe_title}
-                    </div>
-                    <p>${recipe.recipe_description}</p>
-                    <p><strong>Prep Time:</strong> <span>${recipe.prep_time}</span></p>
-                    <p><strong>Allergens:</strong> <span>${recipe.allergens.join(', ')}</span></p>
-                    <p><strong>Cooking Skill Level:</strong> <span>${recipe.cooking_skill_level}</span></p>
-                    <ul><strong>Ingredients:</strong>${recipe.ingredients.map(i => `<li>${i.ingredient_name}: ${i.quantity}</li>`).join('')}</ul>
-                    <ol><strong>Instructions:</strong>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
-                    <ul><strong>Nutrition Facts:</strong>${Object.entries(recipe.nutrition_facts).map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>
-                </div>
-            </div>
-        `;
-        container.innerHTML += cardHtml;
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetching the JSON data from the server
+    fetch('recipe_data.json')
+        .then(response => response.json())
+        .then(data => initRecipes(data))
+        .catch(error => console.error('Error loading the recipe data:', error));
+});
+
+function initRecipes(recipes) {
+    const recipeList = document.getElementById('recipe-list');
+    recipes.forEach(recipe => {
+        let listItem = document.createElement('li');
+        listItem.textContent = recipe.recipe_title;
+        listItem.onclick = () => loadRecipeDetails(recipe);
+        recipeList.appendChild(listItem);
     });
 }
 
-// Function to fetch recipes from the local JSON file
-function fetchRecipes() {
-    fetch('recipe_data.json')
-        .then(response => response.json())  // Parse the JSON from the response
-        .then(data => loadRecipes(data))    // Pass the data to loadRecipes
-        .catch(error => console.error('Error fetching recipes:', error));
+function loadRecipeDetails(recipe) {
+    const recipesContainer = document.getElementById('recipes-container');
+    recipesContainer.innerHTML = ''; // Clear previous contents
+
+    // Create a container for tabs
+    const tabs = document.createElement('div');
+    tabs.className = 'tabs';
+
+    const ingredientsTab = document.createElement('button');
+    ingredientsTab.innerText = 'Ingredients';
+    ingredientsTab.onclick = () => showIngredients(recipe);
+
+    const preparationTab = document.createElement('button');
+    preparationTab.innerText = 'Preparation';
+    preparationTab.onclick = () => showPreparation(recipe);
+
+    const nutritionTab = document.createElement('button');
+    nutritionTab.innerText = 'Nutrition';
+    nutritionTab.onclick = () => showNutrition(recipe);
+
+    tabs.appendChild(ingredientsTab);
+    tabs.appendChild(preparationTab);
+    tabs.appendChild(nutritionTab);
+
+    recipesContainer.appendChild(tabs);
+
+    // Initially show ingredients
+    showIngredients(recipe);
 }
 
-// Call the fetchRecipes function on window load
-window.onload = fetchRecipes;
+function showIngredients(recipe) {
+    const detailContainer = document.getElementById('detail-container') || document.createElement('div');
+    detailContainer.id = 'detail-container';
+    detailContainer.innerHTML = `
+        <h3>Ingredients</h3>
+        <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>
+    `;
+    const recipesContainer = document.getElementById('recipes-container');
+    if (!document.contains(detailContainer)) {
+        recipesContainer.appendChild(detailContainer);
+    }
+}
+
+function showPreparation(recipe) {
+    const detailContainer = document.getElementById('detail-container') || document.createElement('div');
+    detailContainer.id = 'detail-container';
+    detailContainer.innerHTML = `
+        <h3>Preparation</h3>
+        <ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
+    `;
+    const recipesContainer = document.getElementById('recipes-container');
+    if (!document.contains(detailContainer)) {
+        recipesContainer.appendChild(detailContainer);
+    }
+}
+
+function showNutrition(recipe) {
+    const detailContainer = document.getElementById('detail-container') || document.createElement('div');
+    detailContainer.id = 'detail-container';
+    detailContainer.innerHTML = `
+        <h3>Nutrition Facts</h3>
+        <ul>
+            <li>Calories: ${recipe.nutrition_facts.Calories}</li>
+            <li>Total Fat: ${recipe.nutrition_facts.TotalFat}</li>
+            <li>Protein: ${recipe.nutrition_facts.Protein}</li>
+            <!-- More nutrition facts can be added here -->
+        </ul>
+    `;
+    const recipesContainer = document.getElementById('recipes-container');
+    if (!document.contains(detailContainer)) {
+        recipesContainer.appendChild(detailContainer);
+    }
+}
