@@ -1,55 +1,86 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure the path to 'recipe_data.json' is correct relative to the HTML file or server configuration
-    fetch('recipe_data.json')
-        .then(response => {
-            // Check if the response was successful
-            if (!response.ok) {
-                throw new Error('Network response was not ok: ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Ensure the data contains the recipes array and it's not empty
-            if (!data.recipes || data.recipes.length === 0) {
-                throw new Error('No recipes found in the loaded data');
-            }
-            // Example to load the first recipe, modify as needed
-            const recipeId = 0; 
-            const recipe = data.recipes[recipeId];
-            updateRecipeDetails(recipe);
-        })
-        .catch(error => {
-            // Log and display errors
-            console.error('Error loading the recipe data:', error);
-            document.getElementById('recipe-title').textContent = 'Failed to load data: ' + error.message;
-        });
+    const dataUrl = 'recipe_data.json';
+    loadRecipeData(dataUrl);
 });
 
+function loadRecipeData(url) {
+    showLoadingIndicator(true); // Show loading indicator
+
+    fetch(url)
+        .then(handleResponse)
+        .then(processRecipeData)
+        .catch(handleError)
+        .finally(() => showLoadingIndicator(false)); // Hide loading indicator when done
+}
+
+function handleResponse(response) {
+    if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
+    }
+    return response.json();
+}
+
+function processRecipeData(data) {
+    if (!data.recipes || data.recipes.length === 0) {
+        throw new Error('No recipes found in the loaded data');
+    }
+    const firstRecipe = data.recipes[0];
+    updateRecipeDetails(firstRecipe);
+}
+
 function updateRecipeDetails(recipe) {
-    // Setting the recipe image attributes
+    if (!validateRecipe(recipe)) {
+        document.getElementById('recipe-title').textContent = 'Invalid recipe data';
+        return;
+    }
+
+    updateImage(recipe);
+    updateTextDetails(recipe);
+    updateIngredientsList(recipe);
+    updateNutritionFacts(recipe);
+}
+
+function validateRecipe(recipe) {
+    return recipe && recipe.recipe_image && recipe.recipe_title && recipe.recipe_description && Array.isArray(recipe.ingredients) && recipe.nutrition_facts;
+}
+
+function updateImage(recipe) {
     const imgElement = document.getElementById('recipe-image');
     imgElement.src = recipe.recipe_image;
     imgElement.alt = `Image of ${recipe.recipe_title}`;
+}
 
-    // Updating the title and description
+function updateTextDetails(recipe) {
     document.getElementById('recipe-title').textContent = recipe.recipe_title;
     document.getElementById('recipe-description').textContent = recipe.recipe_description;
+}
 
-    // Populating the ingredients list
+function updateIngredientsList(recipe) {
     const ingredientsList = document.getElementById('ingredient-list');
-    ingredientsList.innerHTML = ''; // Clear existing list items
+    ingredientsList.innerHTML = '';
     recipe.ingredients.forEach(ingredient => {
         const li = document.createElement('li');
         li.textContent = `${ingredient.quantity} of ${ingredient.ingredient_name}`;
         ingredientsList.appendChild(li);
     });
+}
 
-    // Populating the nutrition facts table
-    const nutritionFactsTable = document.getElementById('nutrition-facts').getElementsByTagName('tbody')[0];
-    nutritionFactsTable.innerHTML = ''; // Clear existing table rows
+function updateNutritionFacts(recipe) {
+    const tbody = document.getElementById('nutrition-facts').getElementsByTagName('tbody')[0];
+    tbody.innerHTML = '';
     Object.entries(recipe.nutrition_facts).forEach(([key, value]) => {
         const row = document.createElement('tr');
         row.innerHTML = `<td>${key}</td><td>${value}</td>`;
-        nutritionFactsTable.appendChild(row);
+        tbody.appendChild(row);
     });
+}
+
+function handleError(error) {
+    console.error('Error loading the recipe data:', error);
+    document.getElementById('recipe-title').textContent = 'Failed to load data: ' + error.message;
+}
+
+function showLoadingIndicator(visible) {
+    const loader = document.getElementById('loading-indicator');
+    loader.style.display = visible ? 'block' : 'none';
 }
