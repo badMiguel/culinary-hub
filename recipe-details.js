@@ -12,8 +12,16 @@ function initRecipes(recipes) {
     recipes.forEach(recipe => {
         let listItem = document.createElement('li');
         listItem.textContent = recipe.recipe_title;
-        listItem.addEventListener('click', () => loadRecipeDetails(recipe));
+        listItem.data = recipe; // Store recipe data in the element
         recipeList.appendChild(listItem);
+    });
+
+    // Use event delegation for handling clicks on recipe items
+    recipeList.addEventListener('click', function(event) {
+        const listItem = event.target;
+        if (listItem.tagName === 'LI') {
+            loadRecipeDetails(listItem.data);
+        }
     });
 }
 
@@ -32,46 +40,45 @@ function loadRecipeDetails(recipe) {
     `;
     recipesContainer.appendChild(basicInfo);
 
-    // Create a container for tabs
+    createTabs(['Ingredients', 'Preparation', 'Nutrition'], recipe, recipesContainer);
+}
+
+function createTabs(tabNames, recipe, container) {
     const tabs = document.createElement('div');
     tabs.className = 'tabs';
 
-    const ingredientsTab = document.createElement('button');
-    ingredientsTab.innerText = 'Ingredients';
-    ingredientsTab.addEventListener('click', () => showIngredients(recipe, recipesContainer));
+    tabNames.forEach(tabName => {
+        const tabButton = document.createElement('button');
+        tabButton.innerText = tabName;
+        tabButton.addEventListener('click', () => showDetails(tabName.toLowerCase(), recipe, container));
+        tabs.appendChild(tabButton);
+    });
 
-    const preparationTab = document.createElement('button');
-    preparationTab.innerText = 'Preparation';
-    preparationTab.addEventListener('click', () => showPreparation(recipe, recipesContainer));
-
-    const nutritionTab = document.createElement('button');
-    nutritionTab.innerText = 'Nutrition';
-    nutritionTab.addEventListener('click', () => showNutrition(recipe, recipesContainer));
-
-    tabs.appendChild(ingredientsTab);
-    tabs.appendChild(preparationTab);
-    tabs.appendChild(nutritionTab);
-
-    recipesContainer.appendChild(tabs);
+    container.appendChild(tabs);
 }
 
-function showIngredients(recipe, recipesContainer) {
+function showDetails(type, recipe, recipesContainer) {
+    let content = '';
     const detailContainer = document.getElementById('detail-container') || document.createElement('div');
     detailContainer.id = 'detail-container';
-    detailContainer.innerHTML = `<h3>Ingredients</h3><ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>`;
-    recipesContainer.appendChild(detailContainer);
-}
 
-function showPreparation(recipe, recipesContainer) {
-    const detailContainer = document.getElementById('detail-container') || document.createElement('div');
-    detailContainer.id = 'detail-container';
-    detailContainer.innerHTML = `<h3>Preparation</h3><ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>`;
-    recipesContainer.appendChild(detailContainer);
-}
+    switch (type) {
+        case 'ingredients':
+            content = `<h3>Ingredients</h3><ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>`;
+            break;
+        case 'preparation':
+            content = `<h3>Preparation</h3><ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>`;
+            break;
+        case 'nutrition':
+            content = `<h3>Nutrition Facts</h3><ul>${Object.keys(recipe.nutrition_facts).map(key => {
+                if (recipe.nutrition_facts[key] != null) {
+                    return `<li>${key}: ${recipe.nutrition_facts[key]}</li>`;
+                }
+                return '';
+            }).join('')}</ul>`;
+            break;
+    }
 
-function showNutrition(recipe, recipesContainer) {
-    const detailContainer = document.getElementById('detail-container') || document.createElement('div');
-    detailContainer.id = 'detail-container';
-    detailContainer.innerHTML = `<h3>Nutrition Facts</h3><ul>${Object.keys(recipe.nutrition_facts).map(key => `<li>${key}: ${recipe.nutrition_facts[key]}</li>`).filter(fact => recipe.nutrition_facts[key] != null).join('')}</ul>`;
+    detailContainer.innerHTML = content;
     recipesContainer.appendChild(detailContainer);
 }
