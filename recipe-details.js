@@ -1,47 +1,47 @@
-// Function to create and append recipe cards
-function loadRecipes(recipesData) {
-    const container = document.getElementById('recipes-container');
-    recipesData.forEach(recipe => {
-        // First card: Prep time, allergens, cooking time, and ingredients
-        const firstCardHtml = `
-            <div class="card">
-                <div class="caption-container">
-                    <div class="image_title">
-                        ${recipe.recipe_title}
-                    </div>
-                    <p>${recipe.recipe_description}</p>
-                    <p><strong>Prep Time:</strong> <span>${recipe.prep_time}</span></p>
-                    <p><strong>Allergens:</strong> <span>${recipe.allergens.join(', ')}</span></p>
-                    <p><strong>Cooking Time:</strong> <span>${recipe.cooking_time}</span></p>
-                    <ul><strong>Ingredients:</strong>${recipe.ingredients.map(i => `<li>${i.ingredient_name}: ${i.quantity}</li>`).join('')}</ul>
-                </div>
-            </div>
-        `;
+// Assume you have an array of recipe objects named "recipes"
+const recipes = [
+    {
+        // Recipe 1 data
+    },
+    {
+        // Recipe 2 data
+    },
+    // More recipe objects...
+];
 
-        // Second card: Instructions
-        const secondCardHtml = `
-            <div class="card">
-                <div class="caption-container">
-                    <ol><strong>Instructions:</strong>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
-                </div>
-            </div>
+// Function to render recipe cards
+function renderRecipes() {
+    const recipesContainer = document.getElementById("recipes-container");
+    
+    // Clear previous content
+    recipesContainer.innerHTML = "";
+    
+    // Loop through each recipe
+    recipes.forEach(recipe => {
+        // Create recipe cards for each recipe
+        const recipeCard = document.createElement("div");
+        recipeCard.classList.add("recipe-card");
+        
+        // Populate content into respective cards
+        const firstCardContent = `
+            <!-- Content for recipe card 1 -->
         `;
-
-        // Third card: Nutrition facts and comments
-        const thirdCardHtml = `
-            <div class="card">
-                <div class="caption-container">
-                    <ul><strong>Nutrition Facts:</strong>${Object.entries(recipe.nutrition_facts).map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>
-                    <ul><strong>Comments:</strong>
-                        <li>This recipe is amazing!</li>
-                        <li>I made this last night and it was delicious!</li>
-                        <!-- Add more comments dynamically if needed -->
-                    </ul>
-                </div>
-            </div>
+        const secondCardContent = `
+            <!-- Content for recipe card 2 -->
         `;
-
-        // Append each card to the container
-        container.innerHTML += firstCardHtml + secondCardHtml + thirdCardHtml;
+        const thirdCardContent = `
+            <!-- Content for recipe card 3 -->
+        `;
+        
+        // Append content to respective cards
+        recipeCard.innerHTML = firstCardContent;
+        recipeCard.querySelector(".instructions").innerHTML = secondCardContent;
+        recipeCard.querySelector(".nutrition-facts").innerHTML = thirdCardContent;
+        
+        // Append the recipe card to the container
+        recipesContainer.appendChild(recipeCard);
     });
 }
+
+// Call the function to render recipe cards
+renderRecipes();
