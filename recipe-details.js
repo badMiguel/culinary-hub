@@ -25,13 +25,21 @@ function renderRecipes(recipes) {
         
         // Populate content into respective cards
         const firstCardContent = `
-            <!-- Content for recipe card 1 -->
+            <h2>${recipe.title}</h2>
+            <p>${recipe.description}</p>
+            <!-- Add more content as needed -->
         `;
         const secondCardContent = `
-            <!-- Content for recipe card 2 -->
+            <h3>Instructions</h3>
+            <ol>${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}</ol>
         `;
         const thirdCardContent = `
-            <!-- Content for recipe card 3 -->
+            <h3>Nutrition Facts</h3>
+            <ul>
+                <li>Calories: ${recipe.nutrition.calories}</li>
+                <li>Fat: ${recipe.nutrition.fat}</li>
+                <!-- Add more nutrition facts as needed -->
+            </ul>
         `;
         
         // Append content to respective cards
