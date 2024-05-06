@@ -15,7 +15,7 @@ function loadRecipes(recipesData) {
                 </div>
                 <div class="caption-container">
                     <div class="image_title">
-                        <a href="${recipe.recipe_link}">${recipe.recipe_title}</a>
+                        ${recipe.recipe_title}
                     </div>
                     <p>${recipe.recipe_description}</p>
                     <p><strong>Prep Time:</strong> <span>${recipe.prep_time}</span></p>
