@@ -113,3 +113,21 @@ ul, ol {
         width: calc(33.333% - 20px);
     }
 }
+#recipes-container .recipe-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+#recipe-details {
+    display: none; /* Hidden by default */
+    position: fixed; /* Overlay or modal view */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    padding: 20px;
+}
