@@ -1,4 +1,13 @@
-// Assume you have an array of recipe objects named "recipes"
+// load json file in recipe information
+async function loadJSON() {
+    try {
+        const response = await fetch('recipe_data.json');
+        const jsonData = await response.json();
+        return jsonData
+    } catch (error) {
+        console.error('Error loading JSON file:', error)
+    }
+}
 const recipes = [
     {
         // Recipe 1 data
