@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Fetching the JSON data from the server
     fetch('recipe_data.json')
         .then(response => response.json())
         .then(data => initRecipes(data))
@@ -10,7 +11,6 @@ function initRecipes(recipes) {
     recipes.forEach(recipe => {
         let listItem = document.createElement('li');
         listItem.textContent = recipe.recipe_title;
-        listItem.className = 'recipe-list-item';
         listItem.onclick = () => loadRecipeDetails(recipe);
         recipeList.appendChild(listItem);
     });
@@ -33,7 +33,7 @@ function loadRecipeDetails(recipe) {
 
     recipesContainer.appendChild(tabs);
 
-    // Show the first tab's content by default (ingredients here)
+    // Initially show ingredients
     toggleTabs(ingredientsTab, recipe);
 }
 
@@ -48,66 +48,72 @@ function createTabButton(tabName, recipe) {
 function toggleTabs(selectedTab, recipe) {
     const detailContainer = document.getElementById('detail-container') || document.createElement('div');
     detailContainer.id = 'detail-container';
-    detailContainer.innerHTML = showOverview(recipe); // Always show overview
+    detailContainer.innerHTML = ''; // Clear previous tab content
 
     const tabs = document.querySelectorAll('.tab-button');
-    tabs.forEach(tab => tab.classList.remove('active'));
-    selectedTab.classList.add('active');
+    tabs.forEach(tab => {
+        tab.classList.remove('active'); // Remove active class from all tabs
+    });
+    selectedTab.classList.add('active'); // Add active class to the selected tab
 
     switch (selectedTab.innerText) {
         case 'Ingredients':
-            detailContainer.innerHTML += showIngredients(recipe);
+            showIngredients(recipe, detailContainer);
             break;
         case 'Preparation':
-            detailContainer.innerHTML += showPreparation(recipe);
+            showPreparation(recipe, detailContainer);
             break;
         case 'Nutrition':
-            detailContainer.innerHTML += showNutrition(recipe);
+            showNutrition(recipe, detailContainer);
             break;
     }
 
     const recipesContainer = document.getElementById('recipes-container');
-    if (!recipesContainer.contains(detailContainer)) {
+    if (!document.contains(detailContainer)) {
         recipesContainer.appendChild(detailContainer);
     }
 }
 
-
-function showOverview(recipe, container) {
+function showIngredients(recipe, container) {
     container.innerHTML = `
-        <h3>Overview</h3>
-        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" style="width:100%;max-width:300px;">
-        <p><strong>Description:</strong> ${recipe.recipe_description}</p>
-        <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
-        <p><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</p>
-        <p><strong>Cooking Skill Level:</strong> ${recipe.cooking_skill_level}</p>
+        <h2>${recipe.title}</h2>
+        <img src="${recipe.image}" alt="Image of ${recipe.title}">
+        <p>${recipe.description}</p>
+        <p>Allergens: ${recipe.allergens.join(', ')}</p>
+        <p>Skill Level: ${recipe.skill_level}</p>
+        <h3>Ingredients</h3>
+        <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>
     `;
 }
 
-function showIngredients(recipe) {
-    return `
-        <div class="ingredients">
-            <h3>Ingredients</h3>
-            <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>
-        </div>
+function showPreparation(recipe, container) {
+    container.innerHTML = `
+        <h2>${recipe.title}</h2>
+        <img src="${recipe.image}" alt="Image of ${recipe.title}">
+        <p>${recipe.description}</p>
+        <p>Allergens: ${recipe.allergens.join(', ')}</p>
+        <p>Skill Level: ${recipe.skill_level}</p>
+        <h3>Preparation</h3>
+        <ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
     `;
 }
 
-function showPreparation(recipe) {
-    return `
-        <div class="preparation">
-            <h3>Preparation</h3>
-            <ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
-        </div>
-    `;
-}
+function showNutrition(recipe, container) {
+    let nutritionHTML = '<ul>';
+    for (let key in recipe.nutrition_facts) {
+        if (recipe.nutrition_facts.hasOwnProperty(key)) {
+            nutritionHTML += `<li>${key}: ${recipe.nutrition_facts[key]}</li>`;
+        }
+    }
+    nutritionHTML += '</ul>';
 
-function showNutrition(recipe) {
-    const nutritionFacts = Object.entries(recipe.nutrition_facts).map(([key, value]) => `<li>${key}: ${value}</li>`).join('');
-    return `
-        <div class="nutrition">
-            <h3>Nutrition Facts</h3>
-            <ul>${nutritionFacts}</ul>
-        </div>
+    container.innerHTML = `
+        <h2>${recipe.title}</h2>
+        <img src="${recipe.image}" alt="Image of ${recipe.title}">
+        <p>${recipe.description}</p>
+        <p>Allergens: ${recipe.allergens.join(', ')}</p>
+        <p>Skill Level: ${recipe.skill_level}</p>
+        <h3>Nutrition Facts</h3>
+        ${nutritionHTML}
     `;
 }
