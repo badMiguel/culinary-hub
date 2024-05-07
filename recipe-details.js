@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function displayRecipeDetails(recipe) {
-    const image = document.getElementById('recipe-image');
-    const title = document.getElementById('recipe-title');
-    const description = document.getElementById('recipe-description');
-    const prepTime = document.getElementById('prep-time');
+    const image = document.getElementById('recipe_image');
+    const title = document.getElementById('recipe_title');
+    const description = document.getElementById('recipe_description');
+    const prepTime = document.getElementById('prep_time');
     const allergens = document.getElementById('allergens');
     const skillLevel = document.getElementById('cooking-skill-level');
 
