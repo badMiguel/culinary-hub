@@ -21,7 +21,7 @@ async function loadRecipeData() {
 function initRecipes(recipes) {
     const recipesContainer = document.getElementById('recipes-container');
     // Load the first recipe by default for demonstration
-    loadRecipeDetails(recipes[1]);
+    loadRecipeDetails(recipes[0, 1, 2, 3, 4, 5, 6, 7, 8]);
 }
 
 function loadRecipeDetails(recipe) {
