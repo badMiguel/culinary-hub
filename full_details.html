@@ -12,9 +12,26 @@
             <div class="logo">Recipe Book</div>
         </div>
     </header>
-    <button id="backButton" class="back-button hidden">Back</button>
     <div id="recipes-container" class="recipe-catalogue">
-        <!-- Recipe details will be injected here by JavaScript -->
+        <!-- Initial static template for recipe details -->
+        <div class="recipe-card" id="recipe-card">
+            <img src="" alt="Recipe Image" id="recipe-image" class="recipe-image">
+            <h2 id="recipe-title"></h2>
+            <p id="recipe-description"></p>
+            <div class="recipe-details">
+                <span><strong>Prep Time:</strong> <span id="prep-time"></span></span>
+                <span><strong>Allergens:</strong> <span id="allergens"></span></span>
+                <span><strong>Skill Level:</strong> <span id="cooking-skill-level"></span></span>
+            </div>
+            <div class="tabs">
+                <button class="tab-button" onclick="showTab('ingredients')">Ingredients</button>
+                <button class="tab-button" onclick="showTab('preparation')">Preparation</button>
+                <button class="tab-button" onclick="showTab('nutrition')">Nutrition</button>
+            </div>
+            <div id="tab-content" class="tab-content">
+                <!-- Content for tabs will be injected here -->
+            </div>
+        </div>
     </div>
 
     <script src="recipe-details.js"></script>
