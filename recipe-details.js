@@ -1,24 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const recipeId = params.get('id');
+
     fetch('recipe_data.json')
         .then(response => response.json())
-        .then(data => initRecipes(data))
-        .catch(error => console.error('Error loading the recipe data:', error));
+        .then(data => {
+            const recipe = data.find(r => r.id === parseInt(recipeId));
+            if (recipe) {
+                loadRecipeDetails(recipe);
+            } else {
+                console.error('Recipe not found');
+            }
+        })
+        .catch(error => {
+            console.error('Error loading the recipe data:', error);
+            setTimeout(() => {
+                // Retry fetch after a delay
+                window.location.reload();
+            }, 5000); // retry after 5 seconds
+        });
 });
-
-function initRecipes(recipes) {
-    const recipesContainer = document.getElementById('recipes-container');
-    // Assume the first recipe is loaded by default for demonstration
-    loadRecipeDetails(recipes[0]);
-}
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
-    recipesContainer.innerHTML = ''; // Clear previous content
+    recipesContainer.innerHTML = '';
 
     const recipeCard = document.createElement('div');
     recipeCard.className = 'recipe-card';
     recipeCard.innerHTML = `
-        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
+        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image" loading="lazy">
         <h2>${recipe.recipe_title}</h2>
         <p>${recipe.recipe_description}</p>
         <div class="recipe-details">
@@ -33,15 +43,15 @@ function loadRecipeDetails(recipe) {
     tabs.className = 'tabs';
     recipeCard.appendChild(tabs);
 
-    const ingredientsTab = createTabButton('Ingredients', recipe, recipeCard);
-    const preparationTab = createTabButton('Preparation', recipe, recipeCard);
-    const nutritionTab = createTabButton('Nutrition', recipe, recipeCard);
+    const ingredientsTab = createTabButton('Ingredients', recipe, recipesContainer);
+    const preparationTab = createTabButton('Preparation', recipe, recipesContainer);
+    const nutritionTab = createTabButton('Nutrition', recipe, recipesContainer);
 
     tabs.appendChild(ingredientsTab);
     tabs.appendChild(preparationTab);
     tabs.appendChild(nutritionTab);
 
-    toggleTabs(ingredientsTab, recipe, recipeCard); // Default to show ingredients first
+    toggleTabs(ingredientsTab, recipe, recipesContainer); // Default to show ingredients first
 }
 
 function createTabButton(tabName, recipe, container) {
