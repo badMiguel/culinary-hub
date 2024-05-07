@@ -18,29 +18,11 @@ async function loadRecipeData() {
     return response.json();
 }
 
-// 
-document.addEventListener('DOMContentLoaded', function() {
-    const params = new URLSearchParams(window.location.search);
-    const recipeId = params.get('id');
-
-    fetch('recipe_data.json')
-        .then(response => response.json())
-        .then(data => {
-            const recipe = data.find(r => r.id === parseInt(recipeId));
-            if (recipe) {
-                displayRecipeDetails(recipe);
-            } else {
-                console.error('Recipe not found');
-            }
-        })
-        .catch(error => {
-            console.error('Error loading the recipe data:', error);
-            setTimeout(() => {
-                // Retry fetch after a delay
-                window.location.reload();
-            }, 5000); // retry after 5 seconds
-        });
-})
+function initRecipes(recipes) {
+    const recipesContainer = document.getElementById('recipes-container');
+    // Load the first recipe by default for demonstration
+    loadRecipeDetails(recipes[10]);
+}
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
