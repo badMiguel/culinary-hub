@@ -21,7 +21,17 @@ async function loadRecipeData() {
 function initRecipes(recipes) {
     const recipesContainer = document.getElementById('recipes-container');
     // Load the first recipe by default for demonstration
-    loadRecipeDetails(recipes[0, 1, 2, 3, 4, 5, 6, 7, 8]);
+    loadRecipeDetails(recipes[0]);
+    / Add event listener for user input
+    // Assuming there's an input field with id 'recipe-input' where the user enters the recipe number
+    const userInput = document.getElementById('recipe-input');
+    userInput.addEventListener('change', function(event) {
+        const recipeIndex = parseInt(event.target.value);
+        if (!isNaN(recipeIndex) && recipeIndex >= 0 && recipeIndex < recipes.length) {
+            loadRecipeDetails(recipes[recipeIndex]);
+        } else {
+            alert('Invalid recipe number. Please enter a valid number.');
+        }
 }
 
 function loadRecipeDetails(recipe) {
