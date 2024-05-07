@@ -76,8 +76,8 @@ function showOverview(recipe) {
     return `
         <div class="overview">
             <h3>Overview</h3>
-            <img src="${recipe.image_url}" alt="Image of ${recipe.recipe_title}" style="width:100%;max-width:300px;">
-            <p><strong>Description:</strong> ${recipe.description}</p>
+            <img src="${recipe_image}" alt="Image of ${recipe_title}" style="width:100%;max-width:300px;">
+            <p><strong>Description:</strong> ${recipe_description}</p>
             <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
             <p><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</p>
             <p><strong>Cooking Skill Level:</strong> ${recipe.cooking_skill_level}</p>
