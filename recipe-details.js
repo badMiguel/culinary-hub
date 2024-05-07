@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initRecipes(recipes) {
-    const recipeList = document.getElementById('recipe-list');
+    const recipeList = document.getElementById('recipes-container'); // Correct the ID from 'recipe-list' to 'recipes-container'
     recipes.forEach(recipe => {
         let listItem = document.createElement('li');
         listItem.textContent = recipe.recipe_title;
