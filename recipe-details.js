@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetching the JSON data from the server
     fetch('recipe_data.json')
         .then(response => response.json())
         .then(data => initRecipes(data))
@@ -18,7 +17,7 @@ function initRecipes(recipes) {
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
-    recipesContainer.innerHTML = ''; // Clear previous contents
+    recipesContainer.innerHTML = '';
 
     const tabs = document.createElement('div');
     tabs.className = 'tabs';
@@ -32,8 +31,6 @@ function loadRecipeDetails(recipe) {
     tabs.appendChild(nutritionTab);
 
     recipesContainer.appendChild(tabs);
-
-    // Initially show ingredients
     toggleTabs(ingredientsTab, recipe);
 }
 
@@ -48,13 +45,13 @@ function createTabButton(tabName, recipe) {
 function toggleTabs(selectedTab, recipe) {
     const detailContainer = document.getElementById('detail-container') || document.createElement('div');
     detailContainer.id = 'detail-container';
-    detailContainer.innerHTML = ''; // Clear previous tab content
+    detailContainer.innerHTML = '';
 
     const tabs = document.querySelectorAll('.tab-button');
     tabs.forEach(tab => {
-        tab.classList.remove('active'); // Remove active class from all tabs
+        tab.classList.remove('active');
     });
-    selectedTab.classList.add('active'); // Add active class to the selected tab
+    selectedTab.classList.add('active');
 
     switch (selectedTab.innerText) {
         case 'Ingredients':
@@ -76,11 +73,12 @@ function toggleTabs(selectedTab, recipe) {
 
 function showIngredients(recipe, container) {
     container.innerHTML = `
-        <h2>${recipe.title}</h2>
-        <img src="${recipe.image}" alt="Image of ${recipe.title}">
-        <p>${recipe.description}</p>
+        <h2>${recipe.recipe_title}</h2>
+        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}">
+        <p>${recipe.recipe_description}</p>
         <p>Allergens: ${recipe.allergens.join(', ')}</p>
-        <p>Skill Level: ${recipe.skill_level}</p>
+        <p>Skill Level: ${recipe.cooking_skill_level}</p>
+        <p>Prep Time: ${recipe.prep_time}</p>
         <h3>Ingredients</h3>
         <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>
     `;
@@ -88,11 +86,12 @@ function showIngredients(recipe, container) {
 
 function showPreparation(recipe, container) {
     container.innerHTML = `
-        <h2>${recipe.title}</h2>
-        <img src="${recipe.image}" alt="Image of ${recipe.title}">
-        <p>${recipe.description}</p>
+        <h2>${recipe.recipe_title}</h2>
+        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}">
+        <p>${recipe.recipe_description}</p>
         <p>Allergens: ${recipe.allergens.join(', ')}</p>
-        <p>Skill Level: ${recipe.skill_level}</p>
+        <p>Skill Level: ${recipe.cooking_skill_level}</p>
+        <p>Prep Time: ${recipe.prep_time}</p>
         <h3>Preparation</h3>
         <ol>${recipe.instructions.map(step => `<li>${step}</li>`).join('')}</ol>
     `;
@@ -100,19 +99,18 @@ function showPreparation(recipe, container) {
 
 function showNutrition(recipe, container) {
     let nutritionHTML = '<ul>';
-    for (let key in recipe.nutrition_facts) {
-        if (recipe.nutrition_facts.hasOwnProperty(key)) {
-            nutritionHTML += `<li>${key}: ${recipe.nutrition_facts[key]}</li>`;
-        }
-    }
+    Object.keys(recipe.nutrition_facts).forEach(key => {
+        nutritionHTML += `<li>${key}: ${recipe.nutrition_facts[key]}</li>`;
+    });
     nutritionHTML += '</ul>';
 
     container.innerHTML = `
-        <h2>${recipe.title}</h2>
-        <img src="${recipe.image}" alt="Image of ${recipe.title}">
-        <p>${recipe.description}</p>
+        <h2>${recipe.recipe_title}</h2>
+        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}">
+        <p>${recipe.recipe_description}</p>
         <p>Allergens: ${recipe.allergens.join(', ')}</p>
-        <p>Skill Level: ${recipe.skill_level}</p>
+        <p>Skill Level: ${recipe.cooking_skill_level}</p>
+        <p>Prep Time: ${recipe.prep_time}</p>
         <h3>Nutrition Facts</h3>
         ${nutritionHTML}
     `;
