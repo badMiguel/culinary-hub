@@ -1,16 +1,25 @@
 document.addEventListener('DOMContentLoaded', async function() {
     try {
+        const recipeId = getRecipeIdFromURL();
         const recipes = await fetch('recipe_data.json').then(response => response.json());
-        // Assume direct access to the first recipe for demo purposes or implement selection logic as needed.
-        if (recipes.length > 0) {
-            loadRecipeDetails(recipes[0]); // Load the first recipe details by default or based on a specific criterion
+        const recipe = recipes.find(r => r.id === recipeId); // Find the recipe by ID
+        if (recipe) {
+            loadRecipeDetails(recipe);
+        } else {
+            throw new Error('Recipe not found');
         }
     } catch (error) {
         console.error('Error loading the recipe data:', error);
         const recipesContainer = document.getElementById('recipes-container');
-        recipesContainer.innerHTML = `<p>Failed to load recipe data: ${error.message}</p>`; // Provide feedback directly in the container
+        recipesContainer.innerHTML = `<p>Failed to load recipe data: ${error.message}</p>`;
     }
 });
+
+function getRecipeIdFromURL() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('id');
+}
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
