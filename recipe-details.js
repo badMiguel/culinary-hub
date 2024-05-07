@@ -1,3 +1,17 @@
+// Function to fetch recipe data from JSON file
+async function fetchRecipes() {
+    const response = await fetch('recipes.json');
+    const data = await response.json();
+    return data;
+}
+
+// Function to populate recipe details with tabbed content
+function populateRecipeDetails(recipe) {
+    const container = document.getElementById('recipes-container');
+    createTabs(['Ingredients', 'Instructions'], recipe, container);
+}
+
+// Function to create tabs and content dynamically
 function createTabs(tabNames, recipe, container) {
     // Create the tabs container div and add a class for styling
     const tabsContainer = document.createElement('div');
@@ -63,3 +77,42 @@ function createTabs(tabNames, recipe, container) {
     container.appendChild(tabsContainer);
     container.appendChild(contentContainer);
 }
+
+// Function to display specific content for each tab
+function showDetails(tabName, recipe, container) {
+    // Assuming recipe is an object with properties like ingredients and instructions
+    if (tabName === 'Ingredients') {
+        const ingredientsList = document.createElement('ul');
+        recipe.ingredients.forEach(ingredient => {
+            const listItem = document.createElement('li');
+            listItem.textContent = ingredient;
+            ingredientsList.appendChild(listItem);
+        });
+        container.appendChild(ingredientsList);
+    } else if (tabName === 'Instructions') {
+        const instructionsList = document.createElement('ol');
+        recipe.instructions.forEach(instruction => {
+            const listItem = document.createElement('li');
+            listItem.textContent = instruction;
+            instructionsList.appendChild(listItem);
+        });
+        container.appendChild(instructionsList);
+    }
+}
+
+// Event listener to fetch and populate recipe details when a recipe card is clicked
+document.addEventListener('DOMContentLoaded', function() {
+    const recipeCards = document.querySelectorAll('.recipe-card');
+    recipeCards.forEach(recipeCard => {
+        recipeCard.addEventListener('click', async function() {
+            // Fetch recipe data
+            const recipes = await fetchRecipes();
+            const recipeId = recipeCard.dataset.id; // Assuming each recipe card has a data-id attribute
+            const selectedRecipe = recipes.find(recipe => recipe.id === parseInt(recipeId));
+            if (selectedRecipe) {
+                // Populate recipe details
+                populateRecipeDetails(selectedRecipe);
+            }
+        });
+    });
+});
