@@ -149,9 +149,10 @@ function filterFunction(recipeData) {
             const filteredItems = recipeData.filter(item => 
                 item.other_categories.some(category => selectedFilters.some(filter => category.toLowerCase().includes(filter))) ||
                 selectedFilters.some(filter=> item.cuisine_type.toLowerCase().includes(filter)) ||
-                selectedFilters.some(filter=> item.cooking_skill_level.toLowerCase().includes(filter))
+                selectedFilters.some(filter=> item.cooking_skill_level.toLowerCase().includes(filter)) ||
+                selectedFilters.some(filter=> item.allergens.some(allergen => allergen.toLowerCase() === filter))
             )            
-            renderItems(cardCollection, filteredItems, 'filter', selectedFilters)
+            renderSearchFilteredItems(cardCollection, filteredItems, 'filter', selectedFilters)
         }
     })
 
