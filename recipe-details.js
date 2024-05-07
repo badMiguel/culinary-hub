@@ -6,28 +6,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initRecipes(recipes) {
-    const recipeList = document.getElementById('recipes-container');
-    recipes.forEach(recipe => {
-        let listItem = document.createElement('li');
-        listItem.textContent = recipe.recipe_title;
-        listItem.onclick = () => loadRecipeDetails(recipe);
-        recipeList.appendChild(listItem);
-    });
+    const recipesContainer = document.getElementById('recipes-container');
+    // Assume the first recipe is loaded by default for demonstration
+    loadRecipeDetails(recipes[0]);
 }
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
-    recipesContainer.innerHTML = '';
+    recipesContainer.innerHTML = ''; // Clear previous content
 
     const recipeCard = document.createElement('div');
     recipeCard.className = 'recipe-card';
     recipeCard.innerHTML = `
+        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
         <h2>${recipe.recipe_title}</h2>
-        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}">
         <p>${recipe.recipe_description}</p>
-        <h4>Allergens:</h4><p>${recipe.allergens.join(', ')}</p>
-        <h4>Skill Level:</h4><p>${recipe.cooking_skill_level}</p>
-        <h4>Prep Time:</h4><p>${recipe.prep_time}</p>
+        <div class="recipe-details">
+            <span><strong>Prep Time:</strong> ${recipe.prep_time}</span>
+            <span><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</span>
+            <span><strong>Skill Level:</strong> ${recipe.cooking_skill_level}</span>
+        </div>
     `;
     recipesContainer.appendChild(recipeCard);
 
@@ -43,7 +41,7 @@ function loadRecipeDetails(recipe) {
     tabs.appendChild(preparationTab);
     tabs.appendChild(nutritionTab);
 
-    toggleTabs(ingredientsTab, recipe); // Default to show ingredients first
+    toggleTabs(ingredientsTab, recipe, recipeCard); // Default to show ingredients first
 }
 
 function createTabButton(tabName, recipe, container) {
@@ -57,12 +55,13 @@ function createTabButton(tabName, recipe, container) {
 function toggleTabs(selectedTab, recipe, container) {
     const detailContainer = container.querySelector('.detail-container') || document.createElement('div');
     detailContainer.className = 'detail-container';
-    detailContainer.innerHTML = '';
+    container.appendChild(detailContainer); // Ensure the container is appended only once
 
     const tabs = container.querySelectorAll('.tab-button');
     tabs.forEach(tab => tab.classList.remove('active'));
     selectedTab.classList.add('active');
 
+    // Decide which content to display based on the active tab
     switch (selectedTab.innerText) {
         case 'Ingredients':
             showIngredients(recipe, detailContainer);
@@ -73,10 +72,6 @@ function toggleTabs(selectedTab, recipe, container) {
         case 'Nutrition':
             showNutrition(recipe, detailContainer);
             break;
-    }
-
-    if (!container.contains(detailContainer)) {
-        container.appendChild(detailContainer);
     }
 }
 
