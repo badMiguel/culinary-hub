@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetching the JSON data from the server
     fetch('recipe_data.json')
         .then(response => response.json())
         .then(data => initRecipes(data))
@@ -7,10 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initRecipes(recipes) {
-    const recipeList = document.getElementById('recipes-container'); // Correct the ID from 'recipe-list' to 'recipes-container'
+    const recipeList = document.getElementById('recipes-container');
     recipes.forEach(recipe => {
         let listItem = document.createElement('li');
         listItem.textContent = recipe.recipe_title;
+        listItem.className = 'recipe-list-item';  // Apply styling to each list item
         listItem.onclick = () => loadRecipeDetails(recipe);
         recipeList.appendChild(listItem);
     });
@@ -23,24 +23,26 @@ function loadRecipeDetails(recipe) {
     const tabs = document.createElement('div');
     tabs.className = 'tabs';
 
+    const overviewTab = createTabButton('Overview', recipe);
     const ingredientsTab = createTabButton('Ingredients', recipe);
     const preparationTab = createTabButton('Preparation', recipe);
     const nutritionTab = createTabButton('Nutrition', recipe);
 
+    tabs.appendChild(overviewTab);
     tabs.appendChild(ingredientsTab);
     tabs.appendChild(preparationTab);
     tabs.appendChild(nutritionTab);
 
     recipesContainer.appendChild(tabs);
 
-    // Initially show ingredients
-    toggleTabs(ingredientsTab, recipe);
+    // Initially show the overview tab content
+    toggleTabs(overviewTab, recipe);
 }
 
 function createTabButton(tabName, recipe) {
     const tabButton = document.createElement('button');
     tabButton.innerText = tabName;
-    tabButton.className = 'tab-button';
+    tabButton.className = 'tab-button'; // Apply CSS for styling buttons
     tabButton.onclick = () => toggleTabs(tabButton, recipe);
     return tabButton;
 }
@@ -52,11 +54,15 @@ function toggleTabs(selectedTab, recipe) {
 
     const tabs = document.querySelectorAll('.tab-button');
     tabs.forEach(tab => {
-        tab.classList.remove('active'); // Remove active class from all tabs
+        tab.classList.remove('active'); // Deactivate all tabs
     });
-    selectedTab.classList.add('active'); // Add active class to the selected tab
+    selectedTab.classList.add('active'); // Activate the selected tab
 
+    // Show content based on selected tab
     switch (selectedTab.innerText) {
+        case 'Overview':
+            showOverview(recipe, detailContainer);
+            break;
         case 'Ingredients':
             showIngredients(recipe, detailContainer);
             break;
@@ -69,9 +75,20 @@ function toggleTabs(selectedTab, recipe) {
     }
 
     const recipesContainer = document.getElementById('recipes-container');
-    if (!document.contains(detailContainer)) {
+    if (!recipesContainer.contains(detailContainer)) {
         recipesContainer.appendChild(detailContainer);
     }
+}
+
+function showOverview(recipe, container) {
+    container.innerHTML = `
+        <h3>Overview</h3>
+        <img src="${recipe.image_url}" alt="Image of ${recipe.recipe_title}" style="width:100%;max-width:300px;">
+        <p><strong>Description:</strong> ${recipe.description}</p>
+        <p><strong>Prep Time:</strong> ${recipe.prep_time}</p>
+        <p><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</p>
+        <p><strong>Cooking Skill Level:</strong> ${recipe.cooking_skill_level}</p>
+    `;
 }
 
 function showIngredients(recipe, container) {
@@ -89,13 +106,9 @@ function showPreparation(recipe, container) {
 }
 
 function showNutrition(recipe, container) {
+    const nutritionFacts = Object.entries(recipe.nutrition_facts).map(([key, value]) => `<li>${key}: ${value}</li>`).join('');
     container.innerHTML = `
         <h3>Nutrition Facts</h3>
-        <ul>
-            <li>Calories: ${recipe.nutrition_facts.Calories}</li>
-            <li>Total Fat: ${recipe.nutrition_facts.TotalFat}</li>
-            <li>Protein: ${recipe.nutrition_facts.Protein}</li>
-            <!-- More nutrition facts can be added here -->
-        </ul>
+        <ul>${nutritionFacts}</ul>
     `;
 }
