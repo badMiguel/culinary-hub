@@ -1,6 +1,6 @@
 // Function to fetch recipe data from JSON file
 async function fetchRecipes() {
-    const response = await fetch('recipes.json');
+    const response = await fetch('recipe_data.json');
     const data = await response.json();
     return data;
 }
