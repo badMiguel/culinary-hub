@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', async function() {
     try {
+        console.log('DOM fully loaded and parsed');
         const recipeId = getRecipeIdFromURL();
+        console.log('Recipe ID:', recipeId);
         if (!recipeId) {
             throw new Error('No recipe ID provided in the URL.');
         }
         const recipes = await fetch('recipe_data.json').then(response => {
+            console.log('Fetch response:', response);
             if (!response.ok) {
                 throw new Error('Failed to fetch the recipes data.');
             }
             return response.json();
         });
-        const recipe = recipes.find(r => r.id.toString() === recipeId); // Ensure both are strings for comparison
+        console.log('Recipes loaded:', recipes);
+        const recipe = recipes.find(r => r.id.toString() === recipeId);
+        console.log('Found recipe:', recipe);
         if (!recipe) {
             throw new Error('Recipe not found for ID: ' + recipeId);
         }
