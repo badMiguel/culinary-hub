@@ -25,9 +25,9 @@ function loadRecipeDetails(recipe) {
         <h2>${recipe.recipe_title}</h2>
         <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}">
         <p>${recipe.recipe_description}</p>
-        <h4>Allergens: ${recipe.allergens.join(', ')}</h4>
-        <h4>Skill Level: ${recipe.cooking_skill_level}</h4>
-        <h4>Prep Time: ${recipe.prep_time}</h4>
+        <h4>Allergens:</h4><p>${recipe.allergens.join(', ')}</p>
+        <h4>Skill Level:</h4><p>${recipe.cooking_skill_level}</p>
+        <h4>Prep Time:</h4><p>${recipe.prep_time}</p>
     `;
     recipesContainer.appendChild(recipeCard);
 
