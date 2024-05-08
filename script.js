@@ -53,28 +53,33 @@ document.addEventListener('DOMContentLoaded', async function(){
         }
     })
 
-    const sectionList = ['suggestion', 'breakfast']
-    // display random recipes from json
-    const suggestedRandomRecipes = randomRecipes(recipeData, 2)
-    createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
+    try {
 
-    const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-    createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
+        const sectionList = ['suggestion', 'breakfast']
+        // display random recipes from json
+        const suggestedRandomRecipes = randomRecipes(recipeData, 2)
+        createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
+        
+        const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
+        createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
+        
+        const cardCollection = document.querySelector('.card-collection')
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageType = urlParams.get('page');
+        
+        if (pageType ==='recipe_list') {
+            renderItems(cardCollection, recipeData, 'listOfRecipes')
+        } else if (pageType === 'saved_recipes') {
+            const savedRecipe = JSON.parse(localStorage.getItem('bookmarks')) || []
+            renderItems(cardCollection, savedRecipe, 'saved')
+        }
     
-    const cardCollection = document.querySelector('.card-collection')
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const pageType = urlParams.get('page');
-
-    if (pageType ==='recipe_list') {
-        renderItems(cardCollection, recipeData, 'listOfRecipes')
-    } else if (pageType === 'saved_recipes') {
-        const savedRecipe = JSON.parse(localStorage.getItem('bookmarks')) || []
-        renderItems(cardCollection, savedRecipe, 'saved')
+        searchFunction(recipeData)
+        filterFunction(recipeData)
+        
+    } catch {
+        
     }
-
-    searchFunction(recipeData)
-    filterFunction(recipeData)
 });
 
 // load json file in recipe information
