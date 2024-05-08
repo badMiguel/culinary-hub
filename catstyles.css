@@ -1,0 +1,82 @@
+/* Style for recipe container */
+.recipe-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Style for recipe image */
+.recipe-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Style for recipe title */
+.recipe-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style for recipe description */
+.recipe-description {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Style for recipe details */
+.recipe-details {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Style for ingredient list */
+.ingredient-list {
+    margin-bottom: 15px;
+}
+
+/* Style for ingredient item */
+.ingredient-item {
+    margin-bottom: 5px;
+}
+
+/* Style for instruction list */
+.instruction-list {
+    margin-bottom: 15px;
+}
+
+/* Style for instruction item */
+.instruction-item {
+    margin-bottom: 10px;
+}
+
+/* Style for nutrition facts */
+.nutrition-facts {
+    margin-bottom: 10px;
+}
+
+/* Style for nutrition item */
+.nutrition-item {
+    margin-bottom: 5px;
+}
+
+/* Style for recipe container */
+#recipes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Style for individual recipe */
+.recipe {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
