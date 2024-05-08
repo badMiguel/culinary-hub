@@ -1,28 +1,25 @@
-document.addEventListener('DOMContentLoaded', async function() {
-    try {
-        const recipeData = await loadRecipeData();
-        if (recipeData.length > 0) {
-            initRecipes(recipeData);
-        }
-    } catch (error) {
-        console.error('Error loading the recipe data:', error);
-        setTimeout(() => {
-            window.location.reload(); // Retry loading data after a delay
-        }, 5000);
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('recipe_data.json')
+        .then(response => response.json())
+        .then(data => initRecipes(data))
+        .catch(error => console.error('Error loading the recipe data:', error));
 });
-
-async function loadRecipeData() {
-    const response = await fetch('recipe_data.json');
-    if (!response.ok) throw new Error('Failed to fetch');
-    return response.json();
-}
 
 function initRecipes(recipes) {
     const recipesContainer = document.getElementById('recipes-container');
-    // Load the first recipe by default for demonstration
+    // Assume the first recipe is loaded by default for demonstration
     loadRecipeDetails(recipes[0]);
-    
+    // Clear previous content
+    // recipesContainer.innerHTML = '';
+
+    // // Create and append recipe items to the container
+    // recipes.forEach(recipe => {
+    //     const recipeElement = document.createElement('div');
+    //     recipeElement.className = 'recipe';
+    //     recipeElement.textContent = recipe.name; // Assuming each recipe has a 'name' property
+    //     recipeElement.addEventListener('click', () => loadRecipeDetails(recipe));
+    //     recipesContainer.appendChild(recipeElement);
+    // });
 }
 
 function loadRecipeDetails(recipe) {
@@ -32,7 +29,7 @@ function loadRecipeDetails(recipe) {
     const recipeCard = document.createElement('div');
     recipeCard.className = 'recipe-card';
     recipeCard.innerHTML = `
-        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image" loading="lazy">
+        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
         <h2>${recipe.recipe_title}</h2>
         <p>${recipe.recipe_description}</p>
         <div class="recipe-details">
@@ -75,6 +72,7 @@ function toggleTabs(selectedTab, recipe, container) {
     tabs.forEach(tab => tab.classList.remove('active'));
     selectedTab.classList.add('active');
 
+    // Decide which content to display based on the active tab
     switch (selectedTab.innerText) {
         case 'Ingredients':
             showIngredients(recipe, detailContainer);

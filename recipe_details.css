@@ -120,3 +120,44 @@ header {
         flex-direction: row;
     }
 }
+.back-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-third);
+    color: var(--font-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 1rem;
+}
+
+.back-button:hover, .back-button:focus {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        /* Ensuring the button is well positioned in mobile view */
+        justify-content: space-between;
+    }
+
+    .back-button {
+        /* Adjusting button size for smaller screens */
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .top-nav {
+        /* Button positioning for desktop */
+        justify-content: space-between;
+    }
+
+    .back-button {
+        /* Larger padding for better desktop usability */
+        padding: 0.5rem 1rem;
+    }
+}
+

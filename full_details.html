@@ -10,23 +10,25 @@
     <header>
         <div class="top-nav">
             <div class="logo">Recipe Book</div>
+            <!-- Back button that navigates to index.html -->
+            <button class="back-button" aria-label="Go back to the home page" onclick="window.location.href='index.html';">Back</button>
         </div>
     </header>
     <div id="recipes-container" class="recipe-catalogue">
         <!-- Initial static template for recipe details -->
         <div class="recipe-card" id="recipe-card">
-            <img src="" alt="Recipe Image" id="recipe_image" class="recipe_image">
-            <h2 id="recipe_title"></h2>
-            <p id="recipe_description"></p>
+            <img src="" alt="Recipe Image" id="recipe-image" class="recipe-image">
+            <h2 id="recipe-title"></h2>
+            <p id="recipe-description"></p>
             <div class="recipe-details">
-                <span><strong>Prep Time:</strong> <span id="prep_time"></span></span>
+                <span><strong>Prep Time:</strong> <span id="prep-time"></span></span>
                 <span><strong>Allergens:</strong> <span id="allergens"></span></span>
-                <span><strong>Skill Level:</strong> <span id="cooking_skill_level"></span></span>
+                <span><strong>Skill Level:</strong> <span id="cooking-skill-level"></span></span>
             </div>
             <div class="tabs">
-                <button class="tab-button" onclick="showTabcontent('ingredients')">Ingredients</button>
-                <button class="tab-button" onclick="showTabcontent('preparation')">Preparation</button>
-                <button class="tab-button" onclick="showTabcontent('nutrition')">Nutrition</button>
+                <button class="tab-button" onclick="showTab('ingredients')">Ingredients</button>
+                <button class="tab-button" onclick="showTab('preparation')">Preparation</button>
+                <button class="tab-button" onclick="showTab('nutrition')">Nutrition</button>
             </div>
             <div id="tab-content" class="tab-content">
                 <!-- Content for tabs will be injected here -->
