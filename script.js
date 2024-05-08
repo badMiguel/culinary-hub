@@ -182,7 +182,7 @@ function renderItems(container, data, itemToRender, input) {
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
         } else if (itemToRender ==='catalogue') {
             sectionHeading.textContent = `List of Recipes`
-            breadcrumbitemToRender.textContent = 'Recipes Catalogue'
+            breadcrumbitemToRender.textContent = 'Recipe List'
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
             catalogueRecipeLink.textContent = ''
         } else {
