@@ -21,10 +21,10 @@
                 <li><a class="nav-link" href="index.html">Home</a></li>
                 <li><a class='nav-link' href="about.html">About</a></li>
                 <!-- <li><a href="#">Contact</a></li> Someone deleted this from the main repository, do we not need this anymore?-->
-                <li><a class="recipe-list nav-link" href="catalogue.html">Catalogue</a></li>
-                <li><a class="recipe-list-link nav-link" href="#">Recipe List</a></li>
+                <li><a class="nav-link" href="catalogue.html">Catalogue</a></li>
+                <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
                 <!--Not needed, the catalogue has this already-->
-                <li><a class='saved-recipes nav-link' href="#">Saved</a></li>
+                <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
                 <!--<li><a class='nav-link' href="#">Preferences</a></li>-->
             </ul>
         </nav>
@@ -79,15 +79,15 @@
                     <h2 class="filter-section-header">Filter Recipes</h2>
                     <p class="material-icons close-filter no-select">close</p>
                 </div>
-                <div class="cooking-skill-level-filter-container">
+                <fieldset class="cooking-skill-level-filter-container">
                     <h3 class="filter-category-heading">Cooking Skill Level</h3>
                     <div class="filter-list">
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="beginner" name="beginner" id="beginner"><label for="beginner">Beginner</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="intermediate" name="intermediate" id="intermediate"><label for="intermediate">Intermediate</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="advanced" name="advanced" id="advanced"><label for="advanced">Advanced</label></div>
                     </div>
-                </div>
-                <div class="cuisine-type-filter-container">
+                </fieldset>
+                <fieldset class="cuisine-type-filter-container">
                     <h3 class="filter-category-heading">Cuisine Type</h3>
                     <div class="filter-list">
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="american" name="american" id="american"><label for="american">American</label></div>
@@ -95,8 +95,8 @@
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="australian" name="australian" id="australian"><label for="australian">Australian</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="british" name="british" id="british"><label for="british">British</label></div>
                     </div>
-                </div>
-                <div class="other-categories-filter-container">
+                </fieldset>
+                <fieldset class="other-categories-filter-container">
                     <h3 class="filter-category-heading">Others</h3>
                     <div class="filter-list">
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="main dish" name="main-dish" id="main-dish"><label for="main-dish">Main Dish</label></div>
@@ -111,7 +111,7 @@
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="bread" name="bread" id="bread"><label for="bread">Bread</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="breakfast" name="breakfast" id="breakfast"><label for="breakfast">Breakfast</label></div>
                     </div>
-                </div>
+                </fieldset>
                 <button class="apply-filter">Apply Filter</button>
             </div>
         </section>
@@ -129,7 +129,7 @@
                 </div>
             </section>
         </div>
-        <section class="recipe-catalogue">
+        <section class="recipe-list">
             <p class="listOfRecipes-intro">Can't find what you are looking for? Try our <a class="recipe-list-link" href="#" aria-label="List of recipes">list of recipes</a>.</p>
         </section>
     </main>
