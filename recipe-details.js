@@ -4,23 +4,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const urlParams = new URLSearchParams(window.location.search);
     const recipeType = urlParams.get('recipe');
 
-    if (recipeType === 'One-pan Garlic Mushroom Rice Bake') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'One-pan Garlic Mushroom Rice Bake'))
-    } else if (recipeType === 'Cheesy Meatballs and Mushrooms') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'Cheesy Meatballs and Mushrooms'))
-    } else if (recipeType === 'Healthy Chicken with Mushrooms') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'Healthy Chicken with Mushrooms'))
-    } else if (recipeType === 'One-pan Vegetarian Paella') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'One-pan Vegetarian Paella'))
-    } else if (recipeType === 'Satay Noodles with Tofu') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'Satay Noodles with Tofu'))
-    } else if (recipeType === 'Breakfast Beans on Toast') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'Breakfast Beans on Toast'))
-    } else if (recipeType === 'Keto Pancakes Breakfast Recipe') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'Keto Pancakes Breakfast Recipe'))
-    } else if (recipeType === 'Ultimate Vegan Breakfast Wrap') {
-        loadRecipeDetails(recipeData.find(item => item.recipe_title === 'Ultimate Vegan Breakfast Wrap'))
-    }
+    loadRecipeDetails(recipeData.find(item => item.recipe_title === recipeType))
 
     // hides and shows the menu when clicked
     const header = document.querySelector('header')
