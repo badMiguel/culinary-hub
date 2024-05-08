@@ -23,30 +23,89 @@ body {
     color: var(--font-primary);
     font-family: inherit;
     margin-top: 7rem;
+
+    a{
+        text-decoration: none;
+    }
 }
 
-header {
+header{
     position: fixed;
     top: 0;
     width: 100%;
     background-color: var(--bg-primary);
     z-index: 100;
-    padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.top-nav {
+
+.top-nav{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-}
+    width: 80%;
+    margin: auto;
+    padding: 2rem 2rem 0rem 2rem;
+    overflow: hidden;
+    
+    a{
+        color: var(--font-primary);
+        transition:  color 0.4s ease;
+    }
+    
+    .nav-link-list{
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+        padding: 0 0 2rem 0;
+    }
 
-.logo {
-    font-weight: bold;
-    font-size: 1.5rem;
+    .logo{
+        font-weight: bolder;
+    }
+    .hamburger-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        
+        .burger-part{
+            width: 19px;
+            height: 2px;
+            border-radius: 20px;
+            background-color: var(--font-primary);
+            transition: background-color 0.4s ease;
+        }
+
+        .burger-top-part{
+            transform-origin: right center;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        } 
+        .burger-middle-part{
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        } 
+        .burger-bottom-part{
+            transform-origin: right center;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+
+        .burger-top-part.close{
+            transform-origin: right center;
+            transform: rotate(-45deg) translate(1px);
+        }
+
+        .burger-middle-part.close{
+            opacity: 0;
+        }
+
+        .burger-bottom-part.close{
+            transform-origin: right center;
+            transform: rotate(45deg) translate(1px);
+        }
+    }
 }
 
 .recipe-card {
@@ -54,8 +113,7 @@ header {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-radius: 10px;
     margin: 2rem auto;
-    padding: 1rem;
-    width: 90%;
+    width: 80%;
     max-width: 800px;
     animation: fadeInUp 0.5s ease-out forwards;
 }
@@ -78,16 +136,12 @@ header {
     border-top-right-radius: 10px;
 }
 
-.recipe-details, .tabs {
-    margin-top: 1rem;
-}
-
 .recipe-details span, .tab-button {
     display: inline-block;
     background: var(--bg-third);
     color: var(--font-secondary);
     padding: 0.5rem 1rem;
-    margin-right: 0.5rem;
+    margin: 0.5rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -100,23 +154,74 @@ header {
 }
 
 .detail-container {
-    padding: 1rem;
+    padding: 2rem;
     border-top: 2px solid var(--bg-fourth);
     margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
+.title-caption-container{
+    margin: 1rem;
+}
+
+.back-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-third);
+    color: var(--font-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 1rem;
+}
+
+.back-button:hover, .back-button:focus {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+@media (max-width: 749px) {
     .top-nav {
-        flex-direction: column;
+        /* Ensuring the button is well positioned in mobile view */
+        justify-content: space-between;
     }
 
-    .recipe-card {
-        width: 95%;
+    .back-button {
+        /* Adjusting button size for smaller screens */
+        padding: 0.4rem 0.8rem;
+    }
+
+    .top-nav {
+        .nav-link-list{
+            padding: 1rem 0;
+            opacity: 0;
+            max-height: 0px;
+            flex-direction: column;
+            width: 100%;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        .nav-link-list.show{
+            opacity: 1;
+            max-height: 275px;
+            padding: 1rem 0 2rem 0;
+        }
+    }
+
+    header.show{
+        box-shadow: 0 1px 10px rgba(0,0,0,0.5);
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 750px) {
+    .back-button {
+        /* Larger padding for better desktop usability */
+        padding: 0.5rem 1rem;
+    }
+
     .top-nav {
-        flex-direction: row;
+        .hamburger-menu{
+            display: none;
+        }
     }
 }
+

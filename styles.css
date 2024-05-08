@@ -224,6 +224,10 @@ header{
     }
 }
 
+fieldset{
+    border: none;
+}
+
 .suggestion-section, .breakfast-section, .search-section{
     margin: auto;
     width: 320px;
@@ -357,7 +361,7 @@ header{
     }
 }
 
-.recipe-catalogue{
+.recipe-list{
     width: 80%;
     margin: auto;
     font-size: 20px;
@@ -391,8 +395,8 @@ USED FOR ICONS
         }
     }
     
-    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-catalogue{
-        width: 672px;
+    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list{
+        width: 656px;
     }
 
     .top-nav {
@@ -455,7 +459,6 @@ USED FOR ICONS
     header.show{
         box-shadow: 0 1px 10px rgba(0,0,0,0.5);
     }
-    
 }
 /* @media screen and (min-width: 1200px){
     .suggestion-section, .breakfast-section, .search-section{

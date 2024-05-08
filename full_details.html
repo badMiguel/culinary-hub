@@ -8,31 +8,51 @@
 </head>
 <body>
     <header>
-        <div class="top-nav">
-            <div class="logo">Recipe Book</div>
-        </div>
+        <nav class="top-nav">
+            <a class='logo' href="index.html">Logo</a>
+            <a class="hamburger-menu">
+                <div class="burger-part burger-top-part"></div>
+                <div class="burger-part burger-middle-part"></div>
+                <div class="burger-part burger-bottom-part"></div>
+            </a>
+            <ul class="nav-link-list">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class='nav-link' href="about.html">About</a></li>
+                <!-- <li><a href="#">Contact</a></li> Someone deleted this from the main repository, do we not need this anymore?-->
+                <li><a class="recipe-list nav-link" href="catalogue.html">Catalogue</a></li>
+                <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
+                <!--Not needed, the catalogue has this already-->
+                <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
+                <!--<li><a class='nav-link' href="#">Preferences</a></li>-->
+            </ul>
+        </nav>
     </header>
-    <div id="recipes-container" class="recipe-catalogue">
-        <!-- Initial static template for recipe details -->
-        <div class="recipe-card" id="recipe-card">
-            <img src="" alt="Recipe Image" id="recipe_image" class="recipe_image">
-            <h2 id="recipe_title"></h2>
-            <p id="recipe_description"></p>
-            <div class="recipe-details">
-                <span><strong>Prep Time:</strong> <span id="prep_time"></span></span>
-                <span><strong>Allergens:</strong> <span id="allergens"></span></span>
-                <span><strong>Skill Level:</strong> <span id="cooking_skill_level"></span></span>
-            </div>
-            <div class="tabs">
-                <button class="tab-button" onclick="showTabcontent('ingredients')">Ingredients</button>
-                <button class="tab-button" onclick="showTabcontent('preparation')">Preparation</button>
-                <button class="tab-button" onclick="showTabcontent('nutrition')">Nutrition</button>
-            </div>
-            <div id="tab-content" class="tab-content">
-                <!-- Content for tabs will be injected here -->
+    <main>
+        <button class="back-button" aria-label="Go back to the home page" onclick="window.location.href='index.html';">Back</button>
+        <div id="recipes-container" class="recipe-catalogue">
+            <!-- Initial static template for recipe details -->
+            <div class="recipe-card" id="recipe-card">
+                <img src="" alt="Recipe Image" id="recipe-image" class="recipe-image">
+                <div class="title-caption-container">
+                    <h2 id="recipe-title"></h2>
+                    <p id="recipe-description"></p>
+                </div>
+                <div class="recipe-details">
+                    <span><strong>Prep Time:</strong> <span id="prep-time"></span></span>
+                    <span><strong>Allergens:</strong> <span id="allergens"></span></span>
+                    <span><strong>Skill Level:</strong> <span id="cooking-skill-level"></span></span>
+                </div>
+                <div class="tabs">
+                    <button class="tab-button" onclick="showTab('ingredients')">Ingredients</button>
+                    <button class="tab-button" onclick="showTab('preparation')">Preparation</button>
+                    <button class="tab-button" onclick="showTab('nutrition')">Nutrition</button>
+                </div>
+                <div id="tab-content" class="tab-content">
+                    <!-- Content for tabs will be injected here -->
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="recipe-details.js"></script>
 </body>

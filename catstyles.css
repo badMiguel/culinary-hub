@@ -1,5 +1,151 @@
-/* Style for recipe container */
-.recipe-container {
+body {
+    background-color: #ffffff; /* Faint orange-white background color */
+    color: #333; /* Text color */
+  }
+  
+  .top-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .top-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .top-nav ul li {
+    display: inline;
+  }
+  
+  .top-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  
+  .top-nav ul li a:hover {
+    background-color: #555;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* Set columns to auto width */
+    gap: 20px;
+    justify-content: center; /* Align grid at the center */
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    max-width: 500px; /* Set maximum width for each card */
+  }
+  
+  .persona-info {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .recipes-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Adjust grid layout for small screens */
+  @media screen and (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  .navbar {
+    background-color: #333; /* Change to desired background color */
+    width: 100%;
+}
+
+.navbar-container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 10px 0; /* Adjust top and bottom padding as needed */
+}
+
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center the menu items */
+}
+
+.navbar-menu li {
+    display: inline-block;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white; /* Change to desired text color */
+    text-decoration: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.navbar-menu li a:hover {
+    background-color: #555; /* Change to desired hover background color */
+}
+
+
+/* This is the old code for the styles that I could not get to work. I am trying to fix it in a seperate workspace and will reattach it once it works, or if someone else has fixed it. */
+
+/* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+} */
+
+/* .navbar {
+    background-color: #333; 
+    width: 100%;
+} */
+
+/* .navbar-container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 10px 0; 
+} */
+
+/* .navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+} */
+
+/* .navbar-menu li {
+    display: inline-block;
+} */
+
+/* .navbar-menu li a {
+    display: block;
+    color: white; 
+    text-decoration: none;
+    padding: 10px 20px; 
+} */
+
+/* .navbar-menu li a:hover {
+    background-color: #555; 
+} */
+
+
+/* .recipe-container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -9,74 +155,90 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-}
+} */
 
-/* Style for recipe image */
-.recipe-image {
+/* .recipe-image {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 15px;
-}
+} */
 
-/* Style for recipe title */
-.recipe-title {
+/* .recipe-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
-}
+} */
 
-/* Style for recipe description */
-.recipe-description {
+/* .recipe-description {
     font-size: 16px;
     margin-bottom: 15px;
-}
+} */
 
-/* Style for recipe details */
-.recipe-details {
+/* .recipe-details {
     font-size: 14px;
     margin-bottom: 10px;
-}
+} */
 
-/* Style for ingredient list */
-.ingredient-list {
+/* .ingredient-list {
     margin-bottom: 15px;
-}
+} */
 
-/* Style for ingredient item */
-.ingredient-item {
+/* .ingredient-item {
     margin-bottom: 5px;
-}
+} */
 
-/* Style for instruction list */
-.instruction-list {
+/* .instruction-list {
     margin-bottom: 15px;
-}
+} */
 
-/* Style for instruction item */
-.instruction-item {
+/* .instruction-item {
     margin-bottom: 10px;
-}
+} */
 
-/* Style for nutrition facts */
-.nutrition-facts {
+/* .nutrition-facts {
     margin-bottom: 10px;
-}
+} */
 
-/* Style for nutrition item */
-.nutrition-item {
+/* .nutrition-item {
     margin-bottom: 5px;
-}
+} */
 
-/* Style for recipe container */
-#recipes {
+/* #recipes {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     grid-gap: 20px;
-}
+} */
 
-/* Style for individual recipe */
-.recipe {
+/* .recipe {
     border: 1px solid #ccc;
     padding: 20px;
     text-align: center;
-}
+} */
+
+/* .recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+} */
+
+/* .recipe-box {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} */
+
+/* .recipe-box img {
+    width: 100%;
+    border-radius: 5px;
+} */
+
+/* .recipe-box h2 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+} */
+
+/* .recipe-box p {
+    margin-top: 5px;
+} */

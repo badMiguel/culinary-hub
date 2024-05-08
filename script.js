@@ -62,20 +62,16 @@ document.addEventListener('DOMContentLoaded', async function(){
     createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
     
     const cardCollection = document.querySelector('.card-collection')
-    // view list of all recipes
-    const recipeListButton = document.querySelectorAll('.recipe-list, .recipe-list-link')
-    recipeListButton.forEach(button => {
-        button.addEventListener('click', function(){
-            renderItems(cardCollection, recipeData, 'catalogue')
-        })
-    });
 
-    // view bookmarked recipes
-    const savedRecipeButton = document.querySelector('.saved-recipes')
-    savedRecipeButton.addEventListener('click', function(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageType = urlParams.get('page');
+
+    if (pageType ==='recipe_list') {
+        renderItems(cardCollection, recipeData, 'listOfRecipes')
+    } else if (pageType === 'saved_recipes') {
         const savedRecipe = JSON.parse(localStorage.getItem('bookmarks')) || []
         renderItems(cardCollection, savedRecipe, 'saved')
-    })
+    }
 
     searchFunction(recipeData)
     filterFunction(recipeData)
@@ -170,7 +166,7 @@ function renderItems(container, data, itemToRender, input) {
         const sectionHeading = container.querySelector('.section-heading');
         const breadcrumbNavigation = container.querySelector(".breadcrumb-navigation-container")
         const breadcrumbitemToRender = document.createElement('p')
-        const catalogueRecipeLink = document.querySelector('.catalogue-intro')
+        const listOfRecipesRecipeLink = document.querySelector('.listOfRecipes-intro')
         if (itemToRender === 'search'){
             console.log(localStorage.getItem('bookmark'))
             sectionHeading.textContent = `Search results for "${input}"`
@@ -180,11 +176,11 @@ function renderItems(container, data, itemToRender, input) {
             sectionHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
             breadcrumbitemToRender.textContent = 'Filtered Recipes'
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
-        } else if (itemToRender ==='catalogue') {
+        } else if (itemToRender ==='listOfRecipes') {
             sectionHeading.textContent = `List of Recipes`
-            breadcrumbitemToRender.textContent = 'Recipes Catalogue'
+            breadcrumbitemToRender.textContent = 'Recipe List'
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
-            catalogueRecipeLink.textContent = ''
+            listOfRecipesRecipeLink.textContent = ''
         } else {
             sectionHeading.textContent = `Your Saved Recipes`
             breadcrumbitemToRender.textContent = 'Saved Recipes'
@@ -259,7 +255,7 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
         cooking_skill_level,
         cuisine_type,
     } = recipeDetails;
-    
+
     cardClone.removeAttribute('aria-hidden')   
     
     const elementIdToUpdate = cardClone.querySelectorAll('[id]')
@@ -330,10 +326,6 @@ function heartInteractions(section) {
             heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
         })
     });
-}
-
-function addLike() {
-
 }
 
 // change color of button when clicked - also saves the recipe when clicked
