@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async function(){
     const recipeListButton = document.querySelectorAll('.recipe-list, .recipe-list-link')
     recipeListButton.forEach(button => {
         button.addEventListener('click', function(){
-            renderItems(cardCollection, recipeData, 'catalogue')
+            renderItems(cardCollection, recipeData, 'listOfRecipes')
         })
     });
 
@@ -170,7 +170,7 @@ function renderItems(container, data, itemToRender, input) {
         const sectionHeading = container.querySelector('.section-heading');
         const breadcrumbNavigation = container.querySelector(".breadcrumb-navigation-container")
         const breadcrumbitemToRender = document.createElement('p')
-        const catalogueRecipeLink = document.querySelector('.catalogue-intro')
+        const listOfRecipesRecipeLink = document.querySelector('.listOfRecipes-intro')
         if (itemToRender === 'search'){
             console.log(localStorage.getItem('bookmark'))
             sectionHeading.textContent = `Search results for "${input}"`
@@ -180,11 +180,11 @@ function renderItems(container, data, itemToRender, input) {
             sectionHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
             breadcrumbitemToRender.textContent = 'Filtered Recipes'
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
-        } else if (itemToRender ==='catalogue') {
+        } else if (itemToRender ==='listOfRecipes') {
             sectionHeading.textContent = `List of Recipes`
             breadcrumbitemToRender.textContent = 'Recipe List'
             breadcrumbNavigation.appendChild(breadcrumbitemToRender)
-            catalogueRecipeLink.textContent = ''
+            listOfRecipesRecipeLink.textContent = ''
         } else {
             sectionHeading.textContent = `Your Saved Recipes`
             breadcrumbitemToRender.textContent = 'Saved Recipes'
