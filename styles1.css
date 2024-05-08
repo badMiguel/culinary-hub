@@ -376,25 +376,18 @@ main{
     align-items: center;
     h1{
         line-height: 180%;
-        font-size: xx-large;
+        font-size: 200%;
        }
     h2{
         line-height: 180%;
-        font-size: x-large;
+        font-size: 170%;
        }
     p{
-        font-size: larger;
+        font-size: 100%;
         line-height: 150%;
         text-align: justify;
     }
 
-}
-
-
-main .about{
-   grid-column: 7/span 6;
-   text-align: justify;
-   
 }
 
 
@@ -407,6 +400,15 @@ main .aboutimg{
     }
 }
 
+
+main .about{
+   grid-column: 7/span 6;
+   text-align: justify;
+   
+}
+
+
+
 main .mission{
     grid-column: span 6;
 
@@ -414,9 +416,7 @@ main .mission{
 main .missionimg{
     grid-column: span 6;
     img{
-        width: 100%;
-        border-radius: 8px;
-           
+        width: 100%;       
     }
 }
 main .team{
@@ -535,4 +535,41 @@ USED FOR ICONS
         box-shadow: 0 1px 10px rgba(0,0,0,0.5);
     }
     
+}
+
+@media screen and (max-width: 960px) {
+    main{
+        
+    }
+    main .aboutimg{
+        grid-column: 3/ span 8
+    }
+
+    main .about{
+        grid-column: 2/ span 10;
+        text-align: center;
+    }
+
+    main .mission{
+        grid-column: 2/ span 10;
+        text-align: center;
+        padding-top: 30px;
+    }
+    main .missionimg{
+        grid-column: 3/ span 8
+    }
+
+    main .member{
+        grid-column: span 6;
+        background: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
+    }
+
+    main .story{
+        grid-column: 2/ span 10;
+        text-align: center;
+    }
+
 }
