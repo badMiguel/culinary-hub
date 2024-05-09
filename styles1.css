@@ -471,7 +471,7 @@ USED FOR ICONS
     }
     
     .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-catalogue{
-        width: 672px;
+        width:656px;
     }
 
     .top-nav {
@@ -538,9 +538,6 @@ USED FOR ICONS
 }
 
 @media screen and (max-width: 960px) {
-    main{
-        
-    }
     main .aboutimg{
         grid-column: 3/ span 8
     }

@@ -153,6 +153,7 @@ function filterFunction(recipeData) {
                 selectedFilters.some(filter=> item.cooking_skill_level.toLowerCase().includes(filter))
             )            
             renderItems(cardCollection, filteredItems, 'filter', selectedFilters)
+            filterContainer.classList.toggle('show')
         }
     })
 
