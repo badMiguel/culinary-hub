@@ -1,7 +1,7 @@
 [
     {
         "recipe_link": "full_details.html?recipe=One-pan Garlic Mushroom Rice Bake",
-        "recipe_image": "Images/Baked-Mushroom-Rice.webp",
+        "recipe_image": "images/Baked-Mushroom-Rice.webp",
         "recipe_title": "One-pan Garlic Mushroom Rice Bake",
         "recipe_description": "Quick rice dish with garlic, soy sauce, and mushrooms.",
         "prep_time": "30 miniutes",
@@ -90,7 +90,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=Cheesy Meatballs and Mushrooms",
-        "recipe_image": "Images/french-onion-meatballs.webp",
+        "recipe_image": "images/french-onion-meatballs.webp",
         "recipe_title": "Cheesy Meatballs and Mushrooms",
         "recipe_description": "Cheesy French onion meatballs & mushrooms: A cozy winter meal.",
         "prep_time": "45 minutes",
@@ -172,7 +172,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=Healthy Chicken with Mushrooms",
-        "recipe_image": "Images/Chicken-in-Mushroom.webp",
+        "recipe_image": "images/Chicken-in-Mushroom.webp",
         "recipe_title": "Healthy Chicken with Mushrooms",
         "recipe_description": "Healthy chicken dinner with flavorful marinade and mushrooms.",
         "prep_time": "1 hour 10 minutes",
@@ -266,7 +266,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=One-pan Vegetarian Paella",
-        "recipe_image": "Images/Vegetable-Paella.webp",
+        "recipe_image": "images/Vegetable-Paella.webp",
         "recipe_title": "One-pan Vegetarian Paella",
         "recipe_description": "Budget-friendly vegetarian paella for Savvy Dinner Plan.",
         "prep_time": "45 minutes",
@@ -367,7 +367,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=Satay Noodles with Tofu",
-        "recipe_image": "Images/satay-noodles-with-tofu.webp",
+        "recipe_image": "images/satay-noodles-with-tofu.webp",
         "recipe_title": "Satay Noodles with Tofu",
         "recipe_description": "A quick and low-calorie vegetarian noodle dish.",
         "prep_time": "20 minutes",
@@ -451,7 +451,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=Breakfast Beans on Toast",
-        "recipe_image": "Images/Breakfast-beans-on-toast.webp",
+        "recipe_image": "images/Breakfast-beans-on-toast.webp",
         "recipe_title": "Breakfast Beans on Toast",
         "recipe_description": "Homemade baked beans on toast with an egg on top.",
         "prep_time": "2 hours 15 minutes",
@@ -532,7 +532,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=Keto Pancakes Breakfast Recipe",
-        "recipe_image": "Images/keto-pancakes.webp",
+        "recipe_image": "images/keto-pancakes.webp",
         "recipe_title": "Keto Pancakes Breakfast Recipe",
         "recipe_description": "Delicious keto pancakes for a perfect low-carb breakfast!",
         "prep_time": "15 minutes",
@@ -609,7 +609,7 @@
     ,    
     {
         "recipe_link": "full_details.html?recipe=Ultimate Vegan Breakfast Wrap",
-        "recipe_image": "Images/ultimate-vegan-breakfast-wrap.webp",
+        "recipe_image": "images/ultimate-vegan-breakfast-wrap.webp",
         "recipe_title": "Ultimate Vegan Breakfast Wrap",
         "recipe_description": "Fuel up with a vegan breakfast wrap featuring black beans and avocado.",
         "prep_time": "10 minutes",
