@@ -1,114 +1,52 @@
-<!--Put in link to json code to display all the recipes with a filter to hide certain ones based off of choices made by user in filter-->
-<!--No clue what I am doing, This is my first time working with a json file-->
-<!--This looks like shit, cince the recipe list is the same... is this even needed? Should i just fuck off?-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Catalogue</title>
+    <title>Recipe Randomizer</title>
     <link rel="stylesheet" href="css/catstyles.css">
 </head>
     <div class="navbar">
         <ul class="navbar-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="catalogue.html">Randomizer</a></li>
             <li><a href="about1.html">About</a></li>
-            <!--<li><a href="#">Contact</a></li>-->
+            <li><a href="preferences.html">Preferences</a></li>
         </ul>
     </div>
 
+<body>
+    <h1>Random Recipe Generator</h1>
+    <p3>Can't choose a recipe, let us choose for you.</p3>
 
-<p3>All the recipes will appear here from the stored ones. this is just a proof of concept right now<br>
-The rest of the recipes in shortened form along with the filter are currently not working at this time<br>
-the end result will have all the recipes here in smaller boxes that you can either expand or click onto their own pages.</p3>
-
-    <!--<div id="filters">
-        !--Filter checkboxes will be added here--
+    <div id="recipeContainer">
+        <!-- Recipe content will be dynamically inserted here -->
     </div>
-    <div id="recipes">
-        !--Recipes will be displayed here--
-    </div>-->
-    
-<!--Filter not working at this time. WHY IS IT NOT WORKING!?-->
 
-<div class="container">
-    <div class="grid-container">
-        <div class="card">
-        <!--<button type="button" class="collapsible">Open Collapsible</button>
-        <div class="content">
-            <p>Lorem ipsum...</p>
-        </div>-->
-        <h3>One-pan Garlic Mushroom Rice Bake</h3>
-        <p>Quick rice dish with garlic, soy sauce, and mushrooms.<br>
-            Prep Time: 30 minutes<br>
-            Allergens: yeast, celery, soybean<br>
-            Cooking Skill Level: Intermediate<br>
-            Cuisine Type: Asian<br>
-            Other Categories: Main Dish, Mushroom, Baking<br>
-        </p>
-            
-        <p>
-            Ingredients:<br>
-            - vegetable oil: 2 tbs<br>
-            - mushrooms, sliced: 375g<br>
-            - rice vinegar: 2 tbs<br>
-            - ABC Sweet Soy Sauce: 1 1/2 tbs, plus extra to serve<br>
-            - brown onion, finely chopped: 1 small<br>
-            - garlic cloves, crushed: 2<br>
-            - 90-second white long grain rice: 2 x 250g pkts<br>
-            - vegetable stock cube: 1, crumbled<br>
-            - boiling water: 500ml (2 cups)<br>
-            - frozen peas: 120g (3/4 cup)<br>
-            - Fresh coriander sprigs: to serve<br>
-        </p>
-            
-            <p>
-                Instructions:<br>
-                1. Heat half of the vegetable oil in a large flameproof baking dish over medium-high heat.<br>
-                2. Cook the sliced mushrooms in the heated oil, stirring occasionally, for 5 minutes or until just starting to soften.<br>
-                3. Add rice vinegar and 1 1/2 tablespoons of ABC Sweet Soy Sauce to the mushrooms. Cook for 1 minute or until mushrooms are just tender.<br>
-                4. Transfer the cooked mushrooms and sauce to a heatproof bowl. Set aside.<br>
-                5. Heat the remaining vegetable oil in the same dish.<br>
-                6. Cook the finely chopped onion in the heated oil for 2-3 minutes or until starting to soften.<br>
-                7. Add crushed garlic and 90-second white long grain rice to the dish. Cook for 30 seconds or until fragrant.<br>
-                8. Combine crumbled vegetable stock cube and boiling water in a medium jug. Add to the rice mixture along with the remaining sweet soy sauce. Stir to combine.<br>
-                9. Add frozen peas to the dish. Bring to the boil, then reduce heat to medium-low and simmer, uncovered, for 5 minutes or until the sauce thickens and rice starts to catch on the bottom of the dish.<br>
-                10. Stir in half of the cooked mushrooms (excluding the sauce) into the rice mixture.<br>
-                11. Preheat the grill on high heat.<br>
-                12. Spoon the remaining mushrooms and sauce over the top of the rice mixture.<br>
-                13. Grill the dish for 3-4 minutes or until the mushrooms start to char slightly on the edges.<br>
-                14. Serve the rice bake drizzled with extra sweet soy sauce and sprinkled with fresh coriander sprigs.<br>
-            </p>
-            
-          </div>
-      
-          <div class="card">
-            <h3>Nutrition Facts:</h3>
-            <p> - Calories: 300 calories<br>
-                - Total Fat: 10g<br>
-                - Saturated Fat: 1.5g<br>
-                - Cholesterol: null<br>
-                - Sodium: 800mg<br>
-                - Total Carbohydrate: 45g<br>
-                - Dietary Fiber: 5g<br>
-                - Total Sugars: 8g<br>
-                - Protein: 8g<br>
-                - Vitamin D: null<br>
-                - Calcium: 60mg<br>
-                - Iron: 2.5mg<br>
-                - Potassium: 400mg<br>
-            </p>
-          </div>
+    <script>
+        // Load the JSON data
+        fetch('recipe_data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Select a random recipe
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomRecipe = data[randomIndex];
 
-          <div class="card">
-            <h3>French onion meetballs</h3>
-            <p>Cheesy French onion meatballs & mushrooms: A cozy winter meal.<br>
-          </div>
-        </div>
-      </div>
+                // Create HTML content for the selected recipe
+                const recipeHTML = `
+                    <div class="recipe">
+                        <h2>${randomRecipe.recipe_title}</h2>
+                        <img src="${randomRecipe.recipe_image}" alt="${randomRecipe.recipe_title}">
+                        <p>${randomRecipe.recipe_description}</p>
+                        <!-- Add more recipe details as needed -->
+                    </div>
+                `;
 
-
-<script src="recipe_data.json"></script>
-<script src="js/catscript.js"></script>
+                // Display the selected recipe
+                document.getElementById('recipeContainer').innerHTML = recipeHTML;
+            })
+            .catch(error => console.error('Error loading recipe data:', error));
+    </script>
+</body>
 </html>

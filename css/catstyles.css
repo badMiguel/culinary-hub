@@ -1,271 +1,85 @@
 body {
-    background-color: #ffffff; /* Faint orange-white background color */
-    color: #333; /* Text color */
-  }
-  
-  .top-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-  }
-  
-  .card img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .top-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .top-nav ul li {
-    display: inline;
-  }
-  
-  .top-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-  }
-  
-  .top-nav ul li a:hover {
-    background-color: #555;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, auto); /* Set columns to auto width */
-    gap: 20px;
-    justify-content: center; /* Align grid at the center */
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    max-width: 500px; /* Set maximum width for each card */
-  }
-  
-  .persona-info {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .recipes-section {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Adjust grid layout for small screens */
-  @media screen and (max-width: 768px) {
-    .grid-container {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  
-  .navbar {
-    background-color: #333; /* Change to desired background color */
-    width: 100%;
-}
-
-.navbar-container {
-    max-width: 1200px; /* Adjust as needed */
-    margin: 0 auto; /* Center the container */
-    padding: 10px 0; /* Adjust top and bottom padding as needed */
-}
-
-.navbar-menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Center the menu items */
-}
-
-.navbar-menu li {
-    display: inline-block;
-}
-
-.navbar-menu li a {
-    display: block;
-    color: white; /* Change to desired text color */
-    text-decoration: none;
-    padding: 10px 20px; /* Adjust padding as needed */
-}
-
-.navbar-menu li a:hover {
-    background-color: #555; /* Change to desired hover background color */
-}
-
-
-/* This is the old code for the styles that I could not get to work. I am trying to fix it in a seperate workspace and will reattach it once it works, or if someone else has fixed it. */
-
-/* body {
-    margin: 0;
     font-family: Arial, sans-serif;
-} */
-
-/* .navbar {
-    background-color: #333; 
-    width: 100%;
-} */
-
-/* .navbar-container {
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 10px 0; 
-} */
-
-/* .navbar-menu {
-    list-style-type: none;
     margin: 0;
-    padding: 0;
-    text-align: center; 
-} */
+    padding: 20px;
+}
 
-/* .navbar-menu li {
-    display: inline-block;
-} */
+h1 {
+    text-align: center;
+}
 
-/* .navbar-menu li a {
-    display: block;
-    color: white; 
-    text-decoration: none;
-    padding: 10px 20px; 
-} */
-
-/* .navbar-menu li a:hover {
-    background-color: #555; 
-} */
-
-
-/* .recipe-container {
-    width: 100%;
+#recipeContainer {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+}
+
+.recipe {
     background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-} */
-
-/* .recipe-image {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
-} */
-
-/* .recipe-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-} */
-
-/* .recipe-description {
-    font-size: 16px;
-    margin-bottom: 15px;
-} */
-
-/* .recipe-details {
-    font-size: 14px;
-    margin-bottom: 10px;
-} */
-
-/* .ingredient-list {
-    margin-bottom: 15px;
-} */
-
-/* .ingredient-item {
-    margin-bottom: 5px;
-} */
-
-/* .instruction-list {
-    margin-bottom: 15px;
-} */
-
-/* .instruction-item {
-    margin-bottom: 10px;
-} */
-
-/* .nutrition-facts {
-    margin-bottom: 10px;
-} */
-
-/* .nutrition-item {
-    margin-bottom: 5px;
-} */
-
-/* #recipes {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-} */
-
-/* .recipe {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     padding: 20px;
-    text-align: center;
-} */
+    margin-bottom: 20px;
+}
 
-/* .recipe-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-} */
+.recipe h2 {
+    margin-top: 0;
+}
 
-/* .recipe-box {
-    width: 300px;
-    border: 1px solid #ccc;
+.recipe img {
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-} */
+}
 
-/* .recipe-box img {
-    width: 100%;
-    border-radius: 5px;
-} */
-
-/* .recipe-box h2 {
-    font-size: 1.2rem;
+.recipe p {
     margin-top: 10px;
-} */
+}
 
-/* .recipe-box p {
-    margin-top: 5px;
-} */
+.recipe ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-/*collapse section for recipes*/
-/* Style the button that is used to open and close the collapsible content */
-/*.collapsible {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }*/
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  /*.active, .collapsible:hover {
-    background-color: #ccc;
-  }*/
-  
-  /* Style the collapsible content. Note: hidden by default */
-  /*.content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-  }*/
+.recipe ul li {
+    margin-bottom: 5px;
+}
+
+.recipe ul li:before {
+    content: "•";
+    margin-right: 5px;
+}
+
+.recipe ul li.ingredient:before {
+    content: "";
+}
+
+.recipe ul li.ingredient:after {
+    content: "";
+}
+
+.recipe ul li.ingredient::before {
+    content: "•";
+    margin-right: 5px;
+}
+
+.recipe ul li.ingredient::after {
+    content: "";
+}
+
+.recipe ul li.ingredient {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe ul li.ingredient:after {
+    content: ",";
+    margin-right: 5px;
+}
+
+.recipe ul li:last-child:after {
+    content: none;
+}
+
+.recipe ul li:last-child {
+    margin-bottom: 0;
+}
