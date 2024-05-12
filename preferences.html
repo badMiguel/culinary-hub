@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <title>Recipe Website</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href="css/styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="js/preferences.js"></script>
+    </head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <a class='logo' href="index.html">Logo</a>
+            <a class="hamburger-menu">
+                <div class="burger-part burger-top-part"></div>
+                <div class="burger-part burger-middle-part"></div>
+                <div class="burger-part burger-bottom-part"></div>
+            </a>
+            <ul class="nav-link-list">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class='nav-link' href="about1.html">About</a></li>
+                <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
+                <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
+                <li><a class='nav-link' href="preferences.html">Preferences</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="preference-page">
+            <h1>Update Your Preferences</h1>
+            <form action="" method="get" class="user-preferences">
+                <fieldset class="allergen-preference">
+                    <legend>Allergens</legend>
+                    <p class="instructions"><strong>Exclude</strong> recipes with the following potential allergens:</p>
+                    <div class="allergen-category-list"></div>
+                </fieldset>
+                <button class="update-button" type="submit">Update</button>
+            </form>
+    </main>
+</body>
+</html>

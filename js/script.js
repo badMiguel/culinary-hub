@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', async function(){
-    const recipeData = await loadJSON() // load data from json
+    let recipeData = await loadJSON() // load data from json
+
+    // get users preferences and not show those recipes with that preference
+    const preferences = JSON.parse(localStorage.getItem('preferences')) || []
+    if (preferences.length != 0) {
+        const unwantedRecipe = recipeData.filter(
+            item=> item.allergens.some(
+                allergens => preferences.some(
+                    category=> category.includes(allergens))))
+
+        recipeData = recipeData.filter(
+            recipe => !unwantedRecipe.includes(recipe))
+    }
 
     // hides and shows the menu when clicked
     const header = document.querySelector('header')
@@ -58,10 +70,18 @@ document.addEventListener('DOMContentLoaded', async function(){
         const sectionList = ['suggestion', 'breakfast']
         // display random recipes from json
         const suggestedRandomRecipes = randomRecipes(recipeData, 2)
-        createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
+        if (suggestedRandomRecipes.length < 2) {
+            createDuplicateCards(suggestedRandomRecipes.length, suggestedRandomRecipes, sectionList[0])
+        } else {
+            createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
+        }
         
         const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-        createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
+        if (suggestedBreakfastRecipes.length < 2) {
+            createDuplicateCards(suggestedBreakfastRecipes.length, suggestedBreakfastRecipes, sectionList[1])
+        } else {
+            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
+        }
         
         const cardCollection = document.querySelector('.card-collection')
         const urlParams = new URLSearchParams(window.location.search);
@@ -298,7 +318,7 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
     prepTime.textContent = prep_time
     
     const recipeAllergens = document.getElementById(`allergens-${section}-${number}`)
-    recipeAllergens.textContent = allergens.map(allergen => `${allergen}`).join(", ")
+    recipeAllergens.textContent = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ")
 
     const skillLevel = document.getElementById(`cooking-skill-${section}-${number}`)
     skillLevel.textContent = cooking_skill_level
@@ -448,4 +468,8 @@ function changeColor(element, color, button, data, recipeTitle){
             removeBookmark(recipeTitle)
         }
     } 
+}
+
+function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() +string.slice(1);
 }

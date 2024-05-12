@@ -373,6 +373,38 @@ fieldset{
     }
 }
 
+.preference-page{
+    margin: auto;
+    width: 80%;
+    
+
+    h1{
+        margin: 0 0 2rem 0;
+    }
+
+    legend{
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 1rem 0;
+    }
+
+    .instructions{
+        margin: 0 0 2rem 0;
+    }
+
+    .allergen-category-list{
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        gap: 0.7rem 0;
+    }
+    
+    .allergen-category-container{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
 /* 
 REMOVES TEXT HIGHLIGHT WHEN DOUBLE CLICKING ON TEXT
 USED FOR ICONS
@@ -395,7 +427,7 @@ USED FOR ICONS
         }
     }
     
-    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list{
+    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page{
         width: 656px;
     }
 
@@ -458,6 +490,19 @@ USED FOR ICONS
 
     header.show{
         box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
+
+    .preference-page{
+        .allergen-category-list{
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            gap: 0.5rem 0;
+        }
+        .allergen-category-container{
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
     }
 }
 /* @media screen and (min-width: 1200px){
