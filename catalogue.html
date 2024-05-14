@@ -24,29 +24,6 @@
         <!-- Recipe content will be dynamically inserted here -->
     </div>
 
-    <script>
-        // Load the JSON data
-        fetch('recipe_data.json')
-            .then(response => response.json())
-            .then(data => {
-                // Select a random recipe
-                const randomIndex = Math.floor(Math.random() * data.length);
-                const randomRecipe = data[randomIndex];
-
-                // Create HTML content for the selected recipe
-                const recipeHTML = `
-                    <div class="recipe">
-                        <h2>${randomRecipe.recipe_title}</h2>
-                        <img src="${randomRecipe.recipe_image}" alt="${randomRecipe.recipe_title}">
-                        <p>${randomRecipe.recipe_description}</p>
-                        <!-- Add more recipe details as needed -->
-                    </div>
-                `;
-
-                // Display the selected recipe
-                document.getElementById('recipeContainer').innerHTML = recipeHTML;
-            })
-            .catch(error => console.error('Error loading recipe data:', error));
-    </script>
+    <script src="catscript.js"></script>
 </body>
 </html>
