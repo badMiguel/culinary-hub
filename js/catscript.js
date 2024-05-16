@@ -3,6 +3,58 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Load json file
         const recipeData = await loadJSON();
         console.log('Loaded recipe data:', recipeData);
+
+            // hides and shows the menu when clicked
+    const header = document.querySelector('header')
+    const hamburgerIcon = document.querySelector('.hamburger-menu')
+    const navigationMenu = document.querySelector('.nav-link-list')
+    const topPartBurger = document.querySelector('.burger-top-part') 
+    const middlePartBurger = document.querySelector('.burger-middle-part') 
+    const bottomPartBurger = document.querySelector('.burger-bottom-part') 
+    hamburgerIcon.addEventListener('click', function(){
+        navigationMenu.classList.toggle('show')
+        topPartBurger.classList.toggle('close')
+        middlePartBurger.classList.toggle('close')
+        bottomPartBurger.classList.toggle('close')
+        header.classList.toggle('show')
+    })
+    const navigationLinks = document.querySelectorAll('.nav-link')    
+    navigationLinks.forEach(links => {
+        if (links.textContent != 'Home')
+            links.addEventListener('click', ()=>{
+                navigationMenu.classList.toggle('show')
+                topPartBurger.classList.toggle('close')
+                middlePartBurger.classList.toggle('close')
+                bottomPartBurger.classList.toggle('close')
+                header.classList.toggle('show')
+            }
+        )
+    });
+
+    // simple scroll transition for aesthetics
+    const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
+    const headerLinks = header.querySelectorAll('a')
+    window.addEventListener('scroll', function(){
+        if (window.scrollY > 20){
+            header.style.backgroundColor = '#3C6DC5'
+            header.style.boxShadow = '0 1px 10px rgba(0,0,0,0.5)'
+            headerLinks.forEach(link => {
+                link.style.color = '#FBFBFD'
+            });
+            hamburgerIconParts.forEach(part => {
+                part.style.backgroundColor = '#FBFBFD'                
+            });
+        } else {
+            header.style.backgroundColor = '#F2F4FA'
+            header.style.boxShadow = ''
+            headerLinks.forEach(link => {
+                link.style.color = '#0B0D10'
+            })
+            hamburgerIconParts.forEach(part => {
+                part.style.backgroundColor = '#0B0D10'                
+            });
+        }
+    })
         
         // Select a random recipe
         const randomIndex = Math.floor(Math.random() * recipeData.length);

@@ -7,30 +7,42 @@
     <title>Recipe Randomizer</title>
     <link rel="stylesheet" href="css/catstyles.css">
 </head>
-    <div class="navbar">
-        <ul class="navbar-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="catalogue.html">Randomizer</a></li>
-            <li><a href="about1.html">About</a></li>
-            <li><a href="preferences.html">Preferences</a></li>
-        </ul>
-    </div>
 
 <body>
-    <h1>Random Recipe Generator</h1>
-    <p3>Can't choose a recipe, let us choose for you.</p3>
-
-    <div id="recipeContainer">
-        <a id='link' href="#"></a>
-        <img id="image">
-        <p id="recipe-title"><a href="#"></a></p>
-        <p id="description"></p>
-        <p id="prep-time"></p>
-        <p id="allergens"></p>
-        <p id="skill-level"></p>
-        <p id="cuisine"></p>
-    </div>
-
-    <script src="js/catscript.js"></script>
+    <header>
+        <nav class="top-nav">
+            <a class='logo' href="index.html">Logo</a>
+            <a class="hamburger-menu">
+                <div class="burger-part burger-top-part"></div>
+                <div class="burger-part burger-middle-part"></div>
+                <div class="burger-part burger-bottom-part"></div>
+            </a>
+            <ul class="nav-link-list">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class='nav-link' href="about1.html">About</a></li>
+                <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
+                <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
+                <li><a class='nav-link' href="preferences.html">Preferences</a></li>
+                <li><a class='nav-link' href="catalogue.html">Randomizer</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>        
+        <h1>Random Recipe Generator</h1>
+        <p3>Can't choose a recipe, let us choose for you.</p3>
+    
+        <div id="recipeContainer">
+            <a id='link' href="#"></a>
+            <img id="image">
+            <p id="recipe-title"><a href="#"></a></p>
+            <p id="description"></p>
+            <p id="prep-time"></p>
+            <p id="allergens"></p>
+            <p id="skill-level"></p>
+            <p id="cuisine"></p>
+        </div>
+    
+        <script src="js/catscript.js"></script>
+    </body>
 </body>
 </html>

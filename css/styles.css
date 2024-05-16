@@ -403,6 +403,15 @@ fieldset{
         gap: 1rem;
         align-items: center;
     }
+
+    .update-button{
+        margin: 2rem 0 0 0;
+        padding: 0.3rem 1.5rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: var(--bg-third);
+        color: var(--font-secondary);
+    }
 }
 
 /* 
