@@ -353,8 +353,13 @@ fieldset{
 
 .breadcrumb-navigation-container{
     display: flex;
-    align-items: center;
+    align-items: start;
     margin: 1rem 0;
+    font-size: 14px;
+
+    .material-icons{
+        transform: translateY(-2px);
+    }
 
     a{
         color: var(--font-primary);
@@ -436,9 +441,9 @@ USED FOR ICONS
         }
     }
     
-    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page{
-        width: 656px;
-    }
+        .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page{
+            width: 656px;
+        }
 
     .top-nav {
         .hamburger-menu{

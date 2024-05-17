@@ -58,6 +58,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     })
 
+
+    const breadcrumbNavigation = document.querySelector(".breadcrumb-navigation-container")
+    const breadcrumbitemToRender = document.createElement('p')
+
+    breadcrumbitemToRender.textContent = recipeType
+    breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+
 });
 
 // load json file in recipe information
@@ -73,23 +80,28 @@ async function loadJSON() {
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
-    recipesContainer.innerHTML = ''; // Clear previous content
-
-    const recipeCard = document.createElement('div');
-    recipeCard.className = 'recipe-card';
-    recipeCard.innerHTML = `
-        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
+    recipesContainer.innerHTML = `
         <div class='title-caption-container'>
             <h2>${recipe.recipe_title}</h2>
             <p>${recipe.recipe_description}</p>
         </div>
-        <div class="recipe-details">
-            <span><strong>Prep Time:</strong> ${recipe.prep_time}</span>
-            <span><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</span>
-            <span><strong>Skill Level:</strong> ${recipe.cooking_skill_level}</span>
+        <ul class="recipe-details">
+            <li><p class='category'>Cuisine:</p><p class='category-information'>${recipe.cuisine_type}</p></li>
+            <li class='right-side'><p class='category'>Prep:</p><p class='category-information'>${recipe.prep_time}</p></li>
+            <li class='right-side'><p class='category'>Level:</p><p class='category-information'>${recipe.cooking_skill_level}</p></li>
+        </ul>
+        <div class='image-container'>
+            <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
         </div>
-    `;
+    `; // Clear previous content
+
+    const recipeCard = document.createElement('div');
+    recipeCard.className = 'more-information';
     recipesContainer.appendChild(recipeCard);
+
+
+            // <span><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</span>
+
 
     const tabs = document.createElement('div');
     tabs.className = 'tabs';
