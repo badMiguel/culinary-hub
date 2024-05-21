@@ -61,12 +61,16 @@ document.addEventListener('DOMContentLoaded', async function() {
     updateCardInformation(randomRecipe)
 
     const randomRecipeButton = document.querySelector('.generate-random-recipe')
+    const card = document.querySelector('.card')
     randomRecipeButton.addEventListener('click', () =>  {
         // Select a random recipe
         const randomIndex = Math.floor(Math.random() * recipeData.length);
         const randomRecipe = recipeData[randomIndex];
+        card.classList.add('rotate')
         updateCardInformation(randomRecipe)
-
+    })
+    card.addEventListener('animationend', ()=>{
+        card.classList.remove('rotate')
     })
 
 
