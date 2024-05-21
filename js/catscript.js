@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     try {
         // Load json file
         const recipeData = await loadJSON();
-        console.log('Loaded recipe data:', recipeData);
+        // console.log('Loaded recipe data:', recipeData);
 
             // hides and shows the menu when clicked
     const header = document.querySelector('header')
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Select a random recipe
         const randomIndex = Math.floor(Math.random() * recipeData.length);
         const randomRecipe = recipeData[randomIndex];
-        console.log('Selected random recipe:', randomRecipe);
+        // console.log('Selected random recipe:', randomRecipe);
         
         // Get data for the random recipe
         const {
@@ -77,9 +77,19 @@ document.addEventListener('DOMContentLoaded', async function() {
         const recipeLink = document.getElementById('link');
         recipeLink.href = recipe_link;
         
-        const recipePicture = document.getElementById('image');
-        recipePicture.src = recipe_image;
-        recipePicture.style.width = '100%';
+        const recipePictureContainer = document.getElementById(`recipe-image`)
+        const recipeImageSource = recipePictureContainer.querySelectorAll('source')
+        const recipeImage = recipePictureContainer.querySelector('img')
+        recipeImageSource.forEach(source =>{
+            const mediaQuery = source.getAttribute('media')
+    
+            if (mediaQuery === "(min-width: 582px)") {
+                source.scrset = recipe_image
+            } else if (mediaQuery === "(max-width: 581px)") {
+                source.scrset = recipe_image
+            }
+        })
+        recipeImage.src = recipe_image
 
         const recipeTitle = document.getElementById('recipe-title').querySelector('a');
         recipeTitle.textContent = recipe_title;
@@ -92,12 +102,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         prepTime.textContent = prep_time;
         
         const recipeAllergens = document.getElementById(`allergens`);
-        recipeAllergens.textContent = allergens.join(", ");
+        recipeAllergens.textContent = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ");
 
-        const skillLevel = document.getElementById(`skill-level`);
+        const skillLevel = document.getElementById(`cooking-skill`);
         skillLevel.textContent = cooking_skill_level;
 
-        const foodCategory = document.getElementById(`cuisine`);
+        const foodCategory = document.getElementById(`food-category`);
         foodCategory.textContent = cuisine_type;
     } catch (error) {
         console.error('Error:', error);
@@ -116,7 +126,9 @@ async function loadJSON() {
     }
 }
 
-
+function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() +string.slice(1);
+}
 
 
 //fuck this, going for another thing. trying recipe choice randomizer. let's hope the group doesn't ignore me and do it anyway. no one is helping me. I am fucked.

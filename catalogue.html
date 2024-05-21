@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Randomizer</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/catstyles.css">
+    <title>Recipe Randomizer</title>
 </head>
 
 <body>
@@ -27,22 +28,34 @@
             </ul>
         </nav>
     </header>
-    <body>        
-        <h1>Random Recipe Generator</h1>
-        <p3>Can't choose a recipe, let us choose for you.</p3>
-    
-        <div id="recipeContainer">
-            <a id='link' href="#"></a>
-            <img id="image">
-            <p id="recipe-title"><a href="#"></a></p>
-            <p id="description"></p>
-            <p id="prep-time"></p>
-            <p id="allergens"></p>
-            <p id="skill-level"></p>
-            <p id="cuisine"></p>
-        </div>
-    
-        <script src="js/catscript.js"></script>
-    </body>
+    <main>     
+        <div class="heading-message-container">
+            <h1>Random Recipe Picker</h1>
+            <p class="heading-message-caption">Can't choose a recipe? Let us choose for you!</p>   
+        </div>   
+        <section class="card">
+            <section class="image-container">
+                <a id='link' href="" aria-label="View More information about this recipe">
+                    <picture id='recipe-image'>
+                        <source media="(min-width: 582px)" srcset="">
+                        <source media="(max-width: 581px)" srcset="">
+                        <img class="image-styles" src="" draggable='false' alt="">
+                    </picture>
+                </a>
+            </section>
+            <section class="caption-container" id="original-content">
+                <div class="image_title" id="recipe-title">
+                    <a href="" aria-label="View More information about this recipe"></a>
+                </div>
+                <p id="description"></p>
+                <p><strong>Prep Time:</strong> <span id="prep-time"></span></p>
+                <p><strong>Allergens:</strong> <span id="allergens"></span></p>
+                <p><strong>Cooking Skill Level:</strong> <span id="cooking-skill"></span></p>
+                <p><strong>Cuisine Type:</strong> <span id="food-category"></span></p>
+            </section>
+        </section>
+        <a class="generate-random-recipe">Random</a>
+    </main>
+    <script src="js/catscript.js"></script>
 </body>
 </html>

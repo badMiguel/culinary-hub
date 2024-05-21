@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function(){
     let recipeData = await loadJSON() // load data from json
 
+    generateDailyRecipe(recipeData)
+
     // get users preferences and not show those recipes with that preference
     const preferences = JSON.parse(localStorage.getItem('preferences')) || []
     if (preferences.length != 0) {
@@ -66,22 +68,13 @@ document.addEventListener('DOMContentLoaded', async function(){
     })
 
     try {
-
         const sectionList = ['suggestion', 'breakfast']
         // display random recipes from json
-        const suggestedRandomRecipes = randomRecipes(recipeData, 2)
-        if (suggestedRandomRecipes.length < 2) {
-            createDuplicateCards(suggestedRandomRecipes.length, suggestedRandomRecipes, sectionList[0])
-        } else {
-            createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-        }
+        const suggestedRandomRecipes = JSON.parse(localStorage.getItem('dailyRecipe'))
+        createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
         
-        const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-        if (suggestedBreakfastRecipes.length < 2) {
-            createDuplicateCards(suggestedBreakfastRecipes.length, suggestedBreakfastRecipes, sectionList[1])
-        } else {
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-        }
+        const suggestedBreakfastRecipes = JSON.parse(localStorage.getItem('dailyRecipeBreakfast'))
+        createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
         
         const cardCollection = document.querySelector('.card-collection')
         const urlParams = new URLSearchParams(window.location.search);
@@ -122,20 +115,8 @@ function searchFunction(recipeData) {
     
     searchInput.addEventListener('keydown', function(event) {
         const searchInputValue = searchInput.value.toLowerCase()
-        // if no text on input, return to home
-        if (event.key === "Enter" && searchInputValue === "") {
-            cardCollection.innerHTML = originalContent;
-            const sectionList = ['suggestion', 'breakfast']
-            
-            const suggestedRandomRecipes = randomRecipes(recipeData, 2)
-            createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-            
-            const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])     
-        } 
-        
         // display filtered recipes
-        else if (event.key === "Enter" && searchInputValue != '') {
+        if (event.key === "Enter" && searchInputValue != '') {
             const filteredItems = recipeData.filter(item => 
                 item.other_categories.some(category => (category.toLowerCase() === searchInputValue)) ||
                 item.recipe_title.toLowerCase().includes(searchInputValue) ||
@@ -227,16 +208,27 @@ function renderItems(container, data, itemToRender, input) {
     xhr.send()
 }
 
-// randomise the recipes
-function randomRecipes(list, numItems, filter) {
-    if (!filter){
-        const shuffled = list.sort(() => Math.random() - 0.5)
-        return shuffled.slice(0, numItems)
-    } else if (filter === "breakfast") {
-        const filteredItems = list.filter(item => item.other_categories.some(category => category.toLowerCase() === filter))
-        const shuffled = filteredItems.sort(() => Math.random() - 0.5)
-        return shuffled.slice(0, numItems)
-    }
+// recipe will only change every other day
+function generateDailyRecipe(recipeData) {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(today.getDate()).padStart(2, '0');
+    const dateToday = `${year}-${month}-${day}`;
+
+    if (dateToday !== localStorage.getItem('dateToday')) {
+        localStorage.setItem('dateToday', dateToday)
+        const recipeDataNoBreakfast = recipeData.filter(
+            recipe => !recipe.other_categories.some(category=> category.toLowerCase() === 'breakfast')
+        )
+        const recipeBreakfast = recipeData.filter(
+            recipe => recipe.other_categories.some(category=> category.toLowerCase() === 'breakfast')
+        )
+        const randomDailyRecipe = recipeDataNoBreakfast.sort(() => Math.random() - 0.5)
+        const randomDailyBreakfast = recipeBreakfast.sort(() => Math.random() - 0.5)
+        localStorage.setItem('dailyRecipe', JSON.stringify(randomDailyRecipe.slice(0, 2)))
+        localStorage.setItem('dailyRecipeBreakfast', JSON.stringify(randomDailyBreakfast.slice(0, 2)))
+    } 
 }
 
 // create duplicate cards of the card template
