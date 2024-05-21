@@ -124,10 +124,15 @@ header{
     transition: box-shadow 0.3s ease;
     background-color: var(--bg-secondary);
     margin: 2rem auto;
+    transition: rotate 0.5s ease;
+    min-height: 496px;
 }
+/* .card:hover{
+    rotate: 0 1 0 360deg;
+} */
 
 .image-container{
-    height: 20rem;
+    height: 16rem;
     overflow: hidden;
     position:relative;
     
@@ -144,9 +149,9 @@ header{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    font-size: 15px;
     
     .image_title{
-        margin: 0 0 0.5rem 0;
         font-size: 25px;
         font-weight: 500;
     }

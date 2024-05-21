@@ -310,7 +310,11 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
     prepTime.textContent = prep_time
     
     const recipeAllergens = document.getElementById(`allergens-${section}-${number}`)
-    recipeAllergens.textContent = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ")
+    let allergenDetails = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ")
+    if (allergenDetails.length === 0){
+        allergenDetails = 'None'
+    } 
+    recipeAllergens.textContent = allergenDetails
 
     const skillLevel = document.getElementById(`cooking-skill-${section}-${number}`)
     skillLevel.textContent = cooking_skill_level

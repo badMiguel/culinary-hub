@@ -55,60 +55,23 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }
     })
-        
+
+    const randomIndex = Math.floor(Math.random() * recipeData.length);
+    const randomRecipe = recipeData[randomIndex];
+    updateCardInformation(randomRecipe)
+
+    const randomRecipeButton = document.querySelector('.generate-random-recipe')
+    randomRecipeButton.addEventListener('click', () =>  {
         // Select a random recipe
         const randomIndex = Math.floor(Math.random() * recipeData.length);
         const randomRecipe = recipeData[randomIndex];
-        // console.log('Selected random recipe:', randomRecipe);
-        
-        // Get data for the random recipe
-        const {
-            recipe_link,
-            recipe_image,
-            recipe_title,
-            recipe_description,
-            prep_time,
-            allergens,
-            cooking_skill_level,
-            cuisine_type,
-        } = randomRecipe;
+        updateCardInformation(randomRecipe)
 
-        // Update HTML elements with recipe data
-        const recipeLink = document.getElementById('link');
-        recipeLink.href = recipe_link;
-        
-        const recipePictureContainer = document.getElementById(`recipe-image`)
-        const recipeImageSource = recipePictureContainer.querySelectorAll('source')
-        const recipeImage = recipePictureContainer.querySelector('img')
-        recipeImageSource.forEach(source =>{
-            const mediaQuery = source.getAttribute('media')
+    })
+
+
     
-            if (mediaQuery === "(min-width: 582px)") {
-                source.scrset = recipe_image
-            } else if (mediaQuery === "(max-width: 581px)") {
-                source.scrset = recipe_image
-            }
-        })
-        recipeImage.src = recipe_image
 
-        const recipeTitle = document.getElementById('recipe-title').querySelector('a');
-        recipeTitle.textContent = recipe_title;
-        recipeTitle.href = recipe_link;
-
-        const description = document.getElementById(`description`);
-        description.textContent = recipe_description;
-
-        const prepTime = document.getElementById(`prep-time`);
-        prepTime.textContent = prep_time;
-        
-        const recipeAllergens = document.getElementById(`allergens`);
-        recipeAllergens.textContent = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ");
-
-        const skillLevel = document.getElementById(`cooking-skill`);
-        skillLevel.textContent = cooking_skill_level;
-
-        const foodCategory = document.getElementById(`food-category`);
-        foodCategory.textContent = cuisine_type;
     } catch (error) {
         console.error('Error:', error);
     }
@@ -124,6 +87,65 @@ async function loadJSON() {
         console.error('Error loading JSON file:', error);
         throw error; // Re-throw the error to catch it in the calling code
     }
+}
+
+function randomiseRecipe(recipe){
+
+}
+
+function updateCardInformation(randomRecipe){
+    // Get data for the random recipe
+    const {
+        recipe_link,
+        recipe_image,
+        recipe_title,
+        recipe_description,
+        prep_time,
+        allergens,
+        cooking_skill_level,
+        cuisine_type,
+    } = randomRecipe;
+
+    // Update HTML elements with recipe data
+    const recipeLink = document.getElementById('link');
+    recipeLink.href = recipe_link;
+    
+    const recipePictureContainer = document.getElementById(`recipe-image`)
+    const recipeImageSource = recipePictureContainer.querySelectorAll('source')
+    const recipeImage = recipePictureContainer.querySelector('img')
+    recipeImageSource.forEach(source =>{
+        const mediaQuery = source.getAttribute('media')
+
+        if (mediaQuery === "(min-width: 582px)") {
+            source.scrset = recipe_image
+        } else if (mediaQuery === "(max-width: 581px)") {
+            source.scrset = recipe_image
+        }
+    })
+    recipeImage.src = recipe_image
+
+    const recipeTitle = document.getElementById('recipe-title').querySelector('a');
+    recipeTitle.textContent = recipe_title;
+    recipeTitle.href = recipe_link;
+
+    const description = document.getElementById(`description`);
+    description.textContent = recipe_description;
+
+    const prepTime = document.getElementById(`prep-time`);
+    prepTime.innerHTML = `<strong>Prep Time:</strong> ${prep_time}`;
+    
+    const recipeAllergens = document.getElementById(`allergens`);
+    let allergenDetails = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ")
+    if (allergenDetails.length === 0){
+        allergenDetails = 'None'
+    } 
+    recipeAllergens.innerHTML = `<strong>Allergens:</strong> ` + allergenDetails;
+
+    const skillLevel = document.getElementById(`cooking-skill`);
+    skillLevel.innerHTML = `<strong>Cooking Skill Level:</strong> ${cooking_skill_level}`;
+
+    const foodCategory = document.getElementById(`food-category`);
+    foodCategory.innerHTML = `<strong>Cuisine Type:</strong> ${cuisine_type}`;
 }
 
 function capitaliseFirstLetter(string) {
