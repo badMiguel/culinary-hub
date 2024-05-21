@@ -125,6 +125,7 @@ header{
 
     a{
         color: var(--font-primary);
+        text-decoration: underline;
     }
 }
 

@@ -117,6 +117,7 @@ header{
     font-size: 14px;
     a{
         color: var(--font-primary);
+        text-decoration: underline;
     }
 }
 

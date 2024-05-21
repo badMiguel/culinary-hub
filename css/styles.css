@@ -363,6 +363,7 @@ fieldset{
 
     a{
         color: var(--font-primary);
+        text-decoration: underline;
     }
 }
 
