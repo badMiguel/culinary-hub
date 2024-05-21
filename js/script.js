@@ -171,27 +171,38 @@ function renderItems(container, data, itemToRender, input) {
     xhr.onload = function() {
         container.innerHTML = this.responseText
         const sectionHeading = container.querySelector('.section-heading');
-        const breadcrumbNavigation = container.querySelector(".breadcrumb-navigation-container")
-        const breadcrumbitemToRender = document.createElement('p')
+        const breadcrumbNavigation = document.querySelector(".breadcrumb-navigation-container")
         const listOfRecipesRecipeLink = document.querySelector('.listOfRecipes-intro')
         if (itemToRender === 'search'){
             console.log(localStorage.getItem('bookmark'))
             sectionHeading.textContent = `Search results for "${input}"`
-            breadcrumbitemToRender.textContent = 'Searched Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>Searched Recipe</p>
+            `
         } else if (itemToRender === 'filter'){
             sectionHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
-            breadcrumbitemToRender.textContent = 'Filtered Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>Filtered Recipe</p>
+            `
         } else if (itemToRender ==='listOfRecipes') {
             sectionHeading.textContent = `List of Recipes`
-            breadcrumbitemToRender.textContent = 'Recipe List'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>List of Recipes</p>
+            `
             listOfRecipesRecipeLink.textContent = ''
         } else {
             sectionHeading.textContent = `Your Saved Recipes`
-            breadcrumbitemToRender.textContent = 'Saved Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>Saved Recipes</p>
+            `
         }
         if (data.length > 0) {
             createDuplicateCards(data.length, data, 'search')

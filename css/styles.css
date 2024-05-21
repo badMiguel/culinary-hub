@@ -351,6 +351,11 @@ fieldset{
     visibility: visible;
 }
 
+.breadcrumb-navigation-alignment{
+    width: 80%;    
+    margin: auto;
+}
+
 .breadcrumb-navigation-container{
     display: flex;
     align-items: start;
@@ -358,7 +363,7 @@ fieldset{
     font-size: 14px;
 
     .material-icons{
-        transform: translateY(-2px);
+        transform: translateY(-4px);
     }
 
     a{
@@ -442,7 +447,7 @@ USED FOR ICONS
         }
     }
     
-        .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page{
+        .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page, .breadcrumb-navigation-alignment{
             width: 656px;
         }
 
