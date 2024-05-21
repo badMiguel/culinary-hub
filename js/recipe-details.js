@@ -151,7 +151,7 @@ function toggleTabs(selectedTab, recipe, container) {
 
 function showIngredients(recipe, container) {
     container.innerHTML = `<h3>Ingredients</h3>
-        <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>`;
+        <ul>${recipe.ingredients.map(ingredient => `<li>${capitaliseFirstLetter(ingredient.ingredient_name)}: ${ingredient.quantity}</li>`).join('')}</ul>`;
 }
 
 function showPreparation(recipe, container) {
@@ -166,4 +166,8 @@ function showNutrition(recipe, container) {
     });
     nutritionHTML += '</ul>';
     container.innerHTML = nutritionHTML;
+}
+
+function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() +string.slice(1);
 }

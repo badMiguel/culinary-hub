@@ -130,7 +130,6 @@ header{
     margin: 0 auto 3rem auto;
     width: 80%;
     max-width: 800px;
-    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .image-container{
@@ -140,6 +139,7 @@ header{
     display: flex;
     align-items: center;
     margin: 0 auto;
+    animation: fadeInUp 0.5s ease-out forwards;
 
     .recipe-image{
         width: 100%;
@@ -182,27 +182,37 @@ header{
 
 .tabs{
     display: flex;
-    justify-content: space-between;
     margin: 3rem 0 0 0;
 }
 
 .tab-button {
     padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: none;
+    background-color: var(--bg-third);
+    box-shadow: inset 0 -5px 10px -5px rgba(0,0,0,0.5), 0px -5px 10px -5px rgba(0,0,0,0.5);
+    color: white; 
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+    font-size: 16px;
 }
 
-.tab-button.active, .tab-button:hover, .tab-button:focus {
-    background: var(--accent-color);
-    color: white;
+.tab-button.active, .tab-button:focus {
+    background: var(--bg-secondary);
     outline: none;
+    color: var(--font-primary);
+    box-shadow: inset 0px 0px, 0px -5px 10px -10px rgba(0,0,0,0.5);
 }
 
 .detail-container {
+    background-color: var(--bg-secondary);
     padding: 2rem;
-    border-top: 2px solid var(--bg-fourth);
-    margin-top: 1rem;
+    border-radius: 0 1rem 1rem 1rem;
+    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.5);
+    li{
+        margin: 1rem;
+    }
 }
 
 .title-caption-container{
@@ -217,24 +227,12 @@ header{
     }
 }
 
-.back-button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--bg-third);
-    color: var(--font-secondary);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-left: 1rem;
-}
-
 .back-button:hover, .back-button:focus {
     background-color: var(--accent-color);
     color: var(--bg-primary);
 }
 
-@media (max-width: 749px) {   
+@media screen and (max-width: 749px) {   
     .back-button {
         /* Adjusting button size for smaller screens */
         padding: 0.4rem 0.8rem;
@@ -259,9 +257,38 @@ header{
     header.show{
         box-shadow: 0 1px 10px rgba(0,0,0,0.5);
     }
+
+    .tab-button{
+        font-size: 14px;
+    }
 }
 
-@media (min-width: 750px) {
+@media screen and (max-width:500px){
+    .tab-button{
+        flex: 1
+    }
+
+    .detail-container{
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .recipe-details{
+        gap: 1rem;
+        .category{
+            font-size: 14px;
+        }
+    
+        .category-information{
+            font-size: 16px;
+        }
+
+        .right-side{
+            padding: 0 0 0 1rem;
+        }
+    }
+}
+
+@media screen and (min-width: 750px) {
     .back-button {
         /* Larger padding for better desktop usability */
         padding: 0.5rem 1rem;
@@ -279,4 +306,3 @@ header{
     }
 
 }
-
