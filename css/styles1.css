@@ -300,6 +300,10 @@ USED FOR ICONS
         text-align: center;
     }
 
+    .breadcrumb-navigation-alignment{
+        grid-column: 2/ span 10;
+    }
+
     
 }
 
