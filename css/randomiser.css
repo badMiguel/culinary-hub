@@ -245,6 +245,13 @@ header{
     color: white;
     border-radius: 1rem;
     cursor: pointer;
+    border: none;
+    width: 115px;
+    transition: background-color 0.1s;
+}
+.generate-random-recipe.load{
+    background-color: rgb(27, 27, 27);
+    transition: background-color 0.2s ease;
 }
 
 @media screen and (min-width: 750px){

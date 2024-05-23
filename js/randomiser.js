@@ -75,10 +75,21 @@ document.addEventListener('DOMContentLoaded', async function() {
         const randomRecipe = recipeData[randomIndex];
         card.classList.add('rotate')
         updateCardInformation(randomRecipe)
+
+        randomRecipeButton.disabled = true
+        randomRecipeButton.classList.toggle('load')
+        randomRecipeButton.textContent = 'Loading'
+        setTimeout(() => {
+            randomRecipeButton.disabled = false
+            randomRecipeButton.classList.toggle('load')
+            randomRecipeButton.textContent = 'Random'
+        }, 1000);
+
     })
     card.addEventListener('animationend', ()=>{
         card.classList.remove('rotate')
     })
+
 
 
     
@@ -98,10 +109,6 @@ async function loadJSON() {
         console.error('Error loading JSON file:', error);
         throw error; // Re-throw the error to catch it in the calling code
     }
-}
-
-function randomiseRecipe(recipe){
-
 }
 
 function updateCardInformation(randomRecipe){
