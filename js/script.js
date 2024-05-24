@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', async function(){
     let recipeData = await loadJSON() // load data from json
 
     generateDailyRecipe(recipeData)
-
     // get users preferences and not show those recipes with that preference
     const preferences = JSON.parse(localStorage.getItem('preferences')) || []
     if (preferences.length != 0) {
@@ -45,6 +44,8 @@ document.addEventListener('DOMContentLoaded', async function(){
     // simple scroll transition for aesthetics
     const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
     const headerLinks = header.querySelectorAll('a')
+    // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
+    // console.log(lightDarkModeToggle)
     window.addEventListener('scroll', function(){
         if (window.scrollY > 20){
             header.style.backgroundColor = '#3C6DC5'
@@ -55,6 +56,9 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#FBFBFD'                
             });
+            // lightDarkModeToggle.classList.remove("md-dark")
+            // lightDarkModeToggle.classList.add('md-light')
+
         } else {
             header.style.backgroundColor = '#F2F4FA'
             header.style.boxShadow = ''
@@ -64,6 +68,8 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#0B0D10'                
             });
+            // lightDarkModeToggle.classList.remove("md-light")
+            // lightDarkModeToggle.classList.add('md-dark')
         }
     })
 
@@ -227,7 +233,7 @@ function generateDailyRecipe(recipeData) {
     const day = String(today.getDate()).padStart(2, '0');
     const dateToday = `${year}-${month}-${day}`;
 
-    if (dateToday !== localStorage.getItem('dateToday')) {
+    if (dateToday !== localStorage.getItem('dateToday') || !localStorage.getItem('dailyRecipe') || !localStorage.getItem('dailyRecipeBreakfast')) {
         localStorage.setItem('dateToday', dateToday)
         const recipeDataNoBreakfast = recipeData.filter(
             recipe => !recipe.other_categories.some(category=> category.toLowerCase() === 'breakfast')

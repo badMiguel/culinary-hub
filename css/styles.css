@@ -424,6 +424,17 @@ fieldset{
         color: var(--font-secondary);
     }
 }
+/* 
+.material-icons.md-dark{
+    color: var(--font-primary);
+    transition: color 0.4s ease;
+}
+
+.material-icons.md-light{
+    color: var(--font-secondary);
+    transition: color 0.4s ease;
+} 
+*/
 
 /* 
 REMOVES TEXT HIGHLIGHT WHEN DOUBLE CLICKING ON TEXT
