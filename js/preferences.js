@@ -28,15 +28,18 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     const checkboxItems = document.querySelectorAll('.checkbox-item')
     const updateButton = document.querySelector('.update-button')
-    updateButton.addEventListener('click', () => {
-        console.log('yes')
+    updateButton.addEventListener('click', (event) => {
+        event.preventDefault()
         localStorage.removeItem('dailyRecipe')
         localStorage.removeItem('dailyRecipeBreakfast')
         let preferenceList = JSON.parse(localStorage.getItem('preferences')) || []
         const checkedPreference = Array.from(checkboxItems)
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.value)
-            
+        if (JSON.stringify(checkedPreference) !== JSON.stringify(preferenceList)) {
+            preferencesNotify()      
+        }
+
         if (checkedPreference.length != 0) {
             if (preferenceList.length != 0) {
                 checkedPreference.forEach(preference => {
@@ -146,4 +149,12 @@ function navbar() {
             });
         }
     })
+}
+function preferencesNotify(){
+    const notifyPreference = document.querySelector('.preferences-saved')
+    notifyPreference.classList.toggle('show')
+
+    setTimeout(() => {
+        notifyPreference.classList.toggle('show')
+    }, 1000);
 }
