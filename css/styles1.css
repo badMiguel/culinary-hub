@@ -257,6 +257,9 @@ USED FOR ICONS
 
 
 @media screen and (max-width: 749px) {
+    body{
+        margin: 6rem 0;
+    }
     .filter-section{
         .filter-list{
             display: grid;

@@ -139,10 +139,12 @@ function searchFunction(recipeData) {
 function filterFunction(recipeData) {
     const filterButton = document.querySelector('.filter-icon')
     const filterContainer = document.querySelector('.filter-section-container')
-    
+    const searchAndFilterContainer = document.querySelector('.search-and-filter-container')
+
     // shows filter menu
     filterButton.addEventListener('click', function(){
         filterContainer.classList.toggle('show')
+        searchAndFilterContainer.classList.toggle('show')
     })
     
     // filter logic - gets value of checked checkbox then gets recipes with that value
@@ -168,6 +170,7 @@ function filterFunction(recipeData) {
     const closeFilter = document.querySelector('.close-filter')
     closeFilter.addEventListener('click', function(){
         filterContainer.classList.toggle('show')
+        searchAndFilterContainer.classList.toggle('show')
     })
 }
 

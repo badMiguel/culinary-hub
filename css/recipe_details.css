@@ -234,6 +234,9 @@ header{
 }
 
 @media screen and (max-width: 749px) {   
+    body{
+        margin: 6rem 0;
+    }
     .back-button {
         /* Adjusting button size for smaller screens */
         padding: 0.4rem 0.8rem;
