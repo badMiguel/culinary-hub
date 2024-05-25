@@ -163,6 +163,7 @@ function filterFunction(recipeData) {
             )            
             renderItems(cardCollection, filteredItems, 'filter', selectedFilters)
             filterContainer.classList.toggle('show')
+            searchAndFilterContainer.classList.toggle('show')
         }
     })
 
