@@ -202,7 +202,6 @@ header{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 15px;
     
     .image_title{
         font-size: 25px;
@@ -289,5 +288,8 @@ header{
 
     header.show{
         box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
+    .caption-container{
+        font-size: 15px;
     }
 }
