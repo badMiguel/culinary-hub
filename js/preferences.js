@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const checkboxItems = document.querySelectorAll('.checkbox-item')
     const updateButton = document.querySelector('.update-button')
     updateButton.addEventListener('click', () => {
+        console.log('yes')
         localStorage.removeItem('dailyRecipe')
         localStorage.removeItem('dailyRecipeBreakfast')
         let preferenceList = JSON.parse(localStorage.getItem('preferences')) || []

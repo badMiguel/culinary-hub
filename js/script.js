@@ -180,7 +180,6 @@ function renderItems(container, data, itemToRender, input) {
         const breadcrumbNavigation = document.querySelector(".breadcrumb-navigation-container")
         const listOfRecipesRecipeLink = document.querySelector('.listOfRecipes-intro')
         if (itemToRender === 'search'){
-            console.log(localStorage.getItem('bookmark'))
             sectionHeading.textContent = `Search results for "${input}"`
             breadcrumbNavigation.innerHTML = `
                 <a class="breadcrumb-navigation" href="index.html">Home</a>
@@ -272,7 +271,6 @@ function createDuplicateCards(amount, data, section) {
         cardClone.style.display = 'block'
         updateDuplicateCardInformation(cardClone, nthCard, data, section)
     }
-    heartInteractions(section)
     bookmarkInteraction(section, data)    
     copyLinkInteraction(section)
 }
@@ -338,33 +336,6 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
 
     const foodCategory = document.getElementById(`food-category-${section}-${number}`)
     foodCategory.textContent = cuisine_type
-}
-
-// adds a amount of like when recipe is liked - change  color of button
-function heartInteractions(section) {
-    const recipeSection = document.querySelector(`.${section}-section`)
-    const heartButton = recipeSection.querySelectorAll('.heart');  
-
-    heartButton.forEach((heartButton, index) => {
-        let heartIdColor = `heartColor-${section}-${index+1}`
-        let heartIdLikes = `heartLikes-${section}-${index+1}` 
-
-        let heartNumber = randomInt(1,1000)
-        const heartColor = document.getElementById(heartIdColor);
-        const heartNumberDisplay = document.getElementById(heartIdLikes);
-
-        try{
-            heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
-        } catch(error) {
-            // pass
-        }
-
-        heartButton.addEventListener('click', function(){
-            likeChange = changeColor(heartColor, 'rgb(170, 26, 26)', 'heart')
-            heartNumber += likeChange
-            heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
-        })
-    });
 }
 
 // change color of button when clicked - also saves the recipe when clicked
@@ -467,17 +438,12 @@ function randomInt(min,max){
 function changeColor(element, color, button, data, recipeTitle){
     if (!element.style.color || element.style.color ==='var(--bg-fourth)'){
         element.style.color = color;
-        // add a like count if the button clicked was a heart button
-        if (button === 'heart'){ 
-            return 1
-        } else if (button === 'bookmark') {
+        if (button === 'bookmark') {
             addBookmark(recipeTitle, data[0])
         }
     } else {
         element.style.color = 'var(--bg-fourth)';
-        if (button === 'heart'){
-            return -1
-        } else if (button === 'bookmark') {
+        if (button === 'bookmark') {
             removeBookmark(recipeTitle)
         }
     } 
