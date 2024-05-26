@@ -250,8 +250,19 @@ header{
     background-color: rgb(27, 27, 27);
     transition: background-color 0.2s ease;
 }
-
-@media screen and (min-width: 750px){
+@media screen and (min-width: 1300px){
+    .top-nav {
+        width: 992px;
+        .hamburger-menu{
+            display: none;
+        }
+    }
+    
+    .heading-message-container, .breadcrumb-navigation-alignment{
+        width: 992px;
+    }
+}
+@media screen and (min-width: 750px) and (max-width: 1299px){
     .top-nav {
         width: 656px;
         .hamburger-menu{

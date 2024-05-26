@@ -213,8 +213,54 @@ USED FOR ICONS
     -ms-user-select: none;
     -webkit-user-select: none;
 }
+@media screen and (min-width: 1300px){
+    main{
+        max-width: 992px;
+    }
 
-@media screen and (min-width: 750px){
+    body{
+        a{
+            transition: opacity 0.3s ease;
+        }
+    
+        a:hover{
+            opacity: 0.7;
+        }
+    }
+    
+    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-catalogue{
+        width:992px;
+    }
+
+    .top-nav {
+        .hamburger-menu{
+            display: none;
+        }
+    }
+
+
+    .filter-list{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 0.3rem;
+    }
+
+    .card:hover{
+        box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
+    }
+    .heart:hover{
+        transform: scale(1.1);
+    }
+
+    .bookmark:hover{
+        transform: scale(1.1);
+    }    
+
+    .copy-button:hover{
+        transform: scale(1.1);
+    }   
+}
+@media screen and (min-width: 750px) and (max-width: 1299px){
     body{
         a{
             transition: opacity 0.3s ease;
@@ -312,10 +358,7 @@ USED FOR ICONS
     .breadcrumb-navigation-alignment{
         grid-column: 2/ span 10;
     }
-
-    
 }
-
 @media screen and (max-width: 960px) {
     main .aboutimg{
         grid-column: 3/ span 8

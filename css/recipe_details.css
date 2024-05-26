@@ -127,7 +127,6 @@ header{
 .more-information {
     margin: 0 auto 3rem auto;
     width: 80%;
-    max-width: 800px;
 }
 
 .image-container{
@@ -292,7 +291,7 @@ header{
     }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 750px) and (max-width: 1299px){
     .back-button {
         /* Larger padding for better desktop usability */
         padding: 0.5rem 1rem;
@@ -307,6 +306,24 @@ header{
 
     .breadcrumb-navigation-alignment, .more-information, .title-caption-container, .image-container, .recipe-details{
         width: 656px;
+    }
+
+}
+@media screen and (min-width: 1300px) {
+    .back-button {
+        /* Larger padding for better desktop usability */
+        padding: 0.5rem 1rem;
+    }
+
+    .top-nav {
+        width: 992px;
+        .hamburger-menu{
+            display: none;
+        }
+    }
+
+    .breadcrumb-navigation-alignment, .more-information, .title-caption-container, .image-container, .recipe-details{
+        width: 992px;
     }
 
 }
