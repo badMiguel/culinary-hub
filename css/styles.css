@@ -363,6 +363,7 @@ fieldset{
     display: flex;
     align-items: center;
     font-size: 14px;
+    margin: 0 0 20px 0;
 
     a{
         color: var(--font-primary);
