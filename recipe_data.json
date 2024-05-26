@@ -680,5 +680,264 @@
             "Iron": "3mg",
             "Potassium": "800mg"
         }
+    },
+    {
+        "recipe_link": "full_details.html?recipe=Steak with Mushroom Sauce and Potatoes",
+        "recipe_image": "images/beef-mushroom-sauce-potato.webp",
+        "recipe_title": "Steak with Mushroom Sauce and Potatoes",
+        "recipe_description": "Juicy rump steak with creamy mushrooms, ready in 15 minutes.",
+        "prep_time": "15 minutes",
+        "allergens": [],
+        "cooking_skill_level": "Intermediate",
+        "cuisine_type": "Australian",
+        "other_categories": ["Beef", "Dinner", "Quick"],
+        "ingredients": [
+            {
+                "ingredient_name": "beef rump steak",
+                "quantity": "600g, cut into 4 portions"
+            },
+            {
+                "ingredient_name": "baby potatoes",
+                "quantity": "500g, microwave-ready"
+            },
+            {
+                "ingredient_name": "olive oil",
+                "quantity": "3 tbsp"
+            },
+            {
+                "ingredient_name": "brown onion",
+                "quantity": "1, finely diced"
+            },
+            {
+                "ingredient_name": "button mushrooms",
+                "quantity": "200g, sliced"
+            },
+            {
+                "ingredient_name": "Worcestershire sauce",
+                "quantity": "2 tbsp"
+            },
+            {
+                "ingredient_name": "sour cream",
+                "quantity": "1/3 cup"
+            },
+            {
+                "ingredient_name": "baby rocket leaves",
+                "quantity": "to serve"
+            },
+            {
+                "ingredient_name": "parsley",
+                "quantity": "finely chopped, to serve"
+            }
+        ],
+        "instructions": [    
+            "Microwave potatoes per packet instructions for 6-8 mins, until tender. Set aside, covered with foil.",
+            "Brush steaks with 1 tbsp oil, season. Cook each side in non-stick pan over medium heat, 3-4 mins.",
+            "Transfer steaks to plate, cover with foil. Increase heat to medium-high.",
+            "Cook onion and mushrooms until golden, 4-5 mins.",
+            "Add Worcestershire sauce, sour cream, and 1/3 cup water. Bring to boil, remove from heat.",
+            "Season mushroom sauce. Serve steaks topped with sauce, potatoes with parsley, and baby rocket on the side."
+        ],
+        "nutrition_facts": {
+            "Calories": "550 kcal per serving",
+            "Total Fat": "28g",
+            "Saturated Fat": "9g",
+            "Cholesterol": "110mg",
+            "Sodium": "320mg",
+            "Total Carbohydrate": "33g",
+            "Dietary Fiber": "4g",
+            "Total Sugars": "4g",
+            "Protein": "40g",
+            "Vitamin D": null,
+            "Calcium": "70mg",
+            "Iron": "4mg",
+            "Potassium": "1500mg"
+        }
+    },
+    {
+        "recipe_link": "full_details.html?recipe=Air Fryer Smashed Potatoes",
+        "recipe_image": "images/air-fryer-smashed-potatoes.webp",
+        "recipe_title": "Air Fryer Smashed Potatoes",
+        "recipe_description": "Crispy air fryer smashed potatoes with garlic bacon butter - irresistible!",
+        "prep_time": "40 minutes",
+        "allergens": [],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "Australian",
+        "other_categories": ["Quick"],
+        "ingredients": [
+            {
+                "ingredient_name": "baby coliban potatoes",
+                "quantity": "8"
+            },
+            {
+                "ingredient_name": "short cut bacon rashers",
+                "quantity": "2"
+            },
+            {
+                "ingredient_name": "butter",
+                "quantity": "75g"
+            },
+            {
+                "ingredient_name": "garlic, thinly sliced lengthways",
+                "quantity": "4 cloves"
+            },
+            {
+                "ingredient_name": "chopped fresh continental parsley",
+                "quantity": "1 tbsp"
+            }
+        ],
+        "instructions": [    
+            "Place 8 baby coliban potatoes and 2 short cut bacon rashers in air fryer basket.",
+            "Spray with olive oil and season with salt.",
+            "Air fry at 180C for 15 minutes, turning halfway through cooking, until potatoes are tender and bacon is crisp.",
+            "Transfer bacon to a plate. Crush potatoes on a board with the back of a fork.",
+            "Return crushed potatoes to air fryer, spray with olive oil, and cook at 180C for 10 minutes or until golden and crisp.",
+            "Meanwhile, finely chop bacon. Melt 75g butter in a saucepan over medium heat.",
+            "Add 4 thinly sliced garlic cloves, cook for 3 minutes until light golden, then remove from heat.",
+            "Stir in chopped bacon and 1 tbsp chopped fresh continental parsley.",
+            "Transfer potatoes to a serving plate and pour over garlic bacon butter. Serve."
+        ],
+        "nutrition_facts": {
+            "Calories": "295",
+            "Total Fat": "19g",
+            "Saturated Fat": "9g",
+            "Cholesterol": "37mg",
+            "Sodium": "310mg",
+            "Total Carbohydrate": "24g",
+            "Dietary Fiber": "3g",
+            "Total Sugars": "1g",
+            "Protein": "6g",
+            "Vitamin D": "0mcg",
+            "Calcium": "24mg",
+            "Iron": "1mg",
+            "Potassium": "624mg"
+        }
+    },
+    {
+        "recipe_link": "full_details.html?recipe=Protein-packed Breakfast Bowl",
+        "recipe_image": "images/quinoa-egg-avocado.webp",
+        "recipe_title": "Protein-packed Breakfast Bowl",
+        "recipe_description": "Quick, nutritious breakfast: quinoa, avocado, egg bowl in 10 mins.",
+        "prep_time": "10 minutes",
+        "allergens": [],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "Contemporary",
+        "other_categories": ["Healthy", "Breakfast"],
+        "ingredients": [
+            {
+                "ingredient_name": "baby spinach", 
+                "quantity": "50g"
+            },
+            {
+                "ingredient_name": "cooked quinoa (warmed)",
+                "quantity": "75g (1/2 cup)"
+            },
+            {
+                "ingredient_name": "soft-boiled egg (peeled, sliced)", 
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "avocado (sliced)", 
+                "quantity": "1/4"
+            },
+            {
+                "ingredient_name": "fresh lemon juice",
+                "quantity": "1 tsp"
+            },
+            {
+                "ingredient_name": "extra virgin olive oil", 
+                "quantity": "1 tsp"
+            },
+            {
+                "ingredient_name": "chopped roasted", 
+                "quantity": "2 tsp"
+            }
+        ],
+        "instructions": [    
+            "Place spinach in colander.",
+            "Pour boiling water over spinach.",
+            "Squeeze excess liquid from spinach.",
+            "Arrange quinoa, spinach, egg, and avocado in serving bowl.",
+            "Drizzle lemon juice and olive oil over the bowl.",
+            "Top with almonds before serving."
+        ],
+        "nutrition_facts": {
+            "Calories": "350 kcal",
+            "Total Fat": "20g",
+            "Saturated Fat": "3g",
+            "Cholesterol": "186mg",
+            "Sodium": "200mg",
+            "Total Carbohydrate": "30g",
+            "Dietary Fiber": "8g",
+            "Total Sugars": "2g",
+            "Protein": "15g",
+            "Vitamin D": null,
+            "Calcium": "60mg",
+            "Iron": "4mg",
+            "Potassium": "600mg"
+        }
+    },
+    {
+        "recipe_link": "full_details.html?recipe=Bacon and Egg Breakfast Muffins",
+        "recipe_image": "images/Bacon-Egg-Breakfast-Muffins.webp",
+        "recipe_title": "Bacon and Egg Breakfast Muffins",
+        "recipe_description": "Delicious, quick, healthy bacon & egg muffins: Family's new favorite!",
+        "prep_time": "30 miniutes",
+        "allergens": [],
+        "cooking_skill_level": "Beginner",
+        "cuisine_type": "Australian",
+        "other_categories": ["Breakfast", "Baking"],
+        "ingredients": [
+            {
+                "ingredient_name": "Bacon rashers",
+                "quantity": "2 short-cut"
+            },
+            {
+                "ingredient_name": "Mushrooms",
+                "quantity": "50g"
+            },
+            {
+                "ingredient_name": "Broccoli",
+                "quantity": "1 cup finely chopped"
+            },
+            {
+                "ingredient_name": "Baby spinach leaves",
+                "quantity": "20g"
+            },
+            {
+                "ingredient_name": "Eggs (Coles Australian Free Range)",
+                "quantity": "8"
+            },
+            {
+                "ingredient_name": "Milk",
+                "quantity": "1/4 cup (60ml)"
+            },
+            {
+                "ingredient_name": "Light tasty cheddar (grated)",
+                "quantity": "1/2 cup (60g)"
+            }
+        ],
+        "instructions": [    
+            "Preheat oven to 180°C. Grease 8 holes of a 1/3-cup (80ml) non-stick muffin pan.",
+            "Heat a non-stick frying pan over high heat. Add chopped bacon and sliced mushrooms. Cook for 2 mins.",
+            "Add finely chopped broccoli. Cook for 1 min until tender.",
+            "Divide bacon, mushroom, broccoli mixture and shredded spinach among holes.",
+            "Whisk eggs, milk, and grated cheddar. Season. Pour over mixture in pan.",
+            "Bake for 15-20 mins until set. Cool slightly before serving."
+        ],
+        "nutrition_facts": {
+            "Calories": "220 per muffin",
+            "Total Fat": "13g",
+            "Saturated Fat": "5g",
+            "Cholesterol": "235mg",
+            "Sodium": "380mg",
+            "Total Carbohydrate": "4g",
+            "Dietary Fiber": "1g",
+            "Total Sugars": "2g",
+            "Protein": "18g",
+            "Vitamin D": "15mcg",
+            "Calcium": "150mg",
+            "Iron": "1.8mg",
+            "Potassium": "400mg"
+        }
     }
 ]

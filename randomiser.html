@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/randomiser.css">
+    <title>Recipe Randomizer</title>
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            <a href="index.html"><img class='logo' src="images/logo_black.webp" alt="Website Logo"></a>
+            <a class="hamburger-menu">
+                <div class="burger-part burger-top-part"></div>
+                <div class="burger-part burger-middle-part"></div>
+                <div class="burger-part burger-bottom-part"></div>
+            </a>
+            <ul class="nav-link-list">
+                <li><a class='nav-link' href="about1.html">About</a></li>
+                <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
+                <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
+                <li><a class='nav-link' href="preferences.html">Preferences</a></li>
+                <li><a class='nav-link' href="randomiser.html">Randomiser</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>     
+        <nav class="breadcrumb-navigation-alignment">
+            <div class="breadcrumb-navigation-container">
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p class="breadcrumb-navigation" href="index.html">Random Recipes</p>
+            </div>
+        </nav>      
+        <div class="heading-message-container">
+            <h1>Random Recipe Picker</h1>
+            <p class="heading-message-caption">Can't choose a recipe? Let us choose for you!</p>   
+        </div>   
+        <section class="card">
+            <section class="image-container">
+                <a id='link' href="" aria-label="View More information about this recipe">
+                    <picture id='recipe-image'>
+                        <source media="(min-width: 582px)" srcset="">
+                        <source media="(max-width: 581px)" srcset="">
+                        <img class="image-styles" src="" draggable='false' alt="">
+                    </picture>
+                </a>
+            </section>
+            <section class="caption-container" id="original-content">
+                <div class="image_title" id="recipe-title">
+                    <a href="" aria-label="View More information about this recipe"></a>
+                </div>
+                <p id="description"></p>
+                <p id="prep-time"></p>
+                <p id="allergens"></p>
+                <p id="cooking-skill"></p>
+                <p id="food-category"></p>
+            </section>
+        </section>
+        <button class="generate-random-recipe" type="submit">Random</button>
+    </main>
+    <script src="js/randomiser.js"></script>
+</body>
+</html>

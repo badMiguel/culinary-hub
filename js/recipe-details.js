@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     // simple scroll transition for aesthetics
     const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
     const headerLinks = header.querySelectorAll('a')
+    const logo = document.querySelector('.logo')
+    // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
+    // console.log(lightDarkModeToggle)
     window.addEventListener('scroll', function(){
         if (window.scrollY > 20){
             header.style.backgroundColor = '#3C6DC5'
@@ -46,6 +49,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#FBFBFD'                
             });
+            logo.src = 'images/logo_white.webp'
+            // lightDarkModeToggle.classList.remove("md-dark")
+            // lightDarkModeToggle.classList.add('md-light')
+
         } else {
             header.style.backgroundColor = '#F2F4FA'
             header.style.boxShadow = ''
@@ -55,8 +62,18 @@ document.addEventListener('DOMContentLoaded', async function() {
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#0B0D10'                
             });
+            logo.src = 'images/logo_black.webp'
+            // lightDarkModeToggle.classList.remove("md-light")
+            // lightDarkModeToggle.classList.add('md-dark')
         }
     })
+
+
+    const breadcrumbNavigation = document.querySelector(".breadcrumb-navigation-container")
+    const breadcrumbitemToRender = document.createElement('p')
+
+    breadcrumbitemToRender.textContent = recipeType
+    breadcrumbNavigation.appendChild(breadcrumbitemToRender)
 
 });
 
@@ -73,23 +90,28 @@ async function loadJSON() {
 
 function loadRecipeDetails(recipe) {
     const recipesContainer = document.getElementById('recipes-container');
-    recipesContainer.innerHTML = ''; // Clear previous content
-
-    const recipeCard = document.createElement('div');
-    recipeCard.className = 'recipe-card';
-    recipeCard.innerHTML = `
-        <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
+    recipesContainer.innerHTML = `
         <div class='title-caption-container'>
             <h2>${recipe.recipe_title}</h2>
             <p>${recipe.recipe_description}</p>
         </div>
-        <div class="recipe-details">
-            <span><strong>Prep Time:</strong> ${recipe.prep_time}</span>
-            <span><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</span>
-            <span><strong>Skill Level:</strong> ${recipe.cooking_skill_level}</span>
+        <ul class="recipe-details">
+            <li><p class='category'>Cuisine:</p><p class='category-information'>${recipe.cuisine_type}</p></li>
+            <li class='right-side'><p class='category'>Prep:</p><p class='category-information'>${recipe.prep_time}</p></li>
+            <li class='right-side'><p class='category'>Level:</p><p class='category-information'>${recipe.cooking_skill_level}</p></li>
+        </ul>
+        <div class='image-container'>
+            <img src="${recipe.recipe_image}" alt="Image of ${recipe.recipe_title}" class="recipe-image">
         </div>
-    `;
+    `; // Clear previous content
+
+    const recipeCard = document.createElement('div');
+    recipeCard.className = 'more-information';
     recipesContainer.appendChild(recipeCard);
+
+
+            // <span><strong>Allergens:</strong> ${recipe.allergens.join(', ')}</span>
+
 
     const tabs = document.createElement('div');
     tabs.className = 'tabs';
@@ -139,7 +161,7 @@ function toggleTabs(selectedTab, recipe, container) {
 
 function showIngredients(recipe, container) {
     container.innerHTML = `<h3>Ingredients</h3>
-        <ul>${recipe.ingredients.map(ingredient => `<li>${ingredient.ingredient_name}: ${ingredient.quantity}</li>`).join('')}</ul>`;
+        <ul>${recipe.ingredients.map(ingredient => `<li>${capitaliseFirstLetter(ingredient.ingredient_name)}: ${ingredient.quantity}</li>`).join('')}</ul>`;
 }
 
 function showPreparation(recipe, container) {
@@ -154,4 +176,8 @@ function showNutrition(recipe, container) {
     });
     nutritionHTML += '</ul>';
     container.innerHTML = nutritionHTML;
+}
+
+function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() +string.slice(1);
 }

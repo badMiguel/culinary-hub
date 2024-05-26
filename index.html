@@ -11,19 +11,19 @@
 <body>
     <header>
         <nav class="top-nav">
-            <a class='logo' href="index.html">Logo</a>
+            <a href="index.html"><img class='logo' src="images/logo_black.webp" alt="Website Logo"></a>
             <a class="hamburger-menu">
                 <div class="burger-part burger-top-part"></div>
                 <div class="burger-part burger-middle-part"></div>
                 <div class="burger-part burger-bottom-part"></div>
             </a>
             <ul class="nav-link-list">
-                <li><a class="nav-link" href="index.html">Home</a></li>
                 <li><a class='nav-link' href="about1.html">About</a></li>
                 <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
                 <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
                 <li><a class='nav-link' href="preferences.html">Preferences</a></li>
-                <li><a class='nav-link' href="catalogue.html">Randomizer</a></li>
+                <li><a class='nav-link' href="randomiser.html">Randomiser</a></li>
+                <!-- <li><p class='nav-link material-icons md-dark' href="#">wb_sunny</p></li> -->
             </ul>
         </nav>
     </header>
@@ -51,16 +51,15 @@
             <div class="bottom-part-card">
                 <p class="food-category-container" id="food-category"></p>
                 <div class='icons'>
-                    <div class='heart-container'>
-                        <p class="heart material-icons no-select" id="heartColor">favorite</p>
-                        <p class="heart-number" id="heartLikes"></p>
-                    </div>
                     <p class="bookmark material-icons no-select" id="bookmarkColor">bookmark</p>
                     <p class="copy-button material-icons no-select">share</p>
                 </div>
             </div>
         </div>
         <!-- END OF CARD TEMPLATE -->
+        <nav class="breadcrumb-navigation-alignment">
+            <div class="breadcrumb-navigation-container"></div>
+        </nav>
         <section class="search-filter-section">
             <h1 class="introduction">Unleash Your Creativity</h1>
             <div class="search-and-filter-container">
@@ -92,6 +91,7 @@
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="asian" name="asian" id="asian"><label for="asian">Asian</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="australian" name="australian" id="australian"><label for="australian">Australian</label></div>
                         <div class="filter-item"><input class="checkbox-item" type="checkbox" value="british" name="british" id="british"><label for="british">British</label></div>
+                        <div class="filter-item"><input class="checkbox-item" type="checkbox" value="contemporary" name="contemporary" id="contemporary"><label for="contemporary">Contemporary</label></div>
                     </div>
                 </fieldset>
                 <fieldset class="other-categories-filter-container">
@@ -128,7 +128,7 @@
             </section>
         </div>
         <section class="recipe-list">
-            <p class="listOfRecipes-intro">Can't find what you are looking for? Try our <a class="recipe-list-link" href="index.html?page=recipe_list" aria-label="List of recipes">list of recipes</a>.</p>
+            <p class="listOfRecipes-intro">Can't find what you are looking for? Try our <a class="recipe-list-link" href="index.html?page=recipe_list" aria-label="List of recipes">list of recipes</a> or our <a class='recipe-list-link' href="catalogue.html">random recipe picker.</a></p>
         </section>
     </main>
     <footer>

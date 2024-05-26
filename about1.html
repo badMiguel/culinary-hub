@@ -11,24 +11,29 @@
 <body>
     <header>
         <nav class="top-nav">
-            <a class='logo' href="index.html">Logo</a>
+            <a href="index.html"><img class='logo' src="images/logo_black.webp" alt="Website Logo"></a>
             <a class="hamburger-menu">
                 <div class="burger-part burger-top-part"></div>
                 <div class="burger-part burger-middle-part"></div>
                 <div class="burger-part burger-bottom-part"></div>
             </a>
             <ul class="nav-link-list">
-                <li><a class="nav-link" href="index.html">Home</a></li>
                 <li><a class='nav-link' href="about1.html">About</a></li>
-                <li><a class="nav-link" href="catalogue.html">Catalogue</a></li>
                 <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
                 <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
+                <li><a class='nav-link' href="preferences.html">Preferences</a></li>
+                <li><a class='nav-link' href="randomiser.html">Randomiser</a></li>
             </ul>
         </nav>
     </header>
-</head>
     <main class="grid">
-        
+        <nav class="breadcrumb-navigation-alignment">
+            <div class="breadcrumb-navigation-container">
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p class="breadcrumb-navigation" href="index.html">About Us</p>
+            </div>
+        </nav>        
         <div class="aboutimg">
             <img src="images\logo.webp" alt="website logo">
         </div>

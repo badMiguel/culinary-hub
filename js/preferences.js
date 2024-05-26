@@ -28,12 +28,18 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     const checkboxItems = document.querySelectorAll('.checkbox-item')
     const updateButton = document.querySelector('.update-button')
-    updateButton.addEventListener('click', () => {
+    updateButton.addEventListener('click', (event) => {
+        event.preventDefault()
+        localStorage.removeItem('dailyRecipe')
+        localStorage.removeItem('dailyRecipeBreakfast')
         let preferenceList = JSON.parse(localStorage.getItem('preferences')) || []
         const checkedPreference = Array.from(checkboxItems)
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.value)
-            
+        if (JSON.stringify(checkedPreference) !== JSON.stringify(preferenceList)) {
+            preferencesNotify()      
+        }
+
         if (checkedPreference.length != 0) {
             if (preferenceList.length != 0) {
                 checkedPreference.forEach(preference => {
@@ -122,6 +128,9 @@ function navbar() {
     // simple scroll transition for aesthetics
     const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
     const headerLinks = header.querySelectorAll('a')
+    const logo = document.querySelector('.logo')
+    // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
+    // console.log(lightDarkModeToggle)
     window.addEventListener('scroll', function(){
         if (window.scrollY > 20){
             header.style.backgroundColor = '#3C6DC5'
@@ -132,6 +141,10 @@ function navbar() {
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#FBFBFD'                
             });
+            logo.src = 'images/logo_white.webp'
+            // lightDarkModeToggle.classList.remove("md-dark")
+            // lightDarkModeToggle.classList.add('md-light')
+
         } else {
             header.style.backgroundColor = '#F2F4FA'
             header.style.boxShadow = ''
@@ -141,6 +154,17 @@ function navbar() {
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#0B0D10'                
             });
+            logo.src = 'images/logo_black.webp'
+            // lightDarkModeToggle.classList.remove("md-light")
+            // lightDarkModeToggle.classList.add('md-dark')
         }
     })
+}
+function preferencesNotify(){
+    const notifyPreference = document.querySelector('.preferences-saved')
+    notifyPreference.classList.toggle('show')
+
+    setTimeout(() => {
+        notifyPreference.classList.toggle('show')
+    }, 1000);
 }

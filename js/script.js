@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function(){
     let recipeData = await loadJSON() // load data from json
 
+    generateDailyRecipe(recipeData)
     // get users preferences and not show those recipes with that preference
     const preferences = JSON.parse(localStorage.getItem('preferences')) || []
     if (preferences.length != 0) {
@@ -43,6 +44,9 @@ document.addEventListener('DOMContentLoaded', async function(){
     // simple scroll transition for aesthetics
     const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
     const headerLinks = header.querySelectorAll('a')
+    const logo = document.querySelector('.logo')
+    // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
+    // console.log(lightDarkModeToggle)
     window.addEventListener('scroll', function(){
         if (window.scrollY > 20){
             header.style.backgroundColor = '#3C6DC5'
@@ -53,6 +57,10 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#FBFBFD'                
             });
+            logo.src = 'images/logo_white.webp'
+            // lightDarkModeToggle.classList.remove("md-dark")
+            // lightDarkModeToggle.classList.add('md-light')
+
         } else {
             header.style.backgroundColor = '#F2F4FA'
             header.style.boxShadow = ''
@@ -62,26 +70,20 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#0B0D10'                
             });
+            logo.src = 'images/logo_black.webp'
+            // lightDarkModeToggle.classList.remove("md-light")
+            // lightDarkModeToggle.classList.add('md-dark')
         }
     })
 
     try {
-
         const sectionList = ['suggestion', 'breakfast']
         // display random recipes from json
-        const suggestedRandomRecipes = randomRecipes(recipeData, 2)
-        if (suggestedRandomRecipes.length < 2) {
-            createDuplicateCards(suggestedRandomRecipes.length, suggestedRandomRecipes, sectionList[0])
-        } else {
-            createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-        }
+        const suggestedRandomRecipes = JSON.parse(localStorage.getItem('dailyRecipe'))
+        createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
         
-        const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-        if (suggestedBreakfastRecipes.length < 2) {
-            createDuplicateCards(suggestedBreakfastRecipes.length, suggestedBreakfastRecipes, sectionList[1])
-        } else {
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
-        }
+        const suggestedBreakfastRecipes = JSON.parse(localStorage.getItem('dailyRecipeBreakfast'))
+        createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])
         
         const cardCollection = document.querySelector('.card-collection')
         const urlParams = new URLSearchParams(window.location.search);
@@ -122,20 +124,8 @@ function searchFunction(recipeData) {
     
     searchInput.addEventListener('keydown', function(event) {
         const searchInputValue = searchInput.value.toLowerCase()
-        // if no text on input, return to home
-        if (event.key === "Enter" && searchInputValue === "") {
-            cardCollection.innerHTML = originalContent;
-            const sectionList = ['suggestion', 'breakfast']
-            
-            const suggestedRandomRecipes = randomRecipes(recipeData, 2)
-            createDuplicateCards(2, suggestedRandomRecipes, sectionList[0])
-            
-            const suggestedBreakfastRecipes = randomRecipes(recipeData, 2, sectionList[1])
-            createDuplicateCards(2, suggestedBreakfastRecipes, sectionList[1])     
-        } 
-        
         // display filtered recipes
-        else if (event.key === "Enter" && searchInputValue != '') {
+        if (event.key === "Enter" && searchInputValue != '') {
             const filteredItems = recipeData.filter(item => 
                 item.other_categories.some(category => (category.toLowerCase() === searchInputValue)) ||
                 item.recipe_title.toLowerCase().includes(searchInputValue) ||
@@ -152,10 +142,12 @@ function searchFunction(recipeData) {
 function filterFunction(recipeData) {
     const filterButton = document.querySelector('.filter-icon')
     const filterContainer = document.querySelector('.filter-section-container')
-    
+    const searchAndFilterContainer = document.querySelector('.search-and-filter-container')
+
     // shows filter menu
     filterButton.addEventListener('click', function(){
         filterContainer.classList.toggle('show')
+        searchAndFilterContainer.classList.toggle('show')
     })
     
     // filter logic - gets value of checked checkbox then gets recipes with that value
@@ -174,6 +166,7 @@ function filterFunction(recipeData) {
             )            
             renderItems(cardCollection, filteredItems, 'filter', selectedFilters)
             filterContainer.classList.toggle('show')
+            searchAndFilterContainer.classList.toggle('show')
         }
     })
 
@@ -181,6 +174,7 @@ function filterFunction(recipeData) {
     const closeFilter = document.querySelector('.close-filter')
     closeFilter.addEventListener('click', function(){
         filterContainer.classList.toggle('show')
+        searchAndFilterContainer.classList.toggle('show')
     })
 }
 
@@ -190,29 +184,42 @@ function renderItems(container, data, itemToRender, input) {
     xhr.onload = function() {
         container.innerHTML = this.responseText
         const sectionHeading = container.querySelector('.section-heading');
-        const breadcrumbNavigation = container.querySelector(".breadcrumb-navigation-container")
-        const breadcrumbitemToRender = document.createElement('p')
+        const breadcrumbNavigation = document.querySelector(".breadcrumb-navigation-container")
         const listOfRecipesRecipeLink = document.querySelector('.listOfRecipes-intro')
         if (itemToRender === 'search'){
-            console.log(localStorage.getItem('bookmark'))
             sectionHeading.textContent = `Search results for "${input}"`
-            breadcrumbitemToRender.textContent = 'Searched Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>Searched Recipe</p>
+            `
         } else if (itemToRender === 'filter'){
             sectionHeading.textContent = `Recipes with the following filters: ${input.join(', ')}`
-            breadcrumbitemToRender.textContent = 'Filtered Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>Filtered Recipe</p>
+            `
         } else if (itemToRender ==='listOfRecipes') {
             sectionHeading.textContent = `List of Recipes`
-            breadcrumbitemToRender.textContent = 'Recipe List'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>List of Recipes</p>
+            `
             listOfRecipesRecipeLink.textContent = ''
         } else {
             sectionHeading.textContent = `Your Saved Recipes`
-            breadcrumbitemToRender.textContent = 'Saved Recipes'
-            breadcrumbNavigation.appendChild(breadcrumbitemToRender)
+            breadcrumbNavigation.innerHTML = `
+                <a class="breadcrumb-navigation" href="index.html">Home</a>
+                <span class="material-icons">chevron_right</span>
+                <p>Saved Recipes</p>
+            `
         }
-        if (data.length > 0) {
+        if (data.length > 0 && itemToRender === 'listOfRecipes') {
+            createDuplicateCards(data.length, data, 'search')
+        } else if (data.length > 0 && itemToRender !== 'listOfRecipes') {
+            console.log('test')
             createDuplicateCards(data.length, data, 'search')
         } else if (data.length === 0 && itemToRender === 'search') {
             const noRecipeFound= container.querySelector('.no-recipe-found')
@@ -227,16 +234,27 @@ function renderItems(container, data, itemToRender, input) {
     xhr.send()
 }
 
-// randomise the recipes
-function randomRecipes(list, numItems, filter) {
-    if (!filter){
-        const shuffled = list.sort(() => Math.random() - 0.5)
-        return shuffled.slice(0, numItems)
-    } else if (filter === "breakfast") {
-        const filteredItems = list.filter(item => item.other_categories.some(category => category.toLowerCase() === filter))
-        const shuffled = filteredItems.sort(() => Math.random() - 0.5)
-        return shuffled.slice(0, numItems)
-    }
+// recipe will only change every other day
+function generateDailyRecipe(recipeData) {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(today.getDate()).padStart(2, '0');
+    const dateToday = `${year}-${month}-${day}`;
+
+    if (dateToday !== localStorage.getItem('dateToday') || !localStorage.getItem('dailyRecipe') || !localStorage.getItem('dailyRecipeBreakfast')) {
+        localStorage.setItem('dateToday', dateToday)
+        const recipeDataNoBreakfast = recipeData.filter(
+            recipe => !recipe.other_categories.some(category=> category.toLowerCase() === 'breakfast')
+        )
+        const recipeBreakfast = recipeData.filter(
+            recipe => recipe.other_categories.some(category=> category.toLowerCase() === 'breakfast')
+        )
+        const randomDailyRecipe = recipeDataNoBreakfast.sort(() => Math.random() - 0.5)
+        const randomDailyBreakfast = recipeBreakfast.sort(() => Math.random() - 0.5)
+        localStorage.setItem('dailyRecipe', JSON.stringify(randomDailyRecipe.slice(0, 2)))
+        localStorage.setItem('dailyRecipeBreakfast', JSON.stringify(randomDailyBreakfast.slice(0, 2)))
+    } 
 }
 
 // create duplicate cards of the card template
@@ -263,7 +281,6 @@ function createDuplicateCards(amount, data, section) {
         cardClone.style.display = 'block'
         updateDuplicateCardInformation(cardClone, nthCard, data, section)
     }
-    heartInteractions(section)
     bookmarkInteraction(section, data)    
     copyLinkInteraction(section)
 }
@@ -318,40 +335,17 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
     prepTime.textContent = prep_time
     
     const recipeAllergens = document.getElementById(`allergens-${section}-${number}`)
-    recipeAllergens.textContent = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ")
+    let allergenDetails = allergens.map(allergen => `${capitaliseFirstLetter(allergen)}`).join(", ")
+    if (allergenDetails.length === 0){
+        allergenDetails = 'None'
+    } 
+    recipeAllergens.textContent = allergenDetails
 
     const skillLevel = document.getElementById(`cooking-skill-${section}-${number}`)
     skillLevel.textContent = cooking_skill_level
 
     const foodCategory = document.getElementById(`food-category-${section}-${number}`)
     foodCategory.textContent = cuisine_type
-}
-
-// adds a amount of like when recipe is liked - change  color of button
-function heartInteractions(section) {
-    const recipeSection = document.querySelector(`.${section}-section`)
-    const heartButton = recipeSection.querySelectorAll('.heart');  
-
-    heartButton.forEach((heartButton, index) => {
-        let heartIdColor = `heartColor-${section}-${index+1}`
-        let heartIdLikes = `heartLikes-${section}-${index+1}` 
-
-        let heartNumber = randomInt(1,1000)
-        const heartColor = document.getElementById(heartIdColor);
-        const heartNumberDisplay = document.getElementById(heartIdLikes);
-
-        try{
-            heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
-        } catch(error) {
-            // pass
-        }
-
-        heartButton.addEventListener('click', function(){
-            likeChange = changeColor(heartColor, 'rgb(170, 26, 26)', 'heart')
-            heartNumber += likeChange
-            heartNumberDisplay.textContent = heartNumber.toLocaleString(); 
-        })
-    });
 }
 
 // change color of button when clicked - also saves the recipe when clicked
@@ -454,17 +448,12 @@ function randomInt(min,max){
 function changeColor(element, color, button, data, recipeTitle){
     if (!element.style.color || element.style.color ==='var(--bg-fourth)'){
         element.style.color = color;
-        // add a like count if the button clicked was a heart button
-        if (button === 'heart'){ 
-            return 1
-        } else if (button === 'bookmark') {
+        if (button === 'bookmark') {
             addBookmark(recipeTitle, data[0])
         }
     } else {
         element.style.color = 'var(--bg-fourth)';
-        if (button === 'heart'){
-            return -1
-        } else if (button === 'bookmark') {
+        if (button === 'bookmark') {
             removeBookmark(recipeTitle)
         }
     } 

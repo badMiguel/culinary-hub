@@ -18,7 +18,7 @@
 
 body{
     background-color: var(--bg-primary);
-    margin: 7rem 0 0 0;
+    margin: 7rem 0 5rem 0;
     h1{
         font-size: 25px;
         font-weight: 400;
@@ -45,8 +45,9 @@ header{
     justify-content: space-between;
     width: 80%;
     margin: auto;
-    padding: 2rem 2rem 0rem 2rem;
+    padding: 2rem;
     overflow: hidden;
+    align-items: center;
     
     a{
         color: var(--font-primary);
@@ -57,11 +58,12 @@ header{
         list-style-type: none;
         display: flex;
         gap: 2rem;
-        padding: 0 0 2rem 0;
+        /* padding: 0 0 2rem 0; */
     }
 
     .logo{
-        font-weight: bolder;
+        /* font-weight: bolder; */
+        height: 3rem;
     }
     .hamburger-menu{
         display: flex;
@@ -107,273 +109,30 @@ header{
     }
 }
 
-.search-filter-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 2rem 0 1rem 0;
-}
-
-.introduction{
-    font-size: 1.5rem;
-    text-align: center;
-    width: 80%;
-}
-
-.search-and-filter-container{
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 600px;
-    max-height: 88px;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    background-color: var(--bg-secondary);
-
-    .search-bar-container{
-        display: flex;
-        gap: 1rem;
-        width: 90%;
-    }
-    
-    #search-bar{
-        width: 100%;
-        outline: none;
-        border: none;
-        background-color: var(--bg-secondary);
-        text-overflow: ellipsis;
-    }
-    
-    #search-bar::placeholder{
-        font-size: 15px;
-        font-style: italic;
-    }
-
-    .search-icon{
-        cursor: pointer;
-    }
-
-    .filter-icon{
-        width: auto;
-        cursor: pointer;
-
-    }
-}
-
-.filter-section{
-    margin: auto;
-    width: 80%;
-    max-width: 600px;
-    padding: 0 1rem;
-    background-color: var(--bg-secondary);
-    border-radius: 1rem;
-
-    .filter-section-heading-container{
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-    }
-
-    .close-filter{
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .filter-section-container{
-        display: flex;
-        flex-direction: column; 
-        gap: 1rem;
-        background-color: var(--bg-secondary);
-        margin: 0rem 1rem;
-        max-height: 0px;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-    }
-
-    .filter-section-container.show {
-        max-height: 25rem;
-    }
-    .filter-section-header{
-        margin: 1.5rem 0 0 0;
-    }
-
-    .apply-filter{
-        margin: 0 0 1.5rem 0;
-        width: 7rem;
-    }
-
-    .filter-list{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap: 0.3rem;
-    }
-
-    .filter-category-heading{
-        font-size: 16px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .filter-item{
-        display: flex;
-        gap: 0.5rem;
-
-        label, checkbox{
-            cursor: pointer;
-        }
-    }
-}
-
-.suggestion-section, .breakfast-section, .search-section{
-    margin: auto;
-    width: 320px;
-    padding: 0 0 3rem 0;
-}
-
-.card-collection{
-    margin: 1rem;
-}
-
-.card-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap:1rem;
-    padding-top: 20px;
-}
-
-.card{
-    width: 20rem;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.5);
-    transition: box-shadow 0.3s ease;
-    background-color: var(--bg-secondary);
-}
-
-.image-container{
-    height: 20rem;
-    overflow: hidden;
-    position:relative;
-    
-    .image-styles{
-        width: 100%;
-        position: absolute;
-        top:50%;
-        transform: translateY(-50%);
-    }
-}
-
-.caption-container{
-    padding: 1rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    
-    .image_title{
-        margin: 0 0 0.5rem 0;
-        font-size: 25px;
-        font-weight: 500;
-    }
-    
-    p{
-        font-weight: 300;
-        color: var(--font-primary);
-    }
-    
-    a{
-        color: var(--font-primary);
-    }
-}
-
-.bottom-part-card{
-    display: flex;
-    margin: 0 2rem 1.4rem 2rem;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-}
-
-.food-category-container{
-    background-color: var(--bg-third);
-    color: var(--font-secondary);
-    font-weight: 500;
-    padding: 0.2rem 1rem;
-    border-radius: 0.6rem;
-}
-
-.icons{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    gap: 1rem;
-    height: 1.3rem;
-    
-    .heart, .bookmark, .copy-button{
-        align-self: flex-start;
-        transition: transform 0.25s;
-        cursor: pointer;
-        color: var(--bg-fourth);
-    }
-}
-
-.heart-container{
-    display: flex;
-    gap: 0.25rem;
-    align-items: end;
-}
-
-.heart-number{
-    font-weight: 300;
-}
-
-.copied-clipboard{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 1rem 2rem;
-    background-color: var(--bg-secondary);
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.5);
-    margin: 1rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.3s ease;
-    z-index: 100;
-}
-
-.copied-clipboard.show{
-    opacity: 1;
-    visibility: visible;
+.breadcrumb-navigation-alignment{
+    grid-column: span 10;
 }
 
 .breadcrumb-navigation-container{
     display: flex;
     align-items: center;
-    margin: 1rem 0;
+    font-size: 14px;
 
     a{
         color: var(--font-primary);
-    }
-}
-
-.recipe-catalogue{
-    width: 80%;
-    margin: auto;
-    font-size: 20px;
-    padding: 0 0 4rem 0;
-
-    a{
         text-decoration: underline;
-        color: rgb(5, 32, 121);
     }
 }
+
 
 main{
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(12,minmax(0, 1fr));
+    gap: 20px;
+    max-width: 656px;
     align-items: center;
+    margin: auto;
+
     h1{
         line-height: 180%;
         font-size: 200%;
@@ -389,7 +148,6 @@ main{
     }
 
 }
-
 
 main .aboutimg{
     grid-column: span 5;
@@ -425,28 +183,25 @@ main .team{
 }
 
 main .member{
-    grid-column: span 3;
+    grid-column: span 6;
     background: #fff;
     padding: 10px 20px;
     border-radius: 6px;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
 }
 
+main .story{
+    grid-column: span 12;
+    text-align: center;
+}
+
+
 main .storyhead{
     grid-column: span 12;
     text-align: center;
     padding-top: 30px;
 }
-main .story{
-    grid-column: 3/span 8;
-    text-align: center;
-}
-.grid{
-    display: grid;
-    grid-template-columns: repeat(12,minmax(0, 1fr));
-    gap: 20px;
-    
-}
+
 
 /* 
 REMOVES TEXT HIGHLIGHT WHEN DOUBLE CLICKING ON TEXT
@@ -516,6 +271,12 @@ USED FOR ICONS
         }
     } 
     .top-nav {
+        padding: 2rem 2rem 0rem 2rem;
+
+        .logo{
+            height: 2.5rem;
+        }
+
         .nav-link-list{
             padding: 1rem 0;
             opacity: 0;
@@ -534,6 +295,24 @@ USED FOR ICONS
     header.show{
         box-shadow: 0 1px 10px rgba(0,0,0,0.5);
     }
+
+    main .member{
+        grid-column: 2/span 10;
+        background: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
+    }
+
+    main .story{
+        grid-column: 2/ span 10;
+        text-align: center;
+    }
+
+    .breadcrumb-navigation-alignment{
+        grid-column: 2/ span 10;
+    }
+
     
 }
 
@@ -555,18 +334,4 @@ USED FOR ICONS
     main .missionimg{
         grid-column: 3/ span 8
     }
-
-    main .member{
-        grid-column: span 6;
-        background: #fff;
-        padding: 10px 20px;
-        border-radius: 6px;
-        box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
-    }
-
-    main .story{
-        grid-column: 2/ span 10;
-        text-align: center;
-    }
-
 }

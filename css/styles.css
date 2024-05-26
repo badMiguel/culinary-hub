@@ -45,8 +45,9 @@ header{
     justify-content: space-between;
     width: 80%;
     margin: auto;
-    padding: 2rem 2rem 0rem 2rem;
+    padding: 2rem;
     overflow: hidden;
+    align-items: center;
     
     a{
         color: var(--font-primary);
@@ -57,11 +58,12 @@ header{
         list-style-type: none;
         display: flex;
         gap: 2rem;
-        padding: 0 0 2rem 0;
+        /* padding: 0 0 2rem 0; */
     }
 
     .logo{
-        font-weight: bolder;
+        /* font-weight: bolder; */
+        height: 3rem;
     }
     .hamburger-menu{
         display: flex;
@@ -112,7 +114,6 @@ header{
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin: 2rem 0 1rem 0;
 }
 
 .introduction{
@@ -130,6 +131,8 @@ header{
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     background-color: var(--bg-secondary);
+    transition: border-radius 0.2s ease 0.4s;
+
 
     .search-bar-container{
         display: flex;
@@ -161,22 +164,27 @@ header{
     }
 }
 
+.search-and-filter-container.show {
+    border-radius: 1rem 1rem 0 0;
+    transition-delay: 0s;
+}
+
 .filter-section{
     margin: auto;
     width: 80%;
     max-width: 600px;
     padding: 0 1rem;
     background-color: var(--bg-secondary);
-    border-radius: 1rem;
+    border-radius: 0 0 1rem 1rem;
 
     .filter-section-heading-container{
         display: flex;
         align-items: baseline;
         justify-content: space-between;
+        margin: 0.75rem 0 0 0;
     }
 
     .close-filter{
-        font-weight: bold;
         cursor: pointer;
     }
 
@@ -193,9 +201,11 @@ header{
 
     .filter-section-container.show {
         max-height: 25rem;
+        transition-delay: 0.1s;
     }
+
     .filter-section-header{
-        margin: 1.5rem 0 0 0;
+        font-weight: 500;
     }
 
     .apply-filter{
@@ -212,6 +222,7 @@ header{
     .filter-category-heading{
         font-size: 16px;
         margin-bottom: 0.5rem;
+        font-weight: 500;
     }
     
     .filter-item{
@@ -261,8 +272,10 @@ fieldset{
     position:relative;
     
     .image-styles{
-        width: 100%;
+        width: 20rem;
+        height: 20rem;
         position: absolute;
+        object-fit: cover;
         top:50%;
         transform: translateY(-50%);
     }
@@ -313,7 +326,7 @@ fieldset{
     gap: 1rem;
     height: 1.3rem;
     
-    .heart, .bookmark, .copy-button{
+    .bookmark, .copy-button{
         align-self: flex-start;
         transition: transform 0.25s;
         cursor: pointer;
@@ -321,17 +334,7 @@ fieldset{
     }
 }
 
-.heart-container{
-    display: flex;
-    gap: 0.25rem;
-    align-items: end;
-}
-
-.heart-number{
-    font-weight: 300;
-}
-
-.copied-clipboard{
+.copied-clipboard, .preferences-saved{
     position: fixed;
     left: 0;
     bottom: 0;
@@ -346,18 +349,25 @@ fieldset{
     z-index: 100;
 }
 
-.copied-clipboard.show{
+.copied-clipboard.show, .preferences-saved.show{
     opacity: 1;
     visibility: visible;
+}
+
+.breadcrumb-navigation-alignment{
+    width: 80%;    
+    margin: auto;
 }
 
 .breadcrumb-navigation-container{
     display: flex;
     align-items: center;
-    margin: 1rem 0;
+    font-size: 14px;
+    margin: 0 0 20px 0;
 
     a{
         color: var(--font-primary);
+        text-decoration: underline;
     }
 }
 
@@ -403,7 +413,27 @@ fieldset{
         gap: 1rem;
         align-items: center;
     }
+
+    .update-button{
+        margin: 2rem 0 0 0;
+        padding: 0.3rem 1.5rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: var(--bg-third);
+        color: var(--font-secondary);
+    }
 }
+/* 
+.material-icons.md-dark{
+    color: var(--font-primary);
+    transition: color 0.4s ease;
+}
+
+.material-icons.md-light{
+    color: var(--font-secondary);
+    transition: color 0.4s ease;
+} 
+*/
 
 /* 
 REMOVES TEXT HIGHLIGHT WHEN DOUBLE CLICKING ON TEXT
@@ -427,9 +457,9 @@ USED FOR ICONS
         }
     }
     
-    .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page{
-        width: 656px;
-    }
+        .suggestion-section, .breakfast-section, .search-section, .top-nav, .recipe-list, .preference-page, .breadcrumb-navigation-alignment{
+            width: 656px;
+        }
 
     .top-nav {
         .hamburger-menu{
@@ -446,9 +476,6 @@ USED FOR ICONS
 
     .card:hover{
         box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
-    }
-    .heart:hover{
-        transform: scale(1.1);
     }
 
     .bookmark:hover{
@@ -473,6 +500,12 @@ USED FOR ICONS
         }
     } 
     .top-nav {
+        padding: 2rem 2rem 0rem 2rem;
+
+        .logo{
+            height: 2.5rem;
+        }
+
         .nav-link-list{
             padding: 1rem 0;
             opacity: 0;
@@ -512,9 +545,6 @@ USED FOR ICONS
 
     .card:hover{
         box-shadow: 0 1px 5px 0 rgba(107, 105, 114, 0.4);
-    }
-    .heart:hover{
-        transform: scale(1.1);
     }
 
     .bookmark:hover{
