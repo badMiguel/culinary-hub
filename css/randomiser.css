@@ -45,8 +45,9 @@ header{
     justify-content: space-between;
     width: 80%;
     margin: auto;
-    padding: 2rem 2rem 0rem 2rem;
+    padding: 2rem;
     overflow: hidden;
+    align-items: center;
     
     a{
         color: var(--font-primary);
@@ -57,11 +58,12 @@ header{
         list-style-type: none;
         display: flex;
         gap: 2rem;
-        padding: 0 0 2rem 0;
+        /* padding: 0 0 2rem 0; */
     }
 
     .logo{
-        font-weight: bolder;
+        /* font-weight: bolder; */
+        height: 3rem;
     }
     .hamburger-menu{
         display: flex;
@@ -115,13 +117,8 @@ header{
 
 .breadcrumb-navigation-container{
     display: flex;
-    align-items: start;
-    margin: 1rem 0;
+    align-items: center;
     font-size: 14px;
-
-    .material-icons{
-        transform: translateY(-4px);
-    }
 
     a{
         color: var(--font-primary);
@@ -267,10 +264,13 @@ header{
 }
 
 @media screen and (max-width: 749px) {
-    body{
-        margin: 6rem 0;
-    }
     .top-nav {
+        padding: 2rem 2rem 0rem 2rem;
+
+        .logo{
+            height: 2.5rem;
+        }
+
         .nav-link-list{
             padding: 1rem 0;
             opacity: 0;

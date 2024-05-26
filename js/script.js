@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async function(){
     // simple scroll transition for aesthetics
     const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
     const headerLinks = header.querySelectorAll('a')
+    const logo = document.querySelector('.logo')
     // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
     // console.log(lightDarkModeToggle)
     window.addEventListener('scroll', function(){
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#FBFBFD'                
             });
+            logo.src = 'images/logo_white.webp'
             // lightDarkModeToggle.classList.remove("md-dark")
             // lightDarkModeToggle.classList.add('md-light')
 
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#0B0D10'                
             });
+            logo.src = 'images/logo_blue.webp'
             // lightDarkModeToggle.classList.remove("md-light")
             // lightDarkModeToggle.classList.add('md-dark')
         }
