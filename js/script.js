@@ -14,15 +14,31 @@ document.addEventListener('DOMContentLoaded', async function () {
             recipe => !unwantedRecipe.includes(recipe))
     }
 
-    const userScreen = window.innerWidth
+    const initialUserScreen = window.innerWidth
     let cardsToDisplay
-    if (userScreen < 1300) {
+    if (initialUserScreen < 1300) {
         cardsToDisplay = 2
+        displayTwoCards = true
     } 
     else {
         cardsToDisplay = 3
+        displayTwoCards = false
     }
-    loadCards(recipeData, cardsToDisplay)
+    loadCards(recipeData, cardsToDisplay, displayTwoCards)
+
+    const thirdSuggestionCard = document.getElementById('card-suggestion-3')
+    const thrirdBreakfastCard = document.getElementById('card-breakfast-3')
+    window.addEventListener('resize', () => {
+        const userScreen = window.innerWidth
+        if (userScreen < 1300) {
+            thirdSuggestionCard.style.display = 'none'
+            thrirdBreakfastCard.style.display = 'none'
+        } 
+        else {
+            thirdSuggestionCard.style.display = 'block'
+            thrirdBreakfastCard.style.display = 'block'
+        }
+    })
 
     navBar()
 
@@ -39,15 +55,15 @@ async function loadJSON() {
     }
 }
 
-function loadCards(recipeData, cardsToDisplay) {
+function loadCards(recipeData, cardsToDisplay, displayTwoCards) {
     try {
         const sectionList = ['suggestion', 'breakfast']
         // display random recipes from json
         const suggestedRandomRecipes = JSON.parse(localStorage.getItem('dailyRecipe'))
-        createDuplicateCards(cardsToDisplay, suggestedRandomRecipes, sectionList[0])
+        createDuplicateCards(cardsToDisplay, suggestedRandomRecipes, sectionList[0], displayTwoCards)
 
         const suggestedBreakfastRecipes = JSON.parse(localStorage.getItem('dailyRecipeBreakfast'))
-        createDuplicateCards(cardsToDisplay, suggestedBreakfastRecipes, sectionList[1])
+        createDuplicateCards(cardsToDisplay, suggestedBreakfastRecipes, sectionList[1], displayTwoCards)
 
         const cardCollection = document.querySelector('.card-collection')
         const urlParams = new URLSearchParams(window.location.search);
@@ -275,13 +291,17 @@ function generateDailyRecipe(recipeData) {
 }
 
 // create duplicate cards of the card template
-function createDuplicateCards(amount, data, section) {
+function createDuplicateCards(amount, data, section, displayTwoCards) {
+    if (displayTwoCards === true) {
+        amount = 3
+    }
     let cardTemplate = document.querySelector('.card')
     cardTemplate.style.display = 'none'
     nthCard = 0
     for (let i = 0; i < amount; i++) {
         nthCard += 1
         let cardClone = cardTemplate.cloneNode(true)
+        cardClone.id = `card-${section}-${nthCard}`
         if (section === "suggestion") {
             const suggestedSection = document.querySelector(".suggestion-section")
             const suggestedCardContainer = suggestedSection.querySelector('.card-container')
@@ -295,7 +315,14 @@ function createDuplicateCards(amount, data, section) {
             const searchCardContainer = searchSection.querySelector('.card-container')
             searchCardContainer.appendChild(cardClone)
         }
-        cardClone.style.display = 'block'
+
+        if (displayTwoCards === true && nthCard === 3) {
+            cardClone.style.display = 'none'
+        }
+        else {
+            cardClone.style.display = 'block'
+        }
+
         updateDuplicateCardInformation(cardClone, nthCard, data, section)
     }
     bookmarkInteraction(section, data)
@@ -318,12 +345,13 @@ function updateDuplicateCardInformation(cardClone, number, data, section) {
 
     cardClone.removeAttribute('aria-hidden')
 
+
     const elementIdToUpdate = cardClone.querySelectorAll('[id]')
     for (const element of elementIdToUpdate) {
         let currentId = element.id;
         element.id = `${currentId}-${section}-${number.toString()}`
     }
-
+    
     const recipeLink = document.getElementById(`link-${section}-${number}`)
     recipeLink.href = recipe_link
 
