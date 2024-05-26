@@ -273,7 +273,9 @@ fieldset{
     
     .image-styles{
         width: 20rem;
+        height: 20rem;
         position: absolute;
+        object-fit: cover;
         top:50%;
         transform: translateY(-50%);
     }
