@@ -272,7 +272,7 @@ fieldset{
     position:relative;
     
     .image-styles{
-        width: 100%;
+        width: 20rem;
         position: absolute;
         top:50%;
         transform: translateY(-50%);
