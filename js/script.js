@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async function(){
             hamburgerIconParts.forEach(part => {
                 part.style.backgroundColor = '#0B0D10'                
             });
-            logo.src = 'images/logo_blue.webp'
+            logo.src = 'images/logo_black.webp'
             // lightDarkModeToggle.classList.remove("md-light")
             // lightDarkModeToggle.classList.add('md-dark')
         }
