@@ -331,7 +331,7 @@ header{
         }
     }
 
-    .breadcrumb-navigation-alignment, .more-information, .title-caption-container, .image-container, .recipe-details{
+    .breadcrumb-navigation-alignment, .more-information, .title-caption-container, .image-container, .recipe-details, .top-nav{
         width: 656px;
     }
 
