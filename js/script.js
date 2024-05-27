@@ -507,3 +507,30 @@ function changeColor(element, color, button, data, recipeTitle) {
 function capitaliseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Retrieve form values
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const reason = document.getElementById('reason').value;
+    const message = document.getElementById('message').value.trim();
+
+    // Check if all fields are filled out
+    if (!firstName || !lastName || !email || !reason || !message) {
+        displayResponse('Please fill out all fields.', 'error');
+        return;
+    }
+
+    // For now, we just display a success message
+    displayResponse('Thank you for contacting us. We will get back to you soon.', 'success');
+});
+
+function displayResponse(message, type) {
+    const formResponse = document.getElementById('formResponse');
+    formResponse.textContent = message;
+    formResponse.className = type === 'success' ? 'success' : 'error';
+    formResponse.classList.remove('hidden');
+}
