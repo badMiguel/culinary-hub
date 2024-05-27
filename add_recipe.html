@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="css/styles1.css">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <a href="index.html"><img class='logo' src="images/logo_black.webp" alt="Website Logo"></a>
+            <a class="hamburger-menu">
+                <div class="burger-part burger-top-part"></div>
+                <div class="burger-part burger-middle-part"></div>
+                <div class="burger-part burger-bottom-part"></div>
+            </a>
+            <ul class="nav-link-list">
+                <li><a class='nav-link' href="about1.html">About</a></li>
+                <li><a class="recipe-list-link nav-link" href="index.html?page=recipe_list">Recipe List</a></li>
+                <li><a class='saved-recipes nav-link' href="index.html?page=saved_recipes">Saved</a></li>
+                <li><a class='nav-link' href="preferences.html">Preferences</a></li>
+                <li><a class='nav-link' href="randomiser.html">Add Recipe</a></li>
+                <li><a class='nav-link' href="randomiser.html">Randomiser</a></li>
+                <li><a class='nav-link' href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="add-recipe">
+            <h1>Submit Your Recipe</h1>
+            <form id="recipeForm">
+                <label for="recipeName">Recipe Name</label>
+                <input type="text" id="recipeName" name="recipeName" required>
+    
+                <label for="recipeCuisine">Recipe Cuisine</label>
+                <input type="text" id="recipeCuisine" name="recipeCuisine" required>
+    
+                <label for="prepTime">Preparation Time (minutes)</label>
+                <input type="number" id="prepTime" name="prepTime" required>
+    
+                <label for="skillLevel">Cooking Skill Level</label>
+                <select id="skillLevel" name="skillLevel" required>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+    
+                <label for="ingredients">Ingredients</label>
+                <textarea id="ingredients" name="ingredients" required></textarea>
+    
+                <label for="prepMethod">Preparation Method</label>
+                <textarea id="prepMethod" name="prepMethod" required></textarea>
+    
+                <label>Allergens</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="allergen1" name="allergens" value="gluten">
+                    <label for="allergen1">Gluten</label>
+                    <input type="checkbox" id="allergen2" name="allergens" value="nuts">
+                    <label for="allergen2">Nuts</label>
+                    <input type="checkbox" id="allergen3" name="allergens" value="dairy">
+                    <label for="allergen3">Dairy</label>
+                    <input type="checkbox" id="allergen4" name="allergens" value="soy">
+                    <label for="allergen4">Soy</label>
+                    <input type="checkbox" id="allergen5" name="allergens" value="seafood">
+                    <label for="allergen5">Seafood</label>
+                </div>
+    
+                <label for="recipeImage">Upload Image</label>
+                <input type="file" id="recipeImage" name="recipeImage" accept="image/*" required>
+    
+                <button type="submit">Submit Recipe</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

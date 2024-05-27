@@ -261,10 +261,8 @@ main .contact-form-left {
         color: white;
         font-size: 100%;
     }
-
-
-
 }
+
 main .contact-form-container {
     margin-top: 40px;
     grid-column: 7/span 5;
@@ -318,7 +316,51 @@ main .contact-form-container {
     }
 }
 
+main .add-recipe {
+    grid-column: span 12;
+    /* max-width: 600px; */
+    /* margin: 0 auto; */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label {
+        /* margin: 10px 0 5px; */
+        font-weight: bold;
+    }
+    
+    input, select, textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input {
+    margin-right: 5px;
+}
 
 
 /* 

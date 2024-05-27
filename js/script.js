@@ -509,6 +509,7 @@ function capitaliseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+//contact.html js
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -525,7 +526,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         return;
     }
 
-    // For now, we just display a success message
+    //display a success message
     displayResponse('Thank you for contacting us. We will get back to you soon.', 'success');
 });
 
@@ -535,3 +536,26 @@ function displayResponse(message, type) {
     formResponse.className = type === 'success' ? 'success' : 'error';
     formResponse.classList.remove('hidden');
 }
+
+
+//add_recipe.html js
+document.getElementById('recipeForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    const recipe = {
+        name: formData.get('recipeName'),
+        cuisine: formData.get('recipeCuisine'),
+        prepTime: formData.get('prepTime'),
+        skillLevel: formData.get('skillLevel'),
+        ingredients: formData.get('ingredients'),
+        prepMethod: formData.get('prepMethod'),
+        allergens: formData.getAll('allergens'),
+        image: formData.get('recipeImage').name
+    };
+
+    console.log('Recipe Submitted:', recipe);
+    alert('Recipe Submitted Successfully!');
+    
+    this.reset();
+});
