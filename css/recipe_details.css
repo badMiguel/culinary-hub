@@ -121,6 +121,7 @@ header{
 
 .breadcrumb-navigation-alignment{
     margin: auto;
+    padding: 0 0 20px 0;
     width: 80%;
 }
 
@@ -235,6 +236,17 @@ header{
         padding: 0.4rem 0.8rem;
     }
     
+    .breadcrumb-navigation-alignment {
+        .breadcrumb-navigation-container{
+            align-items: start;
+
+            .material-icons{
+                transform: translateY(-3px);
+            }
+        }
+
+
+    }
     .top-nav {
         padding: 2rem 2rem 0rem 2rem;
 
@@ -319,7 +331,7 @@ header{
         }
     }
 
-    .breadcrumb-navigation-alignment, .more-information, .title-caption-container, .image-container, .recipe-details{
+    .breadcrumb-navigation-alignment, .more-information, .title-caption-container, .image-container, .recipe-details, .top-nav{
         width: 656px;
     }
 

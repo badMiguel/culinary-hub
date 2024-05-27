@@ -440,6 +440,10 @@ USED FOR ICONS
 
 
 @media screen and (max-width: 749px) {
+    main{
+        width: 80%;
+    }
+
     .filter-section{
         .filter-list{
             display: grid;
@@ -490,7 +494,7 @@ USED FOR ICONS
     }
 
     .breadcrumb-navigation-alignment{
-        grid-column: 2/ span 10;
+        grid-column: span 12;
     }
 }
 
@@ -509,12 +513,12 @@ USED FOR ICONS
     }
 
     main .about{
-        grid-column: 2/ span 10;
+        grid-column: span 12;
         text-align: center;
     }
 
     main .mission{
-        grid-column: 2/ span 10;
+        grid-column: span 12;
         text-align: center;
         padding-top: 30px;
     }

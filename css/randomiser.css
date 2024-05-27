@@ -285,7 +285,7 @@ header{
         }
     }
     
-    .heading-message-container, .breadcrumb-navigation-alignment{
+    .heading-message-container, .breadcrumb-navigation-alignment, .top-nav{
         width: 656px;
     }
 }
