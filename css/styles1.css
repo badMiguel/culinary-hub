@@ -228,6 +228,10 @@ main .contact-form-left {
     grid-template-columns: repeat(12,minmax(0, 1fr));
     display: grid;
     height:max-content;
+    background-color: #3C6DC5;
+    border-radius: 10px;
+    height: 100%;
+    
 
     .contactimg{
         margin: auto;
@@ -236,20 +240,25 @@ main .contact-form-left {
             width: 90%;
               
         }
+        
     }
 
     .contact-text{
-        padding-top: 15%;
         grid-column: span 11;
+        padding-left: 10px;
+        
+
     }
 
     h1{
+        color: white;
         line-height: 180%;
         font-size: 200%;
         text-align: left;
         font-weight: bold;
        }
     p{
+        color: white;
         font-size: 100%;
     }
 
@@ -528,9 +537,9 @@ USED FOR ICONS
     }
 
     main .contact-form-container {
-        margin-top: 60px;
+        /* margin-top: 60px; */
         grid-column: span 12;
-        padding: 20px;
+        /* padding: 20px; */
     
         
         h1{
@@ -547,16 +556,18 @@ USED FOR ICONS
         align-items: center;
 
         .contactimg{
-            grid-column: span 6;
+            grid-column: span 5;
+
                 img{
                 width: 90%;
-                border-radius: 8px;   
+                border-radius: 8px;
+                  
             }
         }
     
         .contact-text{
-            padding-right: 5%;
-            grid-column: span 6;
+            padding-left: 10px;
+            grid-column: 7/span 5;
         }
 
         h1{
