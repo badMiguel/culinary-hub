@@ -1,108 +1,118 @@
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         // Load json file
-        const recipeData = await loadJSON();
-        // console.log('Loaded recipe data:', recipeData);
+        let recipeData = await loadJSON();
+        // get users preferences and not show those recipes with that preference
+        const preferences = JSON.parse(localStorage.getItem('preferences')) || []
+        if (preferences.length != 0) {
+            const unwantedRecipe = recipeData.filter(
+                item => item.allergens.some(
+                    allergens => preferences.some(
+                        category => category.includes(allergens))))
 
-            // hides and shows the menu when clicked
-    const header = document.querySelector('header')
-    const hamburgerIcon = document.querySelector('.hamburger-menu')
-    const navigationMenu = document.querySelector('.nav-link-list')
-    const topPartBurger = document.querySelector('.burger-top-part') 
-    const middlePartBurger = document.querySelector('.burger-middle-part') 
-    const bottomPartBurger = document.querySelector('.burger-bottom-part') 
-    hamburgerIcon.addEventListener('click', function(){
-        navigationMenu.classList.toggle('show')
-        topPartBurger.classList.toggle('close')
-        middlePartBurger.classList.toggle('close')
-        bottomPartBurger.classList.toggle('close')
-        header.classList.toggle('show')
-    })
-    const navigationLinks = document.querySelectorAll('.nav-link')    
-    navigationLinks.forEach(links => {
-        if (links.textContent != 'Home')
-            links.addEventListener('click', ()=>{
-                navigationMenu.classList.toggle('show')
-                topPartBurger.classList.toggle('close')
-                middlePartBurger.classList.toggle('close')
-                bottomPartBurger.classList.toggle('close')
-                header.classList.toggle('show')
-            }
-        )
-    });
-
-    // simple scroll transition for aesthetics
-    const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
-    const headerLinks = header.querySelectorAll('a')
-    const logo = document.querySelector('.logo')
-    // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
-    // console.log(lightDarkModeToggle)
-    window.addEventListener('scroll', function(){
-        if (window.scrollY > 20){
-            header.style.backgroundColor = '#3C6DC5'
-            header.style.boxShadow = '0 1px 10px rgba(0,0,0,0.5)'
-            headerLinks.forEach(link => {
-                link.style.color = '#FBFBFD'
-            });
-            hamburgerIconParts.forEach(part => {
-                part.style.backgroundColor = '#FBFBFD'                
-            });
-            logo.src = 'images/logo_white.webp'
-            // lightDarkModeToggle.classList.remove("md-dark")
-            // lightDarkModeToggle.classList.add('md-light')
-
-        } else {
-            header.style.backgroundColor = '#F2F4FA'
-            header.style.boxShadow = ''
-            headerLinks.forEach(link => {
-                link.style.color = '#0B0D10'
-            })
-            hamburgerIconParts.forEach(part => {
-                part.style.backgroundColor = '#0B0D10'                
-            });
-            logo.src = 'images/logo_black.webp'
-            // lightDarkModeToggle.classList.remove("md-light")
-            // lightDarkModeToggle.classList.add('md-dark')
+            recipeData = recipeData.filter(
+                recipe => !unwantedRecipe.includes(recipe))
         }
-    })
 
-    const randomIndex = Math.floor(Math.random() * recipeData.length);
-    const randomRecipe = recipeData[randomIndex];
-    updateCardInformation(randomRecipe)
+        // hides and shows the menu when clicked
+        const header = document.querySelector('header')
+        const hamburgerIcon = document.querySelector('.hamburger-menu')
+        const navigationMenu = document.querySelector('.nav-link-list')
+        const topPartBurger = document.querySelector('.burger-top-part')
+        const middlePartBurger = document.querySelector('.burger-middle-part')
+        const bottomPartBurger = document.querySelector('.burger-bottom-part')
+        hamburgerIcon.addEventListener('click', function () {
+            navigationMenu.classList.toggle('show')
+            topPartBurger.classList.toggle('close')
+            middlePartBurger.classList.toggle('close')
+            bottomPartBurger.classList.toggle('close')
+            header.classList.toggle('show')
+        })
+        const navigationLinks = document.querySelectorAll('.nav-link')
+        navigationLinks.forEach(links => {
+            if (links.textContent != 'Home')
+                links.addEventListener('click', () => {
+                    navigationMenu.classList.toggle('show')
+                    topPartBurger.classList.toggle('close')
+                    middlePartBurger.classList.toggle('close')
+                    bottomPartBurger.classList.toggle('close')
+                    header.classList.toggle('show')
+                }
+                )
+        });
 
-    const randomRecipeButton = document.querySelector('.generate-random-recipe')
-    const card = document.querySelector('.card')
-    let oldIndex = 0 
-    // Select a random recipe
-    randomRecipeButton.addEventListener('click', () =>  {
-        let randomIndex;
-        do {
-            randomIndex = Math.floor(Math.random() * recipeData.length);
-        } while (oldIndex === randomIndex)
-        
-        oldIndex = randomIndex
+        // simple scroll transition for aesthetics
+        const hamburgerIconParts = hamburgerIcon.querySelectorAll('.burger-part')
+        const headerLinks = header.querySelectorAll('a')
+        const logo = document.querySelector('.logo')
+        // const lightDarkModeToggle = document.querySelector('.light-dark-mode-toggle')
+        // console.log(lightDarkModeToggle)
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 20) {
+                header.style.backgroundColor = '#3C6DC5'
+                header.style.boxShadow = '0 1px 10px rgba(0,0,0,0.5)'
+                headerLinks.forEach(link => {
+                    link.style.color = '#FBFBFD'
+                });
+                hamburgerIconParts.forEach(part => {
+                    part.style.backgroundColor = '#FBFBFD'
+                });
+                logo.src = 'images/logo_white.webp'
+                // lightDarkModeToggle.classList.remove("md-dark")
+                // lightDarkModeToggle.classList.add('md-light')
 
+            } else {
+                header.style.backgroundColor = '#F2F4FA'
+                header.style.boxShadow = ''
+                headerLinks.forEach(link => {
+                    link.style.color = '#0B0D10'
+                })
+                hamburgerIconParts.forEach(part => {
+                    part.style.backgroundColor = '#0B0D10'
+                });
+                logo.src = 'images/logo_black.webp'
+                // lightDarkModeToggle.classList.remove("md-light")
+                // lightDarkModeToggle.classList.add('md-dark')
+            }
+        })
+
+        const randomIndex = Math.floor(Math.random() * recipeData.length);
         const randomRecipe = recipeData[randomIndex];
-        card.classList.add('rotate')
         updateCardInformation(randomRecipe)
 
-        randomRecipeButton.disabled = true
-        randomRecipeButton.classList.toggle('load')
-        randomRecipeButton.textContent = 'Loading'
-        setTimeout(() => {
-            randomRecipeButton.disabled = false
+        const randomRecipeButton = document.querySelector('.generate-random-recipe')
+        const card = document.querySelector('.card')
+        let oldIndex = 0
+        // Select a random recipe
+        randomRecipeButton.addEventListener('click', () => {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * recipeData.length);
+            } while (oldIndex === randomIndex)
+
+            oldIndex = randomIndex
+
+            const randomRecipe = recipeData[randomIndex];
+            card.classList.add('rotate')
+            updateCardInformation(randomRecipe)
+
+            randomRecipeButton.disabled = true
             randomRecipeButton.classList.toggle('load')
-            randomRecipeButton.textContent = 'Random'
-        }, 1000);
+            randomRecipeButton.textContent = 'Loading'
+            setTimeout(() => {
+                randomRecipeButton.disabled = false
+                randomRecipeButton.classList.toggle('load')
+                randomRecipeButton.textContent = 'Random'
+            }, 1000);
 
-    })
-    card.addEventListener('animationend', ()=>{
-        card.classList.remove('rotate')
-    })
+        })
+        card.addEventListener('animationend', () => {
+            card.classList.remove('rotate')
+        })
 
 
 
-    
+
 
     } catch (error) {
         console.error('Error:', error);

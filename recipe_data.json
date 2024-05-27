@@ -939,5 +939,216 @@
             "Iron": "1.8mg",
             "Potassium": "400mg"
         }
+    },
+    {
+        "recipe_link": "full_details.html?recipe=Breakfast Chilaquiles",
+        "recipe_image": "images/breakfast-chilaquales.webp",
+        "recipe_title": "Breakfast Chilaquiles",
+        "recipe_description": "Revamp mornings with our Mexican breakfast chilaquiles.",
+        "prep_time": "30 miniutes",
+        "allergens": [],
+        "cooking_skill_level": "Intermediate",
+        "cuisine_type": "Mexican",
+        "other_categories": ["Breakfast"],
+        "ingredients": [
+            {
+                "ingredient_name": "Vegetable oil",
+                "quantity": "to shallow-fry"
+            },
+            {
+                "ingredient_name": "Corn tortillas",
+                "quantity": "6 small (about 15cm diameter), quartered"
+            },
+            {
+                "ingredient_name": "Garlic cloves",
+                "quantity": "2, coarsely chopped"
+            },
+            {
+                "ingredient_name": "Green shallot",
+                "quantity": "1, thinly sliced, white and green parts separated"
+            },
+            {
+                "ingredient_name": "Ground cumin",
+                "quantity": "1 tsp"
+            },
+            {
+                "ingredient_name": "Pickled jalapeño chilli",
+                "quantity": "1 tbsp, finely chopped"
+            },
+            {
+                "ingredient_name": "Mutti Polpa Finely Chopped Tomatoes",
+                "quantity": "400g"
+            },
+            {
+                "ingredient_name": "Black beans",
+                "quantity": "400g can, rinsed, drained"
+            },
+            {
+                "ingredient_name": "Fresh coriander leaves",
+                "quantity": "1/2 cup, chopped"
+            },
+            {
+                "ingredient_name": "Fried eggs",
+                "quantity": "4"
+            },
+            {
+                "ingredient_name": "Danish feta",
+                "quantity": "100g, crumbled"
+            },
+            {
+                "ingredient_name": "Long fresh green chilli",
+                "quantity": "sliced, to serve"
+            },
+            {
+                "ingredient_name": "Green chilli sauce",
+                "quantity": "to serve"
+            },
+            {
+                "ingredient_name": "Chipotle chilli sauce",
+                "quantity": "to serve"
+            }
+        ],
+        "instructions": [
+            "Pour enough vegetable oil into a large frying pan to come halfway up the side.",
+            "Heat over medium-high heat until the oil is ready (when a small piece of tortilla sizzles when dropped into it).",
+            "Cook 8 tortilla pieces, turning often, for 2-3 minutes, until golden.",
+            "Transfer to a plate lined with paper towel to drain.",
+            "Repeat in 2 more batches with remaining tortilla pieces.",
+            "Reserve 1 tbsp oil in a small heatproof bowl and discard the remaining oil.",
+            "Wipe the pan clean.",
+            "Return the reserved oil to the clean pan and heat over high heat.",
+            "Add garlic and white part of the shallot, cook, stirring, for 1 minute or until softened.",
+            "Add ground cumin and stir for a few seconds or until aromatic.",
+            "Add pickled jalapeño chilli, finely chopped tomatoes, and black beans. Cook, stirring occasionally, for 5 minutes or until the mixture thickens slightly.",
+            "Stir the tortilla pieces and chopped fresh coriander leaves into the bean mixture.",
+            "Divide among serving plates and top each with a fried egg.",
+            "Sprinkle with Danish feta, the green part of the shallot, and sliced fresh green chilli.",
+            "Drizzle with green chilli sauce and chipotle chilli sauce to serve."
+        ],
+        "nutrition_facts": {
+            "Calories": "550",
+            "Total Fat": "32g",
+            "Saturated Fat": "8g",
+            "Cholesterol": "200mg",
+            "Sodium": "900mg",
+            "Total Carbohydrate": "44g",
+            "Dietary Fiber": "10g",
+            "Total Sugars": "6g",
+            "Protein": "20g",
+            "Vitamin D": "2mcg",
+            "Calcium": "150mg",
+            "Iron": "4mg",
+            "Potassium": "800mg"
+        }
+    },
+    {
+        "recipe_link": "full_details.html?recipe=Asian-braised Beef Short Ribs",
+        "recipe_image": "images/Asian-braised-beef-ribs.webp",
+        "recipe_title": "Asian-braised Beef Short Ribs",
+        "recipe_description": "Juicy Asian-braised beef ribs: flavourful, perfect to freeze.",
+        "prep_time": "4 hour 30 minutes",
+        "allergens": [],
+        "cooking_skill_level": "Advanced",
+        "cuisine_type": "Asian",
+        "other_categories": ["Beef", "Dinner"],
+        "ingredients": [
+            {
+                "ingredient_name": "dark soy sauce",
+                "quantity": "125ml (1/2 cup)"
+            },
+            {
+                "ingredient_name": "brown sugar",
+                "quantity": "100g (1/2 cup, firmly packed)"
+            },
+            {
+                "ingredient_name": "Chinese cooking wine",
+                "quantity": "80ml (1/3 cup)"
+            },
+            {
+                "ingredient_name": "Chinese five spice",
+                "quantity": "1/2 tsp"
+            },
+            {
+                "ingredient_name": "orange, rind cut into thick strips, juiced",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "garlic cloves, sliced",
+                "quantity": "4"
+            },
+            {
+                "ingredient_name": "fresh ginger, peeled, thinly sliced",
+                "quantity": "25g"
+            },
+            {
+                "ingredient_name": "dried chilli flakes",
+                "quantity": "1/2 tsp"
+            },
+            {
+                "ingredient_name": "whole star anise",
+                "quantity": "4"
+            },
+            {
+                "ingredient_name": "cinnamon stick",
+                "quantity": "1"
+            },
+            {
+                "ingredient_name": "green shallots, cut into 5cm lengths",
+                "quantity": "6"
+            },
+            {
+                "ingredient_name": "Massel beef style liquid stock",
+                "quantity": "500ml (2 cups)"
+            },
+            {
+                "ingredient_name": "beef short ribs",
+                "quantity": "1.5kg"
+            },
+            {
+                "ingredient_name": "broccolini, trimmed, steamed",
+                "quantity": "2 bunches"
+            },
+            {
+                "ingredient_name": "sesame seeds, to serve",
+                "quantity": "to serve"
+            },
+            {
+                "ingredient_name": "steamed jasmine rice, to serve",
+                "quantity": "to serve"
+            },
+            {
+                "ingredient_name": "green shallots, to serve",
+                "quantity": "to serve"
+            }            
+        ],
+        "instructions": [
+            "Combine soy sauce, sugar, cooking wine, five spice, orange rind and juice, garlic, ginger, chilli, star anise, cinnamon, shallot and stock in a medium bowl. Stir to combine.",
+            "Place the ribs in a large sealable glass or plastic container. Pour over marinade.",
+            "Place the broccolini in another sealable glass or plastic container.",
+            "Freeze containers for up to 3 months or until night before using. Defrost overnight in fridge.",
+            "Preheat oven to 160C/140C fan forced.",
+            "Place contents of the beef container in a large roasting pan. Toss to combine.",
+            "Cover with a sheet of baking paper and a sheet of foil. Bake for 3-31⁄2 hours or until almost tender.",
+            "Increase oven to 180C/160C fan forced. Remove foil and baking paper.",
+            "Bake for a further 30-45 minutes or until beef is falling off the bone.",
+            "Microwave broccolini until heated through.",
+            "Top ribs with extra curled shallot and sesame.",
+            "Serve with broccolini and rice."
+        ],
+        "nutrition_facts": {
+            "Calories": "450 per serving (assuming 4 servings)",
+            "Total Fat": "25g",
+            "Saturated Fat": "9g",
+            "Cholesterol": "120mg",
+            "Sodium": "1000mg",
+            "Total Carbohydrate": "20g",
+            "Dietary Fiber": "2g",
+            "Total Sugars": "14g",
+            "Protein": "30g",
+            "Vitamin D": null,
+            "Calcium": "100mg",
+            "Iron": "4mg",
+            "Potassium": "600mg"
+        }
     }
 ]

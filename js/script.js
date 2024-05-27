@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function () {
     let recipeData = await loadJSON() // load data from json
 
-    generateDailyRecipe(recipeData)
     // get users preferences and not show those recipes with that preference
     const preferences = JSON.parse(localStorage.getItem('preferences')) || []
     if (preferences.length != 0) {
@@ -13,6 +12,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         recipeData = recipeData.filter(
             recipe => !unwantedRecipe.includes(recipe))
     }
+
+    generateDailyRecipe(recipeData)
 
     const initialUserScreen = window.innerWidth
     let cardsToDisplay
