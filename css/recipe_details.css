@@ -310,9 +310,24 @@ header{
     }
 
     .top-nav {
-        width: 656px;
-        .hamburger-menu{
-            display: none;
+        padding: 2rem 2rem 0rem 2rem;
+
+        .logo{
+            height: 2.5rem;
+        }
+
+        .nav-link-list{
+            padding: 1rem 0;
+            opacity: 0;
+            max-height: 0px;
+            flex-direction: column;
+            width: 100%;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        .nav-link-list.show{
+            opacity: 1;
+            max-height: 275px;
+            padding: 1rem 0 2rem 0;
         }
     }
 
