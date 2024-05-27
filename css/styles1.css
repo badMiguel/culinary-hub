@@ -210,7 +210,19 @@ main .contact-form-container {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 90%;
+    /* max-width: 400px; */
+
+}
+
+main .contact-us{
+    margin-top: 60px;
+    grid-column: span 6;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
     /* max-width: 400px; */
 
     
