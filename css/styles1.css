@@ -338,15 +338,13 @@ main .add-recipe-left {
         grid-column: span 12;
             img{
             width: 100%;
-            padding-left: 20px;
-              
         }
         
     }
 
     .addrec-text{
         grid-column: span 12;
-        padding-left: 20px;
+        padding-left: 40px;
         
 
     }
@@ -626,8 +624,6 @@ USED FOR ICONS
 }
 
 @media screen and (max-width: 1000px) {
-
-    
     main .aboutimg{
         grid-column: 3/ span 8
     }
@@ -683,12 +679,6 @@ USED FOR ICONS
         }
 
     }
-
-    main .add-recipe{
-        margin: auto;
-        width: 90%;
-    }
-
 
     main .add-recipe-left {
         grid-column: span 12;
