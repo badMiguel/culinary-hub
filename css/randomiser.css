@@ -264,6 +264,9 @@ header{
     }
 }
 @media screen and (min-width: 750px) and (max-width: 1299px){
+    header.show{
+        box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
     .top-nav {
         padding: 2rem 2rem 0rem 2rem;
 
