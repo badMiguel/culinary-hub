@@ -506,6 +506,9 @@ USED FOR ICONS
     }   
 }
 @media screen and (min-width: 750px) and (max-width: 1299px){
+    header.show{
+        box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
     body{
         a{
             transition: opacity 0.3s ease;
