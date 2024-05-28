@@ -212,9 +212,7 @@ main .contact-us{
     grid-template-columns: repeat(12,minmax(0, 1fr));
     gap: 20px;
     display: grid;
-    /* align-items: center; */
-    /* max-width: 656px; */
-    /* margin: auto; */
+
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
@@ -223,8 +221,7 @@ main .contact-us{
 
 }
 main .contact-form-left {
-    /* margin-top: 40px; */
-    
+
     grid-column: span 6;
     grid-template-columns: repeat(12,minmax(0, 1fr));
     display: grid;
@@ -268,7 +265,6 @@ main .contact-form-container {
     margin-top: 40px;
     grid-column: 7/span 5;
 
-    /* max-width: 400px; */
 
     button {
         background-color: #3C6DC5;
@@ -325,7 +321,8 @@ main .add-recipe{
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    margin-top: 30px;
+    width: 100%;
+    /* margin-top: 30px; */
 }
 
 main .add-recipe-left {
@@ -626,14 +623,7 @@ USED FOR ICONS
 }
 
 @media screen and (max-width: 1000px) {
-    /* main {
-        display: grid;
-        grid-template-columns: repeat(12,minmax(0, 1fr));
-        gap: 20px;
-        max-width: 656px;
-        align-items: center;
-        margin: auto;
-    } */
+
     
     main .aboutimg{
         grid-column: 3/ span 8
@@ -654,17 +644,8 @@ USED FOR ICONS
     }
 
     main .contact-us{
-        /* grid-column: span 12;
-        grid-template-columns: repeat(12,minmax(0, 1fr));
-        gap: 20px;
-        display: grid; */
         margin: auto;
-        /* background-color: #fff;
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
         width: 90%;
-    
     }
 
     main .contact-form-container {
@@ -680,8 +661,7 @@ USED FOR ICONS
     }
     main .contact-form-left {
         grid-column: span 12;
-        /* grid-template-columns: repeat(12,minmax(0, 1fr)); */
-        /* display: grid; */
+
         align-items: center;
         padding-bottom: 20px;
 
@@ -696,20 +676,16 @@ USED FOR ICONS
         }
     
         .contact-text{
-            /* padding-left: 10px; */
             grid-column: 7/span 5;
         }
 
-        /* h1{
-            line-height: 180%;
-            font-size: 200%;
-            text-align: left;
-            font-weight: bold;
-           }
-        p{
-            font-size: 100%;
-        } */
     }
+
+    main .add-recipe{
+        margin: auto;
+        width: 90%;
+    }
+
 
     main .add-recipe-left {
         grid-column: span 12;
