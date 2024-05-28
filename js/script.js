@@ -413,7 +413,7 @@ function bookmarkInteraction(section, recipeData) {
 
         bookmarkButton.addEventListener('click', function () {
             const data = recipeData.filter(item => item.recipe_title.includes(recipeTitle))
-            changeColor(bookmarkColor, 'rgb(230, 230, 42)', 'bookmark', data, recipeTitle)
+            changeColor(bookmarkColor, '#a78a1b', 'bookmark', data, recipeTitle)
         });
     });
 }
