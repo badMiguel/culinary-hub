@@ -253,7 +253,6 @@ function renderItems(container, data, itemToRender, input) {
         if (data.length > 0 && itemToRender === 'listOfRecipes') {
             createDuplicateCards(data.length, data, 'search')
         } else if (data.length > 0 && itemToRender !== 'listOfRecipes') {
-            console.log('test')
             createDuplicateCards(data.length, data, 'search')
         } else if (data.length === 0 && itemToRender === 'search') {
             const noRecipeFound = container.querySelector('.no-recipe-found')
