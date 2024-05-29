@@ -508,3 +508,23 @@ function capitaliseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Retrieve form values
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const reason = document.getElementById('reason').value;
+    const message = document.getElementById('message').value.trim();
+
+
+
+    alert('Thank you for contacting us. We will get back to you soon.');
+    
+    this.reset();
+    }
+)
+
+

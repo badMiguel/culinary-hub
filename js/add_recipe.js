@@ -109,25 +109,3 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
     document.getElementById('otherCuisine').style.display = 'none';
 });
 
-
-//add_recipe.html js
-// document.getElementById('recipeForm').addEventListener('submit', function(event) {
-//     event.preventDefault();
-
-//     const formData = new FormData(this);
-//     const recipe = {
-//         name: formData.get('recipeName'),
-//         cuisine: formData.get('recipeCuisine'),
-//         prepTime: formData.get('prepTime'),
-//         skillLevel: formData.get('skillLevel'),
-//         ingredients: formData.get('ingredients'),
-//         prepMethod: formData.get('prepMethod'),
-//         allergens: formData.getAll('allergens'),
-//         image: formData.get('recipeImage').name
-//     };
-
-//     console.log('Recipe Submitted:', recipe);
-//     alert('Recipe Submitted Successfully!');
-    
-//     this.reset();
-// });
