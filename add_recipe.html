@@ -49,8 +49,19 @@
                     <label for="recipeName">Recipe Name</label>
                     <input type="text" id="recipeName" name="recipeName" required>
         
+                    <!-- <label for="recipeCuisine">Recipe Cuisine</label>
+                    <input type="text" id="recipeCuisine" name="recipeCuisine" required> -->
                     <label for="recipeCuisine">Recipe Cuisine</label>
-                    <input type="text" id="recipeCuisine" name="recipeCuisine" required>
+                    <select id="recipeCuisine" name="recipeCuisine" required>
+                        <option value="Asian">Asian</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Fast Food">Fast Food</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Middle Eastern">Middle Eastern</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="otherCuisine" name="otherCuisine" placeholder="Please specify" style="display: none;">
         
                     <label for="prepTime">Preparation Time (minutes)</label>
                     <input type="number" id="prepTime" name="prepTime" min="1" required>

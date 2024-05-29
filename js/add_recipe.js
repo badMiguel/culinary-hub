@@ -74,15 +74,26 @@ function displayResponse(message, type) {
     formResponse.classList.remove('hidden');
 }
 
+document.getElementById('recipeCuisine').addEventListener('change', function() {
+    const otherCuisineInput = document.getElementById('otherCuisine');
+    if (this.value === 'Other') {
+        otherCuisineInput.style.display = 'block';
+        otherCuisineInput.required = true;
+    } else {
+        otherCuisineInput.style.display = 'none';
+        otherCuisineInput.required = false;
+    }
+});
 
-//add_recipe.html js
+
+
 document.getElementById('recipeForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const formData = new FormData(this);
     const recipe = {
         name: formData.get('recipeName'),
-        cuisine: formData.get('recipeCuisine'),
+        cuisine: formData.get('recipeCuisine') === 'Other' ? formData.get('otherCuisine') : formData.get('recipeCuisine'),
         prepTime: formData.get('prepTime'),
         skillLevel: formData.get('skillLevel'),
         ingredients: formData.get('ingredients'),
@@ -95,4 +106,28 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
     alert('Recipe Submitted Successfully!');
     
     this.reset();
+    document.getElementById('otherCuisine').style.display = 'none';
 });
+
+
+//add_recipe.html js
+// document.getElementById('recipeForm').addEventListener('submit', function(event) {
+//     event.preventDefault();
+
+//     const formData = new FormData(this);
+//     const recipe = {
+//         name: formData.get('recipeName'),
+//         cuisine: formData.get('recipeCuisine'),
+//         prepTime: formData.get('prepTime'),
+//         skillLevel: formData.get('skillLevel'),
+//         ingredients: formData.get('ingredients'),
+//         prepMethod: formData.get('prepMethod'),
+//         allergens: formData.getAll('allergens'),
+//         image: formData.get('recipeImage').name
+//     };
+
+//     console.log('Recipe Submitted:', recipe);
+//     alert('Recipe Submitted Successfully!');
+    
+//     this.reset();
+// });
