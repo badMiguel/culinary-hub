@@ -407,7 +407,7 @@ function bookmarkInteraction(section, recipeData) {
 
         const bookmarksList = JSON.parse(localStorage.getItem('bookmarks')) || []
         if (bookmarksList.some(bookmark => bookmark.recipe_title === recipeTitle)) {
-            bookmarkButton.style.color = 'rgb(230, 230, 42)'
+            bookmarkButton.style.color ='#a78a1b'
         }
 
         bookmarkButton.addEventListener('click', function () {
@@ -509,22 +509,5 @@ function capitaliseFirstLetter(string) {
 }
 
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Retrieve form values
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const reason = document.getElementById('reason').value;
-    const message = document.getElementById('message').value.trim();
-
-
-
-    alert('Thank you for contacting us. We will get back to you soon.');
-    
-    this.reset();
-    }
-)
 
 
