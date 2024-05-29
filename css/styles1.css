@@ -263,7 +263,7 @@ main .contact-form-left {
 
 main .contact-form-container {
     margin-top: 40px;
-    grid-column: 7/span 5;
+    grid-column: span 6;
 
 
     button {
