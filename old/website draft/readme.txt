@@ -1,1 +1,0 @@
-draft idea for website, do not kill me
